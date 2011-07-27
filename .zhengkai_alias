@@ -1,0 +1,23 @@
+alias ls="ls -lha --color=auto"
+alias ll="ls -lA"
+alias la="ls -A"
+alias l="ls -CF"
+
+alias sdnow="sudo shutdown -P 0"
+
+alias top="htop"
+
+alias pwgen="pwgen -cns 75 40"
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias pss="ps aux | grep"
+
+alias lynx="lynx -display_charset=UTF-8"
+
+alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -f /tmp/php-error.txt"
+alias nginx="sudo /etc/init.d/nginx"
+alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)" 
+

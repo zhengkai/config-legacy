@@ -1,0 +1,67 @@
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME} ${PWD}\007"'
+    ;;
+*)
+    ;;
+esac
+
+PS1='\n\t ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\h C:\w \[\033[00m\]> '
+
+if [ -f ~/.zhengkai_alias ]; then
+    . ~/.zhengkai_alias
+fi
+
+if [ -f ~/.local/bin/bashmarks.sh ]; then
+	. ~/.local/bin/bashmarks.sh
+fi
+
+export GOROOT=$HOME/go
+export GOARCH=amd64
+export GOOS=linux
+export PATH="$PATH:$GOROOT/bin:/www/go/google_appengine"
+
+set HTTP_PROXY=localhost:8118
+set HTTPS_PROXY=localhost:8118
+
+export TERM=xterm-256color
+
+case "$SSH_TTY" in
+/dev/pts*)
+	;;
+*)
+	setterm -blank 0;
+	;;
+esac
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+export HISTTIMEFORMAT="%F %T "
+export HISTFILESIZE=900000000
+export HISTSIZE=1000000
+shopt -s histappend
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+
+ex () {
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)   tar xjf $1        ;;
+			*.tar.gz)    tar xzf $1     ;;
+			*.bz2)       bunzip2 $1       ;;
+			*.rar)       rar x $1     ;;
+			*.gz)        gunzip $1     ;;
+			*.tar)       tar xf $1        ;;
+			*.tbz2)      tar xjf $1      ;;
+			*.tgz)       tar xzf $1       ;;
+			*.zip)       unzip $1     ;;
+			*.Z)         uncompress $1  ;;
+			*.7z)        7z x $1    ;;
+			*)           echo "'$1' cannot be extracted via extract()" ;;
+		esac
+	else
+		echo "'$1' is not a valid file"
+	fi
+}
+
