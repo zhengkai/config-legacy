@@ -24,6 +24,7 @@ export PATH="$PATH:$GOROOT/bin:/www/go/google_appengine"
 set HTTP_PROXY=localhost:8118
 set HTTPS_PROXY=localhost:8118
 
+export TERM=linux
 export TERM=xterm-256color
 
 case "$SSH_TTY" in

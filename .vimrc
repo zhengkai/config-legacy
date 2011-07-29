@@ -1,4 +1,4 @@
-set t_Co=256
+"set t_Co=256
 
 set backupdir=~/.backup/vim
 set nocompatible
@@ -13,28 +13,23 @@ set shiftwidth=4
 set showmatch
 set number
 
-iab func function
+"source ~/.vim/session/%:t.session
+"rviminfo ~/.vim/session/%:t.viminfo
+
+au VimLeave * mksession! ~/.vim/session/%:t.session
+au VimLeave * wviminfo! ~/.vim/session/%:t.viminfo
+
+filetype plugin on
+
+au BufNewFile,BufRead .zhengkai,.zhengkai_alias call SetFileTypeSH("bash")
 
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
+	syntax on
+	set hlsearch
 endif
 
-set dictionary-=~/.vim/funclist.txt dictionary+=~/.vim/funclist.txt
-set complete-=k complete+=k
-
-function! InsertTabWrapper()
-	let col=col('.')-1
-	if !col || getline('.')[col-1] !~ '\k'
-		return "\<TAB>"
-	else
-		return "\<C-N>"
-	endif
-endfunction
-
-inoremap <TAB> <C-R>=InsertTabWrapper()<CR>
 
 hi clear
 "hi Comment  ctermfg=244
@@ -47,10 +42,13 @@ hi clear
 "hi phpInclude ctermfg=LightGreen
 "hi phpParent ctermfg=LightMagenta
 
-colorscheme desert256  
-hi LineNr   ctermbg=232
-hi Pmenu    ctermbg=235
-hi PmenuSel ctermbg=237
+"if [ "$TERM" = "xterm-256color" ]
+if &t_Co == 256
+	colorscheme desert256  
+	hi LineNr   ctermbg=232
+	hi Pmenu    ctermbg=235
+	hi PmenuSel ctermbg=237
+endif
 
 set cursorline
 hi CursorLine cterm=NONE ctermbg=234
@@ -59,4 +57,8 @@ set laststatus=2
 set numberwidth=5
 set sidescrolloff=10
 set statusline=%F%m%r%h%w[%L][%{&ff}]%10y[%3p%%][%4l,%4v]
+
+if filereadable(expand('~/.vim/completion.vim'))
+	source ~/.vim/completion.vim
+endif
 

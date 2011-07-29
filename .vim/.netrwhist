@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/www/cps/cron'
+let g:netrw_dirhist_2='/etc/apache2/sites-enabled'
+let g:netrw_dirhist_3='/etc/nginx/sites-enabled'
+let g:netrw_dirhist_4='/www/log'
+let g:netrw_dirhist_5='/www/pet/test'
+let g:netrw_dirhist_6='/home/zhengkai/.backup'
+let g:netrw_dirhist_7='/home/zhengkai/zhengkai'
