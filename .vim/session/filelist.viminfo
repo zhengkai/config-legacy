@@ -17,6 +17,7 @@
 $
 
 # Command Line History (newest to oldest):
+:q
 :wq
 :echo  filereadable(expand('$HOME/.vim/completion.vim'))
 :echo expand('$HOME/.vim/completion.vim')
@@ -25,7 +26,6 @@ $
 :echo filereadable('$HOME/.vim/completion.vim')
 :echo yes
 :filereadable('$HOME/.vim/completion.vim')
-:q
 :help source
 :w
 :hi LineNr   ctermbg=213
@@ -111,20 +111,21 @@ $
 	a
 
 # File marks:
-'0  8  3  ~/conf/filelist
-'1  64  0  ~/.vimrc
-'2  21  0  ~/.vim/completion.vim
-'3  20  0  ~/.vim/completion.vim
-'4  65  0  ~/.vimrc
-'5  61  24  ~/.vimrc
-'6  62  7  ~/.vimrc
-'7  62  42  ~/.vimrc
-'8  22  0  ~/.vim/completion.vim
-'9  61  16  ~/.vimrc
+'0  8  0  ~/conf/filelist
+'1  1  2  ~/conf/.git/COMMIT_EDITMSG
+'2  64  0  ~/.vimrc
+'3  21  0  ~/.vim/completion.vim
+'4  20  0  ~/.vim/completion.vim
+'5  65  0  ~/.vimrc
+'6  61  24  ~/.vimrc
+'7  62  7  ~/.vimrc
+'8  62  42  ~/.vimrc
+'9  22  0  ~/.vim/completion.vim
 
 # Jumplist (newest first):
--'  8  3  ~/conf/filelist
+-'  8  0  ~/conf/filelist
 -'  1  0  ~/conf/filelist
+-'  1  2  ~/conf/.git/COMMIT_EDITMSG
 -'  64  0  ~/.vimrc
 -'  65  0  ~/.vimrc
 -'  1  0  ~/.vimrc
@@ -218,13 +219,11 @@ $
 -'  64  0  ~/.vimrc
 -'  65  0  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  21  0  ~/.vim/completion.vim
--'  20  0  ~/.vim/completion.vim
 
 # History of marks within files (newest to oldest):
 
 > ~/conf/filelist
-	"	8	3
+	"	8	0
 	^	8	4
 	.	8	3
 	+	2	0

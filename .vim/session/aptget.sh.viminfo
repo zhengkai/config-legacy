@@ -18,6 +18,8 @@ $
 
 # Command Line History (newest to oldest):
 :wq
+:q
+:q!
 :echo  filereadable(expand('$HOME/.vim/completion.vim'))
 :echo expand('$HOME/.vim/completion.vim')
 :echo filereadable('~/.vim/completion.vim')
@@ -25,11 +27,9 @@ $
 :echo filereadable('$HOME/.vim/completion.vim')
 :echo yes
 :filereadable('$HOME/.vim/completion.vim')
-:q
 :help source
 :w
 :hi LineNr   ctermbg=213
-:q!
 :echo &filetype
 :echo &t_Co
 :echo %t_Co
@@ -69,63 +69,50 @@ $
 # Registers:
 "0	LINE	0
 		source ~/.vim/completion.vim
-""1	LINE	0
-	
+"1	LINE	0
+	php5-mhash
 "2	LINE	0
-	
+	done
 "3	LINE	0
-		iab func function
+		ln -s -f $dir/$file ~/$file
 "4	LINE	0
-		iab func function
+	do
 "5	LINE	0
-	
+	for file in ${filelist[@]}
 "6	LINE	0
-	"	source ~/.vim/completion.vim
+	
 "7	LINE	0
-		echo yes;
+	
 "8	LINE	0
-	
+		iab func function
 "9	LINE	0
-	if &filetype == 'php'
-		set dictionary-=~/.vim/funclist.txt dictionary+=~/.vim/funclist.txt
-		set complete-=k complete+=k
-	endif
-	
-	function! InsertTabWrapper()
-		let col=col('.')-1
-		if !col || getline('.')[col-1] !~ '\k'
-			return "\<TAB>"
-		else
-			return "\<C-N>"
-		endif
-	endfunction
-	
-	inoremap <TAB> <C-R>=InsertTabWrapper()<CR>
-	
-	if &filetype == 'php'
-		iab function function
-	endif
-		iab function function
-	
-"-	CHAR	0
-	a
+		iab func function
+""-	CHAR	0
+	e
 
 # File marks:
-'0  1  2  ~/conf/.git/COMMIT_EDITMSG
-'1  8  3  ~/conf/filelist
-'2  64  0  ~/.vimrc
-'3  21  0  ~/.vim/completion.vim
-'4  20  0  ~/.vim/completion.vim
-'5  65  0  ~/.vimrc
-'6  61  24  ~/.vimrc
-'7  62  7  ~/.vimrc
-'8  62  42  ~/.vimrc
-'9  22  0  ~/.vim/completion.vim
+'0  5  26  ~/conf/aptget.sh
+'1  18  0  ~/conf/aptget
+'2  1  0  ~/conf/aptget
+'3  7  0  ~/conf/aptget.sh
+'4  11  0  ~/conf/link.sh
+'5  8  0  ~/conf/filelist
+'6  1  2  ~/conf/.git/COMMIT_EDITMSG
+'7  64  0  ~/.vimrc
+'8  21  0  ~/.vim/completion.vim
+'9  20  0  ~/.vim/completion.vim
 
 # Jumplist (newest first):
--'  1  2  ~/conf/.git/COMMIT_EDITMSG
--'  8  3  ~/conf/filelist
+-'  5  26  ~/conf/aptget.sh
+-'  1  0  ~/conf/aptget.sh
+-'  18  0  ~/conf/aptget
+-'  1  0  ~/conf/aptget
+-'  7  0  ~/conf/aptget.sh
+-'  11  0  ~/conf/link.sh
+-'  1  0  ~/conf/link.sh
+-'  8  0  ~/conf/filelist
 -'  1  0  ~/conf/filelist
+-'  1  2  ~/conf/.git/COMMIT_EDITMSG
 -'  64  0  ~/.vimrc
 -'  65  0  ~/.vimrc
 -'  1  0  ~/.vimrc
@@ -212,19 +199,15 @@ $
 -'  27  16  ~/.zhengkai
 -'  29  0  ~/.zhengkai
 -'  8  0  /tmp/logfile
--'  1  0  /tmp/logfile
--'  8  0  /tmp/1.sh
--'  81  0  ~/.vimrc
--'  86  0  ~/.vimrc
--'  64  0  ~/.vimrc
--'  65  0  ~/.vimrc
--'  1  0  ~/.vimrc
--'  21  0  ~/.vim/completion.vim
 
 # History of marks within files (newest to oldest):
 
-> ~/conf/.git/COMMIT_EDITMSG
-	"	1	2
-	^	1	3
-	.	1	2
-	+	1	2
+> ~/conf/aptget.sh
+	"	5	26
+	^	5	23
+	.	5	26
+	+	3	26
+	+	7	0
+	+	5	22
+	+	3	0
+	+	5	26
