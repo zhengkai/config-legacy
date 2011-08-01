@@ -1,0 +1,30 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+#autossh -M 0 -o TCPKeepAlive=yes -o ServerAliveInterval=30 -qTfnNC -L 10.0.2.15:3690:localhost:3691 -D 10.0.2.15:7777  zhengkai@aeon &
+
+ssh -qTfnNC -D 10.0.2.15:7778 freya
+sudo -u zhengkai autossh -qTfnNC -D 10.0.2.15:7779 iconfans
+sudo -u zhengkai autossh -qTfnNC -D 10.0.2.15:7780 hades
+sudo -u zhengkai autossh -qTfnNC -D 10.0.2.15:7782 -R 127.0.0.1:55888:127.0.0.1:80 delta
+sudo -u zhengkai autossh -qTfnNC -D 10.0.2.15:7784 -L localhost:3306:localhost:3306 -L 10.0.2.15:3690:localhost:3690 garona
+
+sudo -u zhengkai autossh -qTfnNC -D 10.0.2.15:7781 -R localhost:28087:10.0.2.15:80 hongkong
+sudo -u zhengkai autossh -qTfnNC -L 10.0.2.15:23603:localhost:3306 -D 10.0.2.15:7783 pitbull
+
+/usr/bin/svnserve --listen-host 10.0.2.15 --listen-port 3691 -r /svn -d &
+
+touch /tmp/php-error.txt
+chmod 666 /tmp/php-error.txt
+
+exit 0

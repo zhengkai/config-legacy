@@ -1,3 +1,5 @@
+alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
+
 alias ls="ls -lha --color=auto"
 alias ll="ls -lA"
 alias la="ls -A"

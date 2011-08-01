@@ -19,6 +19,7 @@ $
 # Command Line History (newest to oldest):
 :wq
 :q
+:!bash
 :tag
 :tags
 :tag UserPet
@@ -36,7 +37,6 @@ $
 :echo &t_Co
 :echo %t_Co
 :echo $t_Co
-:echo t_Co
 
 # Search String History (newest to oldest):
 ?/xterm
@@ -93,18 +93,21 @@ $
 		
 
 # File marks:
-'0  2  15  ~/.wgetrc
-'1  5  33  ~/.curlrc
-'2  1  3  ~/conf/.git/COMMIT_EDITMSG
-'3  11  0  ~/conf/hosts
-'4  47  0  ~/conf/apache/100-php
-'5  1  0  ~/conf/nginx/900-pma
-'6  3  21  ~/.wgetrc
-'7  1  0  ~/.wget
-'8  1  0  ~/.vimrc
-'9  28  0  ~/.zhengkai
+'0  2  738  ~/.ssh/authorized_keys
+'1  1  0  ~/.vimrc
+'2  2  15  ~/.wgetrc
+'3  5  33  ~/.curlrc
+'4  1  3  ~/conf/.git/COMMIT_EDITMSG
+'5  11  0  ~/conf/hosts
+'6  47  0  ~/conf/apache/100-php
+'7  1  0  ~/conf/nginx/900-pma
+'8  3  21  ~/.wgetrc
+'9  1  0  ~/.wget
 
 # Jumplist (newest first):
+-'  2  738  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.vimrc
 -'  2  15  ~/.wgetrc
 -'  3  0  ~/.wgetrc
 -'  1  0  ~/.wgetrc
@@ -117,7 +120,6 @@ $
 -'  1  0  ~/conf/apache/100-php
 -'  1  0  ~/conf/nginx/900-pma
 -'  1  0  ~/.wget
--'  1  0  ~/.vimrc
 -'  45  0  ~/.vimrc
 -'  66  0  ~/.vimrc
 -'  61  0  ~/.vimrc
@@ -201,14 +203,11 @@ $
 -'  180  0  /www/pet/inc/pet/userpet.php
 -'  1  0  /www/pet/inc/pet/userpet.php
 -'  45  0  /www/pet/test.php
--'  1  0  /www/pet/test.php
 
 # History of marks within files (newest to oldest):
 
-> ~/.wgetrc
-	"	2	15
-	^	2	16
-	.	2	15
-	+	2	21
-	+	3	15
-	+	2	15
+> ~/.ssh/authorized_keys
+	"	2	738
+	^	2	739
+	.	2	657
+	+	2	657

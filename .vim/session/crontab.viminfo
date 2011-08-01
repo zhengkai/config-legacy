@@ -17,8 +17,9 @@
 $
 
 # Command Line History (newest to oldest):
-:wq
 :q
+:wq
+:!bash
 :tag
 :tags
 :tag UserPet
@@ -36,7 +37,6 @@ $
 :echo &t_Co
 :echo %t_Co
 :echo $t_Co
-:echo t_Co
 
 # Search String History (newest to oldest):
 ?/xterm
@@ -67,9 +67,9 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-		hi LineNr   ctermbg=213
-""1	LINE	0
+""0	LINE	0
+	03   21  * * * ~/script/php.manual.sh >/dev/null 2>&1 
+"1	LINE	0
 	
 "2	LINE	0
 	if [ "$TERM" == "xterm" ]; then
@@ -93,18 +93,24 @@ $
 		
 
 # File marks:
-'0  2  15  ~/.wgetrc
-'1  5  33  ~/.curlrc
-'2  1  3  ~/conf/.git/COMMIT_EDITMSG
-'3  11  0  ~/conf/hosts
-'4  47  0  ~/conf/apache/100-php
-'5  1  0  ~/conf/nginx/900-pma
-'6  3  21  ~/.wgetrc
-'7  1  0  ~/.wget
-'8  1  0  ~/.vimrc
-'9  28  0  ~/.zhengkai
+'0  1  0  /tmp/crontab.7blZgV/crontab
+'1  25  29  /tmp/crontab.AnUC9L/crontab
+'2  2  738  ~/.ssh/authorized_keys
+'3  1  0  ~/.vimrc
+'4  2  15  ~/.wgetrc
+'5  5  33  ~/.curlrc
+'6  1  3  ~/conf/.git/COMMIT_EDITMSG
+'7  11  0  ~/conf/hosts
+'8  47  0  ~/conf/apache/100-php
+'9  1  0  ~/conf/nginx/900-pma
 
 # Jumplist (newest first):
+-'  1  0  /tmp/crontab.7blZgV/crontab
+-'  25  29  /tmp/crontab.AnUC9L/crontab
+-'  1  0  /tmp/crontab.AnUC9L/crontab
+-'  2  738  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.vimrc
 -'  2  15  ~/.wgetrc
 -'  3  0  ~/.wgetrc
 -'  1  0  ~/.wgetrc
@@ -117,7 +123,6 @@ $
 -'  1  0  ~/conf/apache/100-php
 -'  1  0  ~/conf/nginx/900-pma
 -'  1  0  ~/.wget
--'  1  0  ~/.vimrc
 -'  45  0  ~/.vimrc
 -'  66  0  ~/.vimrc
 -'  61  0  ~/.vimrc
@@ -197,18 +202,8 @@ $
 -'  1  0  /usr/share/vim/vim73/vimrc_example.vim
 -'  1  0  /usr/share/vim/vim73/indent/changelog.vim
 -'  301  0  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  1  0  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  180  0  /www/pet/inc/pet/userpet.php
--'  1  0  /www/pet/inc/pet/userpet.php
--'  45  0  /www/pet/test.php
--'  1  0  /www/pet/test.php
 
 # History of marks within files (newest to oldest):
 
-> ~/.wgetrc
-	"	2	15
-	^	2	16
-	.	2	15
-	+	2	21
-	+	3	15
-	+	2	15
+> /tmp/crontab.7blZgV/crontab
+	"	1	0

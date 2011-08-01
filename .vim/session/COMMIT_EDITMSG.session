@@ -27,7 +27,7 @@ set tags=/www/pet/tags
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd /www/pet
+cd ~/conf
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -96,7 +96,7 @@ setlocal indentexpr=
 setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=git\ --git-dir='/www/pet/.git'\ show
+setlocal keywordprg=git\ --git-dir='/home/zhengkai/conf/.git'\ show
 setlocal nolinebreak
 setlocal nolisp
 setlocal nolist
@@ -110,7 +110,7 @@ setlocal number
 set numberwidth=5
 setlocal numberwidth=5
 setlocal omnifunc=
-setlocal path=/www/pet/.git,/www/pet,
+setlocal path=~/conf/.git,~/conf,
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -144,12 +144,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 21) / 43)
+let s:l = 1 - ((0 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 04l
+normal! 03l
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
