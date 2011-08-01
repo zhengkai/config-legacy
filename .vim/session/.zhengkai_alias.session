@@ -27,14 +27,14 @@ set tags=/www/pet/tags
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/conf/script
+cd ~/
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ~/.zhengkai_alias
-args ~/.zhengkai_alias
-edit ~/.zhengkai_alias
+badd +0 .zhengkai_alias
+args .zhengkai_alias
+edit .zhengkai_alias
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -144,12 +144,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 20) / 41)
+let s:l = 26 - ((25 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 043l
+26
+normal! 080l
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

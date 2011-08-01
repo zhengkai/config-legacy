@@ -19,11 +19,12 @@ $
 # Command Line History (newest to oldest):
 :wq
 :q
+:q!
+:!bash
 :tag
 :tags
 :tag UserPet
 :tags UserPet
-:q!
 :!
 :help tagsrch
 :help tagsrh
@@ -36,7 +37,6 @@ $
 :echo &t_Co
 :echo %t_Co
 :echo $t_Co
-:echo t_Co
 
 # Search String History (newest to oldest):
 ?/xterm
@@ -68,53 +68,79 @@ $
 
 # Registers:
 "0	LINE	0
-		hi LineNr   ctermbg=213
+	03   21  * * * ~/script/php.manual.sh >/dev/null 2>&1 
 ""1	LINE	0
-	
+	ServerAliveCountMax 20
+	ServerAliveInterval 240
 "2	LINE	0
-	if [ "$TERM" == "xterm" ]; then
-	#	export TERM=xterm-256color
-	fi
-"3	LINE	0
-	PHP_
-"4	LINE	0
-	"hi LineNr   ctermbg=213
-"5	LINE	0
+	Host freya
+	ControlMaster no
 	
+	Host soulogic.3322.org
+	User root
+	
+"3	LINE	0
+	
+"4	LINE	0
+	StrictHostKeyChecking no
+"5	LINE	0
+	IdentityFile ~/.ssh/delta_tunnel/id_rsa
 "6	LINE	0
-	endif
+	
+	Host delta
+	Port 22                
 "7	LINE	0
-		hi LineNr   ctermbg=213
+	p
+	
 "8	LINE	0
-	if (&filetype == 'php')
+	Protocol 2                
 "9	LINE	0
-	endif
+	
 "-	CHAR	0
-		
+	zhengkai          
 
 # File marks:
-'0  1  3  ~/conf/.git/COMMIT_EDITMSG
-'1  11  0  ~/conf/hosts
-'2  47  0  ~/conf/apache/100-php
-'3  1  0  ~/conf/nginx/900-pma
-'4  3  21  ~/.wgetrc
-'5  1  0  ~/.wget
-'6  1  0  ~/.vimrc
-'7  28  0  ~/.zhengkai
-'8  102  0  ~/.bashrc
-'9  46  0  /www/pet/lib/db/dbz.php
+'0  1  11  ~/conf/.git/COMMIT_EDITMSG
+'1  1  0  ~/conf/example/interfaces
+'2  4  14  /etc/hosts
+'3  2  0  ~/.ssh/config
+'4  11  0  ~/.ssh/config
+'5  14  0  ~/.ssh/config
+'6  15  0  ~/.ssh/config
+'7  6  0  /etc/hosts
+'8  1  43  ~/.zhengkai_alias
+'9  1  0  /tmp/crontab.7blZgV/crontab
 
 # Jumplist (newest first):
--'  1  3  ~/conf/.git/COMMIT_EDITMSG
+-'  1  11  ~/conf/.git/COMMIT_EDITMSG
+-'  1  0  ~/conf/example/interfaces
+-'  4  14  /etc/hosts
+-'  1  0  /etc/hosts
+-'  2  0  ~/.ssh/config
+-'  1  0  ~/.ssh/config
+-'  11  0  ~/.ssh/config
+-'  14  0  ~/.ssh/config
+-'  15  0  ~/.ssh/config
+-'  10  4  ~/.ssh/config
+-'  6  0  /etc/hosts
+-'  1  43  ~/.zhengkai_alias
+-'  1  0  /tmp/crontab.7blZgV/crontab
+-'  25  29  /tmp/crontab.AnUC9L/crontab
+-'  1  0  /tmp/crontab.AnUC9L/crontab
+-'  2  738  ~/.ssh/authorized_keys
+-'  1  0  ~/.ssh/authorized_keys
+-'  1  0  ~/.vimrc
+-'  2  15  ~/.wgetrc
+-'  3  0  ~/.wgetrc
+-'  1  0  ~/.wgetrc
+-'  5  33  ~/.curlrc
+-'  1  0  ~/.curlrc
 -'  11  0  ~/conf/hosts
 -'  1  0  ~/conf/hosts
 -'  47  0  ~/conf/apache/100-php
 -'  1  0  ~/conf/apache/100-php
 -'  1  0  ~/conf/nginx/900-pma
--'  3  21  ~/.wgetrc
--'  1  0  ~/.wgetrc
 -'  1  0  ~/.wget
--'  1  0  ~/.vimrc
 -'  45  0  ~/.vimrc
 -'  66  0  ~/.vimrc
 -'  61  0  ~/.vimrc
@@ -182,31 +208,11 @@ $
 -'  2151  10  /usr/share/vim/vim73/filetype.vim
 -'  2150  23  /usr/share/vim/vim73/filetype.vim
 -'  1385  11  /usr/share/vim/vim73/filetype.vim
--'  165  0  /usr/share/vim/vim73/filetype.vim
--'  1  0  /usr/share/vim/vim73/filetype.vim
--'  74  0  /usr/share/vim/vim73/ftplugin/php.vim
--'  1  0  /usr/share/vim/vim73/ftplugin/php.vim
--'  2271  26  /usr/share/vim/vim73/filetype.vim
--'  2233  49  /usr/share/vim/vim73/filetype.vim
--'  2232  6  /usr/share/vim/vim73/filetype.vim
--'  1720  0  /usr/share/vim/vim73/filetype.vim
--'  1  0  /usr/share/vim/vim73/menu.vim
--'  1  0  /usr/share/vim/vim73/vimrc_example.vim
--'  1  0  /usr/share/vim/vim73/indent/changelog.vim
--'  301  0  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  1  0  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  180  0  /www/pet/inc/pet/userpet.php
--'  1  0  /www/pet/inc/pet/userpet.php
--'  45  0  /www/pet/test.php
--'  1  0  /www/pet/test.php
--'  6  1  /www/pet/test.php
--'  6  0  /www/pet/inc/pet/userpet.php
--'  46  0  /www/pet/lib/db/dbz.php
 
 # History of marks within files (newest to oldest):
 
 > ~/conf/.git/COMMIT_EDITMSG
-	"	1	3
-	^	1	4
-	.	1	3
-	+	1	3
+	"	1	11
+	^	1	12
+	.	1	11
+	+	1	11
