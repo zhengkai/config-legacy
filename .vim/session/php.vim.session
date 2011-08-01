@@ -4,13 +4,10 @@ let s:cpo_save=&cpo
 set cpo&vim
 nmap gx <Plug>NetrwBrowseX
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
-inoremap 	 =InsertTabWrapper()
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set backspace=indent,eol,start
 set backupdir=~/.backup/vim
-set complete=.,w,b,u,t,i,k
-set dictionary=~/.vim/funclist.txt
 set fileencodings=ucs-bom,utf-8,default,latin1
 set helplang=cn
 set hlsearch
@@ -29,14 +26,14 @@ set tabstop=4
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd /usr/share/vim/vim73/ftplugin
+cd ~/conf/.vim/after/ftplugin
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 ../filetype.vim
-args ../filetype.vim
-edit ../filetype.vim
+badd +0 php.vim
+args php.vim
+edit php.vim
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -69,7 +66,7 @@ setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=
 setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
 setlocal commentstring=\"%s
-setlocal complete=.,w,b,u,t,i,k
+setlocal complete=.,w,b,u,t,i
 setlocal concealcursor=
 setlocal conceallevel=0
 setlocal completefunc=
@@ -128,7 +125,7 @@ setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
-setlocal readonly
+setlocal noreadonly
 setlocal norelativenumber
 setlocal norightleft
 setlocal rightleftcmd=search
@@ -158,12 +155,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1331 - ((24 * winheight(0) + 21) / 43)
+let s:l = 15 - ((14 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1331
-normal! 055l
+15
+normal! 0
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

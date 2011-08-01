@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/comp
+~MSle0~/php
 
 # Last Substitute Search Pattern:
 ~MSle0&cxt
@@ -18,28 +18,30 @@ $
 
 # Command Line History (newest to oldest):
 :wq
-:echo  filereadable(expand('$HOME/.vim/completion.vim'))
-:echo expand('$HOME/.vim/completion.vim')
-:echo filereadable('~/.vim/completion.vim')
-:filereadable('~/.vim/completion.vim')
-:echo filereadable('$HOME/.vim/completion.vim')
-:echo yes
-:filereadable('$HOME/.vim/completion.vim')
-:q
-:help source
-:w
-:hi LineNr   ctermbg=213
 :q!
+:q
+:set tags=tags
+:set runtimepath?
+:echo &filetype == 'php'    
 :echo &filetype
+:w
 :echo &t_Co
 :echo %t_Co
 :echo $t_Co
 :echo t_Co
 :echo t_CO
 :e $VIMRUNTIME/filetype.vim
+:filetype
+:!git commit
+:!git add .
+:git add .
+:%s/cxt/ctx/g
+:!./test.sh
 
 # Search String History (newest to oldest):
-?/comp
+?/php
+?/filereadable('$HOME/.vim/completion.vim')
+?/source
 ?/bash
 ?/bashj
 ?/\$\.data
@@ -57,8 +59,6 @@ $
 ? s*$
 ?/colo
 ?/linux
-?/term
-?/url
 
 # Expression History (newest to oldest):
 
@@ -68,102 +68,117 @@ $
 
 # Registers:
 "0	LINE	0
-		source ~/.vim/completion.vim
-""1	LINE	0
-	
+		hi LineNr   ctermbg=213
+"1	LINE	0
+	"hi LineNr   ctermbg=213
 "2	LINE	0
 	
 "3	LINE	0
-		iab func function
+	endif
 "4	LINE	0
-		iab func function
+		hi LineNr   ctermbg=213
 "5	LINE	0
-	
+	if (&filetype == 'php')
 "6	LINE	0
-	"	source ~/.vim/completion.vim
+	endif
 "7	LINE	0
-		echo yes;
-"8	LINE	0
-	
-"9	LINE	0
 	if &filetype == 'php'
+"8	LINE	0
+		hi LineNr   ctermbg=213
+"9	LINE	0
+		hi LineNr   ctermbg=213
 		set dictionary-=~/.vim/funclist.txt dictionary+=~/.vim/funclist.txt
 		set complete-=k complete+=k
-	endif
-	
-	function! InsertTabWrapper()
-		let col=col('.')-1
-		if !col || getline('.')[col-1] !~ '\k'
-			return "\<TAB>"
-		else
-			return "\<C-N>"
-		endif
-	endfunction
-	
-	inoremap <TAB> <C-R>=InsertTabWrapper()<CR>
-	
-	if &filetype == 'php'
-		iab function function
-	endif
-		iab function function
-	
-"-	CHAR	0
-	a
+""-	CHAR	0
+		
 
 # File marks:
-'0  1  2  ~/conf/.git/COMMIT_EDITMSG
-'1  8  3  ~/conf/filelist
-'2  64  0  ~/.vimrc
-'3  21  0  ~/.vim/completion.vim
-'4  20  0  ~/.vim/completion.vim
-'5  65  0  ~/.vimrc
-'6  61  24  ~/.vimrc
-'7  62  7  ~/.vimrc
-'8  62  42  ~/.vimrc
-'9  22  0  ~/.vim/completion.vim
+'0  1  4  /www/pet/.git/COMMIT_EDITMSG
+'1  2  6  /www/pet/www/outdoors/1.php
+'2  12  24  /www/pet/www/outdoors/battle.php
+'3  61  17  ~/.vimrc
+'4  1  0  /www/pet/battle.php
+'5  42  0  /www/pet/ser.php
+'6  208  0  /www/pet/tags
+'7  15  0  ~/conf/.vim/after/ftplugin/php.vim
+'8  3  15  ~/conf/.vim/after/ftplugin/1.php
+'9  60  1  ~/.vimrc
 
 # Jumplist (newest first):
--'  1  2  ~/conf/.git/COMMIT_EDITMSG
--'  8  3  ~/conf/filelist
--'  1  0  ~/conf/filelist
--'  64  0  ~/.vimrc
--'  65  0  ~/.vimrc
+-'  1  4  /www/pet/.git/COMMIT_EDITMSG
+-'  2  6  /www/pet/www/outdoors/1.php
+-'  1  0  /www/pet/www/outdoors/1.php
+-'  12  24  /www/pet/www/outdoors/battle.php
+-'  1  0  /www/pet/www/outdoors/battle.php
+-'  61  17  ~/.vimrc
+-'  60  11  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  21  0  ~/.vim/completion.vim
--'  20  0  ~/.vim/completion.vim
--'  1  0  ~/.vim/completion.vim
--'  22  0  ~/.vim/completion.vim
--'  61  0  ~/.vimrc
--'  62  1  ~/.vimrc
--'  63  1  ~/.vimrc
--'  4  6  ~/.vimrc
--'  65  0  ~/.vimrc2
--'  1  0  ~/.vimrc2
--'  1  0  ~/&filetype == 'php'
--'  24  72  ~/.vimrc
--'  48  1  ~/.vimrc
--'  2  7  ~/1.php
--'  1  0  ~/1.php
--'  22  0  ~/.vimrc
--'  18  1  ~/.vim/completion.vim
--'  16  0  ~/.vim/completion.vim
--'  33  0  ~/.vimrc
--'  4  6  ~/1.php
--'  5  6  ~/1.php
--'  47  0  ~/.vimrc
--'  52  0  ~/.vimrc
+-'  1  0  /www/pet/battle.php
+-'  42  0  /www/pet/ser.php
+-'  1  0  /www/pet/ser.php
+-'  208  0  /www/pet/tags
+-'  1  0  /www/pet/tags
+-'  15  0  ~/conf/.vim/after/ftplugin/php.vim
+-'  1  0  ~/conf/.vim/after/ftplugin/php.vim
+-'  3  15  ~/conf/.vim/after/ftplugin/1.php
+-'  1  0  ~/conf/.vim/after/ftplugin/1.php
+-'  63  0  ~/.vimrc
+-'  6  1  ~/conf/.vim/autoload/completion.vim
+-'  1  0  ~/conf/.vim/autoload/completion.vim
+-'  5  1  ~/conf/.vim/autoload/completion.vim
+-'  27  0  ~/conf/.vim/autoload/completion.vim
+-'  23  0  ~/conf/.vim/autoload/completion.vim
+-'  2  0  ~/conf/.vim/1.php
+-'  1  0  ~/conf/.vim/1.php
+-'  59  0  ~/.vimrc
+-'  24  0  ~/.vimrc
+-'  66  0  ~/.vimrc
+-'  22  0  ~/conf/.vim/completion.vim
+-'  24  0  ~/conf/.vim/completion.vim
+-'  1  0  ~/conf/.vim/completion.vim
+-'  1  0  /usr/share/vim/vim73/ftplugin/1.php
+-'  3  1  ~/conf/.vim/completion.vim
+-'  2  1  ~/conf/.vim/completion.vim
+-'  6  1  ~/conf/.vim/completion.vim
+-'  5  1  ~/conf/.vim/completion.vim
+-'  1331  55  /usr/share/vim/vim73/filetype.vim
+-'  1328  13  /usr/share/vim/vim73/filetype.vim
+-'  2151  10  /usr/share/vim/vim73/filetype.vim
+-'  2150  23  /usr/share/vim/vim73/filetype.vim
+-'  1385  11  /usr/share/vim/vim73/filetype.vim
+-'  165  0  /usr/share/vim/vim73/filetype.vim
+-'  1  0  /usr/share/vim/vim73/filetype.vim
+-'  74  0  /usr/share/vim/vim73/ftplugin/php.vim
+-'  1  0  /usr/share/vim/vim73/ftplugin/php.vim
+-'  2271  26  /usr/share/vim/vim73/filetype.vim
+-'  2233  49  /usr/share/vim/vim73/filetype.vim
+-'  2232  6  /usr/share/vim/vim73/filetype.vim
+-'  1720  0  /usr/share/vim/vim73/filetype.vim
+-'  1  0  /usr/share/vim/vim73/menu.vim
+-'  1  0  /usr/share/vim/vim73/vimrc_example.vim
+-'  1  0  /usr/share/vim/vim73/indent/changelog.vim
 -'  301  0  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  1  0  /usr/share/vim/vim73/ftplugin/changelog.vim
+-'  56  0  /usr/share/vim/vim73/ftplugin/changelog.vim
+-'  16  0  ~/.vim/completion.vim
+-'  1  0  ~/.vim/completion.vim
+-'  37  0  ~/.vimrc
+-'  1  0  ~/1.php
+-'  3  6  ~/1.php
+-'  4  6  ~/1.php
+-'  51  0  ~/.vimrc
+-'  56  0  ~/.vimrc
 -'  1  0  ~/.tmux.conf
 -'  1  0  ~/phpmirror.txt
--'  7  14  ~/1.php
+-'  22  0  ~/.vimrc
+-'  6  14  ~/1.php
+-'  28  0  ~/.vimrc
 -'  1  0  ~/.zhengkai
--'  25  0  ~/.vimrc
--'  1720  26  /usr/share/vim/vim73/filetype.vim
--'  1  0  /usr/share/vim/vim73/filetype.vim
+-'  29  0  ~/.vimrc
 -'  2521  0  /usr/share/vim/vim73/filetype.vim
--'  1  0  ~/.bashrc
 -'  26  0  ~/.vimrc
+-'  1  0  ~/.bashrc
+-'  30  0  ~/.vimrc
 -'  31  0  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  51  6  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  57  0  /usr/share/vim/vim73/syntax/debchangelog.vim
@@ -173,7 +188,6 @@ $
 -'  55  0  /etc/vim/vimrc
 -'  1  0  /etc/vim/vimrc
 -'  17  0  ~/.vimrc
--'  1  24  /www/pet/.git/COMMIT_EDITMSG
 -'  1  53  /www/pet/res/common.js
 -'  134  2  /www/pet/res/common.js
 -'  96  7  /www/pet/res/common.js
@@ -187,44 +201,14 @@ $
 -'  112  37  /www/pet/res/common.js
 -'  86  34  /www/pet/res/common.js
 -'  79  2  /www/pet/res/common.js
--'  78  11  /www/pet/res/common.js
--'  74  22  /www/pet/res/common.js
--'  120  5  /www/pet/res/common.js
--'  98  0  /www/pet/res/common.js
--'  149  28  /www/pet/template/bomb2.php
--'  15  16  /www/pet/template/bomb2.php
--'  142  2  /www/pet/template/bomb2.php
--'  145  2  /www/pet/template/bomb2.php
--'  138  7  /www/pet/template/bomb2.php
--'  134  3  /www/pet/template/bomb2.php
--'  153  5  /www/pet/template/bomb2.php
--'  135  2  /www/pet/template/bomb2.php
--'  132  2  /www/pet/template/bomb2.php
--'  122  21  /www/pet/template/bomb2.php
--'  83  31  /www/pet/template/bomb2.php
--'  1  66  /www/pet/template/bomb2.php
--'  16  0  ~/.vimrc
--'  19  0  ~/.vimrc
--'  21  0  ~/.vimrc
--'  111  0  ~/.bashrc
--'  7  1  ~/zhengkai
--'  1  0  ~/zhengkai
--'  27  16  ~/.zhengkai
--'  29  0  ~/.zhengkai
--'  8  0  /tmp/logfile
--'  1  0  /tmp/logfile
--'  8  0  /tmp/1.sh
--'  81  0  ~/.vimrc
--'  86  0  ~/.vimrc
--'  64  0  ~/.vimrc
--'  65  0  ~/.vimrc
--'  1  0  ~/.vimrc
--'  21  0  ~/.vim/completion.vim
 
 # History of marks within files (newest to oldest):
 
-> ~/conf/.git/COMMIT_EDITMSG
-	"	1	2
-	^	1	3
-	.	1	2
-	+	1	2
+> /www/pet/.git/COMMIT_EDITMSG
+	"	1	4
+	^	1	5
+	.	2	0
+	+	1	0
+	+	2	0
+	+	1	5
+	+	2	0

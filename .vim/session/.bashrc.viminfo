@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/bash
+~MSle0~/xterm
 
 # Last Substitute Search Pattern:
 ~MSle0&cxt
@@ -19,26 +19,30 @@ $
 # Command Line History (newest to oldest):
 :wq
 :q
-:echo &t_Co
+:tag
+:tags
+:tag UserPet
+:tags UserPet
 :q!
+:!
+:help tagsrch
+:help tagsrh
+:UserPet
+:set tags=tags
+:set runtimepath?
+:echo &filetype == 'php'    
+:echo &filetype
+:w
+:echo &t_Co
 :echo %t_Co
 :echo $t_Co
 :echo t_Co
-:echo t_CO
-:w
-:e $VIMRUNTIME/filetype.vim
-:filetype
-:!git commit
-:!git add .
-:git add .
-:%s/cxt/ctx/g
-:!./test.sh
-:WQ
-:e ./header.php
-:sq
-:colorscheme adrian
 
 # Search String History (newest to oldest):
+?/xterm
+?/php
+?/filereadable('$HOME/.vim/completion.vim')
+?/source
 ?/bash
 ?/bashj
 ?/\$\.data
@@ -55,10 +59,6 @@ $
 ? cxt
 ? s*$
 ?/colo
-?/linux
-?/term
-?/url
-?/allow_url_include
 
 # Expression History (newest to oldest):
 
@@ -68,148 +68,145 @@ $
 
 # Registers:
 "0	LINE	0
-	if &t_Co > 2 || has("gui_running")
-"1	LINE	0
-	|| has("gui_running")
+		hi LineNr   ctermbg=213
+""1	LINE	0
+	
 "2	LINE	0
-	then
+	if [ "$TERM" == "xterm" ]; then
+	#	export TERM=xterm-256color
+	fi
 "3	LINE	0
-	if &filetype == '.zhengkai'
-		set filetype=bash
-	endif
-	
+	PHP_
 "4	LINE	0
-		iab func function
+	"hi LineNr   ctermbg=213
 "5	LINE	0
-	if %filetype == 'php'
-"6	LINE	0
 	
-		// $.data(_self, "width", $(_self).width());
+"6	LINE	0
+	endif
 "7	LINE	0
-			// iCount = $.data(this, "currentFrame");
-			// console.log(iCount);
-			// iInterval = $.data(this, "interval");
+		hi LineNr   ctermbg=213
 "8	LINE	0
-		// $.data(_self, "interval", iInterval);
+	if (&filetype == 'php')
 "9	LINE	0
-		// $.data(_self, "speed", iSpeed);
-""-	CHAR	0
-	5
+	endif
+"-	CHAR	0
+		
 
 # File marks:
-'0  103  0  ~/.bashrc
-'1  13  0  ~/.zhengkai
-'2  1  0  ~/.vimrc
-'3  63  13  ~/.vimrc
-'4  301  0  /usr/share/vim/vim73/ftplugin/changelog.vim
-'5  1  0  ~/.tmux.conf
-'6  1  0  ~/phpmirror.txt
-'7  68  0  ~/.vimrc
-'8  22  0  ~/.vimrc
-'9  3  14  ~/1.php
+'0  102  0  ~/.bashrc
+'1  46  0  /www/pet/lib/db/dbz.php
+'2  180  0  /www/pet/inc/pet/userpet.php
+'3  19  0  /www/pet/inc/filter.php
+'4  45  0  /www/pet/test.php
+'5  6  0  /www/pet/inc/pet/userpet.php
+'6  6  0  /www/pet/test.php
+'7  9  0  /www/pet/test.php
+'8  3  1  /www/pet/test.php
+'9  1  4  /www/pet/.git/COMMIT_EDITMSG
 
 # Jumplist (newest first):
--'  103  0  ~/.bashrc
+-'  102  0  ~/.bashrc
+-'  61  0  ~/.bashrc
+-'  59  16  ~/.bashrc
+-'  33  4  ~/.bashrc
+-'  107  0  ~/.bashrc
 -'  1  0  ~/.bashrc
--'  13  0  ~/.zhengkai
--'  1  0  ~/.zhengkai
+-'  46  0  /www/pet/lib/db/dbz.php
+-'  1  0  /www/pet/lib/db/dbz.php
+-'  20  15  /www/pet/www/outdoors/battle.php
+-'  1  0  /www/pet/www/outdoors/battle.php
+-'  29  0  /www/pet/inc/filter.php
+-'  1  0  /www/pet/inc/filter.php
+-'  4  10  /www/pet/www/outdoors/battle.php
+-'  19  0  /www/pet/inc/filter.php
+-'  2  0  /www/pet/www/outdoors/battle.php
+-'  180  0  /www/pet/inc/pet/userpet.php
+-'  1  0  /www/pet/inc/pet/userpet.php
+-'  12  0  /www/pet/www/outdoors/battle.php
+-'  45  0  /www/pet/test.php
+-'  1  0  /www/pet/test.php
+-'  6  1  /www/pet/test.php
+-'  6  0  /www/pet/inc/pet/userpet.php
+-'  5  5  /www/pet/test.php
+-'  9  1  /www/pet/test.php
+-'  8  5  /www/pet/test.php
+-'  3  0  /www/pet/test.php
+-'  1  4  /www/pet/.git/COMMIT_EDITMSG
+-'  2  6  /www/pet/www/outdoors/1.php
+-'  1  0  /www/pet/www/outdoors/1.php
+-'  61  17  ~/.vimrc
+-'  60  11  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  63  13  ~/.vimrc
--'  68  0  ~/.vimrc
+-'  1  0  /www/pet/battle.php
+-'  42  0  /www/pet/ser.php
+-'  1  0  /www/pet/ser.php
+-'  208  0  /www/pet/tags
+-'  1  0  /www/pet/tags
+-'  15  0  ~/conf/.vim/after/ftplugin/php.vim
+-'  1  0  ~/conf/.vim/after/ftplugin/php.vim
+-'  3  15  ~/conf/.vim/after/ftplugin/1.php
+-'  1  0  ~/conf/.vim/after/ftplugin/1.php
+-'  63  0  ~/.vimrc
+-'  6  1  ~/conf/.vim/autoload/completion.vim
+-'  1  0  ~/conf/.vim/autoload/completion.vim
+-'  5  1  ~/conf/.vim/autoload/completion.vim
+-'  27  0  ~/conf/.vim/autoload/completion.vim
+-'  23  0  ~/conf/.vim/autoload/completion.vim
+-'  2  0  ~/conf/.vim/1.php
+-'  1  0  ~/conf/.vim/1.php
+-'  59  0  ~/.vimrc
+-'  24  0  ~/.vimrc
+-'  66  0  ~/.vimrc
+-'  22  0  ~/conf/.vim/completion.vim
+-'  24  0  ~/conf/.vim/completion.vim
+-'  1  0  ~/conf/.vim/completion.vim
+-'  1  0  /usr/share/vim/vim73/ftplugin/1.php
+-'  3  1  ~/conf/.vim/completion.vim
+-'  2  1  ~/conf/.vim/completion.vim
+-'  6  1  ~/conf/.vim/completion.vim
+-'  5  1  ~/conf/.vim/completion.vim
+-'  1331  55  /usr/share/vim/vim73/filetype.vim
+-'  1328  13  /usr/share/vim/vim73/filetype.vim
+-'  2151  10  /usr/share/vim/vim73/filetype.vim
+-'  2150  23  /usr/share/vim/vim73/filetype.vim
+-'  1385  11  /usr/share/vim/vim73/filetype.vim
+-'  165  0  /usr/share/vim/vim73/filetype.vim
+-'  1  0  /usr/share/vim/vim73/filetype.vim
+-'  74  0  /usr/share/vim/vim73/ftplugin/php.vim
+-'  1  0  /usr/share/vim/vim73/ftplugin/php.vim
+-'  2271  26  /usr/share/vim/vim73/filetype.vim
+-'  2233  49  /usr/share/vim/vim73/filetype.vim
+-'  2232  6  /usr/share/vim/vim73/filetype.vim
+-'  1720  0  /usr/share/vim/vim73/filetype.vim
+-'  1  0  /usr/share/vim/vim73/menu.vim
+-'  1  0  /usr/share/vim/vim73/vimrc_example.vim
+-'  1  0  /usr/share/vim/vim73/indent/changelog.vim
 -'  301  0  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  1  0  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  1  0  ~/.tmux.conf
--'  1  0  ~/phpmirror.txt
--'  22  0  ~/.vimrc
--'  3  14  ~/1.php
--'  1  0  ~/1.php
--'  28  0  ~/.vimrc
--'  29  0  ~/.vimrc
--'  1720  26  /usr/share/vim/vim73/filetype.vim
--'  1  0  /usr/share/vim/vim73/filetype.vim
--'  2521  0  /usr/share/vim/vim73/filetype.vim
--'  26  0  ~/.vimrc
--'  30  0  ~/.vimrc
--'  31  0  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  24  0  ~/.vimrc
--'  48  1  ~/.vimrc
--'  51  6  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  57  0  /usr/share/vim/vim73/syntax/debchangelog.vim
--'  1  0  /usr/share/vim/vim73/syntax/debchangelog.vim
--'  1  0  /usr/share/vim/vim73/syntax/changelog.vim
--'  1  0  /etc/vim/vimrc.tiny
--'  55  0  /etc/vim/vimrc
--'  1  0  /etc/vim/vimrc
--'  17  0  ~/.vimrc
--'  1  24  /www/pet/.git/COMMIT_EDITMSG
--'  1  53  /www/pet/res/common.js
--'  134  2  /www/pet/res/common.js
--'  96  7  /www/pet/res/common.js
--'  91  1  /www/pet/res/common.js
--'  90  1  /www/pet/res/common.js
--'  85  4  /www/pet/res/common.js
--'  140  24  /www/pet/res/common.js
--'  135  3  /www/pet/res/common.js
--'  130  2  /www/pet/res/common.js
--'  101  17  /www/pet/res/common.js
--'  112  37  /www/pet/res/common.js
--'  86  34  /www/pet/res/common.js
--'  79  2  /www/pet/res/common.js
--'  78  11  /www/pet/res/common.js
--'  74  22  /www/pet/res/common.js
--'  120  5  /www/pet/res/common.js
--'  98  0  /www/pet/res/common.js
--'  149  28  /www/pet/template/bomb2.php
--'  15  16  /www/pet/template/bomb2.php
--'  142  2  /www/pet/template/bomb2.php
--'  145  2  /www/pet/template/bomb2.php
--'  138  7  /www/pet/template/bomb2.php
--'  134  3  /www/pet/template/bomb2.php
--'  153  5  /www/pet/template/bomb2.php
--'  135  2  /www/pet/template/bomb2.php
--'  132  2  /www/pet/template/bomb2.php
--'  122  21  /www/pet/template/bomb2.php
--'  83  31  /www/pet/template/bomb2.php
--'  1  66  /www/pet/template/bomb2.php
--'  16  0  ~/.vimrc
--'  19  0  ~/.vimrc
--'  21  0  ~/.vimrc
--'  111  0  ~/.bashrc
--'  1  9  ~/conf/filelist
--'  7  1  ~/zhengkai
--'  1  0  ~/zhengkai
--'  27  16  ~/.zhengkai
--'  29  0  ~/.zhengkai
--'  8  0  /tmp/logfile
--'  1  0  /tmp/logfile
--'  8  0  /tmp/1.sh
--'  1  0  /tmp/1.sh
--'  79  0  ~/.vimrc
--'  33  0  ~/.vimrc
--'  94  0  /www/pet/template/bomb2.php
--'  76  18  /www/pet/template/bomb2.php
--'  47  60  /www/pet/template/bomb2.php
--'  64  16  /www/pet/template/bomb2.php
--'  65  37  /www/pet/template/bomb2.php
--'  31  21  /www/pet/template/bomb2.php
--'  10  8  /www/pet/template/bomb2.php
--'  3  80  /www/pet/template/bomb2.php
--'  45  5  /www/pet/template/bomb2.php
--'  79  0  /www/pet/template/bomb2.php
--'  60  29  /www/pet/template/bomb2.php
--'  61  1  /www/pet/template/bomb2.php
--'  48  16  /www/pet/template/bomb2.php
--'  70  14  /www/pet/template/bomb2.php
--'  1  53  /www/pet/res/common.js
--'  134  2  /www/pet/res/common.js
--'  96  7  /www/pet/res/common.js
--'  91  1  /www/pet/res/common.js
--'  90  1  /www/pet/res/common.js
+-'  180  0  /www/pet/inc/pet/userpet.php
+-'  1  0  /www/pet/inc/pet/userpet.php
+-'  45  0  /www/pet/test.php
+-'  1  0  /www/pet/test.php
+-'  6  1  /www/pet/test.php
+-'  6  0  /www/pet/inc/pet/userpet.php
+-'  46  0  /www/pet/lib/db/dbz.php
+-'  1  0  /www/pet/lib/db/dbz.php
+-'  20  15  /www/pet/www/outdoors/battle.php
+-'  1  0  /www/pet/www/outdoors/battle.php
+-'  29  0  /www/pet/inc/filter.php
+-'  1  0  /www/pet/inc/filter.php
+-'  4  10  /www/pet/www/outdoors/battle.php
+-'  19  0  /www/pet/inc/filter.php
+-'  2  0  /www/pet/www/outdoors/battle.php
+-'  180  0  /www/pet/inc/pet/userpet.php
+-'  1  0  /www/pet/inc/pet/userpet.php
+-'  12  0  /www/pet/www/outdoors/battle.php
+-'  45  0  /www/pet/test.php
+-'  1  0  /www/pet/test.php
 
 # History of marks within files (newest to oldest):
 
 > ~/.bashrc
-	"	103	0
-	^	103	1
-	.	103	0
-	+	103	0
+	"	102	0
+	.	102	0
+	+	102	0

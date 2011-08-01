@@ -4,7 +4,6 @@ let s:cpo_save=&cpo
 set cpo&vim
 nmap gx <Plug>NetrwBrowseX
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
-inoremap 	 =InsertTabWrapper()
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set backspace=indent,eol,start
@@ -27,14 +26,14 @@ set tabstop=4
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/
+cd ~/conf/.vim
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 .vim/completion.vim
-args .vim/completion.vim
-edit .vim/completion.vim
+badd +0 autoload/completion.vim
+args autoload/completion.vim
+edit autoload/completion.vim
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -156,12 +155,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 21 - ((20 * winheight(0) + 21) / 43)
+let s:l = 6 - ((5 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 0
+6
+normal! 01l
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/comp
+~MSle0~/php
 
 # Last Substitute Search Pattern:
 ~MSle0&cxt
@@ -17,29 +17,31 @@
 $
 
 # Command Line History (newest to oldest):
-:wq
-:echo  filereadable(expand('$HOME/.vim/completion.vim'))
-:echo expand('$HOME/.vim/completion.vim')
-:echo filereadable('~/.vim/completion.vim')
-:filereadable('~/.vim/completion.vim')
-:echo filereadable('$HOME/.vim/completion.vim')
-:echo yes
-:filereadable('$HOME/.vim/completion.vim')
 :q
-:help source
-:w
-:hi LineNr   ctermbg=213
+:wq
 :q!
+:set runtimepath?
+:echo &filetype == 'php'    
 :echo &filetype
+:w
 :echo &t_Co
 :echo %t_Co
 :echo $t_Co
 :echo t_Co
 :echo t_CO
 :e $VIMRUNTIME/filetype.vim
+:filetype
+:!git commit
+:!git add .
+:git add .
+:%s/cxt/ctx/g
+:!./test.sh
+:WQ
 
 # Search String History (newest to oldest):
-?/comp
+?/php
+?/filereadable('$HOME/.vim/completion.vim')
+?/source
 ?/bash
 ?/bashj
 ?/\$\.data
@@ -57,8 +59,6 @@ $
 ? s*$
 ?/colo
 ?/linux
-?/term
-?/url
 
 # Expression History (newest to oldest):
 
@@ -67,21 +67,19 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
-		source ~/.vim/completion.vim
-""1	LINE	0
-		iab func function
+""0	LINE	0
+		hi LineNr   ctermbg=213
+"1	LINE	0
+		hi LineNr   ctermbg=213
 "2	LINE	0
-		iab func function
+		hi LineNr   ctermbg=213
 "3	LINE	0
-	
+		hi LineNr   ctermbg=213
 "4	LINE	0
-	"	source ~/.vim/completion.vim
+		hi LineNr   ctermbg=213
 "5	LINE	0
-		echo yes;
-"6	LINE	0
 	
-"7	LINE	0
+"6	LINE	0
 	if &filetype == 'php'
 		set dictionary-=~/.vim/funclist.txt dictionary+=~/.vim/funclist.txt
 		set complete-=k complete+=k
@@ -97,71 +95,86 @@ $
 	endfunction
 	
 	inoremap <TAB> <C-R>=InsertTabWrapper()<CR>
-	
-	if &filetype == 'php'
-		iab function function
-	endif
-		iab function function
+"7	LINE	0
 	
 "8	LINE	0
-	hi LineNr   ctermbg=213
+	set complete-=k complete+=k
 "9	LINE	0
-	
+	|| has("gui_running")
 "-	CHAR	0
-	a
+	 
 
 # File marks:
-'0  21  0  ~/.vim/completion.vim
-'1  20  0  ~/.vim/completion.vim
-'2  65  0  ~/.vimrc
-'3  64  0  ~/.vimrc
-'4  61  24  ~/.vimrc
-'5  62  7  ~/.vimrc
-'6  62  42  ~/.vimrc
-'7  22  0  ~/.vim/completion.vim
-'8  61  16  ~/.vimrc
-'9  63  4  ~/.vimrc
+'0  6  1  ~/conf/.vim/autoload/completion.vim
+'1  2  0  ~/conf/.vim/1.php
+'2  1  0  ~/conf/.vim/1.php
+'3  61  35  ~/.vimrc
+'4  59  0  ~/.vimrc
+'5  24  0  ~/.vimrc
+'6  22  0  ~/conf/.vim/completion.vim
+'7  1  0  /usr/share/vim/vim73/ftplugin/1.php
+'8  24  0  ~/conf/.vim/completion.vim
+'9  2  1  ~/conf/.vim/completion.vim
 
 # Jumplist (newest first):
--'  21  0  ~/.vim/completion.vim
--'  20  0  ~/.vim/completion.vim
--'  1  0  ~/.vim/completion.vim
--'  22  0  ~/.vim/completion.vim
--'  65  0  ~/.vimrc
--'  64  0  ~/.vimrc
+-'  6  1  ~/conf/.vim/autoload/completion.vim
+-'  1  0  ~/conf/.vim/autoload/completion.vim
+-'  5  1  ~/conf/.vim/autoload/completion.vim
+-'  27  0  ~/conf/.vim/autoload/completion.vim
+-'  23  0  ~/conf/.vim/autoload/completion.vim
+-'  2  0  ~/conf/.vim/1.php
+-'  1  0  ~/conf/.vim/1.php
+-'  61  35  ~/.vimrc
+-'  59  0  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  61  0  ~/.vimrc
--'  62  1  ~/.vimrc
--'  63  1  ~/.vimrc
--'  4  6  ~/.vimrc
--'  66  0  ~/.vimrc
--'  65  0  ~/.vimrc2
--'  1  0  ~/.vimrc2
--'  1  0  ~/&filetype == 'php'
--'  24  72  ~/.vimrc
--'  48  1  ~/.vimrc
--'  2  7  ~/1.php
--'  1  0  ~/1.php
--'  22  0  ~/.vimrc
--'  18  1  ~/.vim/completion.vim
--'  16  0  ~/.vim/completion.vim
--'  33  0  ~/.vimrc
--'  4  6  ~/1.php
--'  5  6  ~/1.php
--'  47  0  ~/.vimrc
--'  52  0  ~/.vimrc
+-'  24  0  ~/.vimrc
+-'  64  0  ~/.vimrc
+-'  22  0  ~/conf/.vim/completion.vim
+-'  24  0  ~/conf/.vim/completion.vim
+-'  1  0  ~/conf/.vim/completion.vim
+-'  1  0  /usr/share/vim/vim73/ftplugin/1.php
+-'  3  1  ~/conf/.vim/completion.vim
+-'  2  1  ~/conf/.vim/completion.vim
+-'  6  1  ~/conf/.vim/completion.vim
+-'  5  1  ~/conf/.vim/completion.vim
+-'  1331  55  /usr/share/vim/vim73/filetype.vim
+-'  1328  13  /usr/share/vim/vim73/filetype.vim
+-'  2151  10  /usr/share/vim/vim73/filetype.vim
+-'  2150  23  /usr/share/vim/vim73/filetype.vim
+-'  1385  11  /usr/share/vim/vim73/filetype.vim
+-'  165  0  /usr/share/vim/vim73/filetype.vim
+-'  1  0  /usr/share/vim/vim73/filetype.vim
+-'  74  0  /usr/share/vim/vim73/ftplugin/php.vim
+-'  1  0  /usr/share/vim/vim73/ftplugin/php.vim
+-'  2271  26  /usr/share/vim/vim73/filetype.vim
+-'  2233  49  /usr/share/vim/vim73/filetype.vim
+-'  2232  6  /usr/share/vim/vim73/filetype.vim
+-'  1720  0  /usr/share/vim/vim73/filetype.vim
+-'  1  0  /usr/share/vim/vim73/menu.vim
+-'  1  0  /usr/share/vim/vim73/vimrc_example.vim
+-'  1  0  /usr/share/vim/vim73/indent/changelog.vim
 -'  301  0  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  1  0  /usr/share/vim/vim73/ftplugin/changelog.vim
+-'  56  0  /usr/share/vim/vim73/ftplugin/changelog.vim
+-'  16  0  ~/.vim/completion.vim
+-'  1  0  ~/.vim/completion.vim
+-'  37  0  ~/.vimrc
+-'  1  0  ~/1.php
+-'  3  6  ~/1.php
+-'  4  6  ~/1.php
+-'  51  0  ~/.vimrc
+-'  56  0  ~/.vimrc
 -'  1  0  ~/.tmux.conf
 -'  1  0  ~/phpmirror.txt
--'  7  14  ~/1.php
+-'  22  0  ~/.vimrc
+-'  6  14  ~/1.php
+-'  28  0  ~/.vimrc
 -'  1  0  ~/.zhengkai
--'  25  0  ~/.vimrc
--'  1720  26  /usr/share/vim/vim73/filetype.vim
--'  1  0  /usr/share/vim/vim73/filetype.vim
+-'  29  0  ~/.vimrc
 -'  2521  0  /usr/share/vim/vim73/filetype.vim
--'  1  0  ~/.bashrc
 -'  26  0  ~/.vimrc
+-'  1  0  ~/.bashrc
+-'  30  0  ~/.vimrc
 -'  31  0  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  51  6  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  57  0  /usr/share/vim/vim73/syntax/debchangelog.vim
@@ -200,37 +213,11 @@ $
 -'  132  2  /www/pet/template/bomb2.php
 -'  122  21  /www/pet/template/bomb2.php
 -'  83  31  /www/pet/template/bomb2.php
--'  1  66  /www/pet/template/bomb2.php
--'  16  0  ~/.vimrc
--'  19  0  ~/.vimrc
--'  21  0  ~/.vimrc
--'  111  0  ~/.bashrc
--'  1  9  ~/conf/filelist
--'  7  1  ~/zhengkai
--'  1  0  ~/zhengkai
--'  27  16  ~/.zhengkai
--'  29  0  ~/.zhengkai
--'  8  0  /tmp/logfile
--'  1  0  /tmp/logfile
--'  8  0  /tmp/1.sh
--'  83  0  ~/.vimrc
--'  88  0  ~/.vimrc
--'  65  0  ~/.vimrc
--'  64  0  ~/.vimrc
--'  1  0  ~/.vimrc
--'  61  0  ~/.vimrc
 
 # History of marks within files (newest to oldest):
 
-> ~/.vim/completion.vim
-	"	21	0
-	^	21	1
-	.	21	0
-	+	1	0
-	+	16	0
-	+	17	21
-	+	18	0
-	+	20	0
-	+	21	22
-	+	20	0
-	+	21	0
+> ~/conf/.vim/autoload/completion.vim
+	"	6	1
+	.	6	0
+	+	5	0
+	+	6	0

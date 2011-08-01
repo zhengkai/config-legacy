@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/xterm
+~MSle0~/php
 
 # Last Substitute Search Pattern:
 ~MSle0&cxt
@@ -18,8 +18,6 @@ $
 
 # Command Line History (newest to oldest):
 :q
-:wq
-:tag
 :tags
 :tag UserPet
 :tags UserPet
@@ -27,7 +25,9 @@ $
 :!
 :help tagsrch
 :help tagsrh
+:tag
 :UserPet
+:wq
 :set tags=tags
 :set runtimepath?
 :echo &filetype == 'php'    
@@ -39,7 +39,6 @@ $
 :echo t_Co
 
 # Search String History (newest to oldest):
-?/xterm
 ?/php
 ?/filereadable('$HOME/.vim/completion.vim')
 ?/source
@@ -59,6 +58,7 @@ $
 ? cxt
 ? s*$
 ?/colo
+?/linux
 
 # Expression History (newest to oldest):
 
@@ -70,65 +70,49 @@ $
 "0	LINE	0
 		hi LineNr   ctermbg=213
 ""1	LINE	0
-	
-"2	LINE	0
-	if [ "$TERM" == "xterm" ]; then
-	#	export TERM=xterm-256color
-	fi
-"3	LINE	0
 	PHP_
-"4	LINE	0
+"2	LINE	0
 	"hi LineNr   ctermbg=213
-"5	LINE	0
+"3	LINE	0
 	
-"6	LINE	0
+"4	LINE	0
 	endif
-"7	LINE	0
+"5	LINE	0
 		hi LineNr   ctermbg=213
-"8	LINE	0
+"6	LINE	0
 	if (&filetype == 'php')
-"9	LINE	0
+"7	LINE	0
 	endif
+"8	LINE	0
+	if &filetype == 'php'
+"9	LINE	0
+		hi LineNr   ctermbg=213
 "-	CHAR	0
 		
 
 # File marks:
-'0  28  0  ~/.zhengkai
-'1  102  0  ~/.bashrc
-'2  46  0  /www/pet/lib/db/dbz.php
-'3  180  0  /www/pet/inc/pet/userpet.php
-'4  19  0  /www/pet/inc/filter.php
-'5  45  0  /www/pet/test.php
-'6  6  0  /www/pet/inc/pet/userpet.php
-'7  6  0  /www/pet/test.php
-'8  9  0  /www/pet/test.php
-'9  3  1  /www/pet/test.php
+'0  19  0  /www/pet/inc/filter.php
+'1  45  0  /www/pet/test.php
+'2  6  0  /www/pet/inc/pet/userpet.php
+'3  6  0  /www/pet/test.php
+'4  9  0  /www/pet/test.php
+'5  3  1  /www/pet/test.php
+'6  1  4  /www/pet/.git/COMMIT_EDITMSG
+'7  2  6  /www/pet/www/outdoors/1.php
+'8  12  24  /www/pet/www/outdoors/battle.php
+'9  61  17  ~/.vimrc
 
 # Jumplist (newest first):
--'  28  0  ~/.zhengkai
--'  1  0  ~/.zhengkai
--'  102  0  ~/.bashrc
--'  61  0  ~/.bashrc
--'  59  16  ~/.bashrc
--'  33  4  ~/.bashrc
--'  107  0  ~/.bashrc
--'  1  0  ~/.bashrc
--'  46  0  /www/pet/lib/db/dbz.php
--'  1  0  /www/pet/lib/db/dbz.php
--'  20  15  /www/pet/www/outdoors/battle.php
--'  1  0  /www/pet/www/outdoors/battle.php
--'  29  0  /www/pet/inc/filter.php
--'  1  0  /www/pet/inc/filter.php
--'  4  10  /www/pet/www/outdoors/battle.php
 -'  19  0  /www/pet/inc/filter.php
--'  2  0  /www/pet/www/outdoors/battle.php
--'  180  0  /www/pet/inc/pet/userpet.php
--'  1  0  /www/pet/inc/pet/userpet.php
+-'  1  0  /www/pet/inc/filter.php
+-'  4  0  /www/pet/www/outdoors/battle.php
 -'  12  0  /www/pet/www/outdoors/battle.php
+-'  1  0  /www/pet/www/outdoors/battle.php
 -'  45  0  /www/pet/test.php
 -'  1  0  /www/pet/test.php
 -'  6  1  /www/pet/test.php
 -'  6  0  /www/pet/inc/pet/userpet.php
+-'  1  0  /www/pet/inc/pet/userpet.php
 -'  5  5  /www/pet/test.php
 -'  9  1  /www/pet/test.php
 -'  8  5  /www/pet/test.php
@@ -185,29 +169,42 @@ $
 -'  1  0  /usr/share/vim/vim73/indent/changelog.vim
 -'  301  0  /usr/share/vim/vim73/ftplugin/changelog.vim
 -'  1  0  /usr/share/vim/vim73/ftplugin/changelog.vim
--'  180  0  /www/pet/inc/pet/userpet.php
+-'  56  0  /usr/share/vim/vim73/ftplugin/changelog.vim
+-'  16  0  ~/.vim/completion.vim
+-'  1  0  ~/.vim/completion.vim
+-'  37  0  ~/.vimrc
+-'  1  0  ~/1.php
+-'  3  6  ~/1.php
+-'  4  6  ~/1.php
+-'  51  0  ~/.vimrc
+-'  56  0  ~/.vimrc
+-'  1  0  ~/.tmux.conf
+-'  1  0  ~/phpmirror.txt
+-'  22  0  ~/.vimrc
+-'  6  14  ~/1.php
+-'  28  0  ~/.vimrc
+-'  1  0  ~/.zhengkai
+-'  29  0  ~/.vimrc
+-'  2521  0  /usr/share/vim/vim73/filetype.vim
+-'  26  0  ~/.vimrc
+-'  1  0  ~/.bashrc
+-'  30  0  ~/.vimrc
+-'  31  0  /usr/share/vim/vim73/ftplugin/changelog.vim
+-'  51  6  /usr/share/vim/vim73/ftplugin/changelog.vim
+-'  57  0  /usr/share/vim/vim73/syntax/debchangelog.vim
+-'  1  0  /usr/share/vim/vim73/syntax/debchangelog.vim
+-'  1  0  /usr/share/vim/vim73/syntax/changelog.vim
+-'  6  0  /www/pet/inc/pet/userpet.php
 -'  1  0  /www/pet/inc/pet/userpet.php
 -'  45  0  /www/pet/test.php
 -'  1  0  /www/pet/test.php
 -'  6  1  /www/pet/test.php
 -'  6  0  /www/pet/inc/pet/userpet.php
--'  46  0  /www/pet/lib/db/dbz.php
--'  1  0  /www/pet/lib/db/dbz.php
--'  20  15  /www/pet/www/outdoors/battle.php
--'  1  0  /www/pet/www/outdoors/battle.php
--'  29  0  /www/pet/inc/filter.php
--'  1  0  /www/pet/inc/filter.php
--'  4  10  /www/pet/www/outdoors/battle.php
--'  19  0  /www/pet/inc/filter.php
--'  2  0  /www/pet/www/outdoors/battle.php
--'  180  0  /www/pet/inc/pet/userpet.php
--'  1  0  /www/pet/inc/pet/userpet.php
--'  12  0  /www/pet/www/outdoors/battle.php
 
 # History of marks within files (newest to oldest):
 
-> ~/.zhengkai
-	"	28	0
-	^	28	2
-	.	28	0
-	+	28	0
+> /www/pet/www/outdoors/battle.php
+	"	4	0
+
+> /www/pet/inc/filter.php
+	"	19	0

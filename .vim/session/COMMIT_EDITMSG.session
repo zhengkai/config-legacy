@@ -4,7 +4,6 @@ let s:cpo_save=&cpo
 set cpo&vim
 nmap gx <Plug>NetrwBrowseX
 nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
-inoremap 	 =InsertTabWrapper()
 let &cpo=s:cpo_save
 unlet s:cpo_save
 set backspace=indent,eol,start
@@ -24,10 +23,11 @@ set sidescrolloff=10
 set statusline=%F%m%r%h%w[%L][%{&ff}]%10y[%3p%%][%4l,%4v]
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set tabstop=4
+set tags=/www/pet/tags
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/conf
+cd /www/pet
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -96,7 +96,7 @@ setlocal indentexpr=
 setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
-setlocal keywordprg=git\ --git-dir='/home/zhengkai/conf/.git'\ show
+setlocal keywordprg=git\ --git-dir='/www/pet/.git'\ show
 setlocal nolinebreak
 setlocal nolisp
 setlocal nolist
@@ -110,7 +110,7 @@ setlocal number
 set numberwidth=5
 setlocal numberwidth=5
 setlocal omnifunc=
-setlocal path=~/conf/.git,~/conf,
+setlocal path=/www/pet/.git,/www/pet,
 setlocal nopreserveindent
 setlocal nopreviewwindow
 setlocal quoteescape=\\
@@ -149,7 +149,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 1
-normal! 02l
+normal! 04l
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

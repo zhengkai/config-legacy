@@ -58,7 +58,9 @@ set numberwidth=5
 set sidescrolloff=10
 set statusline=%F%m%r%h%w[%L][%{&ff}]%10y[%3p%%][%4l,%4v]
 
-if filereadable(expand('~/.vim/completion.vim'))
-	source ~/.vim/completion.vim
+set tags=/www/pet/tags
+
+if filereadable(expand('~/.vim/after/completion.vim'))
+	source ~/.vim/after/completion.vim
 endif
 
