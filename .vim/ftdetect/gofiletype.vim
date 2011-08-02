@@ -1,0 +1,1 @@
+/home/zhengkai/go/misc/vim/ftdetect/gofiletype.vim
