@@ -1,3 +1,8 @@
 [user]
 	email = zhengkai@gmail.com
 	name = Zheng Kai
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch

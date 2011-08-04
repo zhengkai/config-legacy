@@ -30,6 +30,8 @@ if &t_Co > 2 || has("gui_running")
 	set hlsearch
 endif
 
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
 
 hi clear
 "hi Comment  ctermfg=244
