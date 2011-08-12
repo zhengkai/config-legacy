@@ -35,5 +35,3 @@ do
 	fi
 done
 
-exit;
-
