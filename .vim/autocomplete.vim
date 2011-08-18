@@ -1,4 +1,5 @@
 " 括号补全
+" http://forum.ubuntu.org.cn/viewtopic.php?f=68&t=85206
 
 inoremap ( ()<ESC>i
 inoremap ) <c-r>=ClosePair(')')<CR>

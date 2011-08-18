@@ -66,3 +66,8 @@ if filereadable(expand('~/.vim/after/completion.vim'))
 	source ~/.vim/after/completion.vim
 endif
 
+au FileType php,css,js so ~/.vim/autocomplete.vim
+
+set autoindent
+
+
