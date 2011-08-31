@@ -1,9 +1,12 @@
 alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
 
-alias ls="ls -lha --color=auto"
+# alias ls="ls -lha --color=auto"
+alias ls="ls -lh --color=auto"
 alias ll="ls -lA"
 alias la="ls -A"
 alias l="ls -CF"
+
+alias date="date +'%Y-%m-%d %H:%M:%S'"
 
 # alias sdnow="sudo shutdown -P 0"
 

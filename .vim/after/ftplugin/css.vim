@@ -12,3 +12,5 @@ endfunction
 
 inoremap <TAB> <C-R>=InsertTabWrapper()<CR>
 
+set autoindent
+

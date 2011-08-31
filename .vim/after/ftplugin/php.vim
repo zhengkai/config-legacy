@@ -14,3 +14,5 @@ inoremap <TAB> <C-R>=InsertTabWrapper()<CR>
 
 iab func function
 
+set autoindent
+
