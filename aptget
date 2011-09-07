@@ -1,3 +1,4 @@
+axel
 bison
 build-essential
 curl
@@ -21,3 +22,5 @@ php-pear
 pwgen
 subversion
 vim
+wondershaper
+whois
