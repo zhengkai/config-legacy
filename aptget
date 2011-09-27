@@ -1,3 +1,4 @@
+axel
 bison
 build-essential
 curl
@@ -22,4 +23,5 @@ pwgen
 subversion
 vim
 sysstat
-
+wondershaper
+whois
