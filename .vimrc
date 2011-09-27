@@ -68,5 +68,3 @@ endif
 
 au FileType php,css,js so ~/.vim/autocomplete.vim
 
-
-
