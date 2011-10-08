@@ -1,20 +1,20 @@
 #!/bin/sh
-run_file="/tmp/emule_rsync"
+run_file="/tmp/iconfans_rsync"
 
-echo `date +'%Y-%m-%d %H:%M:%S'` > /tmp/emule_rsync_check
+echo `date +'%Y-%m-%d %H:%M:%S'` > /tmp/iconfans_rsync_check
 
 if [ -f $run_file ] 
 then 
-	echo "\n\teMule rsync 已经在运行\n"
+	echo "\n\ticonfans rsync 已经在运行\n"
 	exit
 fi
 
 touch $run_file
 
-echo `date +'%Y-%m-%d %H:%M:%S'` > /tmp/emule_rsync_run
+echo `date +'%Y-%m-%d %H:%M:%S'` > /tmp/iconfans_rsync_run
 
-/usr/bin/rsync --temp-dir=/www/tmp --partial -vzrtopg -e "ssh -o TCPKeepAlive=yes -o ServerAliveInterval=30" iconfans:/var/www/iconfans/ /www/iconfans/
-/usr/bin/rsync --temp-dir=/www/tmp --partial -vzrtopg -e "ssh -o TCPKeepAlive=yes -o ServerAliveInterval=30" iconfans:/backup/ /www/iconfans_db/
+/usr/bin/rsync --bwlimit=200 --temp-dir=/tmp --partial -vzrtopg -e ssh iconfans:/var/www/iconfans/ /home/zhengkai/iconfans/
+/usr/bin/rsync --bwlimit=200 --temp-dir=/tmp --partial -vzrtopg -e ssh iconfans:/backup/ /home/zhengkai/iconfans_db/
 
 sleep 5
 
