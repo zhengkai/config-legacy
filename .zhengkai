@@ -6,6 +6,8 @@ xterm*|rxvt*)
     ;;
 esac
 
+set -o vi
+
 PS1='\n\t ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\h C:\w \[\033[00m\]> '
 
 if [ -f ~/.zhengkai_alias ]; then
