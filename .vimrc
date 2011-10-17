@@ -16,8 +16,8 @@ set number
 "source ~/.vim/session/%:t.session
 "rviminfo ~/.vim/session/%:t.viminfo
 
-au VimLeave * mksession! ~/.vim/session/%:t.session
-au VimLeave * wviminfo! ~/.vim/session/%:t.viminfo
+"au VimLeave * mksession! ~/.vim/session/%:t.session
+"au VimLeave * wviminfo! ~/.vim/session/%:t.viminfo
 
 filetype plugin on
 

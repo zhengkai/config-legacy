@@ -3,13 +3,18 @@ server {
 	server_name pma;
 	server_name pma.garona;
 
+	root /usr/share/phpmyadmin;
+
 	location / {
-		root   /www/pma;
 		index index.php;
 
 		if ($request_filename ~ "\.php$") {
 			fastcgi_pass   127.0.0.1:9000;
 		}
+	}
+
+	location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ {
+		expires max;
 	}
 }
 

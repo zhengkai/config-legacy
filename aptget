@@ -1,4 +1,5 @@
 axel
+autossh
 bison
 build-essential
 curl
@@ -7,6 +8,7 @@ git
 htop
 ifstat
 imagemagick
+mencoder
 memcached
 mingetty
 nginx-full
@@ -23,5 +25,6 @@ pwgen
 subversion
 vim
 sysstat
+tmux
 wondershaper
 whois

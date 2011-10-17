@@ -26,7 +26,7 @@ do
 		git clone --bare $url/$repo.git $repo.git
 		cd $repo.git
 		git remote rm origin
-		git remote add --mirror origin $url/$repo.git
+		git remote add --mirror=fetch origin $url/$repo.git
 		cd ..
 	else
 		cd $repo.git

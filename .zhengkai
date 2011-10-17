@@ -1,3 +1,7 @@
+if [ ! $TMUX ]; then
+	tmux -2
+fi
+
 case "$TERM" in
 xterm*|rxvt*)
     PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME} ${PWD}\007"'
@@ -23,8 +27,8 @@ export GOARCH=amd64
 export GOOS=linux
 export PATH="$PATH:$GOROOT/bin:/www/go/google_appengine"
 
-set HTTP_PROXY=localhost:8118
-set HTTPS_PROXY=localhost:8118
+#set HTTP_PROXY=localhost:8118
+#set HTTPS_PROXY=localhost:8118
 
 export TERM=linux
 export TERM=xterm-256color
@@ -50,5 +54,4 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # eval `resize`
 
 shopt -s checkwinsize
-
 
