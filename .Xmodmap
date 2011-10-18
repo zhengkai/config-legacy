@@ -1,0 +1,10 @@
+keycode 134 = grave asciitilde grave asciitilde
+keycode  49 = XF86Search NoSymbol XF86Search
+
+remove Lock = Caps_Lock
+remove Control = Control_L
+keysym Control_L = Caps_Lock
+keysym Caps_Lock = Control_L
+add Lock = Caps_Lock
+add Control = Control_L                 
+
