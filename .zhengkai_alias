@@ -31,7 +31,7 @@ alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -ex
 
 alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
 
-alias tmux="tmux attach || tmux new"
+alias tmux="tmux -2 attach || tmux -2 new"
 
 ex () {
 	if [ -f $1 ] ; then
