@@ -47,7 +47,7 @@ hi clear
 "if [ "$TERM" = "xterm-256color" ]
 if &t_Co == 256
 	colorscheme desert256  
-	hi LineNr   ctermbg=232
+	hi LineNr   ctermbg=232 ctermfg=246
 	hi Pmenu    ctermbg=235
 	hi PmenuSel ctermbg=237
 endif
@@ -66,5 +66,9 @@ if filereadable(expand('~/.vim/after/completion.vim'))
 	source ~/.vim/after/completion.vim
 endif
 
+source ~/.vim/tabline.vim
+
 au FileType php,css,js so ~/.vim/autocomplete.vim
+
+nmap <F1> <nop>
 
