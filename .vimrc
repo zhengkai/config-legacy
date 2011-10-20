@@ -1,7 +1,9 @@
 "set t_Co=256
 
 let g:loaded_session = 1
-source ~/.vim/session.vim
+let g:session_autoload = 'yes'
+let g:session_autosave = 'yes'
+let g:session_directory = '~/.vim/session'
 
 set backupdir=~/.backup/vim
 set nocompatible
