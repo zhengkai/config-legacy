@@ -1,5 +1,6 @@
 "set t_Co=256
 
+set sessionoptions-=help
 let g:loaded_session = 1
 let g:session_autoload = 'yes'
 let g:session_autosave = 'yes'
