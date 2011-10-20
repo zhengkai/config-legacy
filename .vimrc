@@ -23,8 +23,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 filetype plugin on
 
-"au BufNewFile,BufRead ~/.zhengkai_alias,~/.zhengkai call SetFileTypeSH("bash")
-au BufReadPre,BufNewFile ~/.zhengkai,~/.zhengkai_alias set filetype=sh
+au BufRead,BufNewFile ~/.zhengkai,~/.zhengkai_alias set filetype=sh
 
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
