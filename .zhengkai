@@ -1,12 +1,6 @@
 export TERM=linux
 export TERM=xterm-256color
 
-if [ -f ~/.zhengkai_alias ]; then
-    . ~/.zhengkai_alias
-fi
-
-tmux
-
 settitle() {
 	printf "\033k$1\033\\"
 }
@@ -16,7 +10,13 @@ ssh() {
 	command ssh "$@"
 }
 
-PS1='\n\t$(settitle $PWD)$ ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\h C:\w \[\033[00m\]> '
+PS1='\n\t ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\h C:\w \[\033[00m\]> '
+
+if [[ -n $TMUX || -n $TERMCAP ]]; 
+then 
+	PS1='$(settitle $PWD)'$PS1;
+fi
+
 
 if [ -f ~/conf/bashmarks.sh ]; then
 	. ~/conf/bashmarks.sh
@@ -51,4 +51,10 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # eval `resize`
 
 shopt -s checkwinsize
+
+if [ -f ~/.zhengkai_alias ]; then
+    . ~/.zhengkai_alias
+fi
+
+[[ -n $SSH_TTY ]] && tmux
 
