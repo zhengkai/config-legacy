@@ -5,13 +5,13 @@ keysym Caps_Lock = Control_L
 add Lock = Caps_Lock
 add Control = Control_L                 
 
-keycode 110 = Prior Prior Prior Prior
+keycode 110 = Prior
 
-keycode  49 = XF86Search asciitilde XF86Search asciitilde 
-keycode 112 = Home Home Home Home
-keycode 115 = Next Next Next Next
-keycode 117 = End End End End
+keycode  49 = XF86Search asciitilde
+keycode 112 = Home
+keycode 115 = Next
+keycode 117 = End
 
-keycode  78 = Print Print Print Print
-keycode 127 = XF86AudioMute XF86AudioMute XF86AudioMute XF86AudioMute
+keycode  78 = Print
+keycode 127 = XF86AudioMute
 
