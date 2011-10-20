@@ -19,6 +19,8 @@ set number
 "au VimLeave * mksession! ~/.vim/session/%:t.session
 "au VimLeave * wviminfo! ~/.vim/session/%:t.viminfo
 
+autocmd BufWritePre * :%s/\s\+$//e
+
 filetype plugin on
 
 au BufNewFile,BufRead .zhengkai,.zhengkai_alias call SetFileTypeSH("bash")
@@ -31,7 +33,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
 
 hi clear
 "hi Comment  ctermfg=244
@@ -46,7 +47,7 @@ hi clear
 
 "if [ "$TERM" = "xterm-256color" ]
 if &t_Co == 256
-	colorscheme desert256  
+	colorscheme desert256
 	hi LineNr   ctermbg=232 ctermfg=246
 	hi Pmenu    ctermbg=235
 	hi PmenuSel ctermbg=237
@@ -60,7 +61,7 @@ set numberwidth=5
 set sidescrolloff=10
 set statusline=%F%m%r%h%w[%L][%{&ff}]%10y[%3p%%][%4l,%4v]
 
-set tags=/www/pet/tags
+set tags=/www/pet/tag
 
 if filereadable(expand('~/.vim/after/completion.vim'))
 	source ~/.vim/after/completion.vim
