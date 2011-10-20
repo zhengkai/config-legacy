@@ -23,8 +23,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 filetype plugin on
 
-au BufNewFile,BufRead .zhengkai\_alias call SetFileTypeSH("bash")
-au BufNewFile,BufRead ~/.zhengkai* call SetFileTypeSH("bash")
+au BufNewFile,BufRead ~/.zhengkai,~/.zhengkai_alias call SetFileTypeSH("bash")
 
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
@@ -33,7 +32,6 @@ if &t_Co > 2 || has("gui_running")
 	set hlsearch
 endif
 
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 hi clear
 "hi Comment  ctermfg=244
@@ -58,7 +56,7 @@ set cursorline
 hi CursorLine cterm=NONE ctermbg=234
 
 set laststatus=2
-set numberwidth=5
+set numberwidth=6
 set sidescrolloff=10
 set statusline=%F%m%r%h%w[%L][%{&ff}]%10y[%3p%%][%4l,%4v]
 
@@ -71,6 +69,9 @@ endif
 source ~/.vim/tabline.vim
 
 au FileType php,css,js so ~/.vim/autocomplete.vim
+au FileType css set omnifunc=csscomplete#CompleteCSS
+
+au BufRead *.php,*.css,*.js,*.html,*.txt set fileformat=unix
 
 nmap <F1> <nop>
 
