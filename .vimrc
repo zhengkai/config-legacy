@@ -32,7 +32,6 @@ if &t_Co > 2 || has("gui_running")
 	set hlsearch
 endif
 
-
 hi clear
 "hi Comment  ctermfg=244
 "hi Define   ctermfg=LightGreen
@@ -59,6 +58,19 @@ set laststatus=2
 set numberwidth=6
 set sidescrolloff=10
 set statusline=%F%m%r%h%w[%L][%{&ff}]%10y[%3p%%][%4l,%4v]
+set statusline=%F%m%r%h%w\ [format=%{&ff}]\ [type=%Y]\ [pos=%4l,%4v][%p%%]\ %{strftime(\"%y-%d-%m\ -\ %h:%M\")}
+
+set statusline=%t       "tail of the filename
+set statusline+=[encoding=%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=format=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=filetype=%y      "filetype
+set statusline+=%=      "left/right separator
+set statusline+=[\ %c\ ,\ %l\ /\ %L\ ]     "cursor column
+set statusline+=   "cursor line/total lines
+set statusline+=\ %P    "percent through file
 
 set tags=/www/pet/tag
 
