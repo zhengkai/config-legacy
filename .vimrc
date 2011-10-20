@@ -13,11 +13,11 @@ set shiftwidth=4
 set showmatch
 set number
 
-"source ~/.vim/session/%:t.session
-"rviminfo ~/.vim/session/%:t.viminfo
+source ~/.vim/session/%:t.session
+rviminfo ~/.vim/session/%:t.viminfo
 
-"au VimLeave * mksession! ~/.vim/session/%:t.session
-"au VimLeave * wviminfo! ~/.vim/session/%:t.viminfo
+au VimLeave * exe 'if strlen(v:this_session) | exe "wviminfo! " . v:this_session . ".viminfo" | else | exe "wviminfo! " . "~/.vim/session/" . g:myfilename . ".session.viminfo" | endif '
+au VimLeave * exe 'if strlen(v:this_session) | exe "mksession! " . v:this_session | else | exe "mksession! " . "~/.vim/session/" . g:myfilename . ".session" | endif '
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -58,7 +58,7 @@ set laststatus=2
 set numberwidth=6
 set sidescrolloff=10
 
-hi StatusLine ctermfg=0 ctermbg=32 cterm=NONE
+hi StatusLine ctermfg=0 ctermbg=25 cterm=NONE
 
 set statusline=%#StatusLine#%t\ \ \       "tail of the filename
 set statusline+=%P\ \ \   "percent through file
