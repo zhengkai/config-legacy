@@ -1,37 +1,34 @@
-if [ ! $TMUX ]; then
-	tmux attach || tmux -2 new
-fi
-
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME} ${PWD}\007"'
-    ;;
-*)
-    ;;
-esac
-
-set -o vi
-
-PS1='\n\t ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\h C:\w \[\033[00m\]> '
+export TERM=linux
+export TERM=xterm-256color
 
 if [ -f ~/.zhengkai_alias ]; then
     . ~/.zhengkai_alias
 fi
 
-if [ -f ~/.local/bin/bashmarks.sh ]; then
-	. ~/.local/bin/bashmarks.sh
+tmux
+
+settitle() {
+	printf "\033k$1\033\\"
+}
+
+ssh() {
+	settitle "SSH $*"
+	command ssh "$@"
+}
+
+PS1='\n\t$(settitle $PWD)$ ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\h C:\w \[\033[00m\]> '
+
+if [ -f ~/conf/bashmarks.sh ]; then
+	. ~/conf/bashmarks.sh
 fi
 
 export GOROOT=$HOME/go
 export GOARCH=amd64
 export GOOS=linux
-export PATH="$PATH:$GOROOT/bin:/www/go/google_appengine"
+export PATH="$PATH:$GOROOT/bin"
 
 #set HTTP_PROXY=localhost:8118
 #set HTTPS_PROXY=localhost:8118
-
-export TERM=linux
-export TERM=xterm-256color
 
 case "$SSH_TTY" in
 /dev/pts*)
