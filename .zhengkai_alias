@@ -1,4 +1,5 @@
-alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
+export TERM=linux
+export TERM=xterm-256color
 
 # alias ls="ls -lha --color=auto"
 alias ls="ls -lh --color=auto"
@@ -9,6 +10,8 @@ alias l="ls -CF"
 alias date="date +'%Y-%m-%d %H:%M:%S'"
 
 # alias sdnow="sudo shutdown -P 0"
+
+alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
 
 alias top="htop"
 
@@ -27,7 +30,7 @@ alias lynx="lynx -display_charset=UTF-8"
 
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -f /tmp/php-error.txt"
 alias nginx="sudo /etc/init.d/nginx"
-alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)" 
+alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)"
 
 alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
 
