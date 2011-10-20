@@ -1,5 +1,8 @@
 "set t_Co=256
 
+let g:loaded_session = 1
+source ~/.vim/session.vim
+
 set backupdir=~/.backup/vim
 set nocompatible
 
@@ -12,12 +15,6 @@ set shiftwidth=4
 
 set showmatch
 set number
-
-source ~/.vim/session/%:t.session
-rviminfo ~/.vim/session/%:t.viminfo
-
-au VimLeave * exe 'if strlen(v:this_session) | exe "wviminfo! " . v:this_session . ".viminfo" | else | exe "wviminfo! " . "~/.vim/session/" . g:myfilename . ".session.viminfo" | endif '
-au VimLeave * exe 'if strlen(v:this_session) | exe "mksession! " . v:this_session | else | exe "mksession! " . "~/.vim/session/" . g:myfilename . ".session" | endif '
 
 autocmd BufWritePre * :%s/\s\+$//e
 
