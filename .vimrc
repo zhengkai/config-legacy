@@ -23,7 +23,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 filetype plugin on
 
-au BufNewFile,BufRead .zhengkai,.zhengkai_alias call SetFileTypeSH("bash")
+au BufNewFile,BufRead .zhengkai\_alias call SetFileTypeSH("bash")
+au BufNewFile,BufRead ~/.zhengkai* call SetFileTypeSH("bash")
 
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
