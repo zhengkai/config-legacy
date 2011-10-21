@@ -11,7 +11,7 @@ ssh() {
 }
 
 PS1='\n\t ${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\h \w \[\033[00m\]
-> '
+ » '
 
 if [[ -n $TMUX || -n $TERMCAP ]];
 then
