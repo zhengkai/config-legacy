@@ -68,6 +68,7 @@ set statusline+=\ %h      "help file flag
 set statusline+=\ %m      "modified flag
 set statusline+=\ %r      "read only flag
 set statusline+=\ %y      "filetype
+" set statusline+=\ %{strlen(@")} "filesize
 set statusline+=%=      "left/right separator
 set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 set statusline+=   "cursor line/total lines
