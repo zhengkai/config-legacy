@@ -57,14 +57,14 @@ set laststatus=2
 set numberwidth=6
 set sidescrolloff=10
 
-hi StatusLine ctermfg=0 ctermbg=25 cterm=NONE
+hi StatusLine ctermfg=0 ctermbg=32 cterm=NONE
 
 function! FileSize()
 	let bytes = getfsize(expand("%:p"))
-	return '[filesize=' . bytes . ']'
+	return '\ [filesize=' . bytes . ']'
 endfunction
 
-set statusline=%#StatusLine#%t\ \ \       "tail of the filename
+set statusline=%t\ \ \       "tail of the filename
 set statusline+=%P\ \ \   "percent through file
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}] "file format
@@ -89,7 +89,6 @@ au FileType php,css,js so ~/.vim/autocomplete.vim
 au FileType css set omnifunc=csscomplete#CompleteCSS
 
 au BufRead *.php,*.css,*.js,*.html,*.txt set fileformat=unix
-
 
 nmap <F1> <nop>
 
