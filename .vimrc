@@ -1,9 +1,4 @@
 "set t_Co=256
-function! FileSize()
-	let bytes = getfsize(expand("%:p"))
-	return '[filesize=' . bytes . ']'
-endfunction
-
 set sessionoptions-=help
 let g:loaded_session = 1
 let g:session_autoload = 'yes'
@@ -64,6 +59,11 @@ set sidescrolloff=10
 
 hi StatusLine ctermfg=0 ctermbg=25 cterm=NONE
 
+function! FileSize()
+	let bytes = getfsize(expand("%:p"))
+	return '[filesize=' . bytes . ']'
+endfunction
+
 set statusline=%#StatusLine#%t\ \ \       "tail of the filename
 set statusline+=%P\ \ \   "percent through file
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
@@ -73,7 +73,6 @@ set statusline+=\ %m      "modified flag
 set statusline+=\ %r      "read only flag
 set statusline+=\ %y      "filetype
 set statusline+=%{FileSize()}
-" set statusline+=\ %{strlen(@")} "filesize
 set statusline+=%=      "left/right separator
 set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 set statusline+=   "cursor line/total lines
