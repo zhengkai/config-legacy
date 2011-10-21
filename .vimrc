@@ -19,6 +19,18 @@ set shiftwidth=4
 set showmatch
 set number
 
+function! FileSize()
+    let bytes = getfsize(expand("%:p"))
+    if bytes <= 0
+        return ""
+    endif
+    if bytes < 1024
+        return '[' . bytes . 'b]'
+    else
+        return '[' . (bytes / 1024) . 'KB]'
+    endif
+endfunction
+
 autocmd BufWritePre * :%s/\s\+$//e
 
 filetype plugin on
@@ -68,6 +80,7 @@ set statusline+=\ %h      "help file flag
 set statusline+=\ %m      "modified flag
 set statusline+=\ %r      "read only flag
 set statusline+=\ %y      "filetype
+set statusline+=%{getfsize(expand("%:p"))}
 " set statusline+=\ %{strlen(@")} "filesize
 set statusline+=%=      "left/right separator
 set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
