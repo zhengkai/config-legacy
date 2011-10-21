@@ -10,7 +10,7 @@ ssh() {
 	command ssh "$@"
 }
 
-PS1='\n\[\033[38;5;208m\]\[\033[1m\]\t\[\033[00m\] \[\033[38;5;208m\]\u@\h \w \[\033[00m\]
+PS1='\n\[\033[38;5;226m\]\[\033[1m\]\@\[\033[00m\] \[\033[38;5;39m\]\u@\h \w \[\033[00m\]
  \[\033[38;5;208m\]»\[\033[00m\] '
 
 if [[ -n $TMUX || -n $TERMCAP ]];
@@ -26,7 +26,7 @@ fi
 export GOROOT=$HOME/go
 export GOARCH=amd64
 export GOOS=linux
-export PATH="$PATH:$GOROOT/bin"
+export PATH="$PATH:/sbin:$GOROOT/bin"
 
 #set HTTP_PROXY=localhost:8118
 #set HTTPS_PROXY=localhost:8118
