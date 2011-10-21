@@ -1,4 +1,8 @@
 "set t_Co=256
+function! FileSize()
+	let bytes = getfsize(expand("%:p"))
+	return '[filesize=' . bytes . ']'
+endfunction
 
 set sessionoptions-=help
 let g:loaded_session = 1
@@ -18,18 +22,6 @@ set shiftwidth=4
 
 set showmatch
 set number
-
-function! FileSize()
-    let bytes = getfsize(expand("%:p"))
-    if bytes <= 0
-        return ""
-    endif
-    if bytes < 1024
-        return '[' . bytes . 'b]'
-    else
-        return '[' . (bytes / 1024) . 'KB]'
-    endif
-endfunction
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -80,7 +72,7 @@ set statusline+=\ %h      "help file flag
 set statusline+=\ %m      "modified flag
 set statusline+=\ %r      "read only flag
 set statusline+=\ %y      "filetype
-set statusline+=%{getfsize(expand("%:p"))}
+set statusline+=%{FileSize()}
 " set statusline+=\ %{strlen(@")} "filesize
 set statusline+=%=      "left/right separator
 set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
@@ -98,6 +90,7 @@ au FileType php,css,js so ~/.vim/autocomplete.vim
 au FileType css set omnifunc=csscomplete#CompleteCSS
 
 au BufRead *.php,*.css,*.js,*.html,*.txt set fileformat=unix
+
 
 nmap <F1> <nop>
 
