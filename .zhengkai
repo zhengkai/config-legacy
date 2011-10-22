@@ -11,8 +11,8 @@ ssh() {
 }
 
 function parse_git_dirty {
-	i=`git status | wc -l`
-	if [[ $i ]];
+	i=`(git status | wc -l) 2> /dev/null`
+	if [ $i -lt 5 ];
 	then
 		echo " ⇲ "
 		echo $[$i - 5]
