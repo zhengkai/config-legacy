@@ -1,3 +1,3 @@
 #!/bin/sh
-ctags -–tag-relative -R -f ~/ctags /www/pet
+ctags --tag-relative=yes -f ~/ctags -R /www/shiva
 
