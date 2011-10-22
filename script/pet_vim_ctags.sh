@@ -1,4 +1,4 @@
 #!/bin/sh
-cd /www/pet
-ctags -R .
+scandir="/www/pet"
+ctags --languages=-JavaScript --tag-relative=yes -f ~/tags -R $scandir
 

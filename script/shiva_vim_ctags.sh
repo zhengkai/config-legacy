@@ -1,3 +1,4 @@
 #!/bin/sh
-ctags --tag-relative=yes -f ~/ctags -R /www/shiva
+scandir="/www/shiva"
+ctags --languages=-JavaScript --tag-relative=yes -f ~/tags -R $scandir
 
