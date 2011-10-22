@@ -1,1 +1,5 @@
 export DIR_shiva="/www/shiva"
+export DIR_template="/www/shiva/template"
+export DIR_www="/www/shiva/www"
+export DIR_inc="/www/shiva/inc"
+export DIR_res="/www/shiva/res"
