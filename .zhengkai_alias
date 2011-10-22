@@ -1,3 +1,5 @@
+alias gi="git add * && git ci -a"
+
 # alias ls="ls -lha --color=auto"
 alias ls="ls -lh --color=auto"
 alias ll="ls -lA"
