@@ -1,4 +1,4 @@
-alias gi='git add $(dirname `git rev-parse --show-cdup`) && git ci -a'
+alias gi='git add $(dirname ./`git rev-parse --show-cdup`) && git ci -a'
 
 # alias ls="ls -lha --color=auto"
 alias ls="ls -lh --color=auto"
