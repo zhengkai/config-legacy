@@ -28,9 +28,9 @@ then
 	PS1='$(settitle $PWD)'$PS1;
 fi
 
-
-if [ -f ~/conf/bashmarks.sh ]; then
-	. ~/conf/bashmarks.sh
+export SDIRS=~/conf/.sdirs
+if [ -f ~/sh/bashmarks/bashmarks.sh ]; then
+	. ~/sh/bashmarks/bashmarks.sh
 fi
 
 export GOROOT=$HOME/go
