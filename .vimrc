@@ -61,13 +61,13 @@ hi StatusLine ctermfg=0 ctermbg=32 cterm=NONE
 
 function! FileSize()
 	let bytes = getfsize(expand("%:p"))
-	return '\ [filesize=' . bytes . ']'
+	return ' [filesize=' . bytes . ']'
 endfunction
 
-set statusline=%t\ \ \       "tail of the filename
+set statusline=%t\ \ \    "tail of the filename
 set statusline+=%P\ \ \   "percent through file
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-set statusline+=%{&ff}] "file format
+set statusline+=%{&ff}]   "file format
 set statusline+=\ %h      "help file flag
 set statusline+=\ %m      "modified flag
 set statusline+=\ %r      "read only flag
