@@ -13,7 +13,7 @@ ssh() {
 function parse_git_dirty {
 	i=`(git status -s | wc -l) 2> /dev/null`
 	if [ $i -gt 0 ]; then
-		echo " ⇲  $i"
+		echo " ] [ $i \/ `git diff | wc -l`"
 	fi
 }
 
