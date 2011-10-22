@@ -1,4 +1,4 @@
-alias gi="git add * && git ci -a"
+alias gi="git add $(git rev-parse --show-cdup) && git ci -a"
 
 # alias ls="ls -lha --color=auto"
 alias ls="ls -lh --color=auto"
@@ -7,8 +7,6 @@ alias la="ls -A"
 alias l="ls -CF"
 
 alias date="date +'%Y-%m-%d %H:%M:%S'"
-
-# alias sdnow="sudo shutdown -P 0"
 
 alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
 
@@ -20,8 +18,6 @@ alias dus="du --max-depth=0 -h"
 alias pwgen="pwgen -cns 75 40"
 
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 
 alias pss="ps aux | grep"
 
