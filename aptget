@@ -2,6 +2,7 @@ axel
 autossh
 bison
 build-essential
+ctags
 curl
 gawk
 git
@@ -13,13 +14,13 @@ memcached
 mingetty
 nginx-full
 php5-cli
-php5-curl 
+php5-curl
 php5-dev
 php5-fpm
-php5-mcrypt 
+php5-mcrypt
 php5-memcached
 php5-mysql
-php5-suhosin 
+php5-suhosin
 php-pear
 pwgen
 subversion
