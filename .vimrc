@@ -77,8 +77,7 @@ set statusline+=%=      "left/right separator
 set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 set statusline+=   "cursor line/total lines
 
-"set tags=/www/pet/tag
-set tags=/www/shiva/tag
+set tags=~/tags
 
 if filereadable(expand('~/.vim/after/completion.vim'))
 	source ~/.vim/after/completion.vim
