@@ -11,10 +11,11 @@ ssh() {
 }
 
 function parse_git_dirty {
-	if [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]];
+	i=`git status | wc -l`
+	if [[ $i ]];
 	then
 		echo " ⇲ "
-		# echo $[`git st | wc -l` - 5]
+		echo $[$i - 5]
 	fi
 }
 
