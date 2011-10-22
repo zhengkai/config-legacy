@@ -83,8 +83,6 @@ if filereadable(expand('~/.vim/after/completion.vim'))
 	source ~/.vim/after/completion.vim
 endif
 
-source ~/.vim/tabline.vim
-
 au FileType php,css,js so ~/.vim/autocomplete.vim
 au FileType css set omnifunc=csscomplete#CompleteCSS
 

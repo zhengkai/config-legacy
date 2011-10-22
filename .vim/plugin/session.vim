@@ -16,7 +16,7 @@ endif
 " this option are 'yes' (to load the default session without prompting) and
 " 'no' (don't prompt and don't load the default session).
 if !exists('g:session_autoload')
-  let g:session_autoload = 'prompt'
+  let g:session_autoload = 'yes'
 endif
 
 " When you quit Vim the plug-in will prompt you whether you want to save your
@@ -24,7 +24,7 @@ endif
 " the session without prompting) and 'no' (don't prompt and don't save the
 " session).
 if !exists('g:session_autosave')
-  let g:session_autosave = 'prompt'
+  let g:session_autosave = 'yes'
 endif
 
 " The session plug-in can automatically open sessions in three ways: based on
@@ -42,11 +42,7 @@ endif
 
 " The default directory where session scripts are stored.
 if !exists('g:session_directory')
-  if xolox#misc#os#is_win()
-    let g:session_directory = '~\vimfiles\sessions'
-  else
-    let g:session_directory = '~/.vim/sessions'
-  endif
+  let g:session_directory = '~/.vim/session'
 endif
 
 " Make sure the session scripts directory exists and is writable.
