@@ -1,5 +1,5 @@
 server {
-	listen   127.0.0.1:80;
+	listen   80;
 	server_name pma;
 	server_name pma.garona;
 
@@ -7,6 +7,9 @@ server {
 
 	location / {
 		index index.php;
+
+		allow 127.0.0.1;
+		deny all;
 
 		if ($request_filename ~ "\.php$") {
 			fastcgi_pass   127.0.0.1:9000;
