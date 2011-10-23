@@ -50,8 +50,8 @@ if &t_Co == 256
 	hi PmenuSel ctermbg=237
 	hi phpComment ctermfg=251 ctermbg=236
 	hi phpFunctions ctermfg=45
-	hi phpClassesTag ctermfg=219
-	hi phpFunctionsTag ctermfg=75
+	hi phpClassesTag cterm=bold ctermfg=219
+	hi phpFunctionsTag cterm=bold ctermfg=75
 endif
 
 set cursorline
