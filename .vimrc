@@ -80,6 +80,8 @@ set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 set statusline+=   "cursor line/total lines
 
 set tags=~/tags
+let g:easytags_file = '~/.vim/tags'
+let g:easytags_dynamic_files = 1
 
 if filereadable(expand('~/.vim/after/completion.vim'))
 	source ~/.vim/after/completion.vim
