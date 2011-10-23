@@ -48,6 +48,8 @@ if &t_Co == 256
 	hi LineNr   ctermbg=232 ctermfg=246
 	hi Pmenu    ctermbg=235
 	hi PmenuSel ctermbg=237
+	hi phpComment ctermfg=251 ctermbg=236
+	hi phpFunctions ctermfg=45
 endif
 
 set cursorline
