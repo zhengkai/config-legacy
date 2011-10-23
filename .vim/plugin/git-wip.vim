@@ -1,0 +1,1 @@
+/home/zhengkai/sh/git-wip/vim/plugin/git-wip.vim
