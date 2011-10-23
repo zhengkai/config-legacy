@@ -79,9 +79,7 @@ set statusline+=%=      "left/right separator
 set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 set statusline+=   "cursor line/total lines
 
-set tags=~/tags,~/.vimtags
-let g:easytags_file = '~/.vimtags'
-let g:easytags_dynamic_files = 1
+set tags=~/tags
 
 set undodir=~/.vim/undo
 set undofile
