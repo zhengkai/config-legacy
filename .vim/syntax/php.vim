@@ -451,13 +451,13 @@ syn keyword phpType bool[ean] int[eger] real double float string array object nu
 syn match phpOperator       "[-=+%^&|*!.~?:]" contained display
 syn match phpOperator       "[-+*/%^&|.]="  contained display
 syn match phpOperator       "/[^*/]"me=e-1  contained display
-syn match phpIdentifier     "\$"  contained display
+syn match phpOperator       "\$"  contained display
 syn match phpOperator       "&&\|\<and\>" contained display
 syn match phpOperator       "||\|\<x\=or\>" contained display
 syn match phpOperator       "[!=<>]=" contained display
 syn match phpOperator       "[<>]"  contained display
 syn match phpMemberSelector "->"  contained display
-syn match phpVarSelector    "\$"  contained display
+syn match phpIdentifier "\$"  contained display
 " highlight object variables inside strings
 syn match phpMethodsVar     "->\h\w*" contained contains=phpMethods,phpMemberSelector display containedin=phpStringDouble
 

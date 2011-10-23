@@ -24,6 +24,7 @@ alias pss="ps aux | grep"
 alias lynx="lynx -display_charset=UTF-8"
 
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -f /tmp/php-error.txt"
+alias chromedesktop="nohup /opt/google/chrome/google-chrome --no-startup-window --proxy-pac-url=file:///home/zhengkai/pac.js >/dev/null 2>&1 &"
 
 alias nginx="sudo /etc/init.d/nginx"
 alias mysqld="sudo service mysql"
