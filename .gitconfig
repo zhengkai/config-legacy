@@ -7,3 +7,5 @@
 	ci = commit
 	br = branch
 	update = checkout master
+[color]
+	ui = true
