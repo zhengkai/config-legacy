@@ -1,0 +1,4 @@
+#!/bin/sh
+git push >/dev/null 2>&1 &
+git push delta >/dev/null 2>&1 &
+
