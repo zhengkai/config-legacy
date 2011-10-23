@@ -83,6 +83,9 @@ set tags=~/tags,~/.vimtags
 let g:easytags_file = '~/.vim/tags'
 let g:easytags_dynamic_files = 1
 
+set undodir=~/.vim/undo
+set undofile
+
 if filereadable(expand('~/.vim/after/completion.vim'))
 	source ~/.vim/after/completion.vim
 endif
