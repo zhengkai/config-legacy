@@ -1,4 +1,6 @@
 .vim/session/*
 .vim/undo/*
 .vim/.netrwhist
+*.swp
+*~
 
