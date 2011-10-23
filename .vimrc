@@ -65,7 +65,7 @@ function! FileSize()
 endfunction
 
 set statusline=%t\ \ \    "tail of the filename
-set statusline+=%P\ \ \   "percent through file
+set statusline+=%P\ %4l\ \ \   "percent through file
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}]   "file format
 set statusline+=\ %h      "help file flag
@@ -87,6 +87,11 @@ au FileType php,css,js so ~/.vim/autocomplete.vim
 au FileType css set omnifunc=csscomplete#CompleteCSS
 
 au BufRead *.php,*.css,*.js,*.html,*.txt,*.conf,*.ini set fileformat=unix
+
+augroup git-wip
+	autocmd!
+	autocmd BufWritePost * :silent !git wip save "WIP from vim" --editor -- "%"
+augroup END
 
 nmap <F1> <nop>
 
