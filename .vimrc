@@ -68,18 +68,18 @@ function! FileSize()
 	return ' [filesize=' . bytes . ']'
 endfunction
 
-set statusline=%t\ \ \    "tail of the filename
+set statusline=%15t\ \ \    "tail of the filename
 set statusline+=%P\ %4l\ \ \   "percent through file
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}]   "file format
-set statusline+=\ %h      "help file flag
 set statusline+=\ %m      "modified flag
 set statusline+=\ %r      "read only flag
 set statusline+=\ %y      "filetype
 set statusline+=%{FileSize()}
-set statusline+=%=      "left/right separator
-set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
-set statusline+=   "cursor line/total lines
+set statusline+=\ %h      "help file flag
+"set statusline+=%=      "left/right separator
+"set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
+"set statusline+=   "cursor line/total lines
 
 set tags=~/.vimtags,~/tags
 let g:easytags_always_enabled = 1
