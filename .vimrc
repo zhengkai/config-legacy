@@ -88,10 +88,5 @@ au FileType css set omnifunc=csscomplete#CompleteCSS
 
 au BufRead *.php,*.css,*.js,*.html,*.txt,*.conf,*.ini set fileformat=unix
 
-augroup git-wip
-	autocmd!
-	autocmd BufWritePost * :silent !git wip save "WIP from vim" --editor -- "%"
-augroup END
-
 nmap <F1> <nop>
 
