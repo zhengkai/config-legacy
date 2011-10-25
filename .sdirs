@@ -3,9 +3,6 @@ export DIR_template="/www/shiva/template"
 export DIR_www="/www/shiva/www"
 export DIR_inc="/www/shiva/inc"
 export DIR_res="/www/shiva/res"
-<<<<<<< HEAD
 export DIR_nginx="/etc/nginx/sites-enabled"
 export DIR_pet="/www/pet"
-=======
 export DIR_debug="/www/pet/www/debug"
->>>>>>> 60bd6f176ca422cc4826694bb2ddfec3753e3e83
