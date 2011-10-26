@@ -1,15 +1,11 @@
 #!/bin/sh
 scandir="/www/pet"
 
-ctags --languages=PHP \
-	--extra=+q \
-	--exclude=*.js \
-	--exclude=*.jpg \
-	--exclude=*.png \
+ctags --languages=php \
 	--sort=yes \
+	--extra=+q \
 	--fields=+l \
 	--tag-relative=yes \
-	--language-force=PHP \
 	-f ~/tags \
 	-R $scandir
 
