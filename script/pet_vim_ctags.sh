@@ -3,6 +3,9 @@ scandir="/www/pet"
 
 ctags --languages=PHP \
 	--extra=+q \
+	--exclude=*.js \
+	--exclude=*.jpg \
+	--exclude=*.png \
 	--sort=yes \
 	--fields=+l \
 	--tag-relative=yes \
