@@ -81,6 +81,18 @@ set statusline+=\ %h      "help file flag
 "set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 "set statusline+=   "cursor line/total lines
 
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+cs a /tmp/cscope.out
+
+nmap s :cs find s =expand("") :cw    "查找声明
+nmap g :cs find g =expand("") :cw     "查找定义
+nmap c :cs find c =expand("") :cw    "查找调用
+nmap t :cs find t =expand("") :cw    "查找指定的字符串
+nmap e :cs find e =expand("") :cw    "查找egrep模式，相当于egrep功能，但查找速度快多了
+nmap f :cs find f =expand("") :cw    "查找文件
+nmap i :cs find i ^=expand("")$ :cw   "查找包含本文件的文件
+nmap d :cs find d =expand("")  :cw   "查找本函数调用的函数
+
 set tags=~/.vimtags,~/tags
 let g:easytags_always_enabled = 1
 
