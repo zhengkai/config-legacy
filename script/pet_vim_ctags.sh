@@ -1,7 +1,7 @@
 #!/bin/sh
 scandir="/www/pet"
 
-ctags --languages=-JavaScript \
+ctags --languages=PHP \
 	--extra=+q \
 	--sort=yes \
 	--fields=+l \
