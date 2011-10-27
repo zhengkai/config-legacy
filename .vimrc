@@ -81,6 +81,9 @@ set statusline+=\ %h      "help file flag
 "set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 "set statusline+=   "cursor line/total lines
 
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+cs a /tmp/cscope.out
+
 set tags=~/.vimtags,~/tags
 let g:easytags_always_enabled = 1
 
@@ -93,6 +96,7 @@ endif
 
 au FileType php,css,js so ~/.vim/autocomplete.vim
 au FileType css set omnifunc=csscomplete#CompleteCSS
+au FileType php set omnifunc=phpcomplete#CompletePHP
 
 au BufRead *.php,*.css,*.js,*.html,*.txt,*.conf,*.ini set fileformat=unix
 

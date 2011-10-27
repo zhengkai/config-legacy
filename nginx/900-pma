@@ -1,9 +1,11 @@
 server {
 	listen   80;
+	listen 127.0.0.1:80;
+
 	server_name pma;
 	server_name pma.garona;
 
-	root /usr/share/phpmyadmin;
+	root /www/pma;
 
 	location / {
 		index index.php;
