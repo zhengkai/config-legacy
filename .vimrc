@@ -98,6 +98,7 @@ endif
 au FileType php,css,js so ~/.vim/autocomplete.vim
 au FileType css set omnifunc=csscomplete#CompleteCSS
 au FileType php set omnifunc=phpcomplete#CompletePHP
+au FileType php setlocal keywordprg=pman
 
 au BufRead *.php,*.css,*.js,*.html,*.txt,*.conf,*.ini set fileformat=unix
 
