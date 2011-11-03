@@ -1,9 +1,9 @@
 alias gi='git add ./`git rev-parse --show-cdup` && git ci -a'
 
 # alias ls="ls -lha --color=auto"
-alias ls="ls -lh --color=auto"
-alias ll="ls -lA"
-alias la="ls -A"
+alias ls="ls --color=auto"
+alias ll="ls -lh"
+alias la="ls -lA"
 alias l="ls -CF"
 
 alias date="date +'%Y-%m-%d %H:%M:%S'"
