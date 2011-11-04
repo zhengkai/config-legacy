@@ -1,5 +1,0 @@
-[Desktop Entry]
-Type=Application
-Terminal=false
-Exec=/opt/google/chrome/google-chrome --no-startup-window --proxy-pac-url=file:///home/zhengkai/pac.js
-Name=Google Chrome
