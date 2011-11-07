@@ -3,4 +3,5 @@
 .vim/.netrwhist
 *.swp
 *~
+nohup.out
 
