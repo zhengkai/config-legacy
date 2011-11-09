@@ -85,8 +85,8 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 cs a /tmp/cscope.out
 
 set tags=~/.vimtags,~/tags
-let g:easytags_always_enabled = 1
 let g:easytags_include_members = 1
+let g:easytags_auto_update = 0
 
 set undodir=~/.vim/undo
 set undofile
