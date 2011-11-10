@@ -88,8 +88,6 @@ set tags=~/.vimtags,~/tags
 let g:easytags_include_members = 1
 let g:easytags_auto_update = 0
 
-"set cmdheight=10
-
 set undodir=~/.vim/undo
 set undofile
 
