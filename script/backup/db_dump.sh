@@ -1,11 +1,17 @@
 #!/bin/sh
-bakname="/backup/pet/pet_db_`date +%y%m%d_%H%M`.sql.gz"
+bakname="/backup/1pet/pet_db_`date +%y%m%d_%H%M`.sql.gz"
 
 dir=`dirname $bakname`
 
-if [ ! -f $dir ] then
+if [ ! -e $dir ];
+then
+	echo $dir
+fi
 
-echo $dir
+if [ ! -d $dir ];
+then
+	exit 1
+fi
 
 #find $dir -mtime +35 -exec rm -f {} \;
 
