@@ -1,6 +1,6 @@
 #!/bin/sh
-bakname="/backup/1pet/pet_db_`date +%y%m%d_%H%M`.sql.gz"
-database="pet"
+database="redmine"
+bakname="/backup/{$redmine}/{$redmine}_db_`date +%y%m%d_%H%M`.sql.gz"
 
 dir=`dirname $bakname`
 
@@ -21,5 +21,5 @@ then
 	find $dir -mtime +36 -exec rm -f {} \;
 fi
 
-mysqldump --databases $database | gzip --best > $backname
+mysqldump --databases $database | gzip --best > $bakname
 
