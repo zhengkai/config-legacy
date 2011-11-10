@@ -1,11 +1,12 @@
 #!/bin/sh
 bakname="/backup/1pet/pet_db_`date +%y%m%d_%H%M`.sql.gz"
+database="pet"
 
 dir=`dirname $bakname`
 
 if [ ! -e $dir ];
 then
-	echo $dir
+	mkdir -p $dir
 fi
 
 if [ ! -d $dir ];
@@ -13,7 +14,12 @@ then
 	exit 1
 fi
 
-#find $dir -mtime +35 -exec rm -f {} \;
+file_count=`\ls $dir | wc -l`
 
-#/usr/bin/mysqldump --default-character-set=gbk --set-charset=TRUE --add-drop-database --add-drop-table --add-locks --hex-blob --quick --user=user --password=jtmu3fGvGJ15hL7 --databases iconfans_bbs | gzip --best > $bakname
+if [ $file_count -gt 36 ];
+then
+	find $dir -mtime +36 -exec rm -f {} \;
+fi
+
+mysqldump --databases $database | gzip --best > $backname
 
