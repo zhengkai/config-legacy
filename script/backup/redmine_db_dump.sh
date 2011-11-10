@@ -1,6 +1,6 @@
 #!/bin/sh
-database="redmine"
-bakname="/backup/{$redmine}/{$redmine}_db_`date +%y%m%d_%H%M`.sql.gz"
+database="redmine_default"
+bakname="/backup/${database}/${database}_db_`date +%y%m%d_%H%M`.sql.gz"
 
 dir=`dirname $bakname`
 
