@@ -5,6 +5,7 @@ build-essential
 ctags
 curl
 gawk
+gettext
 git
 htop
 ifstat
