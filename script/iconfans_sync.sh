@@ -13,8 +13,8 @@ touch $run_file
 
 echo `date +'%Y-%m-%d %H:%M:%S'` > /tmp/iconfans_rsync_run
 
-/usr/bin/rsync --bwlimit=200 --temp-dir=/tmp --partial -vzrtopg -e ssh iconfans:/var/www/iconfans/ ~/iconfans/
-/usr/bin/rsync --bwlimit=200 --temp-dir=/tmp --partial -vzrtopg -e ssh iconfans:/backup/ ~/iconfans_db/
+#/usr/bin/rsync --bwlimit=200 --temp-dir=/tmp --partial -vzrtopg -e ssh iconfans:/var/www/iconfans/ ~/iconfans/
+/usr/bin/rsync --bwlimit=200 --temp-dir=/tmp --partial -vzrtopg -e ssh iconfans:/backup/ /backup/
 
 sleep 5
 
