@@ -1,6 +1,9 @@
 export TERM=linux
 export TERM=xterm-256color
 
+export EDITOR=vim
+#export PAGER=vimpager
+
 settitle() {
 	printf "\033k$1\033\\"
 }
@@ -70,7 +73,8 @@ if [ -f ~/.zhengkai_alias ]; then
     . ~/.zhengkai_alias
 fi
 
-if [[ -n $SSH_TTY ]] || [[ -n $GDMSESSION ]];
+#if [[ -n $SSH_TTY ]] || [[ -n $GDMSESSION ]];
+if [ -n $GDMSESSION ];
 then
 	tmux
 fi

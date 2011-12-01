@@ -1,4 +1,4 @@
-keycode  49 = XF86Search asciitilde
+keycode  49 = XF86AudioMute asciitilde
 keycode 108 = grave asciitilde
 
 keycode 112 = Home
@@ -8,5 +8,4 @@ keycode 115 = Next
 keycode 110 = Prior
 
 keycode  78 = Print
-keycode 127 = XF86AudioMute
 

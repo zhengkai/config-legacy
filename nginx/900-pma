@@ -1,9 +1,14 @@
 server {
 	listen   80;
-	listen 127.0.0.1:80;
+
+	access_log /www/log/pma.access.log;
+	error_log /www/log/pma.error.log;
 
 	server_name pma;
 	server_name pma.garona;
+	server_name pma.iconfans;
+	server_name pma.delta;
+	server_name pma.koala;
 
 	root /www/pma;
 

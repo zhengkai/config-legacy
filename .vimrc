@@ -82,7 +82,7 @@ set statusline+=\ %h      "help file flag
 "set statusline+=   "cursor line/total lines
 
 set cscopequickfix=s-,c-,d-,i-,t-,e-
-cs a /tmp/cscope.out
+"cs a /tmp/cscope.out
 
 set tags=~/.vimtags,~/tags
 let g:easytags_include_members = 1

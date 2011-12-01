@@ -1,3 +1,8 @@
+alias emerge="sudo emerge"
+alias update-grub="sudo grub-install --no-floppy /dev/sdc"
+alias etc-update="sudo etc-update"
+alias fpm="sudo /etc/init.d/php-fpm"
+
 alias gi='git add ./`git rev-parse --show-cdup` && git ci -a'
 alias gia='gi --amend'
 

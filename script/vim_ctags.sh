@@ -1,5 +1,5 @@
 #!/bin/sh
-scandir="/www/pet"
+scandir="/www/soulogic.com"
 
 ctags --languages=php \
 	--totals=yes \
