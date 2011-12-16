@@ -74,8 +74,8 @@ if [ -f ~/.zhengkai_alias ]; then
 fi
 
 #if [[ -n $SSH_TTY ]] || [[ -n $GDMSESSION ]];
-if [ -n $GDMSESSION ];
-then
-	tmux
-fi
+#if [ -n $GDMSESSION ];
+#then
+#	tmux
+#fi
 

@@ -2,14 +2,14 @@
 
 # copy from http://chunzi.me/post/782
 
-user=platinum
-base_dir=~/github
+user="platinum"
+target_path="${HOME}/backup/github"
 
-if [ ! -d $base_dir ]; then
-	mkdir $base_dir
+if [ ! -d $target_path ]; then
+	mkdir $target_path
 fi
 
-cd $base_dir
+cd $target_path
 
 list=(`curl -s http://github.com/api/v2/yaml/repos/show/$user | grep ':url:' | awk -F/ '{print $NF}'`);
 
@@ -20,7 +20,7 @@ do
 	echo
 	echo -e \\t$repo
 	echo
-	echo $base_dir/$repo.git
+	echo $target_path/$repo.git
 
 	if [ ! -d $repo.git ]; then
 		git clone --bare $url/$repo.git $repo.git
