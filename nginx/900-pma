@@ -9,6 +9,7 @@ server {
 	server_name pma.iconfans;
 	server_name pma.delta;
 	server_name pma.koala;
+	server_name pma.monk;
 
 	root /www/pma;
 
