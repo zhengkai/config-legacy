@@ -9,4 +9,5 @@ keycode 115 = Next
 keycode 110 = Prior
 
 keycode  78 = Print
+keycode  77 = XF86AudioPlay
 
