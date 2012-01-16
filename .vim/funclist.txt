@@ -5,6 +5,8 @@ __FUNCTION__
 __LINE__
 __METHOD__
 __NAMESPACE__
+igbinary_serialize
+igbinary_unserialize
 abstract
 and
 array
@@ -8404,5 +8406,3 @@ zip_open
 zip_read
 zlib_get_coding_type
 __halt_compiler
-igbinary_serialize
-igbinary_unserialize
