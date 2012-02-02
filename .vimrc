@@ -86,7 +86,7 @@ set statusline+=\ %h      "help file flag
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 "cs a /tmp/cscope.out
 
-set tags=~/.vimtags,~/tags
+set tags=/tmp/zuo_tags
 let g:easytags_include_members = 1
 let g:easytags_auto_update = 0
 

@@ -5,6 +5,7 @@ __FUNCTION__
 __LINE__
 __METHOD__
 __NAMESPACE__
+fastcgi_finish_request
 igbinary_serialize
 igbinary_unserialize
 abstract
