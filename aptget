@@ -3,6 +3,7 @@ autossh
 dkms
 bison
 build-essential
+libpcre3-dev
 ctags
 curl
 gawk

@@ -5,6 +5,8 @@ __FUNCTION__
 __LINE__
 __METHOD__
 __NAMESPACE__
+igbinary_serialize
+igbinary_unserialize
 abstract
 and
 array

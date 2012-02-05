@@ -18,6 +18,8 @@ set shiftwidth=4
 set showmatch
 set number
 
+set fencs=utf-8,cp936
+
 autocmd BufWritePre * :%s/\s\+$//e
 
 filetype plugin on
