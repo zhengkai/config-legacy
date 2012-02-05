@@ -7,9 +7,8 @@ server {
 	server_name pma;
 	server_name pma.garona;
 	server_name pma.iconfans;
-	server_name pma.delta;
-	server_name pma.koala;
 	server_name pma.monk;
+	server_name pma.freya;
 
 	root /www/pma;
 
