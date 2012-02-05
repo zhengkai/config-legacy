@@ -4,6 +4,7 @@ dkms
 bison
 build-essential
 libpcre3-dev
+trash-cli
 ctags
 curl
 gawk
