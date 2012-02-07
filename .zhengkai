@@ -4,11 +4,10 @@ export TERM=xterm-256color
 export EDITOR=vim
 #export PAGER=vimpager
 
+HOST="\h";
 if [[ -n $SSH_CONNECTION ]];
 then
 	HOST="\[\033[1;38;5;210m\]\h\[\033[00m\]";
-else
-	HOST="\h";
 fi
 
 ssh() {
@@ -27,15 +26,25 @@ parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ [ \1$(parse_git_dirty) ]/"
 }
 
-export PS1="\n\[\033[1;38;5;112m\]\D{%I:%M:%S %p}\[\033[00m\] \[\033[38;5;39m\]\u@$HOST \[\033[1;38;5;39m\]\w\[\033[00m\] \[\033[38;5;39m\]"'$(parse_git_branch)'"\[\033[00m\]\n\[\033[38;5;208m\]»\[\033[00m\] "
+
+PS1_TIME="\n\[\033[1;38;5;112m\]\D{%I:%M:%S %p}\[\033[00m\]"
+PS1_HOST=" \[\033[38;5;39m\]\u@$HOST "
+PS1_PWD="\[\033[1;38;5;39m\]\w\[\033[00m\]"
+
+PS1_GIT=" \[\033[38;5;39m\]"'$(parse_git_branch)'"\[\033[00m\]"
+PS1_PROMPT="\n \[\033[38;5;208m\]»\[\033[00m\] "
 
 if [[ -n $TMUX || -n $TERMCAP ]];
 then
 	settitle() {
 		printf "\033]2;$1\033\\"
 	}
-	PS1='$(settitle $PWD)'$PS1;
+#	PS1_SET_TITLE='$(settitle $PWD)';
 fi
+
+export PS1=$PS1_SET_TITLE$PS1_TIME$PS1_HOST$PS1_PWD$PS1_GIT$PS1_PROMPT
+#export PS1="\n\[\033[1;38;5;112m\]\D{%I:%M:%S %p}\[\033[00m\]\n"
+#export PS1="\n\[\033[1;38;5;112m\]\D{%I:%M:%S %p}\[\033[00m\] \[\033[38;5;39m\]\u@$HOST \[\033[1;38;5;39m\]\w\[\033[00m\] \[\033[38;5;39m\]"'$(parse_git_branch)'"\[\033[00m\]\n\[\033[38;5;208m\]»\[\033[00m\] "
 
 export SDIRS=~/conf/.sdirs
 if [ -f ~/conf/inc/bashmarks/bashmarks.sh ]; then
