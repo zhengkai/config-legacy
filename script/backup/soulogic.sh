@@ -1,6 +1,6 @@
 #!/bin/sh
 name="soulogic"
-source_path="delta:/backup/"
+source_path="freya:~/backup/soulogic/"
 target_path="${HOME}/backup/${name}"
 
 run_file="/tmp/${name}_rsync"

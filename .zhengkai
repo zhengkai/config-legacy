@@ -4,33 +4,36 @@ export TERM=xterm-256color
 export EDITOR=vim
 #export PAGER=vimpager
 
-settitle() {
-	printf "\033]2;$1\033\\"
-}
+if [[ -n $SSH_CONNECTION ]];
+then
+	HOST="\[\033[1;38;210m\]\h\[\033[00m\]";
+else
+	HOST="\h";
+fi
 
 ssh() {
 	settitle "SSH $*"
 	command ssh "$@"
 }
 
-function parse_git_dirty {
+parse_git_dirty() {
 	i=`(git status -s | wc -l) 2> /dev/null`
 	if [ $i -gt 0 ]; then
 		echo " ] [ $i \/ `git diff | wc -l`"
 	fi
 }
 
-function parse_git_branch {
+parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ [ \1$(parse_git_dirty) ]/"
 }
 
-export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
-
-PS1='\n\[\033[38;5;112m\]\[\033[1m\]\D{%I:%M:%S %p}\[\033[00m\] \[\033[38;5;39m\]\u@\h \[\033[1m\]\w\[\033[00m\] \[\033[38;5;39m\]$(parse_git_branch)\[\033[00m\]
- \[\033[38;5;208m\]»\[\033[00m\] '
+export PS1="\n\[\033[38;5;112m\]\[\033[1m\]\D{%I:%M:%S %p}\[\033[00m\] \[\033[38;5;39m\]\u@$HOST \[\033[1;38;39m\]\w\[\033[00m\] \[\033[38;5;39m\]"'$(parse_git_branch)'"\[\033[00m\]\n\[\033[38;5;208m\]»\[\033[00m\] "
 
 if [[ -n $TMUX || -n $TERMCAP ]];
 then
+	settitle() {
+		printf "\033]2;$1\033\\"
+	}
 	PS1='$(settitle $PWD)'$PS1;
 fi
 
@@ -44,8 +47,8 @@ export GOARCH=amd64
 export GOOS=linux
 export PATH="/usr/local/bin:/usr/bin:/bin:/sbin:$GOROOT/bin"
 
-set HTTP_PROXY=localhost:8118
-set HTTPS_PROXY=localhost:8118
+# set HTTP_PROXY=localhost:8118
+# set HTTPS_PROXY=localhost:8118
 
 case "$SSH_TTY" in
 /dev/pts*)
