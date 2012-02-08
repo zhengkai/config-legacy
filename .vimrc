@@ -105,4 +105,5 @@ au FileType php setlocal keywordprg=pman
 au BufRead *.php,*.css,*.js,*.html,*.txt,*.conf,*.ini set fileformat=unix
 
 nmap <F1> <nop>
+nmap q <nop>
 
