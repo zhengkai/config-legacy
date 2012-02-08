@@ -7,7 +7,7 @@ export EDITOR=vim
 HOST="\h";
 if [[ -n $SSH_CONNECTION ]];
 then
-	HOST="\[\033[1;38;5;210m\]\h\[\033[00m\]";
+	HOST="\[\033[1;38;5;217m\]\h\[\033[00m\]";
 fi
 
 settitle() {
@@ -83,20 +83,14 @@ shopt -s checkwinsize
 
 # man color
 #export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;33m'
+export LESS_TERMCAP_md=$'\E[1;38;5;222m'
 export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_so=$'\E[30;48;5;32m'
 export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
+export LESS_TERMCAP_us=$'\E[38;5;117m'
 
 if [ -f ~/.zhengkai_alias ]; then
     . ~/.zhengkai_alias
 fi
-
-#if [[ -n $SSH_TTY ]] || [[ -n $GDMSESSION ]];
-#if [ -n $GDMSESSION ];
-#then
-#	tmux
-#fi
 
