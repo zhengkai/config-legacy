@@ -7,7 +7,7 @@ export EDITOR=vim
 HOST="\h";
 if [[ -n $SSH_CONNECTION ]];
 then
-	HOST="\[\033[1;38;5;217m\]\h\[\033[00m\]";
+	HOST="\[\033[38;5;217m\]\h\[\033[00m\]";
 fi
 
 settitle() {
