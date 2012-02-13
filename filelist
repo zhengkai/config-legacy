@@ -1,5 +1,6 @@
 .tmux.conf
 .curlrc
+.siegerc
 .gitconfig
 .inputrc
 .my.cnf

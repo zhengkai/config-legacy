@@ -2,6 +2,7 @@ alias todo="vi ~/TODO"
 
 alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
+alias wondershaper="sudo wondershaper"
 alias update-grub="sudo grub-install --no-floppy /dev/sdc"
 alias etc-update="sudo etc-update"
 alias fpm="sudo /etc/init.d/php-fpm"
