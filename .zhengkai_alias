@@ -4,7 +4,6 @@ alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
 alias update-grub="sudo grub-install --no-floppy /dev/sdc"
 alias etc-update="sudo etc-update"
-alias fpm="sudo /etc/init.d/php-fpm"
 
 alias rm="trash"
 
