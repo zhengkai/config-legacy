@@ -37,7 +37,7 @@ PS1_PWD="\[\033[1;38;5;39m\]\w\[\033[00m\]"
 PS1_GIT="\[\033[38;5;39m\]"'$(parse_git_branch)'"\[\033[00m\]"
 PS1_PROMPT="\n \[\033[38;5;208m\]»\[\033[00m\] "
 
-if [[ -n $TMUX || -n $TERMCAP ]];
+if [[ -n $TMUX ]];
 then
 	PS1_SET_TITLE='$(settitle $PWD)';
 	printf '\033Ptmux;\033\033]12;green\007\033\\'
