@@ -1,4 +1,9 @@
 #!/bin/sh
+cd "${HOME}/backup/xingqu/xq.git"
+/usr/bin/git remote update
+cd "${HOME}/backup/xingqu/doc.git"
+/usr/bin/git remote update
+
 name="xingqu"
 source_path="garona:~/backup/redmine/"
 target_path="${HOME}/backup/xingqu/redmine_db"
