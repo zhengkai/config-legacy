@@ -70,6 +70,9 @@ function! FileSize()
 	return ' [filesize=' . bytes . ']'
 endfunction
 
+set clipboard=unnamed
+
+
 set statusline=%15t\ \ \    "tail of the filename
 set statusline+=%P\ %4l\ \ \   "percent through file
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
@@ -80,7 +83,7 @@ set statusline+=\ %y      "filetype
 set statusline+=%{FileSize()}
 set statusline+=\ %h      "help file flag
 "set statusline+=%=      "left/right separator
-"set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
+set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
 "set statusline+=   "cursor line/total lines
 
 set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -107,16 +110,6 @@ au BufRead *.php,*.css,*.js,*.html,*.txt,*.conf,*.ini set fileformat=unix
 nmap <F1> <nop>
 nmap q <nop>
 
-let tmux_pre = "\033Ptmux;\033\033]12;"
-let tmux_end = "\007\033\\"
-"printf '\033Ptmux;\033\033]12;green\007\033\\'
-
-
-if &term =~ "xterm\\|rxvt"
-"	let &t_SI = tmux_pre."orange".tmux_end
-"	let &t_EI = tmux_pre."cyan".tmux_end
-endif
-
-"let &t_SI = "\<Esc>]12;orange\x7"
-"let &t_EI = "\<Esc>]12;cyan\x7"
+"set colorcolumn=80
+"hi ColorColumn ctermbg=234
 
