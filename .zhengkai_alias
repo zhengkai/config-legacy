@@ -28,7 +28,8 @@ alias dus="du --max-depth=0 -h"
 
 alias pwgen="pwgen -cns 75 40"
 
-alias grep='grep --color=auto'
+alias grep='grep --color=always'
+alias less='less -r'
 
 alias pss="ps aux | grep"
 
@@ -36,8 +37,9 @@ alias lynx="lynx -display_charset=UTF-8"
 
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -f /tmp/php-error.txt"
 
+alias service="sudo service"
 alias nginx="sudo /etc/init.d/nginx"
-alias mysqld="sudo service mysql"
+alias mysqld="service mysql"
 alias fpm="sudo /etc/init.d/php5-fpm"
 
 alias so="source"
