@@ -18,7 +18,12 @@ set shiftwidth=4
 set showmatch
 set number
 
-set fencs=utf-8,cp936
+set nobomb
+
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,cp936
+set ambiwidth=double
 
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -71,7 +76,6 @@ function! FileSize()
 endfunction
 
 set clipboard=unnamed
-
 
 set statusline=%15t\ \ \    "tail of the filename
 set statusline+=%P\ %4l\ \ \   "percent through file
