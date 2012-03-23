@@ -2,6 +2,8 @@ alias todo="vi ~/TODO"
 
 alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
+alias apt-get="sudo apt-get"
+alias apt-cache="sudo apt-cache"
 alias wondershaper="sudo wondershaper"
 alias update-grub="sudo grub-install --no-floppy /dev/sdc"
 alias etc-update="sudo etc-update"
@@ -41,8 +43,6 @@ alias service="sudo service"
 alias nginx="sudo /etc/init.d/nginx"
 alias mysqld="service mysql"
 alias fpm="sudo /etc/init.d/php5-fpm"
-
-alias so="source"
 
 alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)"
 
