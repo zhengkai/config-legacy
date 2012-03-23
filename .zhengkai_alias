@@ -1,12 +1,16 @@
 alias todo="vi ~/TODO"
 
+if [ `hostname` = "Garona" ]; then
+	alias make="make -j4"
+fi;
+
 alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
 alias apt-get="sudo apt-get"
 alias apt-cache="sudo apt-cache"
 alias wondershaper="sudo wondershaper"
-alias update-grub="sudo grub-install --no-floppy /dev/sdc"
-alias etc-update="sudo etc-update"
+#alias update-grub="sudo grub-install --no-floppy /dev/sdc"
+#alias etc-update="sudo etc-update"
 
 alias rm="trash"
 
@@ -30,19 +34,19 @@ alias dus="du --max-depth=0 -h"
 
 alias pwgen="pwgen -cns 75 40"
 
-alias grep='grep --color=always'
+alias grep='grep -I --color=always'
 alias less='less -r'
 
 alias pss="ps aux | grep"
 
 alias lynx="lynx -display_charset=UTF-8"
 
-alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -f /tmp/php-error.txt"
+alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -n 30 -f /tmp/php-error.txt"
 
 alias service="sudo service"
-alias nginx="sudo /etc/init.d/nginx"
+alias nginx="service nginx"
 alias mysqld="service mysql"
-alias fpm="sudo /etc/init.d/php5-fpm"
+alias fpm="service php5-fpm"
 
 alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)"
 
@@ -53,14 +57,14 @@ alias tmux='if [[ -z $TMUX && -z $TERMCAP ]]; then (tmux -2 attach -t default_lo
 ex () {
 	if [ -f $1 ] ; then
 		case $1 in
-			*.tar.bz2)   tar xjf $1        ;;
-			*.tar.gz)    tar xzf $1     ;;
-			*.bz2)       bunzip2 $1       ;;
+			*.tar.bz2)   tar xjf $1   ;;
+			*.tar.gz)    tar xzf $1   ;;
+			*.bz2)       bunzip2 $1   ;;
 			*.rar)       rar x $1     ;;
-			*.gz)        gunzip $1     ;;
-			*.tar)       tar xf $1        ;;
-			*.tbz2)      tar xjf $1      ;;
-			*.tgz)       tar xzf $1       ;;
+			*.gz)        gunzip $1    ;;
+			*.tar)       tar xf $1    ;;
+			*.tbz2)      tar xjf $1   ;;
+			*.tgz)       tar xzf $1   ;;
 			*.zip)       unzip $1     ;;
 			*.Z)         uncompress $1  ;;
 			*.7z)        7z x $1    ;;
