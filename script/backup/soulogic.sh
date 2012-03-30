@@ -17,6 +17,8 @@ fi
 
 touch $run_file
 
+find $target_path -mtime +35 -exec rm -f {} \;
+
 echo `date +'%Y-%m-%d %H:%M:%S'` > $time_file
 
 /usr/bin/rsync --temp-dir=/tmp --partial -vzrtopg -e ssh $source_path $target_path
