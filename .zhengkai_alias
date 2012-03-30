@@ -16,6 +16,7 @@ alias rm="trash"
 
 alias gi='git add ./`git rev-parse --show-cdup` && git ci -a'
 alias gia='gi --amend'
+alias gb='git br'
 
 # alias ls="ls -lha --color=auto"
 alias ls="ls --color=auto"
