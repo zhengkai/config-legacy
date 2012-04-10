@@ -35,7 +35,7 @@ alias dus="du --max-depth=0 -h"
 
 alias pwgen="pwgen -cns 75 40"
 
-alias grep='grep -I --color=always'
+alias grep='grep -n -I --color=always'
 alias less='less -r'
 
 alias pss="ps aux | grep"

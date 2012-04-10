@@ -23,10 +23,22 @@ ssh() {
 }
 
 parse_git_dirty() {
-	i=`(git status -s | wc -l) 2> /dev/null`
-	if [ $i -gt 0 ]; then
-		echo " ] [ $i \/ `git diff | wc -l`"
+
+	#file=`echo $s | \grep -o '[0-9]\+ files changed' | \grep -o '[0-9]\+'`
+
+	file=`(git status -s | wc -l) 2> /dev/null`
+	if [ $file -lt 1 ]; then
+		return
 	fi
+
+	s=`git diff --shortstat 2> /dev/null`
+	addline=`echo $s | \grep -o '[0-9]\+ insertions(+)' | \grep -o '[0-9]\+'`
+	subline=`echo $s | \grep -o '[0-9]\+ deletions(-)' | \grep -o '[0-9]\+'`
+	if [ -z $addline ]; then
+		return
+	fi
+	let count="$addline+$subline"
+	echo " ] [ $file \/ $count"
 }
 
 parse_git_branch() {
