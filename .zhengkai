@@ -32,11 +32,12 @@ parse_git_dirty() {
 	fi
 
 	s=`git diff --shortstat 2> /dev/null`
-	addline=`echo $s | \grep -o '[0-9]\+ insertions(+)' | \grep -o '[0-9]\+'`
-	subline=`echo $s | \grep -o '[0-9]\+ deletions(-)' | \grep -o '[0-9]\+'`
-	if [ -z $addline ]; then
+	if [ -z "$s" ]; then
 		return
 	fi
+
+	addline=`echo $s | \grep -o '[0-9]\+ insertions(+)' | \grep -o '[0-9]\+'`
+	subline=`echo $s | \grep -o '[0-9]\+ deletions(-)' | \grep -o '[0-9]\+'`
 	let count="$addline+$subline"
 	echo " ] [ $file \/ $count"
 }

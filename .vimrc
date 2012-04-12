@@ -20,6 +20,9 @@ set number
 
 set nobomb
 
+set display=lastline
+syntax sync fromstart
+
 set encoding=utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,cp936
