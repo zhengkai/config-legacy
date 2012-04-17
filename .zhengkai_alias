@@ -4,6 +4,7 @@ if [ `hostname` = "Garona" ]; then
 	alias make="make -j4"
 fi;
 
+alias sudo='sudo '
 alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
 alias apt-get="sudo apt-get"

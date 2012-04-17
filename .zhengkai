@@ -33,6 +33,7 @@ parse_git_dirty() {
 
 	s=`git diff --shortstat 2> /dev/null`
 	if [ -z "$s" ]; then
+		echo " ] [ $file"
 		return
 	fi
 
