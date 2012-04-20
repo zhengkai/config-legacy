@@ -5,6 +5,8 @@ export TERM=screen-256color
 export EDITOR=vim
 #export PAGER=vimpager
 
+set -o vi
+
 HOST="\h";
 if [[ -n $SSH_CONNECTION ]];
 then

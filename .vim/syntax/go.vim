@@ -1,1 +1,0 @@
-/home/zhengkai/go/misc/vim/syntax/go.vim

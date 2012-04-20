@@ -1,1 +1,0 @@
-/home/zhengkai/conf/.vim
