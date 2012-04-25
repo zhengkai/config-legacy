@@ -20,6 +20,7 @@ alias gia='gi --amend'
 alias gb='git br'
 alias gd='git diff'
 alias gs='git status'
+alias gc='git co'
 
 # alias ls="ls -lha --color=auto"
 alias ls="ls --color=auto"

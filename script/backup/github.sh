@@ -2,7 +2,7 @@
 
 # copy from http://chunzi.me/post/782
 
-user="platinum"
+user="zhengkai"
 target_path="${HOME}/backup/github"
 
 if [ ! -d $target_path ]; then
