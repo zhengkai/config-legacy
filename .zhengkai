@@ -40,7 +40,14 @@ parse_git_dirty() {
 	fi
 
 	addline=`echo $s | \grep -o '[0-9]\+ insertion' | \grep -o '[0-9]\+'`
+	if [ -z "$addline" ]; then
+		addline=0
+	fi
 	subline=`echo $s | \grep -o '[0-9]\+ deletion' | \grep -o '[0-9]\+'`
+	if [ -z "$subline" ]; then
+		subline=0
+	fi
+
 	let count="$addline+$subline"
 	echo " ] [ $file \/ $count"
 }
