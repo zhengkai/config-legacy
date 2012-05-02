@@ -1,3 +1,5 @@
+#shopt -s expand_aliases
+
 alias todo="vi ~/TODO"
 
 if [ `hostname` = "Garona" ]; then
