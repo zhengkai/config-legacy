@@ -6,7 +6,7 @@ if [ `hostname` = "Garona" ]; then
 	alias make="make -j4"
 fi;
 
-alias sudo='sudo '
+alias sudo="sudo "
 alias vms='vmstat 1'
 alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
@@ -16,6 +16,7 @@ alias wondershaper="sudo wondershaper"
 #alias update-grub="sudo grub-install --no-floppy /dev/sdc"
 #alias etc-update="sudo etc-update"
 
+alias getbt="php ~/conf/script/bt.php"
 alias rm="trash-put"
 
 alias gi='git add ./`git rev-parse --show-cdup` && git ci -a'
