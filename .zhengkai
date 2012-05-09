@@ -7,10 +7,10 @@ export EDITOR=vim
 
 set -o vi
 
-HOST="\h";
+PS1_HOST="\h";
 if [[ -n $SSH_CONNECTION ]];
 then
-	HOST="\[\033[38;5;217m\]\h\[\033[00m\]";
+	PS1_HOST="\[\033[38;5;217m\]\h\[\033[00m\]";
 fi
 
 export CCACHE_DIR=/tmp/ccache
@@ -57,7 +57,12 @@ parse_git_branch() {
 }
 
 PS1_TIME="\n\[\033[1;38;5;112m\]\D{%I:%M:%S %p}\[\033[00m\]"
-PS1_HOST="\[\033[38;5;39m\]\u@$HOST"
+PS1_USER="\u"
+if [[ $USER != "zhengkai" ]];
+then
+	PS1_USER="\[\033[38;5;217m\]$USER\[\033[38;5;39m\]"
+fi
+PS1_HOST="\[\033[38;5;39m\]$PS1_USER@$PS1_HOST"
 PS1_PWD="\[\033[1;38;5;39m\]\w\[\033[00m\]"
 
 PS1_GIT="\[\033[38;5;39m\]"'$(parse_git_branch)'"\[\033[00m\]"
