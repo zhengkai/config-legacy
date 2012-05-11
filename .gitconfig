@@ -6,6 +6,7 @@
 	co = checkout
 	ci = commit
 	br = branch
+	up = checkout master
 	update = checkout master
 [color]
 	ui = true
