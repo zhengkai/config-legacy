@@ -13,8 +13,6 @@ alias emerge="sudo emerge"
 alias apt-get="sudo apt-get"
 alias apt-cache="sudo apt-cache"
 alias wondershaper="sudo wondershaper"
-#alias update-grub="sudo grub-install --no-floppy /dev/sdc"
-#alias etc-update="sudo etc-update"
 
 alias getbt="php ~/conf/script/bt.php"
 alias rm="trash-put"
@@ -26,7 +24,6 @@ alias gd='git diff'
 alias gs='git status'
 alias gc='git co'
 
-# alias ls="ls -lha --color=auto"
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias la="ls -lA"
@@ -37,6 +34,7 @@ alias date="date +'%Y-%m-%d %H:%M:%S'"
 alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
 
 alias top="htop"
+alias df="df -h"
 
 alias du1="du --max-depth=1 -h"
 alias dus="du --max-depth=0 -h"
