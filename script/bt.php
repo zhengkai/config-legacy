@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 $sURL = array_pop($argv);
 

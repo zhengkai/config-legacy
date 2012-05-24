@@ -17,7 +17,7 @@ fi
 
 touch $run_file
 
-find $target_path -mtime +55 -exec rm -f {} \;
+find $target_path -mtime +123 -exec rm -f {} \;
 
 echo `date +'%Y-%m-%d %H:%M:%S'` > $time_file
 
