@@ -1,24 +1,33 @@
 server {
-	listen 80;
 
 	server_name php;
+	server_name php.xq;
+
+	listen   80;
+
+	access_log /www/log/php.access.log;
+	error_log /www/log/php.error.log;
 
 	root /www/manual/php;
 
 	location / {
 		index index.php;
-
-		if ($request_filename ~ "\.php$") {
-			fastcgi_pass   127.0.0.1:9000;
-		}
 	}
+
+	location ~ \.php$ {
+		client_body_in_file_only clean;
+		fastcgi_pass_request_body off;
+		fastcgi_pass unix:/tmp/fastcgi.socket;
+	}
+
+	error_page 401 403 404 /error.php;
 
 	location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ {
-		rewrite ^/styles/mirror\.css$ /styles/phpnet.css last;
-		expires 1d;
-	}
 
-	access_log /www/log/php.access.log;
-	error_log /www/log/php.error.log;
+		rewrite ^\/styles\/mirror\.css$   /styles/phpnet.css last;
+
+		expires max;
+	}
 }
+
 
