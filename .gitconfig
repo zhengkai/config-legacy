@@ -2,10 +2,11 @@
 	email = zhengkai@gmail.com
 	name = Zheng Kai
 [alias]
-	st = status
+	st = status -s -u
 	co = checkout
 	ci = commit
 	br = branch
+	up = checkout master
 	update = checkout master
 [color]
 	ui = true

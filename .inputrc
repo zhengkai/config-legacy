@@ -4,3 +4,6 @@
 "\eOH": beginning-of-line
 "\eOF": end-of-line
 
+"\e[3~": delete-char
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
