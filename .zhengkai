@@ -7,6 +7,8 @@ export EDITOR=vim
 
 set -o vi
 
+tabs 4
+
 PS1_HOST="\h";
 if [[ -n $SSH_CONNECTION ]];
 then
