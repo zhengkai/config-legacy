@@ -6,7 +6,8 @@
 	co = checkout
 	ci = commit
 	br = branch
-	up = checkout master
-	update = checkout master
+	po = push origin
+	ps = push
+	pl = pull
 [color]
 	ui = true
