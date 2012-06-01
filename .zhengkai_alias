@@ -51,6 +51,8 @@ alias lynx="lynx -display_charset=UTF-8"
 
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -n 30 -f /tmp/php-error.txt"
 
+alias zhengkaireload="~/conf/script/tmux_reload_rc.sh"
+
 alias service="sudo service"
 alias nginx="service nginx"
 alias mysqld="service mysql"
@@ -60,7 +62,7 @@ alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -ex
 
 alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
 
-alias tmux='if [[ -z $TMUX && -z $TERMCAP ]]; then (tmux -2 attach -t default_login || tmux -2 new -s default_login); fi'
+alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then (tmux -2 attach -t default_login || tmux -2 new -s default_login); fi'
 
 ex () {
 	if [ -f $1 ] ; then
