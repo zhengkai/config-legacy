@@ -19,9 +19,10 @@ alias rm="trash-put"
 
 alias gi='git add ./`git rev-parse --show-cdup` && git ci -a'
 alias gia='gi --amend'
+alias gupdate='git reset --hard HEAD'
 alias gb='git br'
 alias gd='git diff'
-alias gs='git status'
+alias gs='git st'
 alias gc='git co'
 
 alias ls="ls --color=auto"
