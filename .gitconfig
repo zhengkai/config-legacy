@@ -11,3 +11,7 @@
 	pl = pull
 [color]
 	ui = true
+[diff]
+    external = ~/conf/script/git_diff.sh
+[pager]
+	diff =
