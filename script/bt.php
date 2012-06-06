@@ -32,7 +32,16 @@ $sMagnet = array_shift($aMatch);
 
 $sFile = "d10:magnet-uri".strlen($sMagnet).":$sMagnet"."e";
 
-file_put_contents("/home/zhengkai/rtorrent/watch/temp.torrent", $sFile);
+$sFileTpl = "/home/zhengkai/rtorrent/watch/temp_%d.torrent";
+
+foreach (range(1, 100) as $i) {
+	$sFileName = sprintf("/home/zhengkai/rtorrent/watch/temp_%02d.torrent", $i);
+	if (file_exists($sFileName)) {
+		continue;
+	}
+	file_put_contents($sFileName, $sFile);
+	break;
+}
 
 echo "\n";
 echo $sFile;
