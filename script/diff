@@ -1,62 +1,100 @@
-diff --git a/script/a.php b/script/a.php
-old mode 100644
-new mode 100755
-index 3e370f9..8574b2a
---- a/script/a.php
-+++ b/script/a.php
-@@ -1,3 +1,20 @@
-+#!/usr/bin/env php
- <?php
--echo "First : \033[31m Fail \033[0m";
-+function hex2bin($s) {
-+	return pack("H*", $s);
-+}
-+
-+function color($sControl = "0") {
-+	return hex2bin("1b").'['.$sControl.'m';
-+}
-+
-+function fg($iColor) {
-+	return color("38;5;".$iColor);
-+}
-+
-+function bg($iColor) {
-+	return color("48;5;".$iColor);
-+}
-+
-+echo fg(16).bg(155)." color test ".color()."\n";
- 
-diff --git a/script/bt.php b/script/bt.php
-index b37eab4..4345733 100755
---- a/script/bt.php
-+++ b/script/bt.php
+diff --git a/.Xmodmap b/.Xmodmap
+index 82553d3..8a9c3dd 100644
+--- a/.Xmodmap
++++ b/.Xmodmap
 @@ -1,4 +1,4 @@
--#!/usr/bin/php
-+#!/usr/bin/env php
- <?php
- $sURL = array_pop($argv);
+-keycode   9 = XF86Game
++keycode   9 = XF86AudioMute
+ keycode  49 = Escape asciitilde
+ keycode 108 = grave asciitilde
  
-@@ -27,7 +27,6 @@ if (!preg_match('/magnet\:\?.*?\"/', $sReturn, $aMatch)) {
+diff --git a/.tmux.conf b/.tmux.conf
+index 68aeef9..047d825 100644
+--- a/.tmux.conf
++++ b/.tmux.conf
+@@ -2,8 +2,6 @@ set -g prefix ^a
+ unbind ^b
+ bind a send-prefix
  
- $sMagnet = array_shift($aMatch);
- 
+-set-window-option -g mode-keys vi
 -
- // $magnetlink = "magnet:?xt=urn:btih:8c894e938b922306cedb7cd990e2393813a40bae&dn=AnyDVD+%26amp%3B+AnyDVD+HD+v7.0.4.0+FINAL+%2B+Key+%5BChattChitto+RG%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.ccc.de%3A80";
+ set -g status-right "#30T #[fg=green]#(uptime.pl)#[default] #[fg=green](#(cut -d ' ' -f 1-3 /proc/loadavg))#[default]"
  
- $sFile = "d10:magnet-uri".strlen($sMagnet).":$sMagnet"."e";
-diff --git a/script/clean_emule.php b/script/clean_emule.php
-index 0bcc4bc..718f112 100755
---- a/script/clean_emule.php
-+++ b/script/clean_emule.php
-@@ -1,10 +1,9 @@
--#!/usr/bin/php
-+#!/usr/bin/env php
- <?PHP
- if (PHP_SAPI != "cli") {
- 	exit;
+ set -g status-bg black
+diff --git a/.vim/after/ftplugin/php.vim b/.vim/after/ftplugin/php.vim
+index ee6fdcf..03fd1e3 100644
+--- a/.vim/after/ftplugin/php.vim
++++ b/.vim/after/ftplugin/php.vim
+@@ -15,5 +15,4 @@ inoremap <TAB> <C-R>=InsertTabWrapper()<CR>
+ iab func function
+ 
+ set autoindent
+-set endofline
+ 
+diff --git a/.vimrc b/.vimrc
+index 8e2ba00..7edf6fe 100644
+--- a/.vimrc
++++ b/.vimrc
+@@ -70,9 +70,6 @@ function! FileSize()
+ 	return ' [filesize=' . bytes . ']'
+ endfunction
+ 
+-set clipboard=unnamed
+-
+-
+ set statusline=%15t\ \ \    "tail of the filename
+ set statusline+=%P\ %4l\ \ \   "percent through file
+ set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+@@ -83,7 +80,7 @@ set statusline+=\ %y      "filetype
+ set statusline+=%{FileSize()}
+ set statusline+=\ %h      "help file flag
+ "set statusline+=%=      "left/right separator
+-set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
++"set statusline+=[\ X\ =\ %c\,\ Y\ =\ %l\ /\ %L\ ]     "cursor column
+ "set statusline+=   "cursor line/total lines
+ 
+ set cscopequickfix=s-,c-,d-,i-,t-,e-
+@@ -110,6 +107,16 @@ au BufRead *.php,*.css,*.js,*.html,*.txt,*.conf,*.ini set fileformat=unix
+ nmap <F1> <nop>
+ nmap q <nop>
+ 
+-"set colorcolumn=80
+-"hi ColorColumn ctermbg=234
++let tmux_pre = "\033Ptmux;\033\033]12;"
++let tmux_end = "\007\033\\"
++"printf '\033Ptmux;\033\033]12;green\007\033\\'
++
++
++if &term =~ "xterm\\|rxvt"
++"	let &t_SI = tmux_pre."orange".tmux_end
++"	let &t_EI = tmux_pre."cyan".tmux_end
++endif
++
++"let &t_SI = "\<Esc>]12;orange\x7"
++"let &t_EI = "\<Esc>]12;cyan\x7"
+ 
+diff --git a/.zhengkai b/.zhengkai
+index 5a7e165..f883b16 100644
+--- a/.zhengkai
++++ b/.zhengkai
+@@ -10,8 +10,6 @@ then
+ 	HOST="\[\033[38;5;217m\]\h\[\033[00m\]";
+ fi
+ 
+-export CCACHE_DIR=/tmp/ccache
+-
+ settitle() {
+ 	printf "\033]2;$1\033\\"
  }
- 
--
- define("EMULE_HASH_PID", "/tmp/emule_clean.txt");
- if (file_exists(EMULE_HASH_PID)) {
-         exit;
+diff --git a/aptget_gnome b/aptget_gnome
+index 6e07b54..49bbebf 100644
+--- a/aptget_gnome
++++ b/aptget_gnome
+@@ -1,7 +1,6 @@
+ gnome
+ tilda
+ mencoder
+-vim-gnome
+ gnome-tweak-tool
+ ttf-bitstream-vera
+ rtorrent
