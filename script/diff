@@ -1,0 +1,62 @@
+diff --git a/script/a.php b/script/a.php
+old mode 100644
+new mode 100755
+index 3e370f9..8574b2a
+--- a/script/a.php
++++ b/script/a.php
+@@ -1,3 +1,20 @@
++#!/usr/bin/env php
+ <?php
+-echo "First : \033[31m Fail \033[0m";
++function hex2bin($s) {
++	return pack("H*", $s);
++}
++
++function color($sControl = "0") {
++	return hex2bin("1b").'['.$sControl.'m';
++}
++
++function fg($iColor) {
++	return color("38;5;".$iColor);
++}
++
++function bg($iColor) {
++	return color("48;5;".$iColor);
++}
++
++echo fg(16).bg(155)." color test ".color()."\n";
+ 
+diff --git a/script/bt.php b/script/bt.php
+index b37eab4..4345733 100755
+--- a/script/bt.php
++++ b/script/bt.php
+@@ -1,4 +1,4 @@
+-#!/usr/bin/php
++#!/usr/bin/env php
+ <?php
+ $sURL = array_pop($argv);
+ 
+@@ -27,7 +27,6 @@ if (!preg_match('/magnet\:\?.*?\"/', $sReturn, $aMatch)) {
+ 
+ $sMagnet = array_shift($aMatch);
+ 
+-
+ // $magnetlink = "magnet:?xt=urn:btih:8c894e938b922306cedb7cd990e2393813a40bae&dn=AnyDVD+%26amp%3B+AnyDVD+HD+v7.0.4.0+FINAL+%2B+Key+%5BChattChitto+RG%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.ccc.de%3A80";
+ 
+ $sFile = "d10:magnet-uri".strlen($sMagnet).":$sMagnet"."e";
+diff --git a/script/clean_emule.php b/script/clean_emule.php
+index 0bcc4bc..718f112 100755
+--- a/script/clean_emule.php
++++ b/script/clean_emule.php
+@@ -1,10 +1,9 @@
+-#!/usr/bin/php
++#!/usr/bin/env php
+ <?PHP
+ if (PHP_SAPI != "cli") {
+ 	exit;
+ }
+ 
+-
+ define("EMULE_HASH_PID", "/tmp/emule_clean.txt");
+ if (file_exists(EMULE_HASH_PID)) {
+         exit;

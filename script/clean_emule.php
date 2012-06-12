@@ -1,9 +1,8 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?PHP
 if (PHP_SAPI != "cli") {
 	exit;
 }
-
 
 define("EMULE_HASH_PID", "/tmp/emule_clean.txt");
 if (file_exists(EMULE_HASH_PID)) {
@@ -40,10 +39,10 @@ foreach ($aFile as $sKey => $aRow) {
 	if (filesize($aRow["file"]) != $aRow["size"]) {
 		continue;
 	}
-	
+
 	echo $aRow["file"];
 	echo "\n";
-	
+
 	$sCheck = md5("xmajxhakdsld".$aRow["md5"]);
 	$sMD5 = md5_file($aRow["file"]);
 	if ($sMD5 != $aRow["md5"]) {

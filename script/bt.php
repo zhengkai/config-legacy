@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 $sURL = array_pop($argv);
 
@@ -26,7 +26,6 @@ if (!preg_match('/magnet\:\?.*?\"/', $sReturn, $aMatch)) {
 }
 
 $sMagnet = array_shift($aMatch);
-
 
 // $magnetlink = "magnet:?xt=urn:btih:8c894e938b922306cedb7cd990e2393813a40bae&dn=AnyDVD+%26amp%3B+AnyDVD+HD+v7.0.4.0+FINAL+%2B+Key+%5BChattChitto+RG%5D&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.ccc.de%3A80";
 
