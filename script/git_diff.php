@@ -3,6 +3,14 @@
 
 // TODO: 汉字测试 / @@ 后新开一行 / chmod 777
 
+/*
+diff --git a/script/a.php b/script/a.php
+deleted file mode 100755
+index f0d2262..0000000
+--- a/script/a.php
++++ /dev/null
+ */
+
 // cmd:
 // cat diff | ./git_diff.php | less
 
@@ -80,8 +88,9 @@ while ($sLine = fgets(STDIN)) {
 			$sLine = fg($aConfig["normal"]).$sLine.color();
 			break;
 		case "i": // index
-			continue 2;
+			break;
 		case "d": // diff
+			break;
 			$sLine = preg_replace('#^.*?\-\-git a/(.+) b/.*$#', '$1', $sLine);
 			$sLine = "\n    ".fg($aConfig["file"]).color(1).$sLine.color();
 			break;
