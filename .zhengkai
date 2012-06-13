@@ -59,7 +59,7 @@ parse_git_branch() {
 	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ [ \1$(parse_git_dirty) ]/"
 }
 
-PS1_TIME="\n\[\033[1;38;5;112m\]\D{%I:%M:%S %p}\[\033[00m\]"
+PS1_TIME="\n\[\033[38;5;39m\]- \D{%I:%M:%S %p} -\[\033[00m\]"
 PS1_USER="\u"
 if [[ $USER != "zhengkai" ]];
 then
