@@ -23,8 +23,10 @@ $aConfig = array(
 	"tabs" => 4,
 );
 
-function hex2bin($s) {
-	return pack("H*", $s);
+if (!function_exists("hex2bin")) {
+	function hex2bin($s) {
+		return pack("H*", $s);
+	}
 }
 
 function color($sControl = "0") {
@@ -88,9 +90,9 @@ while ($sLine = fgets(STDIN)) {
 			$sLine = fg($aConfig["normal"]).$sLine.color();
 			break;
 		case "i": // index
+			continue 2;
 			break;
 		case "d": // diff
-			break;
 			$sLine = preg_replace('#^.*?\-\-git a/(.+) b/.*$#', '$1', $sLine);
 			$sLine = "\n    ".fg($aConfig["file"]).color(1).$sLine.color();
 			break;
