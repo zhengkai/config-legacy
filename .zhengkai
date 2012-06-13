@@ -4,6 +4,7 @@ export TERM=screen-256color
 
 export EDITOR=vim
 #export PAGER=vimpager
+export LINES
 
 set -o vi
 

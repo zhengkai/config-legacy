@@ -1,6 +1,7 @@
 [user]
 	email = zhengkai@gmail.com
 	name = Zheng Kai
+
 [alias]
 	st = status -s -u
 	co = checkout
@@ -9,9 +10,18 @@
 	po = push origin
 	ps = push
 	pl = pull
+
 [color]
 	ui = true
+	diff-add = red
+
 [diff]
-    external = ~/conf/script/git_diff.sh
+    external = ~/conf/script/git_diff_vim.sh
+
 [pager]
 	diff =
+
+[tig]
+	tab-size = 4
+
+
