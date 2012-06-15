@@ -5,6 +5,8 @@
 [alias]
 	st = status -s -u
 	co = checkout
+	df = diff --no-ext-diff 
+	dl = diff --no-ext-diff HEAD~1 HEAD
 	ci = commit
 	br = branch
 	po = push origin
