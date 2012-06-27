@@ -6,7 +6,6 @@ if [ `hostname` = "Garona" ]; then
 	alias make="make -j4"
 fi;
 
-alias sudo="sudo "
 alias vms='vmstat 1'
 alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
@@ -59,7 +58,8 @@ alias nginx="service nginx"
 alias mysqld="service mysql"
 alias fpm="service php5-fpm"
 
-alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)"
+alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;)"
+#alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)"
 
 alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
 

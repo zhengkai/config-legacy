@@ -1,0 +1,6 @@
+alias sdnow="sudo shutdown -P 0"
+
+if [ -f ~/.zhengkai ]; then
+    . ~/.zhengkai
+fi
+

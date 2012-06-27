@@ -5,7 +5,7 @@
 [alias]
 	st = status -s -u
 	co = checkout
-	df = diff --no-ext-diff 
+	df = diff --no-ext-diff
 	dl = diff --no-ext-diff HEAD~1 HEAD
 	ci = commit
 	br = branch
@@ -15,7 +15,6 @@
 
 [color]
 	ui = true
-	diff-add = red
 
 [diff]
     external = ~/conf/script/git_diff_vim.sh
@@ -26,4 +25,11 @@
 [tig]
 	tab-size = 4
 
+[merge]
+	tool = vimdiff
+
+[color "status"]
+	added = bold 121
+	changed = bold 222
+	untracked = bold 141
 
