@@ -24,6 +24,7 @@ alias gd='~/conf/script/git_diff.sh'
 alias gdl='gd HEAD~1 HEAD'
 alias gs='git st'
 alias gc='git co'
+alias gm='git merge --no-ff'
 
 alias ls="ls --color=auto"
 alias ll="ls -lh"
