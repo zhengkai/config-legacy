@@ -18,7 +18,7 @@ $aConfig = array(
 	"file" => 222,
 	"add_line" => 118,
 	"sub_line" => 208,
-	"comment" => 39,
+	"comment" => 222,
 	"normal" => 252,
 	"tabs" => 4,
 );
@@ -94,7 +94,7 @@ while ($sLine = fgets(STDIN)) {
 			break;
 		case "d": // diff
 			$sLine = preg_replace('#^.*?\-\-git a/(.+) b/.*$#', '$1', $sLine);
-			$sLine = "\n    ".fg($aConfig["file"]).color(1).$sLine.color();
+			$sLine = "\n    ".fg($aConfig["file"]).bg(235).color(1)." [ ".trim($sLine)." ] ".color()."\n";
 			break;
 	}
 
