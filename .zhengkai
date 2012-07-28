@@ -89,8 +89,8 @@ export GOARCH=amd64
 export GOOS=linux
 export PATH="/usr/local/bin:/usr/bin:/bin:/sbin:$GOROOT/bin"
 
-# set HTTP_PROXY=localhost:8118
-# set HTTPS_PROXY=localhost:8118
+set HTTP_PROXY=localhost:8118
+set HTTPS_PROXY=localhost:8118
 
 case "$SSH_TTY" in
 /dev/pts*)
