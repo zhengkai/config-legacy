@@ -22,10 +22,10 @@ settitle() {
 	printf "\033]2;$1\033\\"
 }
 
-sudo() {
-	settitle "$*"
-	command sudo "$@"
-}
+#sudo() {
+#	settitle "$*"
+#	command sudo "$@"
+#}
 
 parse_git_dirty() {
 
@@ -87,7 +87,8 @@ fi
 export GOROOT=$HOME/go
 export GOARCH=amd64
 export GOOS=linux
-export PATH="/usr/local/bin:/usr/bin:/bin:/sbin:$GOROOT/bin"
+export GOPATH="/go"
+export PATH="/usr/local/bin:/usr/bin:/bin:/sbin:$GOROOT/bin:/go/bin"
 
 set HTTP_PROXY=localhost:8118
 set HTTPS_PROXY=localhost:8118
