@@ -1,6 +1,6 @@
 ".*"
 None,   Thumb1, Super_L
 None,   Thumb2, XF86AudioMute
-None,   Up,     Button4, 5
-None,   Down,   Button5, 5 
+None,   Up,     Button4,    4	
+None,   Down,   Button5,    4
 
