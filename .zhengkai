@@ -27,9 +27,49 @@ settitle() {
 #	command sudo "$@"
 #}
 
-parse_git_dirty() {
+hg_propmt() {
+	branch=`hg branch 2> /dev/null`
+	if [ -z "$branch" ]; then
+		return
+	fi
+	echo " Hg[ "$branch$(hg_propmt_dirty)" ]"
+}
 
-	#file=`echo $s | \grep -o '[0-9]\+ files changed' | \grep -o '[0-9]\+'`
+hg_propmt_dirty() {
+
+	file=`(hg status | wc -l) 2> /dev/null`
+	if [ $file -lt 1 ]; then
+		return
+	fi
+
+	s=`hg diff --stat 2> /dev/null`
+	if [ -z "$s" ]; then
+		echo " ] [ $file"
+		return
+	fi
+
+	addline=`echo $s | \grep -o '[0-9]\+ insertion' | \grep -o '[0-9]\+'`
+	if [ -z "$addline" ]; then
+		addline=0
+	fi
+	subline=`echo $s | \grep -o '[0-9]\+ deletion' | \grep -o '[0-9]\+'`
+	if [ -z "$subline" ]; then
+		subline=0
+	fi
+
+	let count="$addline+$subline"
+	echo " ] [ $file / $count"
+}
+
+git_propmt() {
+	branch=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"`
+	if [ -z "$branch" ]; then
+		return
+	fi
+	echo " Git[ "$branch$(git_propmt_dirty)" ]"
+}
+
+git_propmt_dirty() {
 
 	file=`(git status -s | wc -l) 2> /dev/null`
 	if [ $file -lt 1 ]; then
@@ -52,11 +92,7 @@ parse_git_dirty() {
 	fi
 
 	let count="$addline+$subline"
-	echo " ] [ $file \/ $count"
-}
-
-parse_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/ [ \1$(parse_git_dirty) ]/"
+	echo " ] [ $file / $count"
 }
 
 PS1_TIME="\n\[\033[38;5;39m\]- \D{%I:%M:%S %p} -\[\033[00m\]"
@@ -68,7 +104,7 @@ fi
 PS1_HOST="\[\033[38;5;39m\]$PS1_USER@$PS1_HOST"
 PS1_PWD="\[\033[1;38;5;39m\]\w\[\033[00m\]"
 
-PS1_GIT="\[\033[38;5;39m\]"'$(parse_git_branch)'"\[\033[00m\]"
+PS1_GIT="\[\033[38;5;39m\]"'$(git_propmt)$(hg_propmt)'"\[\033[00m\]"
 PS1_PROMPT="\n \[\033[38;5;208m\]»\[\033[00m\] "
 
 if [[ -n $TMUX ]];
