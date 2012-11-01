@@ -5,6 +5,7 @@ server {
 	error_log /www/log/pma.error.log;
 
 	server_name pma;
+	server_name pma.tesla;
 	server_name pma.garona;
 	server_name pma.iconfans;
 	server_name pma.monk;
@@ -21,7 +22,7 @@ server {
 		client_body_in_file_only clean;
 		fastcgi_pass_request_body off;
 		if ($request_filename ~ "\.php$") {
-			fastcgi_pass unix:/tmp/fastcgi.socket;
+			fastcgi_pass unix:/var/run/php5-fpm.sock;
 		}
 	}
 
@@ -29,5 +30,4 @@ server {
 		expires max;
 	}
 }
-
 
