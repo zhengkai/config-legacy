@@ -4,6 +4,7 @@ bison
 build-essential
 ctags
 curl
+cloc
 dkms
 gawk
 gettext
