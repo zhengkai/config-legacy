@@ -13,3 +13,4 @@
 .Xmodmap
 .fonts.conf
 .imwheelrc
+.hgrc
