@@ -13,12 +13,13 @@ server {
 	}
 
 	location ~ \.php$ {
+		try_files $uri =404;
 		client_body_in_file_only clean;
 		fastcgi_pass_request_body off;
 		fastcgi_pass unix:/var/run/php5-fpm.sock;
 	}
 
-	error_page 401 403 404 /error.php;
+	error_page 401 403 404 = /error.php;
 
 	location ~ \.(gif|jpg|jpeg|png|bmp|ico|css|js)$ {
 
