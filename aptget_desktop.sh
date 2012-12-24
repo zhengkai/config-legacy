@@ -13,5 +13,3 @@ cp /usr/share/applications/empathy.desktop ~/.config/autostart/
 
 sudo apt-get remove unity-lens-shopping
 
-sudo update-alternatives --config editor
-

@@ -18,6 +18,7 @@ alias getbt="php ~/conf/script/bt.php"
 alias rm="trash-put"
 
 alias gi='git add ./`git rev-parse --show-cdup` && git ci -a'
+alias ro='cd ./`git rev-parse --show-cdup 2>/dev/null`'
 alias gia='gi --amend'
 alias gupdate='git reset --hard HEAD'
 alias gb='git br'
@@ -33,6 +34,8 @@ alias ll="ls -lh"
 alias la="ls -lA"
 alias l="ls -CF"
 
+alias free="free -h"
+
 alias date="date +'%Y-%m-%d %H:%M:%S'"
 
 alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
@@ -45,13 +48,14 @@ alias dus="du --max-depth=0 -h"
 
 alias pwgen="pwgen -cns 75 40"
 
-alias grep='grep -n -I --color=always'
+alias grep='grep -n -I --color=always --exclude-dir=.hg --exclude-dir=.git --exclude-dir=.svn'
 alias less='less -r'
 
 alias pss="ps aux | grep"
 
 alias lynx="lynx -display_charset=UTF-8"
 
+alias f="tail -n $LINES -f"
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -n 30 -f /tmp/php-error.txt"
 
 alias zhengkaireload="~/conf/script/tmux_reload_rc.sh"
@@ -88,4 +92,3 @@ ex () {
 		echo "'$1' is not a valid file"
 	fi
 }
-
