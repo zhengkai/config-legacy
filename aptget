@@ -2,7 +2,7 @@ autossh
 axel
 bison
 build-essential
-ctags
+exuberant-ctags
 curl
 cloc
 dkms

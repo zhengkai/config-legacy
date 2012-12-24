@@ -12,4 +12,5 @@
 .axelrc
 .Xmodmap
 .fonts.conf
+.imwheelrc
 .hgrc

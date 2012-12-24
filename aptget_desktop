@@ -2,6 +2,7 @@ tilda
 mencoder
 vim-gnome
 gnome-tweak-tool
+imwheel
 eclipse
 rtorrent
 gparted
@@ -9,4 +10,3 @@ samba
 gnome-exe-thumbnailer
 moc
 python-gpgme
-
