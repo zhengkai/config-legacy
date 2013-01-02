@@ -11,3 +11,6 @@ keycode 110 = Prior
 keycode  78 = Print
 keycode  77 = XF86AudioPlay
 
+keycode  62 = asciitilde 
+keycode 105 = asciitilde 
+
