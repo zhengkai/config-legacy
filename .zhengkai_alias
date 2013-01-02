@@ -53,6 +53,8 @@ alias less='less -r'
 
 alias pss="ps aux | grep"
 
+alias vimn="vim -N -u NONE"
+
 alias lynx="lynx -display_charset=UTF-8"
 
 alias f="tail -n $LINES -f"
