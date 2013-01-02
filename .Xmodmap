@@ -11,6 +11,5 @@ keycode 110 = Prior
 keycode  78 = Print
 keycode  77 = XF86AudioPlay
 
-keycode  62 = asciitilde 
-keycode 105 = asciitilde 
-
+keycode  62 = XF86Launch3 XF86Launch3 XF86Launch3 XF86Launch3
+keycode 105 = XF86Launch4 XF86Launch4 XF86Launch4 XF86Launch4
