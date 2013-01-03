@@ -10,6 +10,19 @@ set -o vi
 
 tabs 4
 
+if [ -f $HOME/.Xdefaults ]; then
+	xrdb -merge $HOME/.Xdefaults
+fi
+
+# Ctrl-S Ctrl-Q
+stty stop undef
+stty start undef
+
+# 输入法
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 PS1_HOST="\h";
 if [[ -n $SSH_CONNECTION ]];
 then
@@ -165,4 +178,3 @@ if [ -f ~/.zhengkai_alias ]; then
 fi
 
 cd /www
-
