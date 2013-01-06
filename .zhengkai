@@ -10,10 +10,6 @@ set -o vi
 
 tabs 4
 
-if [ -f $HOME/.Xdefaults ]; then
-	xrdb -merge $HOME/.Xdefaults
-fi
-
 # Ctrl-S Ctrl-Q
 stty stop undef
 stty start undef
