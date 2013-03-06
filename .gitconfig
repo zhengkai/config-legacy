@@ -16,6 +16,9 @@
 [color]
 	ui = true
 
+[push]
+	default = current
+
 [diff]
     external = ~/conf/script/git_diff_vim.sh
 
@@ -32,4 +35,3 @@
 	added = bold 121
 	changed = bold 222
 	untracked = bold 141
-
