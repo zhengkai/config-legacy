@@ -13,6 +13,7 @@ alias emerge="sudo emerge"
 alias apt-get="sudo apt-get"
 alias apt-cache="sudo apt-cache"
 alias wondershaper="sudo wondershaper"
+alias iotop="sudo iotop"
 
 alias syslog="sudo service syslog-ng"
 
@@ -59,8 +60,8 @@ alias vimn="vim -N -u NONE"
 
 alias lynx="lynx -display_charset=UTF-8"
 
-alias f="tail -n $LINES -f"
-alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;tail -n 30 -f /tmp/php-error.txt"
+alias f='((L=$LINES-3)); ((L=L>10?L:10)); tail -n $L -f'
+alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;f /tmp/php-error.txt"
 
 alias zhengkaireload="~/conf/script/tmux_reload_rc.sh"
 
