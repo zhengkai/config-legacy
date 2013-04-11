@@ -21,6 +21,7 @@
 
 [diff]
     external = ~/conf/script/git_diff_vim.sh
+	algorithm = patience
 
 [pager]
 	diff =
@@ -35,3 +36,6 @@
 	added = bold 121
 	changed = bold 222
 	untracked = bold 141
+
+[core]
+	autocrlf = input
