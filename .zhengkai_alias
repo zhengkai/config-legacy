@@ -39,7 +39,8 @@ alias l="ls -CF"
 
 alias free="free -h"
 
-alias date="date +'%Y-%m-%d %H:%M:%S'"
+alias fdate="\date +'%Y-%m-%d %H:%M:%S'"
+alias date="date --date='TZ=\"Asia/Shanghai\" now' +'%Y-%m-%d %H:%M:%S'"
 
 alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
 
@@ -60,6 +61,7 @@ alias vimn="vim -N -u NONE"
 
 alias lynx="lynx -display_charset=UTF-8"
 
+alias tail='((L=$LINES-8)); ((L=L>10?L:10)); tail -n $L'
 alias f='((L=$LINES-3)); ((L=L>10?L:10)); tail -n $L -f'
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;f /tmp/php-error.txt"
 
