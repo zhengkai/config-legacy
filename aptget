@@ -4,6 +4,8 @@ bison
 build-essential
 cloc
 curl
+libcurl4-openssl-dev
+libmcrypt-dev
 dkms
 exuberant-ctags
 gawk

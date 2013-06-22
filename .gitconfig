@@ -20,7 +20,7 @@
 	default = current
 
 [diff]
-    external = ~/conf/script/git_diff_vim.sh
+    # external = ~/conf/script/git_diff_vim.sh
 	algorithm = patience
 
 [pager]
@@ -41,4 +41,4 @@
 	autocrlf = input
 
 # [http]
-#	proxy = http://127.0.0.1:8118
+# 	proxy = http://localhost:8118
