@@ -1,6 +1,6 @@
 #!/bin/sh
-name="iconfans"
-source_path="iconfans:/var/www/iconfans/"
+name="iconfans_full"
+source_path="iconfans:/www/"
 target_path="${HOME}/backup/${name}"
 
 run_file="/tmp/${name}_rsync"
@@ -24,4 +24,3 @@ echo `date +'%Y-%m-%d %H:%M:%S'` > $time_file
 sleep 5
 
 rm -f $run_file
-
