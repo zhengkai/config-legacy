@@ -99,21 +99,21 @@ foreach ($lLine as $sLine) {
 		continue;
 	}
 
-	$sCmd = "git cat-file -p ".escapeshellarg($sHash)." | /usr/bin/env php -l 2>&1";
+	$sCmd = "git cat-file -p ".escapeshellarg($sHash)." | /usr/bin/env php -d display_errors=On -l 2>&1";
 	$lOutput = [];
 	$iCmdError = 0;
 	exec($sCmd, $lOutput, $iCmdError);
-	$sError = current($lOutput);
+	$sError = trim(implode("\n", $lOutput));
 	if (!$iCmdError) {
 		continue;
 	}
 
-	$sPattern = '/syntax error, (.+) in - on line (\d+)$/';
+	$sPattern = '#syntax error, (.+) in \- on line (\d+)$#m';
 	$aMatch = [];
 	preg_match($sPattern, $sError, $aMatch);
 	list(, $sMessage, $iLine) = $aMatch;
 
-	$lSyntax[] = $sFilename.' ['.$iLine.']: '.$sMessage;
+	$lSyntax[] = $sFilename.' [ '.$iLine.' ]: '.$sMessage;
 }
 
 if ($lFilename) {
