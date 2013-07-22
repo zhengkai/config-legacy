@@ -22,6 +22,7 @@ memcached
 mencoder
 mingetty
 nginx-full
+ntp
 openssh-server
 php5-cli
 php5-curl
