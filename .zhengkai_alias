@@ -36,6 +36,7 @@ alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias la="ls -lA"
 alias l="ls -CF"
+alias lsd="\ls -l | \grep ^d"
 
 alias free="free -h"
 
@@ -62,7 +63,7 @@ alias vimn="vim -N -u NONE"
 alias lynx="lynx -display_charset=UTF-8"
 
 alias tail='((L=$LINES-8)); ((L=L>10?L:10)); tail -n $L'
-alias f='((L=$LINES-3)); ((L=L>10?L:10)); tail -n $L -f'
+alias f='((L=$LINES-3)); ((L=L>10?L:10)); \tail -n $L -f'
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;f /tmp/php-error.txt"
 
 alias mocp="~/conf/script/volume/33db.sh; /usr/bin/mocp"

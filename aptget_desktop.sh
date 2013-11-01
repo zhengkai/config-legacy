@@ -7,9 +7,7 @@ sudo apt-get install -y ${list[@]}
 
 mkdir -p ~/.config/autostart
 
-cp /usr/share/applications/ibus.desktop ~/.config/autostart
 cp /usr/share/applications/tilda.desktop ~/.config/autostart
-cp /usr/share/applications/empathy.desktop ~/.config/autostart/
+cp /usr/share/applications/empathy.desktop ~/.config/autostart
 
-sudo apt-get remove unity-lens-shopping
-
+# sudo apt-get remove unity-scope-home
