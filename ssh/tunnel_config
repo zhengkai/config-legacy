@@ -1,0 +1,23 @@
+Host *
+	ServerAliveCountMax 3
+	ServerAliveInterval 30
+	ExitOnForwardFailure yes
+	Compression yes
+	CompressionLevel 9
+	GSSAPIAuthentication no
+	ControlMaster no 
+	ControlPath none
+	ControlPersist no
+	User zhengkai
+	StrictHostKeyChecking no
+	LogLevel quiet
+	UserKnownHostsFile /dev/null
+
+Host freya
+	HostName 106.187.48.203
+
+Host iconfans 
+	HostName 72.14.190.208
+
+Host iconproxy 
+	HostName 96.126.127.181

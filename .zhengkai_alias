@@ -20,6 +20,8 @@ alias syslog="sudo service syslog-ng"
 alias getbt="php ~/conf/script/bt.php"
 alias rm="trash-put"
 
+alias ..='cd ..'
+
 alias gi='git add ./`git rev-parse --show-cdup` && git ci -a'
 alias ro='cd ./`git rev-parse --show-cdup 2>/dev/null`'
 alias gia='gi --amend'
