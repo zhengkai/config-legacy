@@ -11,6 +11,7 @@ exuberant-ctags
 gawk
 gettext
 git
+tig
 htop
 ifstat
 imagemagick
@@ -22,12 +23,14 @@ memcached
 mencoder
 mingetty
 nginx-full
+nginx-extras
 ntp
 openssh-server
 php5-cli
 php5-curl
 php5-dev
 php5-fpm
+php5-json
 php5-mcrypt
 php5-memcached
 php5-mysql
