@@ -12,6 +12,7 @@ gawk
 gettext
 git
 tig
+tree
 htop
 ifstat
 imagemagick
