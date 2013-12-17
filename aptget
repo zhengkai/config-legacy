@@ -35,6 +35,7 @@ php5-json
 php5-mcrypt
 php5-memcached
 php5-mysql
+php5-xsl
 php-pear
 pwgen
 screen
