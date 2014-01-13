@@ -12,3 +12,5 @@ fssh() {
 	ssh -F ~/.ssh/deploy_config $server_ip "${arg[*]}"
 	return
 }
+
+alias fscp='scp -F ~/.ssh/deploy_config'
