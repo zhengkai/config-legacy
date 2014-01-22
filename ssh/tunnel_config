@@ -21,3 +21,6 @@ Host iconfans
 
 Host iconproxy 
 	HostName 96.126.127.181
+
+Host flashlog
+	HostName 54.248.95.251
