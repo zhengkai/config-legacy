@@ -68,7 +68,7 @@ alias tail='((L=$LINES-8)); ((L=L>10?L:10)); tail -n $L'
 alias f='((L=$LINES-3)); ((L=L>10?L:10)); \tail -n $L -f'
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;f /tmp/php-error.txt"
 
-alias mocp="~/conf/script/volume/33db.sh; /usr/bin/mocp"
+alias mocp="~/conf/script/volume/33db.sh; TERM=screen-256color /usr/bin/mocp"
 
 alias zhengkaireload="~/conf/script/tmux_reload_rc.sh"
 
