@@ -5,3 +5,7 @@
 *~
 nohup.out
 
+.moc/cache/*
+.moc/equalizer
+.moc/last_directory
+.moc/softmixer

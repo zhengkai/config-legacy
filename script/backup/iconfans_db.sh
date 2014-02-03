@@ -1,6 +1,6 @@
 #!/bin/sh
 name="iconfans_db"
-source_path="iconfans:/backup/"
+source_path="iconfans:/www/backup/"
 target_path="${HOME}/backup/${name}"
 
 run_file="/tmp/${name}_rsync"

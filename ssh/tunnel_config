@@ -12,6 +12,7 @@ Host *
 	StrictHostKeyChecking no
 	LogLevel quiet
 	UserKnownHostsFile /dev/null
+	PasswordAuthentication no
 
 Host freya
 	HostName 106.187.48.203
@@ -24,3 +25,6 @@ Host iconproxy
 
 Host flashlog
 	HostName 54.248.95.251
+	
+Host tesla
+	HostName 106.120.209.227
