@@ -14,7 +14,7 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
 curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
-curl_setopt($ch, CURLOPT_PROXY, "127.0.0.1");
+curl_setopt($ch, CURLOPT_PROXY, '127.0.0.1');
 curl_setopt($ch, CURLOPT_PROXYPORT, 55777);
 $sReturn = curl_exec($ch);
 curl_close($ch);
@@ -31,10 +31,10 @@ $sMagnet = array_shift($aMatch);
 
 $sFile = "d10:magnet-uri".strlen($sMagnet).":$sMagnet"."e";
 
-$sFileTpl = "/home/zhengkai/rtorrent/watch/temp_%d.torrent";
+$sFileTpl = "/rtorrent/watch/temp_%d.torrent";
 
 foreach (range(1, 100) as $i) {
-	$sFileName = sprintf("/home/zhengkai/rtorrent/watch/temp_%02d.torrent", $i);
+	$sFileName = sprintf("/rtorrent/watch/temp_%02d.torrent", $i);
 	if (file_exists($sFileName)) {
 		continue;
 	}
@@ -46,4 +46,3 @@ echo "\n";
 echo $sFile;
 echo "\n";
 echo "end";
-
