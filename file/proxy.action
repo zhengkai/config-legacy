@@ -17,6 +17,7 @@ proxy = +forward-override{forward-socks5 localhost:55777 .}
 .blogger.com
 .googleapis.com
 .googleusercontent.com
+.mail.google.com
 .xys.org
 .nytimes.com
 .img.ly
@@ -34,6 +35,13 @@ proxy = +forward-override{forward-socks5 localhost:55777 .}
 .feedburner.google.com
 .drive.google.com
 .picasaweb.google.com
+.wordpress.com
+.wp.me
+.wpcomwidgets.com
+.player.vimeo.com
+.slideshare.net
+.calameo.com
+.mitbbs.com
 .fc2.com
 .pornhub.com
 .eyny.com
