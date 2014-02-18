@@ -80,8 +80,10 @@ alias fpm="service php5-fpm"
 alias pl="echo 'show processlist;' | mysql"
 
 alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;)"
+alias set664="(find . -type d -exec chmod 775 {} \;) && (find . -not -type d -exec chmod 664 {} \;)"
 alias set666="(find . -type d -exec chmod 777 {} \;) && (find . -not -type d -exec chmod 666 {} \;)"
-#alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;) && (find . -type d | xargs chmod 755) && (find . -not -type d | xargs chmod 644)"
+
+alias flushmc="echo 'flush_all' | nc localhost 11211"
 
 alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
 
