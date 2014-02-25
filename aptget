@@ -2,6 +2,7 @@ autossh
 axel
 bison
 build-essential
+colordiff
 cloc
 curl
 libcurl4-openssl-dev

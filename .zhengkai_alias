@@ -34,6 +34,8 @@ alias gs='git st'
 alias gc='git co'
 alias gm='git merge --no-ff'
 
+alias d='colordiff -u'
+
 alias ls="ls --color=auto"
 alias ll="ls -lh"
 alias la="ls -lA"
@@ -44,6 +46,7 @@ alias free="free -h"
 
 alias fdate="\date +'%Y-%m-%d %H:%M:%S'"
 alias date="date --date='TZ=\"Asia/Shanghai\" now' +'%Y-%m-%d %H:%M:%S'"
+alias timestamp="\date +'%s'"
 
 alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
 
