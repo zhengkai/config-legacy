@@ -9,3 +9,4 @@ nohup.out
 .moc/equalizer
 .moc/last_directory
 .moc/softmixer
+.moc/playlist.m3u

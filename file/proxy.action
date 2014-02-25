@@ -10,7 +10,6 @@ proxy = +forward-override{forward-socks5 localhost:55777 .}
 .imgur.com
 .twitter.com
 .blogspot.com
-.jp
 .fbcdn.net
 .appspot.com
 .chinagfw.org
@@ -42,6 +41,8 @@ proxy = +forward-override{forward-socks5 localhost:55777 .}
 .slideshare.net
 .calameo.com
 .mitbbs.com
+.gamer.com.tw
+.jp
 .fc2.com
 .pornhub.com
 .eyny.com
