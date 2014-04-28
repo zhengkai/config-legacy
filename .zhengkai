@@ -174,5 +174,3 @@ export LESS_TERMCAP_us=$'\E[38;5;117m'
 if [ -f ~/.zhengkai_alias ]; then
     . ~/.zhengkai_alias
 fi
-
-cd /www

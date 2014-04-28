@@ -11,3 +11,7 @@ if [ -f ~/.bash_funplus ]; then
 fi
 
 alias sdnow="sudo shutdown -P 0"
+
+if [ -d /www ]; then
+	cd /www
+fi

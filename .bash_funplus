@@ -4,7 +4,7 @@ alias gethost='ssh deploy "php /mnt/deploy/gethost.php"'
 fssh() {
 	arg=($@)
 	unset arg[0]
-	server_ip=$(gethost | \grep -F ",$1," | \head -n 1 | \cut -d',' -f3)
+	server_ip=$(gethost | \grep -F ",$1," | \head -n 1 | \cut -d',' -f2)
 	if [ -z "$server_ip" ]; then
 		echo "no server \"$1\""
 		return
