@@ -19,7 +19,10 @@ alias iftop="sudo iftop"
 alias syslog="sudo service syslog-ng"
 
 alias getbt="php ~/conf/script/bt.php"
-alias rm="trash-put"
+
+if [ -n "$(which trash-put)" ]; then
+	alias rm="trash-put"
+fi
 
 alias ..='cd ..'
 
@@ -59,18 +62,18 @@ alias df="df -h"
 alias du1="du --max-depth=1 -h"
 alias dus="du --max-depth=0 -h"
 
-alias pwgen="pwgen -cns 75 40"
+alias pwgen='pwgen -cns 75 40'
 
 alias grep='grep -n -I --color=always --exclude-dir=.hg --exclude-dir=.git --exclude-dir=.svn'
-alias less='less -r'
+alias less='less -r --tabs=4'
 
-alias pss="ps aux | grep"
+alias pss='ps aux | \grep'
 
 alias vimn="vim -N -u NONE"
 
 alias lynx="lynx -display_charset=UTF-8"
 
-alias tail='((L=$LINES-8)); ((L=L>10?L:10)); tail -n $L'
+alias tail='((L=$LINES-8)); ((L=L>10?L:10)); \tail -n $L'
 alias f='((L=$LINES-3)); ((L=L>10?L:10)); \tail -n $L -f'
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;f /tmp/php-error.txt"
 
