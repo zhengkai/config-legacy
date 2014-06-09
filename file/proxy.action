@@ -20,7 +20,6 @@ proxy = +forward-override{forward-socks5 localhost:55777 .}
 .xys.org
 .nytimes.com
 .img.ly
-.fc2.com
 .thepiratebay.org
 .thepiratebay.se
 .bit.ly
