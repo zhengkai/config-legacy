@@ -62,7 +62,7 @@ alias df="df -h"
 alias du1="du --max-depth=1 -h"
 alias dus="du --max-depth=0 -h"
 
-alias pwgen='pwgen -cns 75 40'
+alias pwgen='((L=$LINES-8)); ((L=L>10?L:10)); ((W=$COLUMNS)); ((W=W>80?W:80)); pwgen -cns $W $L'
 
 alias grep='grep -n -I --color=always --exclude-dir=.hg --exclude-dir=.git --exclude-dir=.svn'
 alias less='less -r --tabs=4'
