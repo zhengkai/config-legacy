@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# 30	3,17	* * * ~/conf/script/loop_git_rync.sh >/dev/null 2>&1
+
 list_fetch=$HOME"/git/fetch";
 list_push=$HOME"/git/push";
 
