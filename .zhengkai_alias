@@ -89,6 +89,7 @@ alias fpm="service php5-fpm"
 alias pl="echo 'show processlist;' | mysql"
 
 alias acl="sudo ~/conf/script/acl.sh"
+alias cleanacl="sudo setfacl -b -R ."
 
 alias set644="(find . -type d -exec chmod 755 {} \;) && (find . -not -type d -exec chmod 644 {} \;)"
 alias set664="(find . -type d -exec chmod 775 {} \;) && (find . -not -type d -exec chmod 664 {} \;)"

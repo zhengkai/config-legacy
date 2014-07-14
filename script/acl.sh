@@ -34,5 +34,10 @@ fi
 
 echo -e "\tset acl\n\n\tgroup: "$1"\n\t  dir: "$2"\n"
 
-setfacl -d -m group:$1:rwx $2
-setfacl -R -m group:$1:rwx $2
+cd $2
+
+pwd
+
+setfacl -R -m group:$1:rw $2
+setfacl -d -R -m group:$1:rwx $2
+setfacl -m group:$1:rwx .
