@@ -7,6 +7,8 @@ sudo update-alternatives --config editor
 sudo apt-get update
 sudo apt-get install -y ${list[@]}
 
+sudo apt-get remove -y fonts-droid
+
 sudo sh -c 'echo "Asia/Shanghai" > /etc/timezone'
 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
