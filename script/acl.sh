@@ -38,6 +38,19 @@ cd $2
 
 pwd
 
-setfacl -n -R -m group:$1:rwx $2
+echo setfacl -d -R -m group:$1:rwx $2
 setfacl -d -R -m group:$1:rwx $2
-# find . -type d -exec setfacl -m group:$1:rwx {} \;
+
+#setfacl -Rm u:$1:rw,d:u:$1:rwx $2
+
+find . \( -type f -exec setfacl -m group:$1:rw  '{}' ';' \) \
+	-o \( -type d -exec setfacl -m group:$1:rwx '{}' ';' \)
+
+#find . \( -type f -exec setfacl -m g:$1:rw '{}' ';' \) \
+#	-o \( -type d -exec setfacl -m g:$1:rwx '{}' ';' \)
+
+# file
+#find . -type f -exec setfacl -m group:$1:rw  {} \;
+
+# dir
+#find . -type d -exec setfacl -m group:$1:rwx {} \;
