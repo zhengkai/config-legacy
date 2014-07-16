@@ -38,6 +38,6 @@ cd $2
 
 pwd
 
-setfacl -R -m group:$1:rw $2
+setfacl -n -R -m group:$1:rwx $2
 setfacl -d -R -m group:$1:rwx $2
-find . -type d -exec setfacl -m group:$1:rwx {} \;
+# find . -type d -exec setfacl -m group:$1:rwx {} \;
