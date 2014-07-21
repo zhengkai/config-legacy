@@ -21,6 +21,7 @@ libgd2-xpm-dev
 libgeoip-dev
 libmcrypt-dev
 libpcre3-dev
+libreadline-dev
 libxslt1-dev
 memcached
 mencoder

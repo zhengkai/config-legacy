@@ -13,7 +13,6 @@
 '--enable-gd-native-ttf' \
 '--disable-short-tags' \
 '--with-curl' \
-'--with-curlwrappers' \
 '--with-mcrypt' \
 '--with-mhash' \
 '--with-pear' \
