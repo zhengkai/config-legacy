@@ -20,9 +20,7 @@ alias syslog="sudo service syslog-ng"
 
 alias getbt="php ~/conf/script/bt.php"
 
-if [ -n "$(which trash-put)" ]; then
-	alias rm="trash-put"
-fi
+alias rm="trash-put"
 
 alias ..='cd ..'
 
