@@ -1,6 +1,6 @@
 #! /bin/sh
 #
-# PHP 5.4 配置
+# PHP configure
 
 './configure' \
 '--enable-fpm' \
