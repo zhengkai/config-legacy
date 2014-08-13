@@ -4,7 +4,10 @@ name='tilda'
 window_num=6
 tmux='/usr/bin/tmux'
 
-if [ not $($tmux has-session -t $name 2>/dev/null) ] ; then
+has_session=true
+$tmux has-session -t $name 2>/dev/null || has_sesion=false
+
+if [ "$has_sesion" = false ]; then
 
 	$tmux -2 new-session -d -s $name
 
@@ -18,4 +21,3 @@ if [ not $($tmux has-session -t $name 2>/dev/null) ] ; then
 fi
 
 $tmux -2 attach -t $name
-

@@ -18,7 +18,8 @@ alias iftop="sudo iftop"
 
 alias syslog="sudo service syslog-ng"
 
-alias getbt="php ~/conf/script/bt.php"
+alias bt="~/conf/script/bt.sh"
+alias getbt="~/conf/script/getbt.php"
 
 alias rm="trash-put"
 
