@@ -8,5 +8,7 @@ bind = 192.168.1.212
 
 directory = /rtorrent/incoming/
 session = /rtorrent/session/
-#system.method.set_key = event.download.finished,move_complete,"execute=mv,-n,$d.get_base_path=,/rtorrent/incoming/;d.set_directory=/rtorrent/download/"
+system.method.set_key = event.download.finished,move_complete,"execute=mv,-n,$d.get_base_path=,/rtorrent/incoming/;$d.set_directory=/rtorrent/download/"
 schedule = watch_directory,5,5,load_start=/rtorrent/watch/*.torrent
+
+
