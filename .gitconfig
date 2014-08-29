@@ -28,6 +28,9 @@
 [pager]
 	diff =
 
+[apply]
+	whitespace = nowarn
+
 [tig]
 	tab-size = 4
 

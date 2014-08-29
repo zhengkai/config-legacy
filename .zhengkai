@@ -91,7 +91,7 @@ git_propmt_dirty() {
 		return
 	fi
 
-	s=`git diff --shortstat 2> /dev/null`
+	s=`git diff -b --shortstat 2> /dev/null`
 	if [ -z "$s" ]; then
 		echo " ] [ $file"
 		return
