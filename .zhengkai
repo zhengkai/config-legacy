@@ -1,5 +1,7 @@
 [ -z "$PS1" ] && return
 
+TZ='Asia/Shanghai'; export TZ
+
 export TERM=linux
 export TERM=xterm-256color
 #export TERM=screen-256color

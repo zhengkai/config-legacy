@@ -14,7 +14,12 @@ if [ -e $list_fetch ]; then
 		echo
 		echo $dir
 
-		if [ ! -d $dir"/.git" ]; then
+		if [ ! -d $dir ]; then
+			echo -e '\tno dir '$dir
+			continue
+		fi
+
+		if [ ! git rev-parse --git-dir > /dev/null 2>&1 ]; then
 			echo -e '\tnot a git repository'
 			continue
 		fi
@@ -40,7 +45,12 @@ if [ -e $list_push ]; then
 		echo
 		echo $dir
 
-		if [ ! -d $dir"/.git" ]; then
+		if [ ! -d $dir ]; then
+			echo -e '\tno dir '$dir
+			continue
+		fi
+
+		if [ ! git rev-parse --git-dir > /dev/null 2>&1 ]; then
 			echo -e '\tnot a git repository'
 			continue
 		fi

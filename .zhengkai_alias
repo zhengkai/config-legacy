@@ -53,7 +53,7 @@ alias fdate="\date +'%Y-%m-%d %H:%M:%S'"
 alias date="date --date='TZ=\"Asia/Shanghai\" now' +'%Y-%m-%d %H:%M:%S'"
 alias timestamp="\date +'%s'"
 
-alias ssh-keygen="ssh-keygen -b 4096 -t rsa"
+alias ssh-keygen='ssh-keygen -N "" -b 4096 -t rsa'
 
 alias top="htop"
 alias df="df -h"
