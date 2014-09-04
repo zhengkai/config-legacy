@@ -14,7 +14,7 @@ umask 002
 
 set -o vi
 
-tabs 4 2>&1 >/dev/null
+tabs 4
 
 # Ctrl-S Ctrl-Q
 stty stop undef
