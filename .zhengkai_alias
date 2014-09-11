@@ -18,7 +18,7 @@ alias iftop="sudo iftop"
 
 alias syslog="sudo service syslog-ng"
 
-alias bt="~/conf/script/bt.sh"
+alias bt="/usr/bin/deluge-console"
 alias getbt="~/conf/script/getbt.php"
 
 alias rm="trash-put"
