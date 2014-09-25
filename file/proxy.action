@@ -1,7 +1,15 @@
 {{alias}}
-proxy = +forward-override{forward-socks5 localhost:55777 .}
+skipdomain = -block
+proxy = -filter{skipdomain} +forward-override{forward-socks5 192.168.1.212:1080 .}
+
+{skipdomain}
+pwd.soulogic.com
+.pwd.soulogic.com
 
 {proxy}
+.duckduckgo.com
+.google.com
+.google.co.hk
 .soulogic.com
 .youtube.com
 .googlevideo.com
@@ -17,9 +25,11 @@ proxy = +forward-override{forward-socks5 localhost:55777 .}
 .googleapis.com
 .googleusercontent.com
 .mail.google.com
+.admin.google.com
 .xys.org
 .nytimes.com
 .img.ly
+.fc2.com
 .thepiratebay.org
 .thepiratebay.se
 .bit.ly
@@ -41,7 +51,18 @@ proxy = +forward-override{forward-socks5 localhost:55777 .}
 .calameo.com
 .mitbbs.com
 .gamer.com.tw
-.jp
+.eveonline.com
+#.jp
+#.gungho.jp
 .fc2.com
 .pornhub.com
 .eyny.com
+.openbittorrent.com
+.publicbt.com
+.istole.it
+.demonii.com
+.publicbt.com
+.prq.to
+.h3q.com
+.openbittorrent.com
+.shadowsocks.org
