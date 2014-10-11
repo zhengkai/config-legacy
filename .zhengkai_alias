@@ -61,6 +61,8 @@ alias df="df -h"
 alias du1="du --max-depth=1 -h"
 alias dus="du --max-depth=0 -h"
 
+alias sshsync='rsync --partial -vzrtopg -e ssh'
+
 alias pwgen='((L=$LINES-8)); ((L=L>10?L:10)); ((W=$COLUMNS)); ((W=W>80?W:80)); pwgen -cns $W $L'
 
 alias grep='grep -n -I --color=always --exclude-dir=.hg --exclude-dir=.git --exclude-dir=.svn'
@@ -99,6 +101,8 @@ alias flushmc="echo 'flush_all' | nc localhost 11211"
 alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
 
 alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then (tmux -2 attach -t default_login || tmux -2 new -s default_login); fi'
+
+alias ms='sudo mongosniff --source NET lo 27017'
 
 ex () {
 	if [ -f $1 ] ; then
