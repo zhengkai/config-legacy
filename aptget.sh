@@ -14,6 +14,8 @@ sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 sudo pear install doc.php.net/pman
 
+sudo pip install qrcode
+
 bashcomp_dir='/etc/bash_completion.d'
 if [ -d $bashcomp_dir ]; then
 	sudo cp "$dir/file/pman" $bashcomp_dir
