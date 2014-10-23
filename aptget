@@ -28,6 +28,7 @@ memcached
 mencoder
 mingetty
 nginx-extras
+python-dev
 ntp
 openssh-server
 php5-cli
@@ -49,7 +50,6 @@ tig
 tmux
 trash-cli
 tree
-unrar
 vim
 whois
 wondershaper

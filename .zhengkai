@@ -110,7 +110,7 @@ git_propmt_dirty() {
 	echo " ] [ $file / $count"
 }
 
-PS1_TIME="\n\[\033[38;5;39m\]- \D{%I:%M:%S %p} -\[\033[00m\]"
+PS1_TIME="\n\[\033[38;5;39m\] - \D{%I:%M:%S %p} -\[\033[00m\]"
 PS1_USER="\u"
 if [[ $USER != "zhengkai" ]];
 then

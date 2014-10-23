@@ -4,12 +4,15 @@ Host *
 	ExitOnForwardFailure yes
 	Compression yes
 	CompressionLevel 9
+	GSSAPIAuthentication no
+	ControlMaster auto
+	ControlPath ~/.tmp/ssh_mux_%h_%p_%r
+	ControlPersist 4h
 
-Host test
-	User zhengkai
-	HostName ec2-54-251-15-186.ap-southeast-1.compute.amazonaws.com
+Host freya
+	HostName 106.187.48.203
 
-Host local_test
-	User root
-	HostName 192.168.10.231
-
+Host monk
+	LogLevel=quiet
+	HostName zhengkai.f3322.org
+	StrictHostKeyChecking no
