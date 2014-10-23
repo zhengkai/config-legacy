@@ -100,7 +100,7 @@ alias flushmc="echo 'flush_all' | nc localhost 11211"
 
 alias tunnel_test="curl http://www.facebook.com --socks5-hostname"
 
-alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then (tmux -2 attach -t default_login || tmux -2 new -s default_login); fi'
+alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then ~/conf/script/tmux_default.sh; fi'
 
 alias ms='sudo mongosniff --source NET lo 27017'
 
