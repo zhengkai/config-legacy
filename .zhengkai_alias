@@ -17,6 +17,7 @@ alias iotop="sudo iotop"
 alias iftop="sudo iftop"
 
 alias syslog="sudo service syslog-ng"
+alias rsyslog="sudo service rsyslog"
 
 alias bt="/usr/bin/deluge-console"
 alias getbt="~/conf/script/getbt.php"

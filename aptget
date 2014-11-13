@@ -47,6 +47,8 @@ screen
 subversion
 sysstat
 tig
+toilet
+figlet
 tmux
 trash-cli
 tree
