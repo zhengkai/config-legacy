@@ -38,6 +38,7 @@ alias gs='git st'
 alias gc='git co'
 alias gm='git merge --no-ff'
 alias gp='git stash apply'
+alias gra='git rebase --abort'
 alias gclean='git reset --hard && git clean -df'
 
 alias d='colordiff -u'

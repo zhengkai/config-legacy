@@ -21,6 +21,9 @@
 [push]
 	default = current
 
+[pull]
+	rebase = true
+
 [diff]
     # external = ~/conf/script/git_diff_vim.sh
 	algorithm = patience
