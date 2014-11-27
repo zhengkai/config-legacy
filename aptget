@@ -28,7 +28,7 @@ memcached
 mencoder
 mingetty
 nginx-extras
-python-dev
+python-pip
 ntp
 openssh-server
 php5-cli

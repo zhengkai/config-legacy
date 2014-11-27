@@ -57,11 +57,11 @@ alias timestamp="\date +'%s'"
 
 alias ssh-keygen='ssh-keygen -N "" -b 4096 -t rsa'
 
-alias top="htop"
+alias top="TERM=screen-256color htop"
 alias df="df -h"
 
-alias du1="du --max-depth=1 -h"
-alias dus="du --max-depth=0 -h"
+alias du1="sudo du --max-depth=1 -h"
+alias dus="sudo du --max-depth=0 -h"
 
 alias sshsync='rsync --partial -vzrtopg -e ssh'
 
