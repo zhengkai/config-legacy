@@ -26,6 +26,7 @@ if [ -e $list_fetch ]; then
 
 		cd $dir
 		git fetch
+		git gc
 		echo -e '\tover'
 	done
 
@@ -57,6 +58,7 @@ if [ -e $list_push ]; then
 
 		cd $dir
 		git push
+		git gc
 		echo -e '\tover'
 	done
 
