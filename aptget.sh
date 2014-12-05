@@ -17,6 +17,9 @@ sudo pip install --upgrade httpie
 
 sudo pip install qrcode
 
+mkdir -p ~/.tmp
+mkdir -p ~/.backup
+
 bashcomp_dir='/etc/bash_completion.d'
 if [ -d $bashcomp_dir ]; then
 	sudo cp "$dir/file/pman" $bashcomp_dir
