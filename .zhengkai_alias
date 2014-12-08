@@ -76,6 +76,29 @@ alias vimn="vim -N -u NONE"
 
 alias lynx="lynx -display_charset=UTF-8"
 
+function fn_add_user_to_group() {
+
+	# 这个函数存在的意义在于，有些下等 Linux 发行版只有 useradd 没有 adduser
+
+	user=`\id "$1" 2>/dev/null`
+
+	if [[ ! $user =~ ^uid=.* ]]; then
+		echo "user not exists: $1"
+		return;
+	fi
+	echo "add user: $1"
+
+	group=`\grep "^$2" /etc/group`
+	if [ -z "$group" ]; then
+		echo "group not exists: $2"
+		return;
+	fi
+	echo "to group: $2"
+
+	sudo usermod -a -G $2 $1
+}
+alias add_user_to_group=fn_add_user_to_group
+
 alias tail='((L=$LINES-8)); ((L=L>10?L:10)); sudo \tail -n $L'
 alias f='((L=$LINES-3)); ((L=L>10?L:10)); sudo \tail -n $L -f'
 alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;f /tmp/php-error.txt"
