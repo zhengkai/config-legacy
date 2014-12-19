@@ -19,4 +19,4 @@ EOD;
 
 $s = str_replace($sFind, $sFind."\n\n".$sReplace."\n", $s);
 
-file_put_contents('/www/null/pac.txt', $s);
+file_put_contents('/www/lan/pac.txt', $s);

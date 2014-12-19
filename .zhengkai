@@ -143,8 +143,8 @@ export GOOS=linux
 export GOPATH="/go"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:$GOROOT/bin:/go/bin"
 
-set HTTP_PROXY=localhost:8118
-set HTTPS_PROXY=localhost:8118
+# export HTTP_PROXY=localhost:7777
+# export HTTPS_PROXY=localhost:7777
 
 case "$SSH_TTY" in
 /dev/pts*)
