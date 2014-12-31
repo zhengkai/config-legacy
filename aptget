@@ -6,6 +6,7 @@ build-essential
 cloc
 colordiff
 curl
+re2c
 dkms
 exuberant-ctags
 fortune-zh

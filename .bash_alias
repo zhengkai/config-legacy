@@ -2,10 +2,6 @@ shopt -s expand_aliases
 
 alias todo="vi ~/TODO"
 
-if [ `hostname` = "Garona" ]; then
-	alias make="make -j4"
-fi;
-
 alias vms='vmstat 1'
 alias dmidecode='sudo dmidecode'
 alias tcpdump="sudo tcpdump"
@@ -101,7 +97,7 @@ alias add_user_to_group=fn_add_user_to_group
 
 alias tail='((L=$LINES-8)); ((L=L>10?L:10)); sudo \tail -n $L'
 alias f='((L=$LINES-3)); ((L=L>10?L:10)); sudo \tail -n $L -f'
-alias terror="sudo touch /tmp/php-error.txt;sudo chmod 666 /tmp/php-error.txt;f /tmp/php-error.txt"
+alias terror="sudo touch /tmp/php-error.txt; sudo chmod 666 /tmp/php-error.txt; f /tmp/php-error.txt"
 
 alias mocp="~/conf/script/volume/33db.sh; TERM=screen-256color /usr/bin/mocp"
 
