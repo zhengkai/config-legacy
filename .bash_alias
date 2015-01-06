@@ -11,6 +11,7 @@ alias apt-cache="sudo apt-cache"
 alias wondershaper="sudo wondershaper"
 alias iotop="sudo iotop"
 alias iftop="sudo iftop"
+alias fdisk="sudo fdisk"
 
 alias syslog="sudo service syslog-ng"
 alias rsyslog="sudo service rsyslog"
