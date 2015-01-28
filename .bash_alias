@@ -109,6 +109,8 @@ alias nginx="service nginx"
 alias mysqld="service mysql"
 alias fpm="service php5-fpm"
 
+alias pip='HOME=/root sudo pip'
+
 alias pl="echo 'show processlist;' | mysql"
 
 alias acl="sudo ~/conf/script/acl.sh"
