@@ -110,6 +110,8 @@ alias mysqld="service mysql"
 alias fpm="service php5-fpm"
 
 alias pip='HOME=/root sudo pip'
+alias easy_install='sudo easy_install'
+alias easy_install3='sudo easy_install3'
 
 alias pl="echo 'show processlist;' | mysql"
 
