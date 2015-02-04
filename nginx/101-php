@@ -1,7 +1,7 @@
 server {
 	server_name php;
 
-	listen [::]:80;
+	listen 80;
 
 	access_log /www/log/php.access.log;
 	error_log /www/log/php.error.log;
@@ -14,8 +14,7 @@ server {
 
 	location ~ \.php$ {
 		try_files $uri =404;
-		client_body_in_file_only clean;
-		fastcgi_pass_request_body off;
+		include fastcgi.conf;
 		fastcgi_pass unix:/var/run/php5-fpm.sock;
 	}
 
@@ -28,4 +27,3 @@ server {
 		expires max;
 	}
 }
-
