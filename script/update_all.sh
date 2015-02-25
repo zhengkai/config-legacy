@@ -7,9 +7,10 @@ if [ -f $HOME/.vim/vundle.vim ]; then
 	cd $dir
 fi
 
-conf_git=`$HOME/conf/.git`
+conf_git="$HOME/conf/.git"
 if [ -d "$conf_git" ]; then
 	cd $conf_git
+	cd ..
 	git pull --rebase
 	cd $dir
 fi
