@@ -30,6 +30,8 @@ mencoder
 mingetty
 nginx-extras
 python3-setuptools
+python-dev
+python3-dev
 ntp
 openssh-server
 php5-cli
