@@ -184,3 +184,7 @@ fi
 if [ -f ~/.bash_addon ]; then
     . ~/.bash_addon
 fi
+
+if [ -z "$(declare -f -F j)" ] && [ -f /usr/share/autojump/autojump.bash ]; then
+	. /usr/share/autojump/autojump.bash
+fi
