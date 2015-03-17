@@ -40,6 +40,9 @@ alias gp='git stash apply'
 alias gra='git rebase --abort'
 alias gclean='git reset --hard && git clean -df'
 
+# 从整个仓库的所有历史里搜索某个关键词
+alias git_all_search='git rev-list --all | xargs git grep -F'
+
 alias d='colordiff -u'
 
 alias ls="ls --color=auto"
