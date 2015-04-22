@@ -1,5 +1,7 @@
 shopt -s expand_aliases
 
+alias s="ssh"
+
 alias todo="vi ~/TODO"
 
 alias vms='vmstat 1'
@@ -12,16 +14,21 @@ alias wondershaper="sudo wondershaper"
 alias iotop="sudo iotop"
 alias iftop="sudo iftop"
 alias fdisk="sudo fdisk"
+alias sysctl="sudo sysctl"
 
 alias syslog="sudo service syslog-ng"
 alias rsyslog="sudo service rsyslog"
 
 alias bt="/usr/bin/deluge-console"
-alias getbt="~/conf/script/getbt.php"
 
 alias rm="trash-put"
 
 alias ..='cd ..'
+alias ...='cd ...'
+alias ....='cd ....'
+
+alias fuck='$(thefuck $(fc -ln -1))'
+alias FUCK='fuck'
 
 alias g='go run'
 
