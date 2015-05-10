@@ -15,6 +15,14 @@ $sReplace = <<<'EOD'
 	if (url.match(new RegExp('^.*?://.*?(youku|qiyi|iqiyi|letv|sohu|ku6|ku6cdn|pps)\.(com|tv)/crossdomain\.xml$'))) {
 		return "PROXY api.youku.com:80";
 	}
+
+	if (0
+		|| shExpMatch(url, "http://royal-local.socialgamenet.com*")
+		|| shExpMatch(url, "http://royal-lan-*")
+		|| shExpMatch(url, "https://royal-lan-*")
+	) {
+		return "SOCKS5 192.168.1.212:55667";
+	}
 EOD;
 
 $s = str_replace($sFind, $sFind."\n\n".$sReplace."\n", $s);
