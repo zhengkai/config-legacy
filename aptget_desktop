@@ -5,6 +5,8 @@ tilda
 mencoder
 vim-gnome
 gnome-tweak-tool
+unity-tweak-tool
+unity-webapps-common
 imwheel
 eclipse
 rtorrent
@@ -18,3 +20,5 @@ virtualbox-guest-additions-iso
 vde2
 xclip
 unrar
+unity-webapps-service
+unity-webapps-common

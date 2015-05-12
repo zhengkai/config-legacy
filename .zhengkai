@@ -1,13 +1,8 @@
 [ -z "$PS1" ] && return
 
-TZ='Asia/Shanghai'; export TZ
-
-export TERM=linux
-export TERM=xterm-256color
-#export TERM=screen-256color
-
+export TZ='Asia/Shanghai'
+export TERM="xterm-256color"
 export EDITOR=vim
-#export PAGER=vimpager
 export LINES
 
 export COW_INSTALLDIR=/home/zhengkai/.cow
@@ -146,13 +141,13 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:$GOROOT/bin
 # export HTTP_PROXY=localhost:7777
 # export HTTPS_PROXY=localhost:7777
 
-case "$SSH_TTY" in
-/dev/pts*)
-	;;
-*)
-	setterm -blank 0;
-	;;
-esac
+# case "$SSH_TTY" in
+# /dev/pts*)
+# 	;;
+# *)
+# 	setterm --blank 0;
+# 	;;
+# esac
 
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion

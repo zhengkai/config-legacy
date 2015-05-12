@@ -1,15 +1,5 @@
 keycode   9 = Escape asciitilde
 keycode  62 = XF86Game
-keycode 108 = F5
 
 clear Shift
 add Shift = Shift_L
-
-clear mod1
-add mod1 = Alt_L
-
-clear mod3
-add mod3 = Super_R
-
-clear mod4
-clear mod5

@@ -24,8 +24,8 @@ alias bt="/usr/bin/deluge-console"
 alias rm="trash-put"
 
 alias ..='cd ..'
-alias ...='cd ...'
-alias ....='cd ....'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 alias fuck='$(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
