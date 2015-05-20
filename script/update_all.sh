@@ -2,6 +2,13 @@
 
 dir=$(dirname `readlink -f $0`);
 
+conf_vim="$HOME/.vim/.git"
+if [ -d "$conf_vim" ]; then
+	cd $conf_vim
+	cd ..
+	git pull --rebase
+	cd $dir
+fi
 if [ -f $HOME/.vim/vundle.vim ]; then
 	vim +BundleInstall +qall
 	cd $dir
