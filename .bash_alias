@@ -19,6 +19,9 @@ alias sysctl="sudo sysctl"
 alias syslog="sudo service syslog-ng"
 alias rsyslog="sudo service rsyslog"
 
+alias docker='sudo docker'
+alias docker-compose='sudo docker-compose'
+
 alias bt="/usr/bin/deluge-console"
 
 alias rm="trash-put"
@@ -68,6 +71,8 @@ alias ssh-keygen='ssh-keygen -N "" -b 4096 -t rsa'
 
 alias top="TERM=screen-256color htop"
 alias df="df -h"
+
+alias vimcat="$HOME/.vim/bundle/vimpager/vimcat"
 
 alias du1="sudo du --max-depth=1 -h"
 alias dus="sudo du --max-depth=0 -h"
