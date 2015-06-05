@@ -21,6 +21,7 @@ alias rsyslog="sudo service rsyslog"
 
 alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
+alias try='docker run --rm=true -t -i'
 
 alias bt="/usr/bin/deluge-console"
 
