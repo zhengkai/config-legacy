@@ -3,8 +3,7 @@ server {
 
 	listen 80;
 
-	access_log /www/log/php.access.log;
-	error_log /www/log/php.error.log;
+	access_log off;
 
 	root /www/manual/php;
 
