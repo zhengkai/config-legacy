@@ -12,8 +12,9 @@
 	po = push origin
 	ps = push
 	pl = pull
-	l  = log --pretty=oneline -n 20 --graph --abbrev-commit
+	l  = log --pretty=oneline -n 12 --graph --abbrev-commit --decorate
 	ll = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	pa = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
 
 [color]
 	ui = true
@@ -47,6 +48,7 @@
 
 [core]
 	safecrlf = true
+	attributesfile = ~/.gitattributes
 
 [http]
 #	proxy = socks5://127.0.0.1:55777

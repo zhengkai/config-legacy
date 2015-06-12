@@ -3,6 +3,7 @@
 .curlrc
 .siegerc
 .gitconfig
+.gitattributes
 .inputrc
 .screenrc
 .wgetrc
