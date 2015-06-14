@@ -29,6 +29,9 @@ Host flashlog
 Host tesla
 	HostName 106.120.209.227
 
+Host molly
+	Port 10001
+
 Host monk
 	LogLevel=quiet
 	HostName zhengkai.f3322.org
