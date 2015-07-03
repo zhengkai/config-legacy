@@ -140,7 +140,8 @@ export GOROOT=$HOME/go
 export GOARCH=amd64
 export GOOS=linux
 export GOPATH="/go"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:$GOROOT/bin:/go/bin"
+
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:$GOROOT/bin:$HOME/.composer/vendor/bin"
 
 # export HTTP_PROXY=localhost:7777
 # export HTTPS_PROXY=localhost:7777

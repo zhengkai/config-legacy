@@ -22,19 +22,14 @@ if [ -d "$conf_git" ]; then
 	cd $dir
 fi
 
-if [ -d "/www/manual/php" ]; then
-	$dir/php.manual.sh 2>&1
-fi
+$dir/php.manual.sh 2>&1
 
 is_ubuntu=`grep 'Ubuntu ' /etc/issue`
 if [ -n "$is_ubuntu" ]; then
 	$dir/update_ubuntu.sh 2>&1
 fi
 
-checkfile="/usr/local/bin/composer"
-if [ -f $checkfile ]; then
-	sudo $checkfile  self-update 2>&1
-fi
+../composer/update.sh
 
 checkdir=(
 	/www/kt
@@ -48,4 +43,5 @@ for check in ${checkdir[@]}; do
 		composer update &
 	fi
 done
+wait
 cd $dir
