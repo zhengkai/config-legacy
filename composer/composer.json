@@ -1,11 +1,11 @@
 {
     "require": {
-        "squizlabs/php_codesniffer": "*",
-        "phpunit/phpunit": "*",
-        "phploc/phploc": "*",
-        "phpdocumentor/phpdocumentor": "*",
-        "pdepend/pdepend": "*",
-        "sebastian/phpcpd": "*",
-        "phpmd/phpmd": "*"
+        "squizlabs/php_codesniffer": "@stable",
+        "phpunit/phpunit": "@stable",
+        "phploc/phploc": "@stable",
+        "phpdocumentor/phpdocumentor": "@stable",
+        "pdepend/pdepend": "@stable",
+        "sebastian/phpcpd": "@stable",
+        "phpmd/phpmd": "@stable"
     }
 }
