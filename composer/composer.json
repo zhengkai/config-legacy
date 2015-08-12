@@ -6,6 +6,8 @@
         "phpdocumentor/phpdocumentor": "@stable",
         "pdepend/pdepend": "@stable",
         "sebastian/phpcpd": "@stable",
-        "phpmd/phpmd": "@stable"
+        "phpmd/phpmd": "@stable",
+		"fabpot/php-cs-fixer": "@stable",
+		"fp-coding-standards/fpcs" : "dev-master"
     }
 }

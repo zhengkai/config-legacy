@@ -30,4 +30,9 @@ if [ ! -e $COMPOSER_JSON ]; then
 	ln -s $PWD'/composer.json' $COMPOSER_JSON
 fi
 
+PHPCS_RULESET=$COMPOSER_DIR'/vendor/squizlabs/php_codesniffer/CodeSniffer.conf'
+if [ ! -e $PHPCS_RULESET ]; then
+	ln -s $PWD'/CodeSniffer.conf' $PHPCS_RULESET
+fi
+
 $COMPOSER global update
