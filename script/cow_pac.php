@@ -12,9 +12,9 @@ if (!$s) {
 $sFind = 'function FindProxyForURL(url, host) {';
 
 $sReplace = <<<'EOD'
-	if (url.match(new RegExp('^.*?://.*?(youku|qiyi|iqiyi|letv|sohu|ku6|ku6cdn|pps)\.(com|tv)/crossdomain\.xml$'))) {
-		return "PROXY api.youku.com:80";
-	}
+//	if (url.match(new RegExp('^.*?://.*?(youku|qiyi|iqiyi|letv|sohu|ku6|ku6cdn|pps)\.(com|tv)/crossdomain\.xml$'))) {
+//		return "PROXY api.youku.com:80";
+//	}
 
 	if (0
 		|| shExpMatch(url, "http://freya:48888/*")
