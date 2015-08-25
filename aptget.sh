@@ -2,9 +2,12 @@
 dir=$(dirname `readlink -f $0`)
 list=(`cat "$dir/aptget"`)
 
-sudo update-alternatives --config editor
-
 sudo apt-get update
+
+sudo apt-get install -y vim
+#sudo update-alternatives --config editor
+sudo update-alternatives --set editor /usr/bin/vim.basic
+
 sudo apt-get install -y ${list[@]}
 
 sudo apt-get remove -y fonts-droid
