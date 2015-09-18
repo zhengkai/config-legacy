@@ -17,17 +17,14 @@ Host *
 Host freya
 	HostName 106.187.48.203
 
-Host iconfans 
-	HostName 72.14.190.208
-
-Host iconproxy 
-	HostName 96.126.127.181
-
-Host flashlog
-	HostName 54.248.95.251
-	
 Host tesla
 	HostName 106.120.209.227
+	
+Host alpha
+	HostName 45.32.65.41
+
+Host sigma
+	HostName 54.169.65.247
 
 Host molly
 	Port 10001
