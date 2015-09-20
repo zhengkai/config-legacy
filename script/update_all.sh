@@ -10,7 +10,7 @@ if [ -d "$conf_vim" ]; then
 	cd $dir
 fi
 if [ -f $HOME/.vim/vundle.vim ]; then
-	vim +BundleInstall +qall 2>&1 >/dev/null
+	vim +BundleInstall +qall 2>&1 >/dev/null &
 	cd $dir
 fi
 

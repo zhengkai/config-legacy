@@ -23,7 +23,7 @@ alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
 alias try='docker run --rm=true -t -i'
 
-alias youtube-dl='youtube-dl -f bestvideo+bestaudio -o "/home/zhengkai/sync/%(title)s-%(id)s.%(ext)s"'
+alias youtube-dl='youtube-dl -f bestvideo+bestaudio -o "/home/zhengkai/sync/youtube/%(title)s-%(id)s.%(ext)s"'
 
 alias bt="/usr/bin/deluge-console"
 

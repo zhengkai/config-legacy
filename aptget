@@ -28,7 +28,6 @@ libpcre3-dev
 libreadline-dev
 libxslt1-dev
 memcached
-mencoder
 mingetty
 python3-setuptools
 python-dev
