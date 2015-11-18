@@ -1,7 +1,5 @@
 #!/bin/bash
-
 listfile='/www/youtube/url.txt'
-
 (
     flock -x -n 200 || exit 1
 
