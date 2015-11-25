@@ -141,6 +141,8 @@ export GOARCH=amd64
 export GOOS=linux
 export GOPATH="/go"
 
+export ANDROID_HOME=/home/zhengkai/Android/Sdk
+
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:$GOROOT/bin:$HOME/.composer/vendor/bin"
 
 # export HTTP_PROXY=localhost:7777
