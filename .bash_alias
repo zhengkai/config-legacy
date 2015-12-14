@@ -16,6 +16,9 @@ alias iftop="sudo iftop"
 alias fdisk="sudo fdisk"
 alias sysctl="sudo sysctl"
 
+alias adduser="sudo adduser"
+alias groupadd="sudo groupadd"
+
 alias syslog="sudo service syslog-ng"
 alias rsyslog="sudo service rsyslog"
 
@@ -169,4 +172,8 @@ ex () {
 	else
 		echo "'$1' is not a valid file"
 	fi
+}
+
+function php_fn() {
+    docker exec -i -t php bash -c 'if [ -d "'$PWD'" ]; then cd "'$PWD'"; else echo "unknown dir"; exit; fi; php '$@
 }

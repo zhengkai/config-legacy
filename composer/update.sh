@@ -5,10 +5,10 @@ cd $(dirname `readlink -f $0`)
 COMPOSER='/usr/local/bin/composer'
 
 if [ ! -x $COMPOSER ]; then
-	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir="$(dirname $COMPOSER)" --filename=composer
 fi
 
-#sudo $COMPOSER self-update 2>&1
+sudo $COMPOSER self-update 2>&1
 
 COMPOSER_DIR=$HOME'/.composer'
 

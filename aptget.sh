@@ -2,6 +2,8 @@
 dir=$(dirname `readlink -f $0`)
 list=(`cat "$dir/aptget"`)
 
+mkdir -p ~/.backup
+
 sudo apt-get update
 
 sudo apt-get install -y vim
