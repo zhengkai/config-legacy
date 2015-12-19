@@ -32,6 +32,7 @@ fi
 
 PHPCS_RULESET=$COMPOSER_DIR'/vendor/squizlabs/php_codesniffer/CodeSniffer.conf'
 if [ ! -e $PHPCS_RULESET ]; then
+	echo mkdir "$(dirname $PHPCS_RULESET)"
 	ln -s $PWD'/CodeSniffer.conf' $PHPCS_RULESET
 fi
 

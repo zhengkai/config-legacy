@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo chown -R zhengkai:zhengkai /home/zhengkai
+
 dir=$(dirname `readlink -f $0`);
 
 conf_vim="$HOME/.vim/.git"

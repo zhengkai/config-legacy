@@ -2,12 +2,13 @@
 dir=$(dirname `readlink -f $0`)
 list=(`cat "$dir/aptget"`)
 
+sudo chown -R zhengkai:zhengkai /home/zhengkai
+
 mkdir -p ~/.backup
 
 sudo apt-get update
 
 sudo apt-get install -y vim
-#sudo update-alternatives --config editor
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 sudo apt-get install -y ${list[@]}
