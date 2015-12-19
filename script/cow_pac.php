@@ -17,6 +17,12 @@ $sReplace = <<<'EOD'
 //	}
 
 	if (0
+		|| shExpMatch(url, "http://alpha:48889/*")
+	) {
+		return "SOCKS5 192.168.1.212:55787";
+	}
+
+	if (0
 		|| shExpMatch(url, "http://freya:48888/*")
 	) {
 		return "SOCKS5 192.168.1.212:55777";

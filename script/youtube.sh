@@ -1,5 +1,5 @@
 #!/bin/bash
-listfile='/www/youtube/url.txt'
+listfile='/tmp/youtube-url.txt'
 (
     flock -x -n 200 || exit 1
 
@@ -17,10 +17,11 @@ listfile='/www/youtube/url.txt'
 		echo start
 		cat $tmpfile
 
-		nohup /usr/local/bin/youtube-dl \
+		nohup /usr/bin/youtube-dl \
 			--cache-dir "/home/zhengkai/.cache/youtube-dl" \
 			--format bestvideo+bestaudio \
-			--output "/home/zhengkai/sync/youtube/%(title)s-%(id)s.%(ext)s" \
+			--merge-output-format mkv \
+			--output "/sync/youtube/%(title)s-%(id)s.%(ext)s" \
 			--no-part \
 			--batch-file $tmpfile \
 			2>&1 &
