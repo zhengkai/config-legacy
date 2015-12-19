@@ -12,6 +12,7 @@ listfile='/tmp/youtube-url.txt'
 		fi
 
 		tmpfile=`tempfile`
+		sudo chown zhengkai:zhengkai $listfile
 		mv $listfile $tmpfile
 
 		echo start
@@ -32,4 +33,4 @@ listfile='/tmp/youtube-url.txt'
 
 	done
 
-) 200>/tmp/youtube_dl.lock
+) 200>/tmp/youtube-dl.lock
