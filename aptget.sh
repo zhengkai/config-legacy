@@ -30,3 +30,4 @@ sudo easy_install3 -U pip
 
 HOME=/root sudo pip install --upgrade httpie
 HOME=/root sudo pip install --upgrade qrcode
+HOME=/root sudo pip install --upgrade tldr
