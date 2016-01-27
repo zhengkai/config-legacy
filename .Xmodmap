@@ -1,8 +1,9 @@
 !
 ! Swap Caps_Lock and Control_L
 !
-keycode 66 = Control_L
-keycode 37 = Caps_Lock
+keycode  66 = Control_L
+keycode  37 = Caps_Lock
+keycode  62 = XF86Game
 
 ! orig Esc
 keycode   9 = XF86Game
@@ -13,45 +14,5 @@ keycode  49 = Escape asciitilde
 ! orig Alt_R
 keycode 108 = grave asciitilde
 
-keycode 112 = Home
-keycode 117 = End
-
-keycode 115 = Next
-keycode 110 = Prior
-
-keycode  78 = NoSymbol
-keycode  77 = NoSymbol
-
-! orig Ctrl_R
-keycode 105 = Meta_R
-
-! orig Shift_R
-keycode  62 = Super_R
-
-! orig Win_L
-keycode 133 = XF86Launch4
-
-keycode 134 = NoSymbol
-keycode 204 = NoSymbol
-keycode 206 = NoSymbol
-
-clear Control
-add Control = Control_L
-
-clear Lock
-add Lock = Caps_Lock
-
 clear Shift
 add Shift = Shift_L
-
-clear mod1
-add mod1 = Alt_L
-
-clear mod2
-add mod2 = Meta_R
-
-clear mod3
-add mod3 = Super_R
-
-clear mod4
-clear mod5
