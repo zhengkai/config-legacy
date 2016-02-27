@@ -21,6 +21,7 @@ htop
 ifstat
 imagemagick
 iotop
+libappindicator1
 libcurl4-openssl-dev
 libffi-dev
 libgd2-xpm-dev
