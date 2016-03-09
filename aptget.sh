@@ -32,4 +32,6 @@ HOME=/root sudo pip install --upgrade httpie
 HOME=/root sudo pip install --upgrade qrcode
 HOME=/root sudo pip install --upgrade tldr
 
+sudo adduser zhengkai www-data
+
 sed "s/[[:blank:]]*$//" aptget | sort | uniq | sponge aptget
