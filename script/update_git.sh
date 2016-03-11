@@ -32,6 +32,8 @@ for GIT_PATH in "${GIT_LIST[@]}"; do
 	CHANGE=`git status --short 2>/dev/null | head -n 1`
 	if [ -z "$CHANGE" ]; then
 		git pull --rebase
-		git submodule update --init --recursive
+		if [ -e '.gitmodules' ]; then
+			git submodule update --init --recursive
+		fi
 	fi
 done
