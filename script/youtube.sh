@@ -1,5 +1,6 @@
 #!/bin/bash
 listfile='/tmp/youtube-url.txt'
+tmp_dir='/home/zhengkai/.cache/youtube-dl'
 (
     flock -x -n 200 || exit 1
 
@@ -11,6 +12,8 @@ listfile='/tmp/youtube-url.txt'
 			continue
 		fi
 
+		mkdir -p "$tmp_dir"
+
 		tmpfile=`tempfile`
 		sudo chown zhengkai:zhengkai $listfile
 		mv $listfile $tmpfile
@@ -19,7 +22,7 @@ listfile='/tmp/youtube-url.txt'
 		cat $tmpfile
 
 		nohup /usr/bin/youtube-dl \
-			--cache-dir "/home/zhengkai/.cache/youtube-dl" \
+			--cache-dir "$tmp_dir" \
 			--format bestvideo+bestaudio \
 			--merge-output-format mkv \
 			--output "/sync/youtube/%(title)s-%(id)s.%(ext)s" \
