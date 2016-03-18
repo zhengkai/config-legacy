@@ -4,6 +4,10 @@ cd $(dirname `readlink -f $0`)
 
 COMPOSER_DIR=$HOME'/.composer'
 
+if [ ! -e $COMPOSER_DIR'/auth.json' ] &&  [ -e $HOME'/hide/composer/auth.json' ]; then
+	cp $HOME'/hide/composer/auth.json' $COMPOSER_DIR'/auth.json'
+fi
+
 if [ ! -d $COMPOSER_DIR ]; then
 	if [ -e $COMPOSER_DIR ]; then
 		echo
@@ -23,6 +27,7 @@ if [ ! -x $COMPOSER ]; then
 fi
 
 sudo $COMPOSER self-update 2>&1
+chown -R zhengkai:zhengkai $COMPOSER_DIR
 
 COMPOSER_JSON=$COMPOSER_DIR'/composer.json'
 if [ ! -e $COMPOSER_JSON ]; then
