@@ -27,7 +27,7 @@ if [ ! -x $COMPOSER ]; then
 fi
 
 sudo $COMPOSER self-update 2>&1
-chown -R zhengkai:zhengkai $COMPOSER_DIR
+sudo chown -R zhengkai:zhengkai $COMPOSER_DIR
 
 COMPOSER_JSON=$COMPOSER_DIR'/composer.json'
 if [ ! -e $COMPOSER_JSON ]; then
