@@ -86,6 +86,7 @@ alias dus="sudo du --max-depth=0 -h"
 alias sshsync='rsync --partial -vzrtopg -e ssh'
 
 alias pwgen='((L=$LINES-8)); ((L=L>10?L:10)); ((W=$COLUMNS)); ((W=W>80?W:80)); pwgen -cns $W $L'
+alias pwgens='((L=$LINES-8)); ((L=L>10?L:10)); ((W=$COLUMNS)); ((W=W>80?W:80)); pwgen -cnsy $W $L'
 
 alias grep='grep -n -I --color=always --exclude-dir=.hg --exclude-dir=.git --exclude-dir=.svn'
 alias less='less -r --tabs=4'
