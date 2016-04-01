@@ -71,7 +71,7 @@ alias free="free -h"
 
 alias fdate="\date +'%Y-%m-%d %H:%M:%S'"
 alias date="date --date='TZ=\"Asia/Shanghai\" now' +'%Y-%m-%d %H:%M:%S'"
-alias timestamp="\date +'%s'"
+alias now="php -r '\$i = time(); echo \$i, \"\\n\", number_format(\$i);'"
 
 alias ssh-keygen='ssh-keygen -N "" -b 4096 -t rsa'
 
