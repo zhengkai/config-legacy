@@ -4,6 +4,10 @@ cd $(dirname `readlink -f $0`)
 
 COMPOSER_DIR=$HOME'/.composer'
 
+if [ ! -e $COMPOSER_DIR ]; then
+	mkdir -p $COMPOSER_DIR
+fi
+
 if [ ! -e $COMPOSER_DIR'/auth.json' ] &&  [ -e $HOME'/hide/composer/auth.json' ]; then
 	cp $HOME'/hide/composer/auth.json' $COMPOSER_DIR'/auth.json'
 fi

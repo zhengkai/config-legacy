@@ -8,6 +8,6 @@
         "sebastian/phpcpd": "@stable",
         "phpmd/phpmd": "@stable",
 		"fabpot/php-cs-fixer": "@stable",
-		"fp-coding-standards/fpcs" : "dev-master"
+		"fp-coding-standards/fpcs" : "@stable"
     }
 }
