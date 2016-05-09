@@ -15,6 +15,7 @@ alias iotop="sudo iotop"
 alias iftop="sudo iftop"
 alias fdisk="sudo fdisk"
 alias sysctl="sudo sysctl"
+alias zfs="sudo zfs"
 
 alias adduser="sudo adduser"
 alias groupadd="sudo groupadd"
