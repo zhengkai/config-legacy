@@ -16,6 +16,7 @@ fortune-zh
 gawk
 gettext
 git
+gnupg-agent
 highlight
 htop
 ifstat
@@ -24,7 +25,7 @@ iotop
 libappindicator1
 libcurl4-openssl-dev
 libffi-dev
-libgd2-xpm-dev
+libgd-dev
 libgeoip-dev
 libjpeg8-dev
 libjpeg-dev
@@ -56,5 +57,5 @@ tree
 vim
 whois
 wondershaper
-zlib1g-dev
 zfsutils-linux
+zlib1g-dev

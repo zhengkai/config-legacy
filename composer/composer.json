@@ -1,5 +1,6 @@
 {
     "require": {
+		"tango/tango": "@stable",
         "squizlabs/php_codesniffer": "@stable",
         "phpunit/phpunit": "@stable",
         "phploc/phploc": "@stable",
@@ -8,6 +9,7 @@
         "sebastian/phpcpd": "@stable",
         "phpmd/phpmd": "@stable",
 		"fabpot/php-cs-fixer": "@stable",
-		"fp-coding-standards/fpcs" : "@stable"
+		"fp-coding-standards/fpcs" : "@stable",
+        "laravel/installer": "@stable"
     }
 }
