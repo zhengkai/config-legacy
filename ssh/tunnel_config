@@ -5,7 +5,7 @@ Host *
 	Compression yes
 	CompressionLevel 9
 	GSSAPIAuthentication no
-	ControlMaster no 
+	ControlMaster no
 	ControlPath none
 	ControlPersist no
 	User zhengkai
@@ -19,12 +19,12 @@ Host freya
 
 Host tesla
 	HostName 106.120.209.227
-	
+
 Host alpha
 	HostName 108.61.217.82
 
 Host sigma
-	HostName 54.169.65.247
+	HostName 52.77.17.190
 
 Host molly
 	Port 10001
