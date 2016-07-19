@@ -29,7 +29,7 @@ alias try='docker run --rm=true -t -i'
 
 alias youtube-dl='youtube-dl -f bestvideo+bestaudio -o "/home/zhengkai/sync/youtube/%(title)s-%(id)s.%(ext)s"'
 
-alias bt="/usr/bin/deluge-console"
+alias wanip='curl https://ifconfig.io/ip'
 
 alias rm="trash-put"
 
