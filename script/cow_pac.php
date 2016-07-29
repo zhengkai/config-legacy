@@ -17,6 +17,14 @@ $sReplace = <<<'EOD'
 //	}
 
 	if (0
+		|| shExpMatch(url, "https://www.google.com/*")
+		|| shExpMatch(url, "https://*googlevideo.com/*")
+		|| shExpMatch(url, "https://*.ytimg.com/*")
+	) {
+		return "SOCKS5 192.168.1.212:55778; SOCKS5 192.168.1.212:55777";
+	}
+
+	if (0
 		|| shExpMatch(url, "*music.126.net/*")
 	) {
 		return 'DIRECT';
