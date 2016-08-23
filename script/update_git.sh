@@ -28,6 +28,7 @@ for GIT_PATH in "${GIT_LIST[@]}"; do
 
 	cd $GIT_PATH 2>/dev/null || continue
 	git fetch --all 2>/dev/null || continue
+	git fetch origin --prune 2>/dev/null || continue
 
 	CHANGE=`git status --short 2>/dev/null | head -n 1`
 	if [ -z "$CHANGE" ]; then
