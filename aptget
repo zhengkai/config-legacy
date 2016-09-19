@@ -17,7 +17,7 @@ fortune-zh
 gawk
 gccgo
 gettext
-git
+git-all
 gnupg-agent
 highlight
 htop
@@ -40,6 +40,7 @@ libxslt1-dev
 memcached
 mingetty
 moreutils
+node-ws
 ntp
 openssh-server
 pwgen
