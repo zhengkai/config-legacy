@@ -28,10 +28,13 @@ fi
 
 sudo easy_install3 -U pip
 
-HOME=/root sudo pip install --upgrade httpie
-HOME=/root sudo pip install --upgrade qrcode
-HOME=/root sudo pip install --upgrade tldr
+sudo -H pip install --upgrade httpie
+sudo -H pip install --upgrade qrcode
+sudo -H pip install --upgrade tldr
+sudo -H pip3 install --upgrade thefuck
 
 sudo adduser zhengkai www-data
+
+sudo chown -R zhengkai:zhengkai /home/zhengkai
 
 sed "s/[[:blank:]]*$//" aptget | sort | uniq | sponge aptget

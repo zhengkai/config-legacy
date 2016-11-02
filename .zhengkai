@@ -179,6 +179,8 @@ export LESS_TERMCAP_so=$'\E[30;48;5;32m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[38;5;117m'
 
+eval "$(thefuck --alias)"
+
 if [ -f ~/conf/.bash_alias ]; then
     . ~/conf/.bash_alias
 fi

@@ -10,6 +10,7 @@ alias tcpdump="sudo tcpdump"
 alias emerge="sudo emerge"
 alias apt-get="sudo apt-get"
 alias apt-cache="sudo apt-cache"
+alias apt-up="apt-get update && apt-get dist-upgrade"
 alias wondershaper="sudo wondershaper"
 alias iotop="sudo iotop"
 alias iftop="sudo iftop"
@@ -136,7 +137,8 @@ alias nginx="service nginx"
 alias mysqld="service mysql"
 alias fpm="service php-fpm"
 
-alias pip='HOME=/root sudo pip'
+alias pip='sudo -H pip'
+alias pip3='sudo -H pip3'
 alias easy_install='sudo easy_install'
 alias easy_install3='sudo easy_install3'
 
