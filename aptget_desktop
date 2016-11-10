@@ -20,3 +20,5 @@ vim-gnome
 virtualbox
 virtualbox-guest-additions-iso
 xclip
+exfat-fuse
+exfat-utils
