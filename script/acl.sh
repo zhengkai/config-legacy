@@ -43,5 +43,5 @@ setfacl -d -R -m g:$1:rwx $2
 echo
 
 echo setfacl'    '-R -m g:$1:rwX $2
-setfacl -R -m g:$1:rwX $2
+setfacl    -R -m g:$1:rwX $2
 echo
