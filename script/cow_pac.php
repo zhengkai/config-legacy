@@ -12,20 +12,16 @@ if (!$s) {
 $sFind = 'function FindProxyForURL(url, host) {';
 
 $sReplace = <<<'EOD'
-//	if (url.match(new RegExp('^.*?://.*?(youku|qiyi|iqiyi|letv|sohu|ku6|ku6cdn|pps)\.(com|tv)/crossdomain\.xml$'))) {
-//		return "PROXY api.youku.com:80";
-//	}
-
 	if (0
 		|| shExpMatch(url, "https://www.google.com/*")
 		|| shExpMatch(url, "https://*googlevideo.com/*")
 		|| shExpMatch(url, "https://*.ytimg.com/*")
 	) {
-		return "SOCKS5 192.168.1.212:55778; SOCKS5 192.168.1.212:55777";
+		return "SOCKS5 127.0.0.1:1080; SOCKS5 192.168.1.212:55777";
 	}
 
 	if (0
-		|| shExpMatch(url, "*music.126.net/*")
+		|| shExpMatch(url, "http://192.168.1.*")
 	) {
 		return 'DIRECT';
 	}
@@ -59,4 +55,4 @@ EOD;
 
 $s = str_replace($sFind, $sFind."\n\n".$sReplace."\n", $s);
 
-file_put_contents('/www/lan/pac.txt', $s);
+file_put_contents('/www/lan/pac/cow.txt', $s);
