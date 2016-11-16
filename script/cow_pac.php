@@ -16,6 +16,7 @@ $sReplace = <<<'EOD'
 		|| shExpMatch(url, "https://www.google.com/*")
 		|| shExpMatch(url, "https://*googlevideo.com/*")
 		|| shExpMatch(url, "https://*.ytimg.com/*")
+		|| shExpMatch(url, "*.facebook.com/*")
 	) {
 		return "SOCKS5 127.0.0.1:1080; SOCKS5 192.168.1.212:55777";
 	}
