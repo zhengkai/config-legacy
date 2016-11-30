@@ -20,4 +20,3 @@ fssh() {
 
 alias fscp='scp -F ~/.ssh/deploy_config'
 
-alias ifstat='ifstat -i eth0'

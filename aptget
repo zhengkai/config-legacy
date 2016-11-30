@@ -11,6 +11,8 @@ curl
 dfc
 dkms
 exuberant-ctags
+exif
+jq
 fdupes
 figlet
 fortune-zh

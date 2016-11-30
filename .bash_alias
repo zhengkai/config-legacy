@@ -33,6 +33,7 @@ alias try='docker run --rm=true -t -i'
 alias youtube-dl='youtube-dl -f bestvideo+bestaudio --merge-output-format mkv -o "/home/zhengkai/sync/youtube/%(title)s-%(id)s.%(ext)s"'
 
 alias wanip='curl https://ifconfig.io/ip'
+alias ifstat='ifstat -t'
 
 alias rm="trash-put"
 
