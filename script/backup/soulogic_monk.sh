@@ -1,6 +1,6 @@
 #! /bin/bash
 source_path="/backup/"
-target_path="alpha:/backup"
+target_path="monk:/backup"
 
 cd `dirname "${BASH_SOURCE[0]}"`
 
