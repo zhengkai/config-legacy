@@ -1,8 +1,11 @@
-eclipse
-gnome-exe-thumbnailer
 compizconfig-settings-manager
+eclipse
+exfat-fuse
+exfat-utils
+gccgo
+gnome-exe-thumbnailer
 gnome-tweak-tool
-unity-tweak-tool
+gnupg-agent
 gparted
 imwheel
 moc
@@ -20,5 +23,3 @@ vim-gnome
 virtualbox
 virtualbox-guest-additions-iso
 xclip
-exfat-fuse
-exfat-utils
