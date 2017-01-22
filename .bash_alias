@@ -188,3 +188,6 @@ ex () {
 function php_fn() {
     docker exec -i -t php bash -c 'if [ -d "'$PWD'" ]; then cd "'$PWD'"; else echo "unknown dir"; exit; fi; php '$@
 }
+
+alias wake_tesla='wakeonlan fc:aa:14:ad:25:d5'
+alias wake_molly='wakeonlan d8:50:e6:ba:43:df'
