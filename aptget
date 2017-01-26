@@ -9,7 +9,6 @@ cloc
 colordiff
 curl
 dfc
-dkms
 editorconfig
 exif
 exuberant-ctags
@@ -21,7 +20,6 @@ gettext
 highlight
 htop
 ifstat
-imagemagick
 iotop
 jq
 libappindicator1
@@ -37,7 +35,6 @@ libreadline-dev
 libssl-dev
 libxml2-dev
 libxslt1-dev
-memcached
 mingetty
 moreutils
 node-ws
