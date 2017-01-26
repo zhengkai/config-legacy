@@ -1,2 +1,0 @@
-sudo -u zhengkai autossh -qTfnNC -F /home/zhengkai/conf/ssh/tunnel_config -R 55002:127.0.0.1:22 -D *:55777 freya >/dev/null 2>&1 &
-
