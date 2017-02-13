@@ -2,8 +2,8 @@
 <?php
 
 $sConfigFile = '/etc/shadowsocks.json';
-$sBlockFile = '/home/zhengkai/.cow/blocked';
-$sDirectFile  = '/home/zhengkai/.cow/direct';
+$sBlockFile  = '/home/zhengkai/hide/pac/list/blocked.txt';
+$sDirectFile = '/home/zhengkai/hide/pac/list/direct.txt';
 
 $s = '';
 $s .= 'version: 2' . "\n";
