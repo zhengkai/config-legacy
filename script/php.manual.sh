@@ -13,7 +13,7 @@ if [ ! -w "$TARGET_DIR" ]; then
 	exit
 fi
 
-flock -n $LOCK_FILE /usr/bin/rsync --bwlimit=100 -avzC --timeout=600 --delete --delete-after \
+flock -n $LOCK_FILE /usr/bin/rsync -avzC --timeout=600 --delete --delete-after \
  --exclude='.git' \
  --include='manual/en/' --include='manual/en/**' --exclude='manual/**' \
  --exclude='distributions' \
