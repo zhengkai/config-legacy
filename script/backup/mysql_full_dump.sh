@@ -31,7 +31,7 @@ for DB_NAME in `echo 'show databases' | mysql -N`; do
 
 	DBROOT=`dirname "$DIRNAME"`
 
-	# 只有最近 30 天内有超过 20 个文件，才会删除老文件
+	# 只有最近 30 天内有超过 20 个文件，才会删除超过 35 天的老文件
 	# 防止备份脚本失效后新老数据都没有了
 	FILE_NUM=`find $DBROOT -mtime -30 | wc -l`
 	if [ $FILE_NUM -gt 20 ]; then
