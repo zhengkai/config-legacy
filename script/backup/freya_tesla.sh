@@ -1,6 +1,6 @@
 #! /bin/bash
-source_path="freya:/backup/"
-target_path="/backup/Tesla"
+source_path="freya:/backup/Freya"
+target_path="/backup"
 
 cd `dirname "${BASH_SOURCE[0]}"`
 
