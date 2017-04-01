@@ -1,30 +1,28 @@
 shopt -s expand_aliases
 
-alias s="ssh"
+alias s='ssh'
 
-alias todo="vi ~/TODO"
+alias todo='vi ~/TODO'
 
 alias vms='vmstat 1'
 alias dmidecode='sudo dmidecode'
-alias tcpdump="sudo tcpdump"
-alias emerge="sudo emerge"
-alias apt="sudo apt"
-alias apt-get="sudo apt-get"
-alias apt-cache="sudo apt-cache"
-alias apt-up="apt-get update && apt-get dist-upgrade"
-alias wondershaper="sudo wondershaper"
-alias iotop="sudo iotop"
-alias iftop="sudo iftop"
-alias fdisk="sudo fdisk"
-alias sysctl="sudo sysctl"
-alias zfs="sudo zfs"
-alias cop="composer update"
+alias tcpdump='sudo tcpdump'
+alias emerge='sudo emerge'
+alias apt='sudo apt'
+alias systemctl='sudo systemctl'
+alias apt-get='sudo apt-get'
+alias apt-cache='sudo apt-cache'
+alias apt-up='apt-get update && apt-get dist-upgrade'
+alias wondershaper='sudo wondershaper'
+alias iotop='sudo iotop'
+alias iftop='sudo iftop'
+alias fdisk='sudo fdisk'
+alias sysctl='sudo sysctl'
+alias zfs='sudo zfs'
+alias cop='composer update'
 
-alias adduser="sudo adduser"
-alias groupadd="sudo groupadd"
-
-alias syslog="sudo service syslog-ng"
-alias rsyslog="sudo service rsyslog"
+alias adduser='sudo adduser'
+alias groupadd='sudo groupadd'
 
 alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
