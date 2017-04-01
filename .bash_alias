@@ -59,6 +59,7 @@ alias gs='git st'
 alias gc='git co'
 alias gm='git merge --no-ff'
 alias gtp='git stash apply'
+alias gpp='git pull && git push'
 
 # 从整个仓库的所有历史里搜索某个关键词
 alias git_all_search='git rev-list --all | xargs git grep -F'

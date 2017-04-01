@@ -14,5 +14,6 @@ do
 	echo $s
 	echo
 	cd $s || continue
+	git fetch
 	git gc
 done
