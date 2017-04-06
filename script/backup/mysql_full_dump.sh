@@ -34,7 +34,7 @@ for DB_NAME in `echo 'show databases' | mysql -N`; do
 
 	find `dirname "$DIRNAME"` -mtime +35 -exec rm -f {} \;
 
-	mysqldump \
+	/usr/bin/mysqldump \
 	 --default-character-set=utf8mb4 \
 	 --set-charset=TRUE \
 	 --add-drop-database \
