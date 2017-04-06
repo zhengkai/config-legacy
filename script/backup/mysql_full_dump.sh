@@ -3,7 +3,7 @@
 TARGET_DIR='/backup/'`hostname`
 
 if [[ ! -d $TARGET_DIR || ! -w $TARGET_DIR ]]; then
-	echo 'can not write dir '$TARGET_DIR
+	>&2 echo 'can not write dir '$TARGET_DIR
 	exit 1
 fi
 
@@ -18,21 +18,26 @@ for DB_NAME in `echo 'show databases' | mysql -N`; do
 	done
 
 	echo
-	echo $DB_NAME
 
 	FILENAME="$TARGET_DIR/$DB_NAME/`date +%Y_%m`/${DB_NAME}_db_`date +%Y%m%d_%H%M`.sql.gz"
-	echo $FILENAME
+	printf '%-12s %s' $DB_NAME $FILENAME
 
 	DIRNAME=`dirname "$FILENAME"`
-	echo $DIRNAME
-
 	mkdir -p $DIRNAME 2>/dev/null || {
 		echo
 		echo 'ERROR: create dir '$DIRNAME' fail'
 		continue
 	}
 
-	find `dirname "$DIRNAME"` -mtime +35 -exec rm -f {} \;
+	DBROOT=`dirname "$DIRNAME"`
+
+	# 只有最近 30 天内有超过 20 个文件，才会删除老文件
+	# 防止备份脚本失效后新老数据都没有了
+	FILE_NUM=`find $DBROOT -mtime -30 | wc -l`
+	if [ $FILE_NUM -gt 20 ]; then
+		find $DBROOT -mtime +35 -type f -exec rm -f {} \;
+		find $DBROOT -empty -delete
+	fi
 
 	/usr/bin/mysqldump \
 	 --default-character-set=utf8mb4 \
@@ -45,23 +50,3 @@ for DB_NAME in `echo 'show databases' | mysql -N`; do
 	 --databases "$DB_NAME" | gzip --best > $FILENAME
 
 done
-
-echo
-
-exit
-
-#
-#
-# dir=`dirname $bakname`
-#
-# find $dir -mtime +35 -exec rm -f {} \;
-#
-# /usr/bin/mysqldump \
-#  --default-character-set=utf8 \
-#  --set-charset=TRUE \
-#  --add-drop-database \
-#  --add-drop-table \
-#  --add-locks \
-#  --hex-blob \
-#  --quick \
-#  --databases iconfans_bbs | gzip --best > $bakname
