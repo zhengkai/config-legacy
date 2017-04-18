@@ -1,5 +1,6 @@
 #!/bin/bash
-dir=$(dirname `readlink -f $0`)
+cd $(dirname `readlink -f $0`)
+dir=`pwd`
 
 sudo chown -R zhengkai:zhengkai /home/zhengkai
 
@@ -32,4 +33,4 @@ sudo adduser zhengkai www-data
 
 sudo chown -R zhengkai:zhengkai /home/zhengkai
 
-#sed "s/[[:blank:]]*$//" aptget | sort | uniq | sponge aptget
+$dir/npm.sh
