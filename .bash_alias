@@ -132,6 +132,7 @@ alias terror="sudo touch /tmp/php-error.txt; sudo chmod 666 /tmp/php-error.txt; 
 
 alias mocp="TERM=screen-256color /usr/bin/mocp"
 
+alias getlimit='~/conf/script/getlimit.sh'
 alias zhengkaireload="~/conf/script/tmux_reload_rc.sh"
 
 alias service="sudo service"
