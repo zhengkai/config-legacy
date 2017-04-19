@@ -146,6 +146,7 @@ alias easy_install='sudo easy_install'
 alias easy_install3='sudo easy_install3'
 
 alias pl="echo 'show processlist;' | mysql"
+alias pc='echo `grep -c "^processor" /proc/cpuinfo`'
 
 alias acl="sudo ~/conf/script/acl.sh"
 alias cleanacl="sudo setfacl -b -R ."
