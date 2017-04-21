@@ -25,10 +25,11 @@ if [ ! -d $COMPOSER_DIR ]; then
 fi
 
 COMPOSER='/usr/local/bin/composer'
-
 if [ ! -x $COMPOSER ]; then
 	curl -sS https://getcomposer.org/installer | sudo php -- --install-dir="$(dirname $COMPOSER)" --filename=composer
 fi
+
+COMPOSER="$COMPOSER  --no-ansi --no-interaction"
 
 sudo $COMPOSER self-update 2>&1
 sudo chown -R zhengkai:zhengkai $COMPOSER_DIR
