@@ -1,4 +1,5 @@
 #!/bin/sh
+export DEBIAN_FRONTEND=noninteractive
 sudo /usr/bin/apt-get update
 sudo /usr/bin/apt-get -y dist-upgrade
 sudo /usr/bin/apt-get -y autoremove

@@ -2,7 +2,7 @@
 source_path="freya:/backup/Freya"
 target_path="/backup"
 
-cd `dirname "${BASH_SOURCE[0]}"`
+cd $(dirname `readlink -f $0`)
 
 (
     flock -x -n 200 || exit 1

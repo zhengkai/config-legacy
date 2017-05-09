@@ -2,7 +2,7 @@
 source_path="/backup/"
 target_path="monk:/backup"
 
-cd `dirname "${BASH_SOURCE[0]}"`
+cd $(dirname `readlink -f $0`)
 
 (
     flock -x -n 200 || exit 1
