@@ -8,6 +8,7 @@ sudo cp "$dir/file/sudoers_nopassword" /etc/sudoers.d/nopassword
 
 mkdir -p ~/.tmp
 mkdir -p ~/.backup
+mkdir -p ~/.Trash
 
 sudo apt-get update
 

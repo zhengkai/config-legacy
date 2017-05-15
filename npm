@@ -1,2 +1,10 @@
 wscat
 less
+babel-cli
+babel-preset-latest
+eslint-config-airbnb
+babel-eslint
+eslint
+eslint-plugin-react
+eslint-plugin-import
+eslint-plugin-jsx-a11y
