@@ -27,7 +27,6 @@ alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
 # alias try='docker run --rm=true -t -i'
 
-alias youtube-dl='~/conf/script/youtube-dl.sh'
 alias youtube-dl='youtube-dl -f bestvideo+bestaudio --merge-output-format mkv -o "/sync/youtube/%(title)s-%(id)s.%(ext)s"'
 
 alias wanip='curl https://ifconfig.io/ip'
