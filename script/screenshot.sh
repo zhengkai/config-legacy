@@ -21,6 +21,6 @@ mkdir -p `dirname $filename`
 import -window root $filename
 
 filesize=`ls -l $filename | awk '{ print $5 }' | tail -1`
-if [ $filesize -lt 500 ]; then
+if [ $filesize -lt 3000 ]; then
 	rm $filename
 fi

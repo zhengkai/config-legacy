@@ -1,7 +1,7 @@
 #!/bin/bash
 
 (
-    flock -x -n 200 || exit 1
+	flock -x -n 200 || exit 1
 
 	/home/zhengkai/.cow/cow
 

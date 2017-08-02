@@ -28,6 +28,7 @@ alias docker-compose='sudo docker-compose'
 # alias try='docker run --rm=true -t -i'
 
 alias youtube-dl='~/conf/script/youtube-dl.sh'
+alias youtube-dl='youtube-dl -f bestvideo+bestaudio --merge-output-format mkv -o "/sync/youtube/%(title)s-%(id)s.%(ext)s"'
 
 alias wanip='curl https://ifconfig.io/ip'
 alias ifstat='ifstat -t'
@@ -60,6 +61,7 @@ alias gc='git co'
 alias gm='git merge --no-ff'
 alias gtp='git stash apply'
 alias gpp='git pull && git push'
+alias gpt='git push && git push --tags'
 
 # 从整个仓库的所有历史里搜索某个关键词
 alias git_all_search='git rev-list --all | xargs git grep -F'
@@ -95,6 +97,7 @@ alias pwgen='((L=$LINES-8)); ((L=L>10?L:10)); ((W=$COLUMNS)); ((W=W>80?W:80)); p
 alias pwgens='((L=$LINES-8)); ((L=L>10?L:10)); ((W=$COLUMNS)); ((W=W>80?W:80)); pwgen -cnsy $W $L'
 
 alias grep='sudo grep -n -I --color=always --exclude-dir=.hg --exclude-dir=.git --exclude-dir=.svn'
+alias grpe='grep'
 alias less='less -r --tabs=4'
 
 alias pss='ps aux | \grep'

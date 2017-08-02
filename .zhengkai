@@ -130,6 +130,7 @@ then
 fi
 
 export PS1="$PS1_SET_TITLE $PS1_TIME $PS1_HOST $PS1_PWD $PS1_GIT $PS1_PROMPT"
+export ZHENGKAI='y'
 
 export SDIRS=~/conf/.sdirs
 if [ -f ~/conf/inc/bashmarks/bashmarks.sh ]; then
@@ -196,3 +197,8 @@ fi
 if [ -z "$(declare -f -F j)" ] && [ -f /usr/share/autojump/autojump.bash ]; then
 	. /usr/share/autojump/autojump.bash
 fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
