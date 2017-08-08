@@ -4,17 +4,17 @@
 # You are free to use, modify and distribute, however you may not remove this notice.
 # Copyright (c) Adrian Jon Kriel :: admin@extremeshok.com
 ################################################################################
-# 
+#
 # Script updates can be found at: https://github.com/extremeshok/geoip-update.sh
 #
 # License: BSD (Berkeley Software Distribution)
 #
 ################################################################################
 #
-# Unlike other maxmind database update scripts, this will only download the 
+# Unlike other maxmind database update scripts, this will only download the
 # databases when they have been updated. The databases are extracted directly
 # to the geoip dir and as such this script does not use a temp dir and a copy
-# The script will also create symbolic links to alias the various database 
+# The script will also create symbolic links to alias the various database
 # names to legacy database names.
 #
 ################################################################################
@@ -29,7 +29,6 @@
 # Enable to prevent issues with multiple instances running
 # To disable, set the following variable to "no".
 enable_locking="yes"
-
 
 # program directories
 work_dir="/var/lib/GeoIP"
@@ -61,13 +60,13 @@ GeoIPASNumv6.dat|GeoLiteASNumv6.dat
 
 ################################################################################
 
-######  #######    #     # ####### #######    ####### ######  ### ####### 
-#     # #     #    ##    # #     #    #       #       #     #  #     #    
-#     # #     #    # #   # #     #    #       #       #     #  #     #    
-#     # #     #    #  #  # #     #    #       #####   #     #  #     #    
-#     # #     #    #   # # #     #    #       #       #     #  #     #    
-#     # #     #    #    ## #     #    #       #       #     #  #     #    
-######  #######    #     # #######    #       ####### ######  ###    #    
+######  #######    #     # ####### #######    ####### ######  ### #######
+#     # #     #    ##    # #     #    #       #       #     #  #     #
+#     # #     #    # #   # #     #    #       #       #     #  #     #
+#     # #     #    #  #  # #     #    #       #####   #     #  #     #
+#     # #     #    #   # # #     #    #       #       #     #  #     #
+#     # #     #    #    ## #     #    #       #       #     #  #     #
+######  #######    #     # #######    #       ####### ######  ###    #
 
 ################################################################################
 
@@ -92,14 +91,13 @@ function xshok_create_pid_file { #pid.file
     echo "ERROR: Missing value for option"
     exit 1
   fi
-} 
+}
 
 ################ Main Program
 
 # Set dir permissions
 mkdir -p "$work_dir" && chmod -f 755 "$work_dir"
 mkdir -p "$geoip_dir" && chmod -f 755 "$geoip_dir"
-
 
 # Enable pid file to prevent issues with multiple instances
 # opted not to use flock as it appears to have issues with some systems
@@ -108,7 +106,7 @@ if [ "$enable_locking" == "yes" ] ; then
   if [ -f $pid_file_fullpath ] ; then
     pid_file_pid=$(cat $pid_file_fullpath)
     ps -p "$pid_file_pid" > /dev/null 2>&1
-    if [ $? -eq 0 ] ; then 
+    if [ $? -eq 0 ] ; then
       echo "ERROR: Only one instance can run at the same time."
       exit 1
     else
@@ -141,10 +139,10 @@ fi
 
 if [ -n "$geo_symbolic_db_filname_link" ] ; then
 	for geo_symbolic_filname_link in $geo_symbolic_db_filname_link ; do
-		if [[ "$geo_symbolic_filname_link" =~ "|" ]] ; then 
+		if [[ "$geo_symbolic_filname_link" =~ "|" ]] ; then
   		geo_symbolic_link=$(echo "$geo_symbolic_filname_link" | cut -d "|" -f2)
   		geo_symbolic_filname=$(echo "$geo_symbolic_filname_link" | cut -d "|" -f1)
-  		if [ ! -L "$geoip_dir/$geo_symbolic_link" ] && [ -f "$geoip_dir/$geo_symbolic_filname" ] ; then
+  		if [ ! -e "$geoip_dir/$geo_symbolic_link" ] && [ -f "$geoip_dir/$geo_symbolic_filname" ] ; then
 				ln -s "$geoip_dir/$geo_symbolic_filname" "$geoip_dir/$geo_symbolic_link"
 				if [ "$0" ]; then
 					echo "Created symbolic link $geo_symbolic_filname ------ $geo_symbolic_link"
