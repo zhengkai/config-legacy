@@ -2,7 +2,7 @@
 
 TARGET_DIR='/backup/'`hostname`
 
-if [[ ! -d $TARGET_DIR || ! -w $TARGET_DIR ]]; then
+if [[ ! -d "$TARGET_DIR" || ! -w "$TARGET_DIR" ]]; then
 	>&2 echo 'can not write dir '$TARGET_DIR
 	exit 1
 fi
