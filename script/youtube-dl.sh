@@ -2,20 +2,29 @@
 
 HOSTNAME=`hostname`
 
-if [ "$HOSTNAME" == 'Freya' ] || [ "$HOSTNAME" == 'Tesla' ]; then
-	youtube-dl -f bestvideo+bestaudio \
+if [ -z "$1" ]; then
+	>&2 echo 'no url'
+	exit 1
+fi
+
+if [ "$HOSTNAME" == 'Freya' ]; then
+
+	if [ ! -d '/monk/youtube' ]; then
+		>&2 echo 'sshfs error'
+		exit 1
+	fi
+
+	cd /tmp
+	setsid youtube-dl -f bestvideo+bestaudio \
 		--merge-output-format mkv \
-		-o "/sync/youtube/%(title)s-%(id)s.%(ext)s" \
+		-o "/tmp/youtube/%(title)s-%(id)s.%(ext)s" \
+		--exec "/home/zhengkai/conf/script/youtube-mv.sh" \
 		"$@"
 	exit
 fi
 
-if [ "$HOSTNAME" == 'Monk' ]; then
-	youtube-dl --proxy 192.168.1.212:8118 \
-		-f bestvideo+bestaudio \
-		--merge-output-format mkv \
-		-o "/share/youtube/%(title)s-%(id)s.%(ext)s" \
-		"$@"
+if [ "$HOSTNAME" == 'Monk' ] || [ "$HOSTNAME" == 'Tesla' ]; then
+	nohup ssh freya youtube-dl "$@"
 	exit
 fi
 
