@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash
 
 DIR="/monk/youtube"
 if [ ! -d "$DIR" ]; then

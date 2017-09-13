@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash
 
 HOSTNAME=`hostname`
 
@@ -24,7 +24,7 @@ if [ "$HOSTNAME" == 'Freya' ]; then
 fi
 
 if [ "$HOSTNAME" == 'Monk' ] || [ "$HOSTNAME" == 'Tesla' ]; then
-	setsid ssh freya youtube-dl "$@"
+	setsid ssh freya /home/zhengkai/conf/script/youtube-dl.sh "$@"
 	exit
 fi
 
