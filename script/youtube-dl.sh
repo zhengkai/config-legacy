@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 HOSTNAME=`hostname`
 
@@ -24,7 +24,7 @@ if [ "$HOSTNAME" == 'Freya' ]; then
 fi
 
 if [ "$HOSTNAME" == 'Monk' ] || [ "$HOSTNAME" == 'Tesla' ]; then
-	nohup ssh freya youtube-dl "$@"
+	setsid ssh freya youtube-dl "$@"
 	exit
 fi
 
