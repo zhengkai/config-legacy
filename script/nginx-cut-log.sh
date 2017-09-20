@@ -1,0 +1,51 @@
+#!/bin/bash -e
+
+NGINX='/var/run/nginx.pid'
+if [ ! -e "$NGINX" ]; then
+	>&2 echo "no nginx pid file: $NGINX"
+	exit
+fi
+
+cd /log
+
+DATE=`date --date='TZ="Asia/Shanghai" now' +'%Y%m/%d'`
+
+readarray FILE < <( find . -type f -name 'access.log' -o -type f -name 'error.log' )
+
+echo ${#FILE[@]}
+
+CHANGE=''
+for L in "${FILE[@]}"; do
+	L=`echo "$L" | tr -d '\n'`
+
+	if [ ! -f "$L" ]; then
+		>&2 echo "unknown problem file $L, skip"
+		continue
+	fi
+
+	D=`dirname "$L"`
+	F=`basename "$L"`
+
+	NEW="$D/$DATE-$F"
+	if [ -e "$NEW" ]; then
+		>&2 echo "$L skip"
+		continue
+	fi
+
+	NEWD=`dirname "$NEW"`
+
+	if [ ! -e "$NEWD" ]; then
+		mkdir -p "$NEWD"
+	fi
+	if [ ! -w "$NEWD" ] || [ ! -d "$NEWD" ]; then
+		continue
+	fi
+
+	echo "$L -> $NEW"
+	mv "$L" "$NEW"
+	CHANGE='Y'
+done
+
+if [ -n "$CHANGE" ]; then
+	sudo kill -USR1 `cat "$NGINX"`
+fi
