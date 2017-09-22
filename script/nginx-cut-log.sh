@@ -10,9 +10,14 @@ cd /log
 
 DATE=`date --date='TZ="Asia/Shanghai" now' +'%Y%m/%d'`
 
-readarray FILE < <( find . -type f -name 'access.log' -o -type f -name 'error.log' )
+readarray FILE < <( find . -type f \( -name 'access.log' -o -name 'error.log' \) -not -empty )
 
 echo ${#FILE[@]}
+
+if [ -z "$FILE" ]; then
+	>&2 echo 'no log found, exit'
+	exit
+fi
 
 CHANGE=''
 for L in "${FILE[@]}"; do
