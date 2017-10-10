@@ -132,11 +132,6 @@ fi
 export PS1="$PS1_SET_TITLE $PS1_TIME $PS1_HOST $PS1_PWD $PS1_GIT $PS1_PROMPT"
 export ZHENGKAI='y'
 
-export SDIRS=~/conf/.sdirs
-if [ -f ~/conf/inc/bashmarks/bashmarks.sh ]; then
-	. ~/conf/inc/bashmarks/bashmarks.sh
-fi
-
 export ANDROID_HOME=/www/Android/Sdk
 
 export GOROOT=/usr/local/go
