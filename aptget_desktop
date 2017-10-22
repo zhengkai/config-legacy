@@ -1,14 +1,11 @@
 compizconfig-settings-manager
-eclipse
 exfat-fuse
 exfat-utils
-gccgo
 gnome-exe-thumbnailer
 gnome-tweak-tool
 gnupg-agent
 gparted
 imwheel
-moc
 nfs-common
 portmap
 python-gpgme
@@ -20,6 +17,4 @@ unity-webapps-service
 unrar
 vde2
 vim-gnome
-virtualbox
-virtualbox-guest-additions-iso
 xclip
