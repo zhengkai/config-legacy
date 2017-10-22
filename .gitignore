@@ -8,4 +8,4 @@ nohup.out
 /.moc/softmixer
 /.moc/playlist.m3u
 
-/xkb/*.dump
+/xkb/debug/*.dump
