@@ -23,7 +23,22 @@ if [ "$HOSTNAME" == 'Freya' ]; then
 	exit
 fi
 
-if [ "$HOSTNAME" == 'Monk' ] || [ "$HOSTNAME" == 'Tesla' ]; then
+if [ "$HOSTNAME" == 'Tesla' ]; then
+
+	if [ ! -d '/youtube' ]; then
+		>&2 echo 'no dir /youtube'
+		exit 1
+	fi
+
+	cd /youtube
+	setsid youtube-dl -f bestvideo+bestaudio \
+		--merge-output-format mkv \
+		-o "/youtube/%(title)s-%(id)s.%(ext)s" \
+		"$@"
+	exit
+fi
+
+if [ "$HOSTNAME" == 'Monk' ]; then
 	setsid ssh freya /home/zhengkai/conf/script/youtube-dl.sh "$@"
 	exit
 fi

@@ -60,14 +60,14 @@ xkb 系列命令要比 xmodmap 更强大，但也更复杂，有兴趣可以看�
 
 最后整个区域类似
 
-    caps:none		=	+capslock(none)
-    caps:ctrl_modifier=	+capslock(ctrl_modifier)
-    zhengkai:base     = +zhengkai(base)
-    zhengkai:esc      = +zhengkai(esc)
-    zhengkai:hhkb_esc = +zhengkai(hhkb_esc)
-    ctrl:nocaps		=	+ctrl(nocaps)
-    ctrl:lctrl_meta	=	+ctrl(lctrl_meta)
-    ctrl:swapcaps		=	+ctrl(swapcaps)
+    caps:none          = +capslock(none)
+    caps:ctrl_modifier = +capslock(ctrl_modifier)
+    zhengkai:base      = +zhengkai(base)
+    zhengkai:esc       = +zhengkai(esc)
+    zhengkai:hhkb_esc  = +zhengkai(hhkb_esc)
+    ctrl:nocaps        = +ctrl(nocaps)
+    ctrl:lctrl_meta    = +ctrl(lctrl_meta)
+    ctrl:swapcaps      = +ctrl(swapcaps)
 
 改完后可以先用测试是否正确生效
 
