@@ -13,7 +13,7 @@ fi
 
 echo 'pid = '$PS
 
-for PID in "${PS[@]}"; do
+for PID in ${PS[@]}; do
 	echo
 	echo $PID':'
 
