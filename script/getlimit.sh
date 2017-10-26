@@ -17,10 +17,5 @@ for PID in "${PS[@]}"; do
 	echo
 	echo $PID':'
 
-	if [ "$2" == 'full' ]; then
-		cat /proc/$PID/limits
-	else
-		cat /proc/$PID/limits | grep 'Max open files'
-	fi
-	echo
+	cat /proc/$PID/limits
 done
