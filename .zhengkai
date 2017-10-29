@@ -143,9 +143,6 @@ export GRADLE_HOME=/usr/local/src/gradle/gradle-3.3
 
 export PATH="$GOROOT/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:$HOME/.composer/vendor/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:/home/zhengkai/Downloads/android-studio/bin:$GRADLE_HOME/bin"
 
-# export HTTP_PROXY=localhost:7777
-# export HTTPS_PROXY=localhost:7777
-
 # case "$SSH_TTY" in
 # /dev/pts*)
 # 	;;
