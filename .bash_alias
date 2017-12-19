@@ -161,6 +161,9 @@ alias set666="(find . -type d -exec sudo chmod 777 {} \;) && (find . -not -type 
 #alias flushmc="echo 'flush_all' | nc localhost 11211"
 alias flushmc='~/conf/script/flushmc.sh'
 
+alias pwdcp='echo -n "`pwd`" | xclip -selection c'
+alias ss-qr='~/conf/script/ss-config-to-url.sh'
+
 alias tunnel_test="curl --connect-timeout 5 https://ifconfig.io/ip --socks5-hostname"
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
 
