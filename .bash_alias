@@ -164,7 +164,7 @@ alias flushmc='~/conf/script/flushmc.sh'
 alias pwdcp='echo -n "`pwd`" | xclip -selection c'
 alias ss-qr='~/conf/script/ss-config-to-url.sh'
 
-alias tunnel_test="curl --connect-timeout 5 https://ifconfig.io/ip --socks5-hostname"
+alias tunnel_test="curl --max-time 5 https://ifconfig.io/ip --socks5-hostname"
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
 
 alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then ~/conf/script/tmux_default.sh; fi'
@@ -200,4 +200,4 @@ function php_fn() {
 alias wake_tesla='wakeonlan "fc:aa:14:ad:25:d5" && wakeonlan -i "10.0.31.16" "fc:aa:14:ad:25:d5"'
 alias wake_molly='wakeonlan "d8:50:e6:ba:43:df" && wakeonlan -i "10.0.31.14" "d8:50:e6:ba:43:df"'
 alias wake_lydia='wakeonlan "e0:d5:5e:16:08:a0" && wakeonlan -i "192.168.1.225" "e0:d5:5e:16:08:a0"'
-alias wake_lydia='wakeonlan "b8:27:eb:c1:83:2a" && wakeonlan -i "192.168.1.224" "b8:27:eb:c1:83:2a"'
+alias wake_rpi='wakeonlan "b8:27:eb:c1:83:2a" && wakeonlan -i "192.168.1.224" "b8:27:eb:c1:83:2a"'
