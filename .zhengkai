@@ -1,6 +1,7 @@
+export TZ='Asia/Shanghai'
+
 [ -z "$PS1" ] && return
 
-export TZ='Asia/Shanghai'
 export TERM="xterm-256color"
 export EDITOR=vim
 export LINES
