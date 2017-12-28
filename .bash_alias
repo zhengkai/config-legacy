@@ -46,6 +46,8 @@ alias fuck='$(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
 
 alias g='go run'
+alias t='go test -v'
+alias tb='go test -v -test.bench=".*" -test.benchmem'
 
 alias ga='git add --all ./`git rev-parse --show-cdup`'
 alias gi='git add --all ./`git rev-parse --show-cdup` && git ci -a'
