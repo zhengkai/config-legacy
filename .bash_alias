@@ -47,7 +47,7 @@ alias FUCK='fuck'
 
 alias g='go run'
 alias t='go test -v'
-alias tb='go test -v -test.bench=".*" -test.benchmem'
+alias tt='go test -v -test.bench=".*" -test.benchmem -cover'
 
 alias ga='git add --all ./`git rev-parse --show-cdup`'
 alias gi='git add --all ./`git rev-parse --show-cdup` && git ci -a'
@@ -106,7 +106,9 @@ alias less='less -r --tabs=4'
 
 alias pss='ps aux | \grep'
 
-alias vimn="vim -N -u NONE"
+alias vimn='vim -N -u NONE'
+alias :vs='vim'
+alias vs='vim'
 
 alias lynx="lynx -display_charset=UTF-8"
 
