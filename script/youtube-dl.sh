@@ -23,7 +23,7 @@ if [ "$HOSTNAME" == 'Freya' ]; then
 	exit
 fi
 
-if [ "$HOSTNAME" == 'Tesla' ]; then
+if [ "$HOSTNAME" == 'Tesla' ] || [ "$HOSTNAME" == 'Monk' ]; then
 
 	if [ ! -d '/youtube' ]; then
 		>&2 echo 'no dir /youtube'
