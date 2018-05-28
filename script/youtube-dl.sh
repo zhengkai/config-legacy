@@ -11,7 +11,7 @@ if [ "$HOSTNAME" == 'Freya' ]; then
 
 	if [ ! -d '/monk/youtube' ]; then
 		>&2 echo 'sshfs error'
-		exit 1
+#		exit 1
 	fi
 
 	cd /tmp

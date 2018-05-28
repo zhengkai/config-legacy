@@ -9,3 +9,4 @@ nohup.out
 /.moc/playlist.m3u
 
 /xkb/debug/*.dump
+/script/ipmonitor/*.txt
