@@ -34,6 +34,8 @@ alias youtube-dl='~/conf/script/youtube-dl.sh'
 
 alias wanip='curl https://ifconfig.io/ip'
 alias ifstat='ifstat -t'
+alias cpuinfo='less /proc/cpuinfo'
+alias jour='journalctl -xe'
 
 alias rm="trash-put"
 

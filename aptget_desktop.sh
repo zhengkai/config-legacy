@@ -11,3 +11,5 @@ cp /usr/share/applications/tilda.desktop ~/.config/autostart
 # cp /usr/share/applications/empathy.desktop ~/.config/autostart
 
 # sudo apt-get remove unity-scope-home
+
+gsettings set org.gnome.desktop.interface enable-animations false

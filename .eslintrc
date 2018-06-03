@@ -10,7 +10,7 @@
 		'ecmascript': 6,
 		'jsx': true,
 	},
-	'extends': 'airbnb',
+	'extends': 'google',
 	'plugins': [
 		'react',
 	],
@@ -19,6 +19,7 @@
 		'indent': ['error', 'tab'],
 		'no-tabs': 0,
 		'no-underscore-dangle': 0,
+		'require-jsdoc', 0,
 		// 'no-unused-vars': ['error', { "vars": "local" }],
 		'no-unused-vars': 0,
 		'no-console': 0,
