@@ -1,17 +1,19 @@
-autoload -U colors && colors
+# autoload -U colors && colors
+# autoload -U promptinit && promptinit
 
 local time="%D{%X}"
 local host="%n@%m"
 local url="%~"
 local reset="\[\033[00m\]"
 
-time="%F{39} - ${time} -$reset_color"
-host="%F{39}${host}$reset_color"
-url="%F{39}%B${url}$reset_color"
+time="%F{39} - ${time} -"
+host="%F{39}${host}"
+url="%F{39}%B${url}"
 
 function vi_prompt_color() {
-	color="%F{10}"
-	echo "${${KEYMAP/vicmd/$color}/(main|viins)/}"
+	local insert_color="%F{10}"
+	local normal_color="%F{208}"
+	echo "$normal_color${${KEYMAP/vicmd/$insert_color}/(main|viins)}"
 }
 
 function git_propmt() {
@@ -51,12 +53,9 @@ function git_propmt_dirty() {
 
 
 setopt PROMPT_SUBST
+
+local reset="%F{255}%b"
+
 PROMPT='
 ${time} ${host} ${url}  $(git_propmt)
-%F{208}$(vi_prompt_color) » $reset_color'
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{39}Git[ "
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
-ZSH_THEME_GIT_PROMPT_DIRTY=" ] %{$fg[yellow]%}✗"
-ZSH_THEME_GIT_PROMPT_CLEAN=" ]"
-
+$(vi_prompt_color) »${reset} '
