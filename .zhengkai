@@ -10,8 +10,6 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export COW_INSTALLDIR=/home/zhengkai/.cow
-
 umask 002
 
 set -o vi
@@ -48,6 +46,7 @@ export FZF_DEFAULT_ COMMAND='ag -g ""'
 
 hg_propmt() {
 	branch=`hg branch 2> /dev/null`
+	echo "branch $branch"
 	if [ -z "$branch" ]; then
 		return
 	fi
@@ -123,7 +122,7 @@ fi
 PS1_HOST="\[\033[38;5;39m\]$PS1_USER@$PS1_HOST"
 PS1_PWD="\[\033[1;38;5;39m\]\w\[\033[00m\]"
 
-PS1_GIT="\[\033[38;5;39m\]"'$(git_propmt)$(hg_propmt)'"\[\033[00m\]"
+PS1_GIT="\[\033[38;5;39m\]"'$(git_propmt)'"\[\033[00m\]"
 PS1_PROMPT="\n \[\033[38;5;208m\]»\[\033[00m\] "
 
 if [[ -n $TMUX ]];

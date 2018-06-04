@@ -10,3 +10,6 @@ nohup.out
 
 /xkb/debug/*.dump
 /script/ipmonitor/*.txt
+
+/zsh/oh-my-zsh/
+/zsh/history.txt
