@@ -39,11 +39,6 @@ alias jour='journalctl -xe'
 
 alias rm="trash-put"
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
 alias fuck='$(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
 

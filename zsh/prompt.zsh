@@ -51,7 +51,6 @@ function git_propmt_dirty() {
 	echo " ] [ $file / $count"
 }
 
-
 setopt PROMPT_SUBST
 
 local reset="%F{255}%b"

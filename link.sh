@@ -21,3 +21,7 @@ for file in ${cpfile[@]}; do
 	fi
 	cp $dir/$file ~/$file
 done
+
+if [ ! -e ~/.zshrc ]; then
+	ln -s $dir/zsh/index.zsh ~/.zshrc
+fi
