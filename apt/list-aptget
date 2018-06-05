@@ -41,6 +41,7 @@ libxml2-dev
 libxslt1-dev
 mingetty
 moreutils
+net-tools
 node-ws
 ntp
 openssh-server
