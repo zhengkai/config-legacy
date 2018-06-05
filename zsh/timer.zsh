@@ -18,7 +18,25 @@ _command_time_precmd() {
 
 zsh_command_time() {
 	if [ -n "$ZSH_COMMAND_TIME" ]; then
-		timer_show=$(printf '%dh:%02dm:%02ds\n' $(($ZSH_COMMAND_TIME/3600)) $(($ZSH_COMMAND_TIME%3600/60)) $(($ZSH_COMMAND_TIME%60)))
+
+		local hour=$(($ZSH_COMMAND_TIME/3600))
+        local min=$(($ZSH_COMMAND_TIME/60))
+        local sec=$(($ZSH_COMMAND_TIME%60))
+
+		if [ "$hour" -ge 1 ]; then
+
+			timer_show=$(printf '%dh:%02dm:%02ds\n' $hour $min $sec)
+
+        elif [ "$min" -ge 1 ]; then
+
+			timer_show=$(printf '%dm:%02ds\n' $min $sec)
+
+		else
+
+			timer_show=$(printf '%d sec\n' $sec)
+
+		fi
+
 		print -P '%F{105}`printf "\nTime: %s\n" "$timer_show"`%f'
 	fi
 }

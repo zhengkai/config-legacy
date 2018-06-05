@@ -53,8 +53,8 @@ function git_propmt_dirty() {
 
 setopt PROMPT_SUBST
 
-local reset="%F{255}%b"
+local input_color="%F{254}%b"
 
 PROMPT='
 ${time} ${host} ${url}  $(git_propmt)
-$(vi_prompt_color) »${reset} '
+$(vi_prompt_color) »${input_color} '

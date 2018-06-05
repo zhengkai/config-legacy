@@ -1,6 +1,8 @@
+npm
+typescript
 babel-cli
 babel-eslint
-babel-preset-latest
+babel-preset-env
 eslint
 eslint-config-airbnb
 eslint-config-google
@@ -9,5 +11,4 @@ eslint-plugin-jsx-a11y
 eslint-plugin-react
 less
 tslint
-typescript
 wscat
