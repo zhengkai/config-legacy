@@ -8,7 +8,7 @@ local reset="\[\033[00m\]"
 
 time="%F{39} - ${time} -"
 host="%F{39}${host}"
-url="%F{39}%B${url}"
+url="%F{39}%B${url}%b"
 
 function vi_prompt_color() {
 	local insert_color="%F{10}"
