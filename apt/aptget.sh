@@ -1,14 +1,15 @@
 #!/bin/bash
 cd $(dirname `readlink -f $0`)
-dir=`pwd`
 
 sudo chown -R zhengkai:zhengkai /home/zhengkai
 
-sudo cp "$dir/file/sudoers_nopassword" /etc/sudoers.d/nopassword
+sudo cp ../file/sudoers_nopassword /etc/sudoers.d/nopassword
 
 mkdir -p ~/.tmp
 mkdir -p ~/.backup
 mkdir -p ~/.Trash
+touch ~/.backup/.wget_cookie
+touch ~/.backup/.curl_cookie
 
 sudo apt-get update
 
@@ -18,7 +19,7 @@ sudo update-alternatives --set editor /usr/bin/vim.basic
 sudo sh -c 'echo "Asia/Shanghai" > /etc/timezone'
 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-list=(`cat "$dir/aptget"`)
+list=(`cat list-aptget`)
 sudo apt-get install -y ${list[@]}
 
 sudo apt-get remove -y fonts-droid
@@ -34,4 +35,8 @@ sudo adduser zhengkai www-data
 
 sudo chown -R zhengkai:zhengkai /home/zhengkai
 
-$dir/npm.sh
+if [ "$HOSTNAME" == 'Tesla' ]; then
+	./desktop.sh
+fi
+
+../npm.sh

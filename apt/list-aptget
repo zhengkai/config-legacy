@@ -10,6 +10,7 @@ build-essential
 cloc
 colordiff
 curl
+curl
 dfc
 editorconfig
 exif
@@ -51,6 +52,7 @@ rar
 re2c
 ruby
 screen
+silversearcher-ag
 subversion
 sysstat
 tig
@@ -63,4 +65,5 @@ webp
 whois
 wondershaper
 zlib1g-dev
-silversearcher-ag
+zsh
+zsh-doc
