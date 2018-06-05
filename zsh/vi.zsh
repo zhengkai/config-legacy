@@ -1,10 +1,12 @@
 bindkey -v
 
-bindkey '^p' up-history
-bindkey '^n' down-history
+bindkey '^b' history-beginning-search-forward
+bindkey '^n' history-beginning-search-backward
 bindkey '^/' backward-delete-char
 bindkey '^w' backward-kill-word
-bindkey '^r' history-incremental-search-backward
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 
 function zle-line-init {
     zle reset-prompt
