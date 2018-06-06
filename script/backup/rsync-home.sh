@@ -33,5 +33,6 @@ rsync --partial -vzrtopg \
 	--exclude='.git' \
 	--exclude='*.iso' \
 	--exclude='/.npm/' \
+	--exclude='/Downloads/' \
 	"${SOURCE}/" \
 	"$DIR"
