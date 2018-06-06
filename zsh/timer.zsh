@@ -33,7 +33,7 @@ zsh_command_time() {
 
 		else
 
-			timer_show=$(printf '%d sec\n' $sec)
+			timer_show=$(printf '%ds\n' $sec)
 
 		fi
 
