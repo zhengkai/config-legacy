@@ -20,7 +20,7 @@ zsh_command_time() {
 	if [ -n "$ZSH_COMMAND_TIME" ]; then
 
 		local hour=$(($ZSH_COMMAND_TIME/3600))
-        local min=$(($ZSH_COMMAND_TIME/60))
+        local min=$(($ZSH_COMMAND_TIME/60%60))
         local sec=$(($ZSH_COMMAND_TIME%60))
 
 		if [ "$hour" -ge 1 ]; then
