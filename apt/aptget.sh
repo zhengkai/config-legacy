@@ -1,6 +1,10 @@
 #!/bin/bash
 cd $(dirname `readlink -f $0`)
 
+if [ ! -e ~/.ssh/authorized_keys ] && [ -f ~/.ssh/id_rsa.pub ]; then
+	cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+fi
+
 sudo chown -R zhengkai:zhengkai /home/zhengkai
 
 sudo cp ../file/sudoers_nopassword /etc/sudoers.d/nopassword

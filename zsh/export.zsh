@@ -13,3 +13,7 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[30;48;5;32m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[38;5;117m'
+
+if [ -z "$LC_SSH_FROM" ]; then
+	export LC_SSH_FROM="$HOST"
+fi
