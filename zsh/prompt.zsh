@@ -4,7 +4,6 @@
 local time="%D{%X}"
 local host="%n@%m"
 local url="%~"
-local reset="\[\033[00m\]"
 
 time="%F{39} - ${time} -"
 host="%F{39}${host}"
@@ -13,7 +12,7 @@ url="%F{39}%B${url}%b"
 function vi_prompt_color() {
 	local insert_color="%F{10}"
 	local normal_color="%F{208}"
-	echo "$normal_color${${KEYMAP/vicmd/$insert_color}/(main|viins)}"
+	echo "${${KEYMAP/vicmd/$insert_color}/(main|viins)/$normal_color}"
 }
 
 function git_propmt() {
@@ -22,7 +21,7 @@ function git_propmt() {
 	if [ -z "$branch" ]; then
 		return
 	fi
-	echo "%F{39}Git[ ${branch}$(git_propmt_dirty) ]$reset_color"
+	echo "%F{39}Git[ ${branch}$(git_propmt_dirty) ]"
 }
 
 function git_propmt_dirty() {
@@ -53,7 +52,7 @@ function git_propmt_dirty() {
 
 setopt PROMPT_SUBST
 
-local input_color="%F{254}%b"
+local input_color="%F{15}"
 
 PROMPT='
 ${time} ${host} ${url}  $(git_propmt)

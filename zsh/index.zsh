@@ -14,3 +14,7 @@ setopt inc_append_history
 if [ -z "$(declare -f -F j)" ] && [ -f /usr/share/autojump/autojump.zsh ]; then
 	. /usr/share/autojump/autojump.zsh
 fi
+
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	. /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

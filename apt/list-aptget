@@ -10,7 +10,6 @@ build-essential
 cloc
 colordiff
 curl
-curl
 dfc
 editorconfig
 exif
@@ -26,19 +25,6 @@ ifstat
 iftop
 iotop
 jq
-libappindicator1
-libcurl4-openssl-dev
-libffi-dev
-libgd-dev
-libgeoip-dev
-libjpeg-dev
-libjpeg8-dev
-libmcrypt-dev
-libpcre3-dev
-libreadline-dev
-libssl-dev
-libxml2-dev
-libxslt1-dev
 mingetty
 moreutils
 net-tools
@@ -65,6 +51,6 @@ vim
 webp
 whois
 wondershaper
-zlib1g-dev
 zsh
 zsh-doc
+zsh-syntax-highlighting
