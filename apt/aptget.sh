@@ -9,7 +9,8 @@ sudo chown -R zhengkai:zhengkai /home/zhengkai
 
 sudo cp ../file/sudoers_nopassword /etc/sudoers.d/nopassword
 
-mkdir -p ~/.tmp
+mkdir -p ~/.tmp/vim-undo
+mkdir -p ~/.tmp/ssh-mux
 mkdir -p ~/.backup
 mkdir -p ~/.Trash
 touch ~/.backup/.wget_cookie

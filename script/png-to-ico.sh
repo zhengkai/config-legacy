@@ -1,5 +1,5 @@
 #! /bin/bash
-convert $1 \
+convert "$1" \
     \( -clone 0 -resize 16x16 \) \
     \( -clone 0 -resize 32x32 \) \
     \( -clone 0 -resize 48x48 \) \
