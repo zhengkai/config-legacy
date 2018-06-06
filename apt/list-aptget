@@ -13,7 +13,6 @@ curl
 dfc
 editorconfig
 exif
-exuberant-ctags
 fdupes
 figlet
 fortune-zh
@@ -39,7 +38,9 @@ rar
 re2c
 ruby
 screen
+shadowsocks-libev
 silversearcher-ag
+simple-obfs
 subversion
 sysstat
 tig
