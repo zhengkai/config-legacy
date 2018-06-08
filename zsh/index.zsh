@@ -29,3 +29,7 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=214'
 	ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=199,bold'
 fi
+
+if [ -d /www ] && [ -r /www ]; then
+	cd /www
+fi
