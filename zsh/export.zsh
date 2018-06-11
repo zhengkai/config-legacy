@@ -1,3 +1,5 @@
+export EDITOR=/usr/local/bin/vim
+
 export GOROOT=/usr/local/go
 export GOARCH=amd64
 export GOOS=linux
