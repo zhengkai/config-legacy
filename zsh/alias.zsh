@@ -147,7 +147,7 @@ alias terror="sudo touch /tmp/php-error.txt; sudo chmod 666 /tmp/php-error.txt; 
 alias mocp="TERM=screen-256color /usr/bin/mocp"
 
 alias getlimit='~/conf/script/getlimit.sh'
-alias zhengkaireload="~/conf/script/tmux_reload_rc.sh"
+alias zhengkaireload="~/conf/script/tmux-reload-rc.sh"
 
 alias mount="sudo mount"
 alias service="sudo service"
@@ -179,7 +179,12 @@ alias ss-qr='~/conf/script/ss-config-to-url.sh'
 alias tunnel_test="time curl --max-time 10 https://soulogic.com/ip --socks5-hostname"
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
 
-alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then ~/conf/script/tmux_default.sh; fi'
+alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then ~/conf/script/tmux-default.sh; fi'
+
+alias pbjs='/usr/local/lib/node_modules/protobufjs/pbjs'
+alias pbts='/usr/local/lib/node_modules/protobufjs/pbts'
+
+alias x='xclip -selection clipboard'
 
 alias ms='sudo mongosniff --source NET lo 27017'
 
