@@ -7,7 +7,7 @@ time="%F{39} - ${time} -"
 function show_url() {
 	local url="%~"
 
-	if [ ! -w `pwd` ]; then
+	if [ ! -w "`pwd`" ]; then
 		# url+=' %F{214}[RO]%F{39}'
 		url="%F{154}%B${url}%b"
 	else
@@ -85,5 +85,5 @@ setopt PROMPT_SUBST
 local input_color="%F{15}"
 
 PROMPT='
-${time} $(show_host) $(show_url)  $(git_propmt)
+${time} $(show_host) $(show_url) $(git_propmt)
 $(vi_prompt_color) »${input_color} '
