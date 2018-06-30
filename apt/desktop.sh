@@ -1,4 +1,7 @@
 #!/bin/bash
+
+gsettings set org.gnome.desktop.interface enable-animations false
+
 cd $(dirname `readlink -f $0`);
 list=(`cat list-desktop`);
 
@@ -9,5 +12,3 @@ if [ -e /usr/share/applications/tilda.desktop ]; then
 	mkdir -p ~/.config/autostart
 	cp /usr/share/applications/tilda.desktop ~/.config/autostart
 fi
-
-gsettings set org.gnome.desktop.interface enable-animations false

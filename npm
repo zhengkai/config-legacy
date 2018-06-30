@@ -13,3 +13,4 @@ less
 tslint
 wscat
 sass
+@angular/cli

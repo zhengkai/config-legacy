@@ -15,4 +15,6 @@ fi
 if [[ "$HOSTNAME" =~ ^(Tesla|Freya|Lydia|Monk)$ ]]; then
 
 	sudo chsh -s $ZSH $USER
+
+	echo changed
 fi
