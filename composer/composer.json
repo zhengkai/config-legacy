@@ -9,7 +9,6 @@
         "sebastian/phpcpd": "@stable",
         "phpmd/phpmd": "@stable",
 		"friendsofphp/php-cs-fixer": "@stable",
-		"fp-coding-standards/fpcs" : "@stable",
         "laravel/installer": "@stable"
     }
 }

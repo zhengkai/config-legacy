@@ -178,7 +178,7 @@ alias flushmc='~/conf/script/flushmc.sh'
 alias pwdcp='echo -n "`pwd`" | xclip -selection c'
 alias ss-qr='~/conf/script/ss-config-to-url.sh'
 
-alias tunnel_test="time curl --max-time 10 https://soulogic.com/ip --socks5-hostname"
+alias tunnel-test="~/conf/script/tunnel-test.sh"
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
 
 alias tmu='if [[ -z $TMUX && -z $TERMCAP ]]; then ~/conf/script/tmux-default.sh; fi'
