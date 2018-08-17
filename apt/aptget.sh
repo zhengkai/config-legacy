@@ -18,14 +18,14 @@ touch ~/.backup/.curl_cookie
 
 sudo apt-get update
 
-sudo apt-get install -y vim
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq vim
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 sudo sh -c 'echo "Asia/Shanghai" > /etc/timezone'
 sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 list=(`cat list-aptget`)
-sudo apt-get install -y ${list[@]}
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ${list[@]}
 
 sudo apt-get remove -y fonts-droid
 
