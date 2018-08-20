@@ -16,9 +16,9 @@ fi
 echo test $TUNNEL
 
 function checkip() {
-	local IP=`time curl --max-time 10 "$1" --socks5-hostname "$2" 2>/dev/null`
+	local IP=`TIME="\ntime: %E" time curl -s --max-time 10 "$1" --socks5-hostname "$2"`
 	echo
-	echo $IP
+	echo "  ip: $IP"
 
 	if [[ -n "$IP" ]]; then
 		echo
