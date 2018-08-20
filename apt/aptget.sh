@@ -51,4 +51,7 @@ if [ "$HOSTNAME" == 'Tesla' ]; then
 	./desktop.sh
 fi
 
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --no-update-rc --no-fish --no-bash --64
+
 ../npm.sh
