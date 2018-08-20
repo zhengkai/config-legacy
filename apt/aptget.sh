@@ -42,6 +42,11 @@ sudo chown -R zhengkai:zhengkai ~/
 
 sudo /lib/systemd/systemd-sysv-install disable shadowsocks-libev
 
+mkdir -p ~/script
+if [ -d "~/script" ]; then
+	cp ../script/customize/daily.sh ~/script/
+fi
+
 if [ "$HOSTNAME" == 'Tesla' ]; then
 	./desktop.sh
 fi

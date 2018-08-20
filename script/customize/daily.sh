@@ -1,0 +1,11 @@
+#!/bin/bash
+
+~/conf/script/update-ubuntu.sh &
+
+~/conf/script/safe-git-pull.sh ~/conf
+~/conf/script/safe-git-pull.sh ~/build
+~/conf/script/safe-git-pull.sh ~/hide
+
+wait
+
+echo ~/conf/script/reboot-check.sh
