@@ -70,6 +70,11 @@ GeoIPASNumv6.dat|GeoLiteASNumv6.dat
 
 ################################################################################
 
+if [[ $EUID -ne 0 ]]; then
+	echo "This script must be run as root"
+	exit 1
+fi
+
 # Detect to make sure the entire script is avilable, fail if the script is missing contents
 if [ ! "$( tail -1 "$0" | head -1 | cut -c1-7 )" == "exit \$?" ] ; then
 	echo "FATAL ERROR: Script is incomplete, please redownload"
@@ -80,52 +85,52 @@ fi
 
 # Function to create a pid file
 function xshok_create_pid_file { #pid.file
-  if [ "$1" ] ; then
-    pidfile="$1"
-    echo $$ > "$pidfile"
-    if [ $? -ne 0 ] ;  then
-      echo "ERROR: Could not create PID file: $pidfile"
-      exit 1
-    fi
-  else
-    echo "ERROR: Missing value for option"
-    exit 1
-  fi
+	if [ "$1" ] ; then
+		pidfile="$1"
+		echo $$ > "$pidfile"
+		if [ $? -ne 0 ] ;  then
+			echo "ERROR: Could not create PID file: $pidfile"
+			exit 1
+		fi
+	else
+		echo "ERROR: Missing value for option"
+		exit 1
+	fi
 }
 
 ################ Main Program
 
 # Set dir permissions
-mkdir -p "$work_dir" && chmod -f 755 "$work_dir"
-mkdir -p "$geoip_dir" && chmod -f 755 "$geoip_dir"
+mkdir -p "$work_dir"
+mkdir -p "$geoip_dir"
 
 # Enable pid file to prevent issues with multiple instances
 # opted not to use flock as it appears to have issues with some systems
 if [ "$enable_locking" == "yes" ] ; then
-  pid_file_fullpath="/tmp/geoip-update.pid"
-  if [ -f $pid_file_fullpath ] ; then
-    pid_file_pid=$(cat $pid_file_fullpath)
-    ps -p "$pid_file_pid" > /dev/null 2>&1
-    if [ $? -eq 0 ] ; then
-      echo "ERROR: Only one instance can run at the same time."
-      exit 1
-    else
-      xshok_create_pid_file "$pid_file_fullpath"
-    fi
-  else
-      xshok_create_pid_file "$pid_file_fullpath"
-  fi
-  # run this wehen the script exits
-  trap -- "rm -f $pid_file_fullpath" EXIT
+	pid_file_fullpath="/tmp/geoip-update.pid"
+	if [ -f $pid_file_fullpath ] ; then
+		pid_file_pid=$(cat $pid_file_fullpath)
+		ps -p "$pid_file_pid" > /dev/null 2>&1
+		if [ $? -eq 0 ] ; then
+			echo "ERROR: Only one instance can run at the same time."
+			exit 1
+		else
+			xshok_create_pid_file "$pid_file_fullpath"
+		fi
+	else
+		xshok_create_pid_file "$pid_file_fullpath"
+	fi
+	# run this wehen the script exits
+	trap -- "rm -f $pid_file_fullpath" EXIT
 fi
 
 if [ -n "$geo_db_urls" ] ; then
-  for geo_url in $geo_db_urls ; do
+	for geo_url in $geo_db_urls ; do
 
-  	geo_url_filename="${geo_url##*/}"
+		geo_url_filename="${geo_url##*/}"
 		geo_filename="${geo_url_filename%.gz*}"
 
-  	if [[ "$(curl --compressed --retry 3 --retry-delay 3 "$geo_url" --time-cond  "$work_dir/$geo_url_filename" --output "$work_dir/$geo_url_filename" --silent --fail --location --write-out %{http_code} 2> /dev/null)" == "200" ]]; then
+		if [[ "$(curl --compressed --retry 3 --retry-delay 3 "$geo_url" --time-cond  "$work_dir/$geo_url_filename" --output "$work_dir/$geo_url_filename" --silent --fail --location --write-out %{http_code} 2> /dev/null)" == "200" ]]; then
 
 			if [ -f "$work_dir/$geo_url_filename" ]; then
 				zcat --decompress --force --quiet  "$work_dir/$geo_url_filename" --stdout > "$geoip_dir/$geo_filename"
@@ -134,15 +139,15 @@ if [ -n "$geo_db_urls" ] ; then
 				fi
 			fi
 		fi
-  done
+	done
 fi
 
 if [ -n "$geo_symbolic_db_filname_link" ] ; then
 	for geo_symbolic_filname_link in $geo_symbolic_db_filname_link ; do
 		if [[ "$geo_symbolic_filname_link" =~ "|" ]] ; then
-  		geo_symbolic_link=$(echo "$geo_symbolic_filname_link" | cut -d "|" -f2)
-  		geo_symbolic_filname=$(echo "$geo_symbolic_filname_link" | cut -d "|" -f1)
-  		if [ ! -e "$geoip_dir/$geo_symbolic_link" ] && [ -f "$geoip_dir/$geo_symbolic_filname" ] ; then
+			geo_symbolic_link=$(echo "$geo_symbolic_filname_link" | cut -d "|" -f2)
+			geo_symbolic_filname=$(echo "$geo_symbolic_filname_link" | cut -d "|" -f1)
+			if [ ! -e "$geoip_dir/$geo_symbolic_link" ] && [ -f "$geoip_dir/$geo_symbolic_filname" ] ; then
 				ln -s "$geoip_dir/$geo_symbolic_filname" "$geoip_dir/$geo_symbolic_link"
 				if [ "$0" ]; then
 					echo "Created symbolic link $geo_symbolic_filname ------ $geo_symbolic_link"
