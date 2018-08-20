@@ -43,7 +43,7 @@ sudo chown -R zhengkai:zhengkai ~/
 sudo /lib/systemd/systemd-sysv-install disable shadowsocks-libev
 
 mkdir -p ~/script
-if [ -d "~/script" ]; then
+if [ ! -e "$HOME/script/daily.sh" ]; then
 	cp ../script/customize/daily.sh ~/script/
 fi
 

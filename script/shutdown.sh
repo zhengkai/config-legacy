@@ -11,4 +11,4 @@ echo apt update ...
 nohup ./update-ubuntu.sh 2>/dev/null
 
 echo shutdown
-sudo nuhup shutdown -P 0 2>/dev/null
+sudo shutdown -P 0 2>/dev/null
