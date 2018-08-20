@@ -8,4 +8,4 @@
 
 wait
 
-echo ~/conf/script/reboot-check.sh
+~/conf/script/reboot-check.sh
