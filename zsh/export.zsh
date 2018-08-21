@@ -3,6 +3,8 @@ export GOARCH=amd64
 export GOOS=linux
 export GOPATH=/go
 
+export EDITOR=/usr/bin/vim.basic
+
 export PATH="$GOROOT/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:$HOME/.composer/vendor/bin:/snap/bin"
 
 # man color
