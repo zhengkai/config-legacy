@@ -8,7 +8,7 @@ fi
 cd $(dirname `readlink -f $0`)
 
 echo apt update ...
-nohup ./update-ubuntu.sh 2>/dev/null
+./update-ubuntu.sh
 
 echo shutdown
-sudo shutdown -P 0 2>/dev/null
+sudo shutdown -P 0
