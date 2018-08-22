@@ -142,6 +142,7 @@ function fn_add_user_to_group() {
 }
 alias add_user_to_group=fn_add_user_to_group
 
+alias head='((L=$LINES-8)); ((L=L>10?L:10)); sudo \head -n $L'
 alias tail='((L=$LINES-8)); ((L=L>10?L:10)); sudo \tail -n $L'
 alias f='((L=$LINES-3)); ((L=L>10?L:10)); sudo \tail -n $L -f'
 alias terror="sudo touch /tmp/php-error.txt; sudo chmod 666 /tmp/php-error.txt; f /tmp/php-error.txt"
