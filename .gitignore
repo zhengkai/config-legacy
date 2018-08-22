@@ -13,3 +13,7 @@ nohup.out
 
 /zsh/oh-my-zsh/
 /zsh/history.txt
+
+/nordvpn/config/
+/nordvpn/tmp-config/
+/nordvpn/openvpn.txt

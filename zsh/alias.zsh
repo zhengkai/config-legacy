@@ -32,7 +32,7 @@ alias docker-compose='sudo docker-compose'
 
 alias youtube-dl='~/conf/script/youtube-dl.sh'
 
-alias wanip='curl https://ifconfig.io/ip'
+alias wanip='~/conf/script/wan-ip.sh'
 alias ifstat='ifstat -t'
 alias cpuinfo='less /proc/cpuinfo'
 alias jour='journalctl -xe'
