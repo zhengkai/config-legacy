@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -e '/usr/local/bin/npm' ]; then
+	exit
+fi
+
 cd $(dirname `readlink -f $0`)
 
 list=(`cat ./npm`)

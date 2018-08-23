@@ -47,7 +47,7 @@ if [ ! -e "$HOME/script/daily.sh" ]; then
 	cp ../script/customize/daily.sh ~/script/
 fi
 
-if [ "$HOSTNAME" == 'Tesla' ]; then
+if [ -z "$DISPLAY" ]; then
 	./desktop.sh
 fi
 
@@ -55,3 +55,5 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --no-update-rc --no-fish --no-bash --64
 
 ../npm.sh
+
+cd $(dirname `readlink -f $0`)

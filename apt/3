@@ -18,7 +18,6 @@ fdupes
 figlet
 fortune-zh
 gawk
-geoip-bin
 gettext
 highlight
 htop
@@ -57,3 +56,4 @@ wondershaper
 zsh
 zsh-doc
 zsh-syntax-highlighting
+geoip-bin
