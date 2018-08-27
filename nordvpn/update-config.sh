@@ -4,7 +4,7 @@ cd $(dirname `readlink -f $0`)
 
 FILE=`tempfile -p nord`
 
-wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip -O "$FILE"
+wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip -O "$FILE" || exit 1
 
 TEST=`unzip -t "$FILE" 2>/dev/null | tail -n 1 | grep 'No errors detected in compressed data of'`
 if [ -z "$TEST" ]; then
