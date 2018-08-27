@@ -20,7 +20,7 @@ TIME=$((TIME+86400*15)) # 过期时间 15 天以内
 DOMAIN=($DOMAIN)
 for D in "${DOMAIN[@]}"
 do
-	echo -n domain $D ...
+	printf "%20s ... " $D
 	T=`./check-ssl-expire.sh "$D" 443 1`
 	if [ "$T" -lt $TIME ]; then
 		TITLE="SSL for $D expired"
