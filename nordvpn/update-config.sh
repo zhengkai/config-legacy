@@ -13,7 +13,16 @@ if [ -z "$TEST" ]; then
 	exit 1
 fi
 
-rm -rf ./tmp-config
+SIZE=`stat -c "%s" "$FILE"`
+if [ "$SIZE" -lt 10000000 ]; then
+	>&2 echo "config too small (${SIZE})"
+	rm "$FILE"
+	exit 1
+fi
+
+if [ -e ./tmp-config ]; then
+	rm -rf ./tmp-config
+fi
 mkdir -p ./tmp-config
 unzip -o "$FILE" -d ./tmp-config
 
