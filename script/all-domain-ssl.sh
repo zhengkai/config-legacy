@@ -8,7 +8,7 @@ ruin.one
 ruinone.com
 '
 
-TIME=`date +"%s"`
+TIME=`date '+%s'`
 
 if [ "$TIME" -lt 1535342908 ]; then
 	>&2 echo get time error
