@@ -88,7 +88,7 @@ alias free="free -h"
 alias naf="npm audit fix"
 
 alias fdate="\date +'%Y-%m-%d %H:%M:%S'"
-alias date="date --date='TZ=\"Asia/Shanghai\" now' +'%Y-%m-%d %H:%M:%S'"
+alias date="TZ='Asia/Shanghai' date --date='now' +'%Y-%m-%d %H:%M:%S'"
 alias now="php -r '\$i = time(); echo \$i, \"\\n\", date(\"Y-m-d H:i:s\", \$i);'"
 
 alias ssh-keygen='ssh-keygen -N "" -b 4096 -t rsa'
