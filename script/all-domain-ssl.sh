@@ -22,16 +22,16 @@ for D in "${DOMAIN[@]}"
 do
 	printf "%20s ... " $D
 	T=`./check-ssl-expire.sh "$D" 443 1`
+	EXPIRE=`TZ="Asia/Shanghai" date -d "@$T" '+%Y-%m-%d %H:%M:%S'`
 	if [ "$T" -lt $TIME ]; then
 		TITLE="SSL for $D expired"
-		CONTENT=`TZ="Asia/Shanghai" date -d "@$T" +'%Y-%m-%d %H:%M:%S'`
-		CONTENT="expired in $CONTENT // ~/conf/script/all-domain-ssl.sh"
-		echo fail
+		CONTENT="expired in $EXPIRE // ~/conf/script/all-domain-ssl.sh"
+		echo FAIL $EXPIRE
 		>&2 echo $TITLE
 		>&2 echo $CONTENT
 		~/hide/mailgun/alert.sh "$TITLE" "$CONTENT"
 		exit 1
 	else
-		echo ok
+		echo OK $EXPIRE
 	fi
 done
