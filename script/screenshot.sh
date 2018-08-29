@@ -1,26 +1,24 @@
-#!/bin/bash
-
-# require: imagemagick
-# combine gif: convert -delay 10 *.png -resize 200x113 -loop 0 1.gif
+#!/bin/bash -e
 
 # 30	10,16	* * * ~/conf/script/screenshot.sh >/dev/null 2>&1
 
-DISPLAY=:0
-export DISPLAY
-HOME=/home/zhengkai
-export HOME
+FORMAT="${1:-%Y_%m_%d_%H%M%S}"
 
-save_dir=$HOME'/Pictures/shot/'
+if [ -z "$DISPLAY" ]; then
+	>&2 echo no desktop found
+	exit 1
+fi
 
-filename=$save_dir$(/bin/date +'%Y_%m/%d_%H%M%S')'.png'
+SAVE_DIR="${HOME}/Pictures/"
+SUB_DIR=`date "+$FORMAT"`
+FILENAME="${SAVE_DIR}${SUB_DIR}.png"
 
-sleep $[ $RANDOM * 3600 / 32767 ]
+DIR=`dirname "$FILENAME"`
+mkdir -p "$DIR"
 
-mkdir -p `dirname $filename`
+import -window root "$FILENAME"
 
-import -window root $filename
-
-filesize=`ls -l $filename | awk '{ print $5 }' | tail -1`
-if [ $filesize -lt 3000 ]; then
-	rm $filename
+FILESIZE=`ls -l "$FILENAME" | awk '{ print $5 }' | tail -1`
+if [ $FILESIZE -lt 400 ]; then
+	rm "$FILENAME"
 fi
