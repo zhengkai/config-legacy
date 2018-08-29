@@ -44,3 +44,4 @@ CMD+=" -vcodec copy -acodec copy $OUTPUT"
 
 echo "$CMD"
 echo "$CMD" | bash
+ls -al $OUTPUT
