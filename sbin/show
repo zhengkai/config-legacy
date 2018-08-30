@@ -40,7 +40,7 @@ if (preg_match('#^https?://#', $image)) {
 }
 
 $truecolor = true;
-$fill = true;
+$fill = false;
 
 $pixel = $truecolor ? 3 : 4;
 
@@ -48,8 +48,9 @@ if (!$COLUMNS) {
 	$COLUMNS = max($_ENV['COLUMNS'], 20);
 }
 if (!$LINES) {
-	$LINES = round(max($_ENV['LINES'], 20) / 2);
+	$LINES = max($_ENV['LINES'], 20);
 }
+
 $resize = $COLUMNS . 'x' . $LINES;
 
 $CMD = 'convert ' . escapeshellarg($image . '[0]')
@@ -57,6 +58,8 @@ $CMD = 'convert ' . escapeshellarg($image . '[0]')
 	. ($fill ? '' : ' -resize 100%x50%')
 	. ' -resize ' . $resize . ' ' . escapeshellarg($bmpFile)
 	. ' 2>&1';
+
+echo $CMD;
 
 function getcolor($x, $y, $bg = true) {
 	global $bmp, $offset, $w, $padding, $filesize, $pixel;
@@ -149,7 +152,7 @@ $prev_bg_color = '';
 
 // echo "\n";
 
-foreach (range($h, 1, -2) as $y) {
+foreach (range($h, 1, $fill ? -2 : -1) as $y) {
 	foreach (range(0, $w - 1) as $x) {
 
 		if ($x >= $w) {
