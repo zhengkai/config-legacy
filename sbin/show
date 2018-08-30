@@ -1,202 +1,126 @@
-#! /usr/bin/env php
-<?php
-$COLUMNS = 160;
-$LINES = 90;
+#!/bin/bash
 
-if (function_exists('readline_completion_function')) {
-	readline_completion_function(function($s) {
-		file_put_contents('/tmp/readline.txt', $s . "\n" . $b . "\n" . print_r(readline_info(), 1));
-		return true;
-	});
+if [ -z "$1" ]; then
+	>&2 echo no image file
+	exit 1
+fi
+
+RESIZE="$2"
+if [ -z "$2" ]; then
+	TW=$(($(tput cols || echo 80) - 1))
+	TH=$(($(($(tput lines || echo 30) - 1)) * 2))
+
+	RESIZE="${TW}x${TH}"
+fi
+
+if [[ "$1" =~ ^https?:// ]]; then
+	BMP=($(curl -s "$1" | convert '-[0]' -type truecolor -resize "$RESIZE" bmp:- | hexdump -v -e '/1 "%02x\n"'))
+else
+
+	if [ ! -e "$1" ]; then
+		>&2 echo no image file $1
+		exit 1
+	fi
+	CHECK=`identify "$1" 2>/dev/null`
+
+	if [ -z "$CHECK" ]; then
+		>&2 echo not a image file $1
+		exit 1
+	fi
+
+	BMP=($(convert "${1}[0]" -type truecolor -resize "$RESIZE" bmp:- 2>/dev/null | hexdump -v -e '/1 "%02x\n"'))
+fi
+
+FILESIZE=${#BMP[@]}
+
+if [[ $FILESIZE -le 0 ]]; then
+	>&2 echo convert fail, maybe not a image file
+	exit 1
+fi
+
+PIXEL=3
+
+function getNum() {
+	local hex="${BMP[$(($1 + 3))]}${BMP[$(($1 + 2))]}${BMP[$(($1 + 1))]}${BMP[$(($1))]}"
+	echo $((16#$hex))
 }
 
-if (empty($argv[1])) {
-	echo 'input a image file', "\n";
-	exit;
-}
-$image = $argv[1];
-
-$file = tempnam(sys_get_temp_dir(), 'thumb_');
-$bmpFile = $file . '.bmp';
-
-if (preg_match('#^https?://#', $image)) {
-
-	$tmp = file_get_contents($image);
-
-	if (!$tmp) {
-		echo 'download file ' . $image . ' fail';
-		unlink($file);
-		exit;
-	}
-
-	file_put_contents($file, $tmp);
-	unset($tmp);
-	$image = $file;
-
-} else if (!file_exists($image)) {
-
-	echo 'not a file: ', $image, "\n";
-	exit;
+function getSingle() {
+	local pos=$1
+	if [ -n "$2" ]; then
+		pos=$(($pos + $2))
+	fi
+	echo $((16#${BMP[$pos]}))
 }
 
-$truecolor = true;
-$fill = false;
+function getColor() {
 
-$pixel = $truecolor ? 3 : 4;
+	local start=$(($OFFSET + $2 * $PIXEL + $3 * $LINE_BIT))
 
-if (!$COLUMNS) {
-	$COLUMNS = max($_ENV['COLUMNS'], 20);
-}
-if (!$LINES) {
-	$LINES = max($_ENV['LINES'], 20);
-}
+	# r=$(getSingle $start 2)
 
-$resize = $COLUMNS . 'x' . $LINES;
+	r=$((16#${BMP[$(($start + 2))]}))
+	g=$((16#${BMP[$(($start + 1))]}))
+	b=$((16#${BMP[$start]}))
 
-$CMD = 'convert ' . escapeshellarg($image . '[0]')
-	. ($truecolor ? ' -type truecolor' : '')
-	. ($fill ? '' : ' -resize 100%x50%')
-	. ' -resize ' . $resize . ' ' . escapeshellarg($bmpFile)
-	. ' 2>&1';
+	if [ -z "$r$g$b" ]; then
+		return
+	fi
 
-echo $CMD;
+	# echo $1 $2 $start $r $g $b
 
-function getcolor($x, $y, $bg = true) {
-	global $bmp, $offset, $w, $padding, $filesize, $pixel;
-
-	if (!$bg) {
-		$y = $y - 1;
-	}
-
-	$start = $offset + $y * ($w * $pixel + $padding) + $x * $pixel;
-
-	if (($start + 2) >= $filesize) {
-		return false;
-	}
-
-	$r = bin2dec($bmp[$start + 2]);
-	$g = bin2dec($bmp[$start + 1]);
-	$b = bin2dec($bmp[$start + 0]);
-
-	return sprintf("%d;2;%d;%d;%d", $bg ? 48: 38, $r, $g, $b);
+	echo "$1;2;$r;$g;$b"
 }
 
-function bin2dec($s) {
-	return hexdec(bin2hex($s));
-}
+OFFSET=$( getNum $((0x0a)) )
+W=$( getNum $((0x12)) )
+H=$( getNum $((0x16)) )
 
-function getnum($addr, $len = 4) {
-	global $bmp;
-	$k = range($addr + $len - 1, $addr, -1);
-	$return = '';
-	foreach ($k as $i) {
-		$return .= $bmp[$i];
-	}
-	return bin2dec($return);
-}
+LINE_BIT=$(( $(($W * $PIXEL)) % 4 ))
+LINE_BIT=$(( $(($W * $PIXEL)) + 4 - $LINE_BIT ))
 
-// /www/flash/qa/img/thumbs/paybg
+# echo "   size $FILESIZE"
+# echo " offset $OFFSET"
+# echo "  width $W"
+# echo " height $H"
 
-// echo $CMD, "\n";
-$result = shell_exec($CMD);
+for y in $(seq $H -2 1)
+do
 
-if (!file_exists($bmpFile)) {
-	echo 'convert fail', "\n";
-	echo 'cmd: ', $CMD, "\n";
-	echo 'result: ', $result, "\n";
-	exit;
-}
+	OUTPUT=""
 
-$bmp = file_get_contents($bmpFile);
-$filesize = strlen($bmp);
+	PREV_FG=""
+	PREV_BG=""
 
-unlink($bmpFile);
-unlink($file);
+	for x in $(seq 0 1 $(($W - 1)))
+	do
 
-// echo bin2hex($bmp), "\n";
+		FG=$(getColor 38 $x $(($y - 1)))
+		if [[ $PREV_FG == "$FG" ]]; then
+			FG=''
+		else
+			PREV_FG=$FG
+		fi
 
-// $offset = $bmp[13] . $bmp[12] . $bmp[11] . $bmp[10];
+		BG=$(getColor 48 $x $y)
+		if [[ $PREV_BG == $BG ]]; then
+			BG=''
+		else
+			PREV_BG=$BG
+		fi
 
-$offset = getnum(0x0a);
+		if [ -n "$FG$BG" ]; then
+			if [ -n "$FG" ] && [ -n "$BG" ]; then
+				FG+=';'
+			fi
+			OUTPUT+="\033[${FG}${BG}m▄"
+		else
+			OUTPUT+="▄"
+		fi
 
-/*
-echo bin2hex($bmp[0x0a]);
-echo bin2hex($bmp[0x0a + 1]);
-echo bin2hex($bmp[0x0a + 2]);
-echo bin2hex($bmp[0x0a + 3]);
-echo "\n";
-echo 'offset = ', $offset, "\n";
- */
+	done
 
-$w = getnum(0x0012);
-$h = getnum(0x0016);
+	OUTPUT+='\033[0m'
 
-$bit = ($w * $pixel) % 4;
-$padding = 0;
-if ($bit) {
-	$padding = 4 - $bit;
-}
-
-/*
-echo 'size = ', getnum(0x000e), "\n";
-echo 'width = ', $w, "\n";
-echo 'height = ', $h, "\n";
-echo 'padding = ', $padding, "\n";
-echo 'depth = ', getnum(0x001c, 2), "\n";
-echo 'compress = ', getnum(0x001e), "\n";
-exit;
- */
-
-$prev_fg_color = '';
-$prev_bg_color = '';
-
-// echo "\n";
-
-foreach (range($h, 1, $fill ? -2 : -1) as $y) {
-	foreach (range(0, $w - 1) as $x) {
-
-		if ($x >= $w) {
-			continue;
-		}
-
-		// echo $r, ' ', $g, ' ', $b, "\n";
-
-		$bg_color = getcolor($x, $y) ?: '';
-		if ($bg_color) {
-			if ($prev_bg_color === $bg_color) {
-				$bg_color = '';
-			} else {
-				$prev_bg_color = $bg_color;
-			}
-		}
-
-		$fg_color = '';
-		if ($fill) {
-			$fg_color = getcolor($x, $y, false);
-			if (!$fg_color) {
-				continue;
-			}
-			if ($prev_fg_color === $fg_color) {
-				$fg_color = '';
-			} else {
-				$prev_fg_color = $fg_color;
-			}
-		}
-
-		if ($fg_color || $bg_color) {
-			if ($fg_color && $bg_color) {
-				$fg_color .= ';';
-			}
-			echo sprintf("\033[%s%sm", $fg_color, $bg_color);
-			// echo sprintf("\\033[%s%sm", $fg_color, $bg_color);
-		}
-		if ($fill) {
-			echo '▄'; // https://www.compart.com/en/unicode/U+2584
-		} else {
-			echo ' ';
-		}
-	}
-	$prev_fg_color = '';
-	$prev_bg_color = '';
-	echo "\033[0m\n";
-}
+	echo -e $OUTPUT
+done
