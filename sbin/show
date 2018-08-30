@@ -1,0 +1,32 @@
+#! /usr/bin/env php
+<?php
+
+$CMD = 'convert ' . escapeshellarg($argv[1]) . ' -resize 200x50 /tmp/1.bmp 2>&1';
+
+function getnum($addr, $len = 4) {
+	global $bmp;
+	$k = range($addr + $len - 1, $addr, -1);
+	$return = '';
+	foreach ($k as $i) {
+		$return .= $bmp[$i];
+	}
+	return hexdec(bin2hex($return));
+}
+
+// /www/flash/qa/img/thumbs/paybg
+
+exec($CMD);
+
+$bmp = file_get_contents('/tmp/1.bmp');
+
+echo bin2hex($bmp), "\n";
+
+// $offset = $bmp[13] . $bmp[12] . $bmp[11] . $bmp[10];
+
+echo 'offset = ', getnum(0x0a), "\n";
+
+echo 'size = ', getnum(0x000e), "\n";
+echo 'width = ', getnum(0x0012), "\n";
+echo 'height = ', getnum(0x0016), "\n";
+echo 'depth = ', getnum(0x001c, 2), "\n";
+echo 'compress = ', getnum(0x001e), "\n";
