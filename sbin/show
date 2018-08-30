@@ -1,7 +1,73 @@
 #! /usr/bin/env php
 <?php
+$COLUMNS = 160;
+$LINES = 90;
 
-$CMD = 'convert ' . escapeshellarg($argv[1]) . ' -resize 200x50 /tmp/1.bmp 2>&1';
+if (function_exists('readline_completion_function')) {
+	readline_completion_function(function($s) {
+		file_put_contents('/tmp/readline.txt', $s . "\n" . $b . "\n" . print_r(readline_info(), 1));
+		return true;
+	});
+}
+
+if (empty($argv[1])) {
+	echo 'input a image file', "\n";
+	exit;
+}
+$image = $argv[1];
+
+if (!file_exists($image)) {
+	echo 'not a file: ', $image, "\n";
+	exit;
+}
+
+$file = tempnam(sys_get_temp_dir(), 'thumb_');
+$bmpFile = $file . '.bmp';
+
+// $argv[1] = '/www/flash/qa/img/thumbs/paybg';
+
+$truecolor = true;
+$fill = true;
+
+$pixel = $truecolor ? 3 : 4;
+
+if (!$COLUMNS) {
+	$COLUMNS = max($_ENV['COLUMNS'], 20);
+}
+if (!$LINES) {
+	$LINES = round(max($_ENV['LINES'], 20) / 2);
+}
+$resize = $COLUMNS . 'x' . $LINES;
+
+$CMD = 'convert ' . escapeshellarg($argv[1] . '[0]')
+	. ($truecolor ? ' -type truecolor' : '')
+	. ($fill ? '' : ' -resize 100%x50%')
+	. ' -resize ' . $resize . ' ' . escapeshellarg($bmpFile)
+	. ' 2>&1';
+
+function getcolor($x, $y, $bg = true) {
+	global $bmp, $offset, $w, $padding, $filesize, $pixel;
+
+	if (!$bg) {
+		$y = $y - 1;
+	}
+
+	$start = $offset + $y * ($w * $pixel + $padding) + $x * $pixel;
+
+	if (($start + 2) >= $filesize) {
+		return false;
+	}
+
+	$r = bin2dec($bmp[$start + 2]);
+	$g = bin2dec($bmp[$start + 1]);
+	$b = bin2dec($bmp[$start + 0]);
+
+	return sprintf("%d;2;%d;%d;%d", $bg ? 48: 38, $r, $g, $b);
+}
+
+function bin2dec($s) {
+	return hexdec(bin2hex($s));
+}
 
 function getnum($addr, $len = 4) {
 	global $bmp;
@@ -10,23 +76,111 @@ function getnum($addr, $len = 4) {
 	foreach ($k as $i) {
 		$return .= $bmp[$i];
 	}
-	return hexdec(bin2hex($return));
+	return bin2dec($return);
 }
 
 // /www/flash/qa/img/thumbs/paybg
 
-exec($CMD);
+// echo $CMD, "\n";
+$result = exec($CMD);
 
-$bmp = file_get_contents('/tmp/1.bmp');
+if (!file_exists($bmpFile)) {
+	echo 'convert fail', "\n";
+	echo 'cmd: ', $CMD, "\n";
+	echo 'result: ', $result, "\n";
+	exit;
+}
 
-echo bin2hex($bmp), "\n";
+$bmp = file_get_contents($bmpFile);
+$filesize = strlen($bmp);
+
+unlink($bmpFile);
+unlink($file);
+
+// echo bin2hex($bmp), "\n";
 
 // $offset = $bmp[13] . $bmp[12] . $bmp[11] . $bmp[10];
 
-echo 'offset = ', getnum(0x0a), "\n";
+$offset = getnum(0x0a);
+
+/*
+echo bin2hex($bmp[0x0a]);
+echo bin2hex($bmp[0x0a + 1]);
+echo bin2hex($bmp[0x0a + 2]);
+echo bin2hex($bmp[0x0a + 3]);
+echo "\n";
+echo 'offset = ', $offset, "\n";
+ */
+
+$w = getnum(0x0012);
+$h = getnum(0x0016);
+
+$bit = ($w * $pixel) % 4;
+$padding = 0;
+if ($bit) {
+	$padding = 4 - $bit;
+}
 
 echo 'size = ', getnum(0x000e), "\n";
-echo 'width = ', getnum(0x0012), "\n";
-echo 'height = ', getnum(0x0016), "\n";
+echo 'width = ', $w, "\n";
+echo 'height = ', $h, "\n";
+echo 'padding = ', $padding, "\n";
 echo 'depth = ', getnum(0x001c, 2), "\n";
 echo 'compress = ', getnum(0x001e), "\n";
+/*
+exit;
+ */
+
+$prev_fg_color = '';
+$prev_bg_color = '';
+
+// echo "\n";
+
+foreach (range($h, 1, -2) as $y) {
+	foreach (range(0, $w - 1) as $x) {
+
+		if ($x >= $w) {
+			continue;
+		}
+
+		// echo $r, ' ', $g, ' ', $b, "\n";
+
+		$bg_color = getcolor($x, $y) ?: '';
+		if ($bg_color) {
+			if ($prev_bg_color === $bg_color) {
+				$bg_color = '';
+			} else {
+				$prev_bg_color = $bg_color;
+			}
+		}
+
+		$fg_color = '';
+		if ($fill) {
+			$fg_color = getcolor($x, $y, false);
+			if (!$fg_color) {
+				continue;
+			}
+			if ($prev_fg_color === $fg_color) {
+				$fg_color = '';
+			} else {
+				$prev_fg_color = $fg_color;
+			}
+		}
+
+		if ($fg_color || $bg_color) {
+			if ($fg_color && $bg_color) {
+				$fg_color .= ';';
+			}
+			echo sprintf("\033[%s%sm", $fg_color, $bg_color);
+			// echo sprintf("\\033[%s%sm", $fg_color, $bg_color);
+		}
+		if ($fill) {
+			echo '▄';
+		} else {
+			echo ' ';
+		}
+	}
+	$prev_fg_color = '';
+	$prev_bg_color = '';
+	echo "\033[0m\n";
+}
