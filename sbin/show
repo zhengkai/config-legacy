@@ -16,13 +16,28 @@ if (empty($argv[1])) {
 }
 $image = $argv[1];
 
-if (!file_exists($image)) {
+$file = tempnam(sys_get_temp_dir(), 'thumb_');
+$bmpFile = $file . '.bmp';
+
+if (preg_match('#^https?://#', $image)) {
+
+	$tmp = file_get_contents($image);
+
+	if (!$tmp) {
+		echo 'download file ' . $image . ' fail';
+		unlink($file);
+		exit;
+	}
+
+	file_put_contents($file, $tmp);
+	unset($tmp);
+	$image = $file;
+
+} else if (!file_exists($image)) {
+
 	echo 'not a file: ', $image, "\n";
 	exit;
 }
-
-$file = tempnam(sys_get_temp_dir(), 'thumb_');
-$bmpFile = $file . '.bmp';
 
 // $argv[1] = '/www/flash/qa/img/thumbs/paybg';
 
@@ -39,7 +54,7 @@ if (!$LINES) {
 }
 $resize = $COLUMNS . 'x' . $LINES;
 
-$CMD = 'convert ' . escapeshellarg($argv[1] . '[0]')
+$CMD = 'convert ' . escapeshellarg($image . '[0]')
 	. ($truecolor ? ' -type truecolor' : '')
 	. ($fill ? '' : ' -resize 100%x50%')
 	. ' -resize ' . $resize . ' ' . escapeshellarg($bmpFile)
@@ -82,7 +97,7 @@ function getnum($addr, $len = 4) {
 // /www/flash/qa/img/thumbs/paybg
 
 // echo $CMD, "\n";
-$result = exec($CMD);
+$result = shell_exec($CMD);
 
 if (!file_exists($bmpFile)) {
 	echo 'convert fail', "\n";
@@ -175,7 +190,7 @@ foreach (range($h, 1, -2) as $y) {
 			// echo sprintf("\\033[%s%sm", $fg_color, $bg_color);
 		}
 		if ($fill) {
-			echo '▄';
+			echo '▄'; // https://www.compart.com/en/unicode/U+2584
 		} else {
 			echo ' ';
 		}
