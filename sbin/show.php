@@ -1,7 +1,7 @@
 #! /usr/bin/env php
 <?php
-$COLUMNS = 160;
-$LINES = 90;
+$COLUMNS = shell_exec('tput cols') ?: 80;
+$LINES = shell_exec('tput lines') ?: 30;
 
 if (function_exists('readline_completion_function')) {
 	readline_completion_function(function($s) {
@@ -56,7 +56,7 @@ $resize = $COLUMNS . 'x' . $LINES;
 $CMD = 'convert ' . escapeshellarg($image . '[0]')
 	. ($truecolor ? ' -type truecolor' : '')
 	. ($fill ? '' : ' -resize 100%x50%')
-	. ' -resize ' . $resize . ' bmp:- > ' . escapeshellarg($bmpFile)
+	. ' -resize ' . escapeshellarg($resize) . ' bmp:- > ' . escapeshellarg($bmpFile)
 	. ' 2>&1';
 
 function getcolor($x, $y, $bg = true) {
@@ -88,13 +88,9 @@ function getnum($addr, $len = 4) {
 	$k = range($addr + $len - 1, $addr, -1);
 	$return = '';
 	foreach ($k as $i) {
-		echo $i, "\n";
 		$return .= $bmp[$i];
 	}
 
-	echo "\n";
-	echo bin2hex($return);
-	echo "\n";
 	return bin2dec($return);
 }
 
@@ -110,8 +106,8 @@ if (!file_exists($bmpFile)) {
 	exit;
 }
 
-// $bmp = file_get_contents($bmpFile);
-$bmp = file_get_contents('/home/zhengkai/conf/script/google-logo');
+$bmp = file_get_contents($bmpFile);
+// $bmp = file_get_contents('/home/zhengkai/conf/script/google-logo');
 $filesize = strlen($bmp);
 
 unlink($bmpFile);
@@ -122,9 +118,6 @@ unlink($file);
 // $offset = $bmp[13] . $bmp[12] . $bmp[11] . $bmp[10];
 
 $offset = getnum(0x0a);
-
-echo $offset;
-exit;
 
 /*
 echo bin2hex($bmp[0x0a]);
