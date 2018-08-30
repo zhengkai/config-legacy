@@ -39,8 +39,6 @@ if (preg_match('#^https?://#', $image)) {
 	exit;
 }
 
-// $argv[1] = '/www/flash/qa/img/thumbs/paybg';
-
 $truecolor = true;
 $fill = true;
 
@@ -136,13 +134,13 @@ if ($bit) {
 	$padding = 4 - $bit;
 }
 
+/*
 echo 'size = ', getnum(0x000e), "\n";
 echo 'width = ', $w, "\n";
 echo 'height = ', $h, "\n";
 echo 'padding = ', $padding, "\n";
 echo 'depth = ', getnum(0x001c, 2), "\n";
 echo 'compress = ', getnum(0x001e), "\n";
-/*
 exit;
  */
 
