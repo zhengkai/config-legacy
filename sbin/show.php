@@ -41,13 +41,15 @@ if (preg_match('#^https?://#', $image)) {
 $truecolor = true;
 $fill = true;
 
+$default_bg_rgb = [0, 0, 0]; // if thumb height pixel is odd number
+
 $pixel = $truecolor ? 3 : 4;
 
 $resize = '';
 if (!empty($argv[2])) {
 	$tmp = trim($argv[2]);
-	if (preg_match('#\d+x\d+#')) {
-		$resize = $argv[2];
+	if (preg_match('#\d+x\d+#', $tmp)) {
+		$resize = $tmp;
 	}
 }
 
@@ -63,6 +65,9 @@ function getcolor($x, $y, $bg = true) {
 
 	if (!$bg) {
 		$y = $y - 1;
+	}
+	if ($y < 0) {
+		return false;
 	}
 
 	$start = $offset + $y * $linebit + $x * $pixel;
@@ -145,10 +150,12 @@ if ($fill) {
 
 ob_start();
 
-foreach (range($h, 1, $fill ? -2 : -1) as $y) {
+foreach (range($h - 1, 0, $fill ? -2 : -1) as $y) {
 
 	$prev_fg_color = '';
 	$prev_bg_color = '';
+
+	$first = true;
 
 	foreach (range(0, $w - 1) as $x) {
 
@@ -169,6 +176,10 @@ foreach (range($h, 1, $fill ? -2 : -1) as $y) {
 			} else {
 				$prev_fg_color = $fg_color;
 			}
+		}
+
+		if ($first && !$fg_color) {
+			$fg_color = '38;2;' . implode('.', $default_bg_rgb);
 		}
 
 		if ($fg_color || $bg_color) {
