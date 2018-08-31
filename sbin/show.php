@@ -1,7 +1,5 @@
 #! /usr/bin/env php
 <?php
-$COLUMNS = shell_exec('tput cols') ?: 80;
-$LINES = shell_exec('tput lines') ?: 30;
 
 if (function_exists('readline_completion_function')) {
 	readline_completion_function(function($s) {
@@ -16,10 +14,10 @@ if (empty($argv[1])) {
 }
 $image = $argv[1];
 
-$file = tempnam(sys_get_temp_dir(), 'thumb_');
-$bmpFile = $file . '.bmp';
-
+$download = false;
 if (preg_match('#^https?://#', $image)) {
+
+	$download = true;
 
 	$tmp = file_get_contents($image);
 
@@ -29,6 +27,7 @@ if (preg_match('#^https?://#', $image)) {
 		exit;
 	}
 
+	$file = tempnam(sys_get_temp_dir(), 'thumb_');
 	file_put_contents($file, $tmp);
 	unset($tmp);
 	$image = $file;
@@ -44,29 +43,29 @@ $fill = true;
 
 $pixel = $truecolor ? 3 : 4;
 
-if (!$COLUMNS) {
-	$COLUMNS = max($_ENV['COLUMNS'], 5);
-}
-if (!$LINES) {
-	$LINES = max($_ENV['LINES'], 5);
+$resize = '';
+if (!empty($argv[2])) {
+	$tmp = trim($argv[2]);
+	if (preg_match('#\d+x\d+#')) {
+		$resize = $argv[2];
+	}
 }
 
-$resize = $COLUMNS . 'x' . $LINES;
-
-$CMD = 'convert ' . escapeshellarg($image . '[0]')
-	. ($truecolor ? ' -type truecolor' : '')
-	. ($fill ? '' : ' -resize 100%x50%')
-	. ' -resize ' . escapeshellarg($resize) . ' bmp:- > ' . escapeshellarg($bmpFile)
-	. ' 2>&1';
+if (!$resize) {
+	$COLUMNS = trim(shell_exec('tput cols')) ?: 80;
+	$LINES = (trim(shell_exec('tput lines')) * 2) ?: 30;
+	$resize = $COLUMNS . 'x' . $LINES;
+}
 
 function getcolor($x, $y, $bg = true) {
-	global $bmp, $offset, $w, $padding, $filesize, $pixel;
+
+	global $bmp, $offset, $w, $linebit, $filesize, $pixel;
 
 	if (!$bg) {
 		$y = $y - 1;
 	}
 
-	$start = $offset + $y * ($w * $pixel + $padding) + $x * $pixel;
+	$start = $offset + $y * $linebit + $x * $pixel;
 
 	if (($start + 2) >= $filesize) {
 		return false;
@@ -84,7 +83,9 @@ function bin2dec($s) {
 }
 
 function getnum($addr, $len = 4) {
+
 	global $bmp;
+
 	$k = range($addr + $len - 1, $addr, -1);
 	$return = '';
 	foreach ($k as $i) {
@@ -94,48 +95,34 @@ function getnum($addr, $len = 4) {
 	return bin2dec($return);
 }
 
-// /www/flash/qa/img/thumbs/paybg
-
+$CMD = 'convert ' . escapeshellarg($image . '[0]')
+	. ($truecolor ? ' -type truecolor' : '')
+	. ' -resize ' . escapeshellarg($resize)
+	. ($fill ? '' : ' -resize "100%x50%!"')
+	. ' bmp:- '
+	. ' 2>/dev/null';
 // echo $CMD, "\n";
-$result = shell_exec($CMD);
 
-if (!file_exists($bmpFile)) {
+$bmp = shell_exec($CMD);
+if ($download) {
+	unlink($image);
+}
+
+if (!$bmp) {
 	echo 'convert fail', "\n";
-	echo 'cmd: ', $CMD, "\n";
-	echo 'result: ', $result, "\n";
 	exit;
 }
 
-$bmp = file_get_contents($bmpFile);
-// $bmp = file_get_contents('/home/zhengkai/conf/script/google-logo');
+// file_put_contents('/tmp/test.bmp', $bmp);
+
 $filesize = strlen($bmp);
 
-unlink($bmpFile);
-unlink($file);
-
-// echo bin2hex($bmp), "\n";
-
-// $offset = $bmp[13] . $bmp[12] . $bmp[11] . $bmp[10];
-
 $offset = getnum(0x0a);
-
-/*
-echo bin2hex($bmp[0x0a]);
-echo bin2hex($bmp[0x0a + 1]);
-echo bin2hex($bmp[0x0a + 2]);
-echo bin2hex($bmp[0x0a + 3]);
-echo "\n";
-echo 'offset = ', $offset, "\n";
- */
 
 $w = getnum(0x0012);
 $h = getnum(0x0016);
 
-$bit = ($w * $pixel) % 4;
-$padding = 0;
-if ($bit) {
-	$padding = 4 - $bit;
-}
+$linebit = intval(ceil($w * $pixel / 4) * 4);
 
 /*
 echo 'size = ', getnum(0x000e), "\n";
@@ -150,12 +137,20 @@ exit;
 $prev_fg_color = '';
 $prev_bg_color = '';
 
-// echo "\n";
+if ($fill) {
+	$block = '▄'; // https://www.compart.com/en/unicode/U+2584
+} else {
+	$block = ' ';
+}
+
+ob_start();
 
 foreach (range($h, 1, $fill ? -2 : -1) as $y) {
-	foreach (range(0, $w - 1) as $x) {
 
-		// echo $r, ' ', $g, ' ', $b, "\n";
+	$prev_fg_color = '';
+	$prev_bg_color = '';
+
+	foreach (range(0, $w - 1) as $x) {
 
 		$bg_color = getcolor($x, $y) ?: '';
 		if ($bg_color) {
@@ -168,10 +163,7 @@ foreach (range($h, 1, $fill ? -2 : -1) as $y) {
 
 		$fg_color = '';
 		if ($fill) {
-			$fg_color = getcolor($x, $y, false);
-			if (!$fg_color) {
-				continue;
-			}
+			$fg_color = getcolor($x, $y, false) ?: '';
 			if ($prev_fg_color === $fg_color) {
 				$fg_color = '';
 			} else {
@@ -186,13 +178,8 @@ foreach (range($h, 1, $fill ? -2 : -1) as $y) {
 			echo sprintf("\033[%s%sm", $fg_color, $bg_color);
 			// echo sprintf("\\033[%s%sm", $fg_color, $bg_color);
 		}
-		if ($fill) {
-			echo '▄'; // https://www.compart.com/en/unicode/U+2584
-		} else {
-			echo ' ';
-		}
+		echo $block;
 	}
-	$prev_fg_color = '';
-	$prev_bg_color = '';
+
 	echo "\033[0m\n";
 }
