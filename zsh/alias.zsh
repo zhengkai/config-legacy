@@ -178,7 +178,7 @@ alias flushmc='~/conf/script/flushmc.sh'
 alias pwdcp='echo -n "`pwd`" | xclip -selection c'
 alias ss-qr='~/conf/script/ss-config-to-url.sh'
 
-alias httping='echoping -R -h /'
+alias nping='TIME="%E" \time nc -vz'
 alias sdnow="~/conf/script/shutdown.sh"
 alias tunnel-test="~/conf/script/tunnel-test.sh"
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
