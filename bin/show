@@ -55,6 +55,11 @@ function getSingle() {
 
 function getColor() {
 
+	if [ $3 -lt 0 ]; then
+		echo "$1;2;0;0;0"
+		return
+	fi
+
 	local start=$(($OFFSET + $2 * $PIXEL + $3 * $LINE_BIT))
 
 	# r=$(getSingle $start 2)
@@ -95,12 +100,7 @@ do
 	for x in $(seq 0 1 $(($W - 1)))
 	do
 
-		if [ $y -lt 1 ]; then
-			FG="$LAST_FG"
-		else
-			FG=$(getColor 38 $x $(($y - 1)))
-			LAST_FG="$FG"
-		fi
+		FG=$(getColor 38 $x $(($y - 1)))
 
 		if [[ $PREV_FG == "$FG" ]]; then
 			FG=''
