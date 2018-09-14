@@ -84,7 +84,7 @@ LINE_BIT=$(( $(($W * $PIXEL)) + 4 - $LINE_BIT ))
 # echo "  width $W"
 # echo " height $H"
 
-for y in $(seq $H -2 1)
+for y in $(seq $H -2 0)
 do
 
 	OUTPUT=""
@@ -95,7 +95,14 @@ do
 	for x in $(seq 0 1 $(($W - 1)))
 	do
 
-		FG=$(getColor 38 $x $(($y - 1)))
+		if [ $y -lt 1 ]; then
+			FG="$LAST_FG"
+		else
+			FG=$(getColor 38 $x $(($y - 1)))
+		fi
+
+		LAST_FG="$FG"
+
 		if [[ $PREV_FG == "$FG" ]]; then
 			FG=''
 		else
