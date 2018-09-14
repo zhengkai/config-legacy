@@ -99,9 +99,8 @@ do
 			FG="$LAST_FG"
 		else
 			FG=$(getColor 38 $x $(($y - 1)))
+			LAST_FG="$FG"
 		fi
-
-		LAST_FG="$FG"
 
 		if [[ $PREV_FG == "$FG" ]]; then
 			FG=''
