@@ -20,5 +20,5 @@ xkb_symbols "esc" {
 partial modifier_keys
 xkb_symbols "hhkb_esc" {
 
-	replace key <Esc> { [ Escape, asciitilde ] };
+	replace key <ESC> { [ Escape, asciitilde ] };
 };
