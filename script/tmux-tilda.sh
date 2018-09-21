@@ -17,7 +17,7 @@ if [ "$has_sesion" = false ]; then
 		"$tmux" new-window -t "$name:$i"
 	done
 
-	"$tmux" select-window -t "$name:0"
+	"$tmux" select-window -t "$name:1"
 fi
 
 "$tmux" -2 attach -t "$name"
