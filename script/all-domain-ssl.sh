@@ -17,6 +17,8 @@ fi
 
 TIME=$((TIME+86400*15)) # 过期时间 15 天以内
 
+cd $(dirname `readlink -f $0`)
+
 DOMAIN=($DOMAIN)
 for D in "${DOMAIN[@]}"
 do
