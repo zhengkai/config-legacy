@@ -21,7 +21,7 @@ DOMAIN=($DOMAIN)
 for D in "${DOMAIN[@]}"
 do
 	printf "%20s ... " $D
-	T=`./check-ssl-expire.sh "$D" 443 1`
+	T=`./check-ssl-expire.sh "$D" | head -n 1`
 	EXPIRE=`date -d "@$T" '+%Y-%m-%d %H:%M:%S'`
 	if [ "$T" -lt $TIME ]; then
 		TITLE="SSL for $D expired"
