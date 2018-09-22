@@ -1,12 +1,15 @@
 #!/bin/bash -e
 
+DIR=$(dirname `readlink -f $0`)
+"$DIR/fpm-cut-log.sh" 2>&1 || : &
+
 NGINX='/var/run/nginx.pid'
 if [ ! -e "$NGINX" ]; then
 	>&2 echo "no nginx pid file: $NGINX"
 	exit
 fi
 
-cd /log
+cd /log || exit 1
 
 DATE=`date --date='TZ="Asia/Shanghai" now' +'%Y%m/%d'`
 
