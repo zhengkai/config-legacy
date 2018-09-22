@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET_DIR='/backup/'`hostname`
+TARGET_DIR="/backup/$HOSTNAME"
 
 if [[ ! -d "$TARGET_DIR" || ! -w "$TARGET_DIR" ]]; then
 	>&2 echo 'can not write dir '$TARGET_DIR

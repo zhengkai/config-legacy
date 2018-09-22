@@ -4,7 +4,7 @@
 
 # sudo ./monitor-dns.sh | cronolog '/log/dns/%Y.%m/%d'
 
-tcpdump -A -l -K dst port 53 2>/dev/null \
+sudo tcpdump -A -l -K dst port 53 2>/dev/null \
 	| stdbuf -o0 grep -o -E 'A\? .*? ' \
 	| stdbuf -o0 cut -d ' ' -f 2
 
