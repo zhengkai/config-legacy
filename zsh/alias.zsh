@@ -21,7 +21,9 @@ alias iotop='sudo iotop'
 alias iftop='sudo iftop'
 alias fdisk='sudo fdisk'
 alias sysctl='sudo sysctl'
-alias cop='composer update'
+alias md5sum='sudo md5sum'
+alias sha1sum='sudo sha1sum'
+alias sha256sum='sudo sha256sum'
 
 alias adduser='sudo adduser'
 alias groupadd='sudo groupadd'
@@ -214,7 +216,7 @@ ex () {
 	fi
 }
 
-alias wake_tesla='wakeonlan "fc:aa:14:ad:25:d5" && wakeonlan -i "10.0.31.16"    "fc:aa:14:ad:25:d5"'
-alias wake_molly='wakeonlan "d8:50:e6:ba:43:df" && wakeonlan -i "10.0.31.14"    "d8:50:e6:ba:43:df"'
-alias wake_lydia='wakeonlan "e0:d5:5e:16:08:a0" && wakeonlan -i "192.168.1.225" "e0:d5:5e:16:08:a0"'
-alias wake_rpi='  wakeonlan "b8:27:eb:c1:83:2a" && wakeonlan -i "192.168.1.224" "b8:27:eb:c1:83:2a"'
+alias wake-tesla='wakeonlan "fc:aa:14:ad:25:d5" && wakeonlan -i "10.0.31.16"    "fc:aa:14:ad:25:d5"'
+alias wake-molly='wakeonlan "d8:50:e6:ba:43:df" && wakeonlan -i "10.0.31.14"    "d8:50:e6:ba:43:df"'
+alias wake-lydia='wakeonlan "e0:d5:5e:16:08:a0" && wakeonlan -i "192.168.1.225" "e0:d5:5e:16:08:a0"'
+alias wake-rpi='  wakeonlan "b8:27:eb:c1:83:2a" && wakeonlan -i "192.168.1.224" "b8:27:eb:c1:83:2a"'
