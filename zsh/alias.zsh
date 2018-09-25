@@ -153,11 +153,13 @@ alias mocp="TERM=screen-256color /usr/bin/mocp"
 alias getlimit='~/conf/script/getlimit.sh'
 alias zhengkaireload="~/conf/script/tmux-reload-rc.sh"
 
-alias mount="sudo mount"
-alias service="sudo service"
-alias nginx="service nginx"
-alias mysqld="service mysql"
-alias fpm="service php-fpm"
+alias mount='sudo mount'
+alias service='sudo service'
+alias nginx='service nginx'
+alias mysqld='service mysql'
+alias fpm='service php-fpm'
+
+alias logstash='/usr/share/logstash/bin/logstash'
 
 alias pip='sudo -H pip'
 alias pip3='sudo -H pip3'
