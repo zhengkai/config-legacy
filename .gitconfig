@@ -39,9 +39,6 @@
 [apply]
 	whitespace = nowarn
 
-[tig]
-	tab-size = 4
-
 [merge]
 	tool = vimdiff
 
@@ -52,8 +49,7 @@
 
 [core]
 	safecrlf = true
-	attributesfile = ~/.gitattributes
+	attributesfile = ~/conf/.gitattributes
 
-[http]
-#	proxy = socks5://127.0.0.1:55777
-#	proxy = http://localhost:8118
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
