@@ -1,4 +1,13 @@
 #!/bin/bash
+
+if [ "$1" == "week" ]; then
+	WEEK_DAY=`date '+%u'`
+	if [ "$WEEK_DAY" != '3' ]; then
+		echo 'no'
+		exit
+	fi
+fi
+
 ################################################################################
 # This is property of eXtremeSHOK.com
 # You are free to use, modify and distribute, however you may not remove this notice.
