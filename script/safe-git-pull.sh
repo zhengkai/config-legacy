@@ -16,6 +16,7 @@ REMOTE=`git show-ref -s 'refs/remotes/origin/HEAD'`
 
 if [ "$LOCAL" == "$REMOTE" ]; then
 	git pull
+	git submodule update --init --recursive
 else
 	git fetch
 fi

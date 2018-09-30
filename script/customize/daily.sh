@@ -1,5 +1,7 @@
 #!/bin/bash
 
+~/.vim/update.sh || : &
+
 ~/conf/script/update-ubuntu.sh &
 
 ~/conf/script/safe-git-pull.sh ~/conf
