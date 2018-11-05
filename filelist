@@ -1,7 +1,7 @@
 .axelrc
 .bash_login
 .curlrc
-.eslintrc
+.eslintrc.json
 .fonts.conf
 .git_update
 .gitattributes
@@ -9,6 +9,7 @@
 .hgrc
 .imwheelrc
 .inputrc
+.prettierrc.js
 .screenrc
 .siegerc
 .tigrc
