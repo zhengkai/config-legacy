@@ -33,20 +33,20 @@ for DB_NAME in `echo 'show databases' | mysql -N`; do
 
 	# 只有最近 30 天内有超过 20 个文件，才会删除超过 35 天的老文件
 	# 防止备份脚本失效后新老数据都没有了
-	FILE_NUM=`find $DBROOT -mtime -30 | wc -l`
-	if [ $FILE_NUM -gt 20 ]; then
-		find $DBROOT -mtime +35 -type f -exec rm -f {} \;
-		find $DBROOT -empty -delete
+	FILE_NUM=`find "$DBROOT" -mtime -30 | wc -l`
+	if [ "$FILE_NUM" -gt 20 ]; then
+		find "$DBROOT" -mtime +35 -type f -exec rm -f {} \;
+		find "$DBROOT" -empty -delete
 	fi
 
 	/usr/bin/mysqldump \
-	 --default-character-set=utf8mb4 \
-	 --set-charset=TRUE \
-	 --add-drop-database \
-	 --add-drop-table \
-	 --add-locks \
-	 --hex-blob \
-	 --quick \
-	 --databases "$DB_NAME" | gzip --best > $FILENAME
+		--default-character-set=utf8mb4 \
+		--set-charset=TRUE \
+		--add-drop-database \
+		--add-drop-table \
+		--add-locks \
+		--hex-blob \
+		--quick \
+		--databases "$DB_NAME" | gzip --best > "$FILENAME"
 
 done
