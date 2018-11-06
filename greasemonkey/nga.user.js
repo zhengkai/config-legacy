@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NGA 去广告
-// @namespace    http://soulogic.com/
-// @version      0.1
+// @namespace    https://soulogic.com/
+// @version      0.2
 // @description  try to take over the world!
 // @author       Zheng Kai
 // @match        http://bbs.nga.cn/*
@@ -9,14 +9,22 @@
 // ==/UserScript==
 
 (() => {
+	'use strict';
 
-	try {
-		document.getElementById('mainmenu').style.margin = '0';
-		document.getElementById('toptopics').style.display = 'none';
-		document.getElementById('bbs_ads9_add').style.display = 'none';
-		document.getElementById('custombg').style.display = 'none';
-	} catch(x) {
-	}
+	const st = (id) => {
+		const o = document.getElementById(id);
+		if (o) {
+			return o.style;
+		}
+		return {};
+	};
+
+	st('mainmenu').margin = '0';
+	st('toptopics').display = 'none';
+	st('bbs_ads9_add').display = 'none';
+	st('custombg').display = 'none';
+
+	__COOKIE.setMiscCookieInSecond('pv_count_for_insad', -300);
 
 	const clearAD = () => {
 		try {
@@ -32,8 +40,6 @@
 	}
 
 	clearAD();
-	__COOKIE.setMiscCookieInSecond('pv_count_for_insad', -300);
-
 	for (let i = 0; i < 10; i++) {
 		window.setTimeout(() => {
 			clearAD();
