@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rarbg ad block
 // @namespace    https://soulogic.com/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       Zheng Kai
 // @match        https://rarbgunblocked.org/*
@@ -29,14 +29,12 @@
 			&& style.display !== 'none'
 		) {
 
-			a.style.display = 'none';
-			console.log('ad cleared');
-			return;
+			style.display = 'none';
+			style.width = '1px';
+			style.height = '1px';
 		}
-
-		window.setTimeout(clear, 100);
 	};
 
-	clear();
+	window.setInterval(clear, 100);
 
 })();
