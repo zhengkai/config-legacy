@@ -35,6 +35,7 @@
 		"no-trailing-spaces": "warn",
 		"no-underscore-dangle": 0,
 		"no-unused-vars": 0,
+		"no-const-assign": "warn",
 		"no-unsafe-finally": "warn",
 		"brace-style": ["warn", "1tbs"],
 		"curly": ["warn", "all"],
