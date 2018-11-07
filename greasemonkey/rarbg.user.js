@@ -1,17 +1,21 @@
 // ==UserScript==
 // @name         rarbg ad block
 // @namespace    https://soulogic.com/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @author       Zheng Kai
 // @match        https://rarbgunblocked.org/*
+// @match        https://rarbg.to/*
 // @grant        none
 // ==/UserScript==
 
 (() => {
 	'use strict';
 
-	document.body.querySelector('td[align=justify] > div[align=center] > table').remove();
+	const ad = document.body.querySelector('td[align=justify] > div[align=center] > table');
+	if (ad) {
+		ad.remove();
+	}
 
 	const clear = () => {
 
@@ -32,6 +36,7 @@
 			style.display = 'none';
 			style.width = '1px';
 			style.height = '1px';
+			a.innerHtml = '';
 		}
 	};
 
