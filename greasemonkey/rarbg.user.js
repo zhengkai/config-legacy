@@ -27,8 +27,6 @@
 			return;
 		}
 
-		clearCount++;
-
 		const a = document.querySelector('body > div:last-of-type');
 		if (!a) {
 			return;
@@ -45,7 +43,8 @@
 			dom.outerHTML = dom.outerHTML;
 		});
 
-		if (clearCount > 10) {
+		clearCount++;
+		if (clearCount > 20) {
 			window.clearTimeout(t);
 			console.log('clear end');
 		}
