@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rarbg ad block
 // @namespace    https://soulogic.com/
-// @version      0.6
+// @version      0.7
 // @description  try to take over the world!
 // @author       Zheng Kai
 // @match        https://rarbgunblocked.org/*
@@ -12,6 +12,21 @@
 (() => {
 	'use strict';
 
+    document.cookie.split('; ').map((v) => {
+
+        const match = v.match('ppu_main_(.*?)=');
+        if (!match) {
+            return;
+        }
+        const key = match[1];
+
+        console.log('match key', key);
+
+        const expires = '; expires=' + new Date(2030, 3, 3).toGMTString();
+        document.cookie = 'ppu_main_' + key + '=1' + expires;
+        document.cookie = 'ppu_sub_' + key + '=10' + expires;
+    });
+
 	const ad = document.body.querySelector('td[align=justify] > div[align=center] > table');
 	if (ad) {
 		ad.remove();
@@ -19,38 +34,33 @@
 
 	let clearCount = 0;
 
-	let t;
-
 	const clear = () => {
 
 		if (document.hidden) {
 			return;
 		}
 
-		const a = document.querySelector('body > div:last-of-type');
-		if (!a) {
-			return;
+		const list = document.querySelectorAll('body > div');
+        const a = list[list.length - 1];
+		if (a && a.innerHTML) {
+            a.innerHTML = '';
+            const style = a.style;
+            style.display = 'none';
+            style.width = '1px';
+            style.height = '1px';
 		}
 
-		a.innerHtml = '';
-
-		const style = a.style;
-		style.display = 'none';
-		style.width = '1px';
-		style.height = '1px';
-
-		document.body.querySelectorAll('a, input').forEach((dom) => {
-			dom.outerHTML = dom.outerHTML;
-		});
-
 		clearCount++;
-		if (clearCount > 20) {
-			window.clearTimeout(t);
-			console.log('clear end');
+		if (clearCount < 10) {
+            /*
+            document.body.querySelectorAll('a, input').forEach((dom) => {
+                dom.outerHTML = dom.outerHTML;
+            });
+             */
 		}
 	};
 
 	clear();
-	t = window.setInterval(clear, 100);
+	window.setInterval(clear, 100);
 
 })();
