@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         NGA 去广告
 // @namespace    https://soulogic.com/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @author       Zheng Kai
 // @match        http://bbs.nga.cn/*
 // @match        https://bbs.nga.cn/*
+// @match        http://nga.178.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -36,9 +37,9 @@
 					continue;
 				}
 			}
-		} catch(x) {
+		} catch (x) {
 		}
-	}
+	};
 
 	clearAD();
 	for (let i = 0; i < 10; i++) {

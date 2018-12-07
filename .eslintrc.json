@@ -18,7 +18,8 @@
 		"jsx": true
 	},
 	"plugins": [
-		"react"
+		"react",
+		"json"
 	],
 	"rules": {
 		"implicit-arrow-linebreak": ["warn", "beside"],
