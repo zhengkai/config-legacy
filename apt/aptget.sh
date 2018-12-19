@@ -55,6 +55,6 @@ fi
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --no-update-rc --no-fish --no-bash --64
 
-../npm.sh
+../update/npm.sh
 
 cd $(dirname `readlink -f $0`)

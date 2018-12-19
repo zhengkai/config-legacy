@@ -1,15 +1,24 @@
 #!/bin/bash
 
-if [ ! -w '/usr/local/lib/node_modules' ]; then
-	>&2 echo can not write /usr/local/lib/node_modules
+list=(
+
+	npm
+	@angular/cli
+	eslint
+	tslint
+	wscat
+
+)
+
+# ----------------------------------------------------------------------------
+
+BIN='/usr/local/bin/npm'
+if [ ! -e "$BIN" ]; then
+	>&2 echo no $BIN
 	exit 1
 fi
 
-if [ ! -w '/usr/local/bin' ]; then
-	>&2 echo can not write /usr/local/bin
-	exit 1
-fi
-
-npm install -g npm@latest
-
-npm install -g @angular/cli
+for item in "${list[@]}"
+do
+	sudo npm install -g "${item}"
+done
