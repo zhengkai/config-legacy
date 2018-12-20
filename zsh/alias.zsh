@@ -55,6 +55,7 @@ alias FUCK='fuck'
 alias g='go run'
 alias t='go test -v'
 alias tt='go test -v -test.bench=".*" -test.benchmem -cover'
+alias bce='go build -gcflags="-d=ssa/check_bce/debug=1"'
 
 alias ga='git add --all ./`git rev-parse --show-cdup`'
 alias gi='git add --all ./`git rev-parse --show-cdup` && git ci -a'
