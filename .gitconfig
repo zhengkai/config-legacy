@@ -8,7 +8,7 @@
 	co = checkout
 	df = diff --no-ext-diff
 	dl = diff --no-ext-diff HEAD~1 HEAD
-	ci = commit
+	ci = commit --gpg-sign
 	br = branch
 	po = push origin
 	ps = push
