@@ -1,7 +1,8 @@
 [user]
 	email = zhengkai@gmail.com
 	name = Zheng Kai
-	signingkey = 57540DC7
+	# signingkey = 57540DC7
+	signingkey = "934B08CA57540DC7"
 
 [alias]
 	st = status -s -u
