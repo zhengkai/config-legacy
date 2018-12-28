@@ -41,6 +41,8 @@ alias jour='journalctl -xe'
 
 alias rm="trash-put"
 
+alias make='~/conf/script/make.sh'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
