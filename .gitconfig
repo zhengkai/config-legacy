@@ -1,15 +1,15 @@
 [user]
 	email = zhengkai@gmail.com
 	name = Zheng Kai
-	# signingkey = 57540DC7
-	signingkey = "934B08CA57540DC7"
+	signingkey = 57540DC7
+	# signingkey = "934B08CA57540DC7"
 
 [alias]
 	st = status -s -u
 	co = checkout
 	df = diff --no-ext-diff
 	dl = diff --no-ext-diff HEAD~1 HEAD
-	ci = commit --gpg-sign
+	ci = commit
 	br = branch
 	po = push origin
 	ps = push
@@ -20,6 +20,9 @@
 
 [color]
 	ui = true
+
+[commit]
+	gpgsign = true
 
 [push]
 	default = upstream
