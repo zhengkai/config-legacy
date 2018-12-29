@@ -6,6 +6,7 @@
 // @author       Zheng Kai
 // @match        https://rarbgunblocked.org/*
 // @match        https://rarbg.to/*
+// @match        https://proxyrarbg.org/*
 // @grant        none
 // ==/UserScript==
 
