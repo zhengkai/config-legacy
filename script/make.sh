@@ -10,6 +10,10 @@ do
 	FILE="${DIR}/Makefile"
 
 	if [ -e "$FILE" ]; then
+
+		echo $FILE
+		echo
+
 		cd "$DIR"
 		make "$@"
 		break
@@ -17,3 +21,8 @@ do
 
 	DIR=`dirname "$DIR"`
 done
+
+if [ "$DIR" == '/' ]; then
+	>&2 echo Makefile not found
+	exit 1
+fi
