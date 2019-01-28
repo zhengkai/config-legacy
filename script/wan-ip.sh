@@ -3,7 +3,7 @@
 function checkip() {
 	echo
 	echo "check $1"
-	local IP=`curl -s --max-time 10 "$1"`
+	local IP=`curl -s --max-time 10 --ipv4 "$1"`
 	echo
 	echo "  ip: $IP"
 	if [[ -n "$IP" ]]; then
