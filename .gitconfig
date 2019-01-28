@@ -57,5 +57,3 @@
 
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
-[gpg]
-	program = /usr/bin/gpg2
