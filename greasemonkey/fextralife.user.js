@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         fextralife.com 去直播
 // @namespace    https://soulogic.com/
-// @version      0.2
+// @version      0.3
 // @description  try to take over the world!
 // @author       Zheng Kai
 // @match        https://*.fextralife.com/*
@@ -14,4 +14,8 @@
 	if (x) {
 		x.innerHTML = '';
 	}
+
+	document.querySelectorAll('body > picture').forEach((pic) => {
+		pic.innerHTML = '';
+	});
 })();
