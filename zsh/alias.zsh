@@ -33,6 +33,7 @@ alias docker-compose='sudo docker-compose'
 # alias try='docker run --rm=true -t -i'
 
 alias youtube-dl='~/conf/script/youtube-dl.sh'
+alias godoc='~/conf/script/godoc/godoc.sh'
 
 alias wanip='~/conf/script/wan-ip.sh'
 alias ifstat='ifstat -t'
