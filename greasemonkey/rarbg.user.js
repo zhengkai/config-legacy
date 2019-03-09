@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         rarbg ad block
 // @namespace    https://soulogic.com/
-// @version      0.7
+// @version      0.8
 // @description  try to take over the world!
 // @author       Zheng Kai
 // @match        https://rarbgunblocked.org/*
 // @match        https://rarbg.to/*
 // @match        https://proxyrarbg.org/*
+// @match        https://rarbgprx.org/*
 // @grant        none
 // ==/UserScript==
 
