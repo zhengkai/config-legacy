@@ -4,6 +4,7 @@ list=(
 
 	npm
 	@angular/cli
+	@angular/core
 	eslint
 	tslint
 	wscat
