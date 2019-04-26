@@ -8,13 +8,14 @@ gnome-tweak-tool
 gnupg-agent
 gparted
 imwheel
+moc
+moc-ffmpeg-plugin
 nfs-common
 portmap
 samba
 tilda
 unrar
+usb-creator-gtk
 vde2
 vim-gnome
 xclip
-moc
-moc-ffmpeg-plugin
