@@ -34,6 +34,7 @@ alias docker-compose='sudo docker-compose'
 
 alias youtube-dl='~/conf/script/youtube-dl.sh'
 alias godoc='~/conf/script/godoc/godoc.sh'
+alias pgo='http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118 no_proxy=localhost,127.0.0.0/8,::1,monk,rpi go'
 
 alias wanip='~/conf/script/wan-ip.sh'
 alias ifstat='ifstat -t'
