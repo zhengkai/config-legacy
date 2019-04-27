@@ -39,6 +39,7 @@ sudo -H pip3 install --upgrade thefuck
 
 sudo adduser zhengkai www-data
 
+touch ~/.viminfo
 sudo chown -R zhengkai:zhengkai ~/
 
 sudo /lib/systemd/systemd-sysv-install disable shadowsocks-libev
