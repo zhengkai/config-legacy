@@ -2,7 +2,8 @@
 
 ~/.vim/update.sh || : &
 
-~/conf/script/update-ubuntu.sh &
+~/conf/update/npm.sh &
+~/conf/update/ubuntu.sh &
 
 ~/conf/script/safe-git-pull.sh ~/conf
 ~/conf/script/safe-git-pull.sh ~/build
