@@ -20,9 +20,9 @@ rsync --temp-dir=/tmp --min-size=10 --partial -vzrtopg -e ssh "$source_path" "$t
 ssh freya "find /backup -type f -ctime +10        -delete"
 ssh freya "find /backup -type d -ctime +1  -empty -delete"
 
-source_path="flow:/backup/Flow/"
-target_path="/backup/flow/db"
-
-rsync --temp-dir=/tmp --min-size=10 --partial -vzrtopg -e ssh "$source_path" "$target_path"
+#source_path="flow:/backup/Flow/"
+#target_path="/backup/flow/db"
+#
+#rsync --temp-dir=/tmp --min-size=10 --partial -vzrtopg -e ssh "$source_path" "$target_path"
 
 ) 200>/tmp/rsync-freya-tesla.lock

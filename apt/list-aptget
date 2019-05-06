@@ -8,12 +8,14 @@ axel
 bison
 build-essential
 cloc
+cmake
 colordiff
 curl
 dfc
 echoping
 editorconfig
 exif
+exuberant-ctags
 fdupes
 figlet
 fortune-zh
@@ -27,6 +29,7 @@ htop
 ifstat
 iftop
 iotop
+ipset
 jq
 lolcat
 mingetty
