@@ -23,6 +23,11 @@ if [ "$has_sesion" = false ]; then
 		let i=$i-1
 	done
 
+	INIT_SCRIPT="$HOME/hide/tmux/$HOSTNAME.sh"
+	if [ -f "$INIT_SCRIPT" ]; then
+		. "$INIT_SCRIPT"
+	fi
+
 	"$tmux" select-window -t "$name:1"
 fi
 
