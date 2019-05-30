@@ -3,15 +3,19 @@
 list=(
 
 	npm
+	node-sass
 	@angular/cli
 	@angular/core
 	eslint
 	tslint
 	wscat
+	typescript
 
 )
 
 # ----------------------------------------------------------------------------
+
+export NG_CLI_ANALYTICS=ci
 
 BIN='/usr/local/bin/npm'
 if [ ! -e "$BIN" ]; then
@@ -21,5 +25,5 @@ fi
 
 for item in "${list[@]}"
 do
-	sudo npm install -g "${item}"
+	npm install -g "${item}"
 done
