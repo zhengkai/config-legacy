@@ -4,7 +4,7 @@ alias s='ssh'
 
 alias todo='vi ~/TODO'
 
-alias cat='sudo cat'
+alias cat='sudo cat -v'
 alias vms='vmstat 1'
 alias dmidecode='sudo dmidecode'
 alias tcpdump='sudo tcpdump'
