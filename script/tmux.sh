@@ -2,6 +2,7 @@
 
 if [[ -n "$TMUX" || -n "$TERMCAP" ]]; then
 	>&2 echo ERROR: already in tmux, exit
+	sleep 10
 	exit
 fi
 

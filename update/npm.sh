@@ -9,7 +9,7 @@ list=(
 	eslint
 	tslint
 	wscat
-	typescript
+	typescript@3.4.3
 
 )
 
