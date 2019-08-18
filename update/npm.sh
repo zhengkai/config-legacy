@@ -9,7 +9,7 @@ list=(
 	eslint
 	tslint
 	wscat
-	typescript@3.4.3
+	typescript
 
 )
 
@@ -30,4 +30,5 @@ fi
 for item in "${list[@]}"
 do
 	npm install -g "${item}"
+	hash -r
 done
