@@ -20,6 +20,7 @@ fdupes
 figlet
 fortune-zh
 gawk
+gem
 geoip-bin
 gettext
 gnupg-agent
@@ -46,6 +47,7 @@ python3-setuptools
 rar
 re2c
 ruby
+ruby-dev
 screen
 shadowsocks-libev
 silversearcher-ag
