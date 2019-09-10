@@ -22,11 +22,17 @@ else
 		/usr/share/X11/xkb/rules/evdev
 fi
 
+ESC='esc'
+if [ "$HOSTNAME" == 'Tesla' ]; then
+	ESC='hhkb_esc'
+fi
+XKBSET="['ctrl:nocaps','zhengkai:base','zhengkai:${ESC}']"
+
 match=`grep 'zhengkai:' /usr/share/X11/xkb/rules/evdev | head -n 1`
 if [ -n "$match" ]; then
 	echo
-	echo 'gsettings set'
-	gsettings set org.gnome.desktop.input-sources xkb-options "['ctrl:nocaps','zhengkai:base','zhengkai:esc']"
+	echo 'gsettings set' $XKBSET
+	gsettings set org.gnome.desktop.input-sources xkb-options "$XKBSET"
 else
 	echo 'add rule failed'
 fi
