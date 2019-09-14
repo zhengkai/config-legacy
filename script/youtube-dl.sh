@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOSTNAME=`hostname`
+SAVE_PATH='/youtube'
 
 if [ -z "$1" ]; then
 	>&2 echo 'no url'
@@ -13,19 +13,25 @@ if [ "$HOSTNAME" == 'Freya' ]; then
 	youtube-dl -f bestvideo+bestaudio \
 		--merge-output-format mkv \
 		-o "/tmp/youtube/%(title)s-%(id)s.%(ext)s" \
-		--exec "/home/zhengkai/conf/script/youtube-mv.sh" \
 		"$@"
 	exit
 fi
 
-if [ ! -d '/youtube' ]; then
-	>&2 echo 'no dir /youtube'
+if [ "$HOSTNAME" == 'Monk' ]; then
+	ODIN="/mnt/odin/youtube"
+	if [ -d "$ODIN" ]; then
+		SAVE_PATH="$ODIN"
+	fi
+fi
+
+if [ ! -d "$SAVE_PATH" ]; then
+	>&2 echo no dir $SAVE_PATH
 	exit 1
 fi
 
-cd /youtube
-youtube-dl -f bestvideo+bestaudio \
+cd "$SAVE_PATH"
+echo youtube-dl -f bestvideo+bestaudio \
 	--merge-output-format mkv \
-	-o "/youtube/%(title)s-%(id)s.%(ext)s" \
+	-o "${SAVE_PATH}/%(title)s-%(id)s.%(ext)s" \
 	"$@"
 exit
