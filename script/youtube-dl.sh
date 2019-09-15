@@ -30,7 +30,7 @@ if [ ! -d "$SAVE_PATH" ]; then
 fi
 
 cd "$SAVE_PATH"
-echo youtube-dl -f bestvideo+bestaudio \
+youtube-dl -f bestvideo+bestaudio \
 	--merge-output-format mkv \
 	-o "${SAVE_PATH}/%(title)s-%(id)s.%(ext)s" \
 	"$@"
