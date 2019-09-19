@@ -30,11 +30,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ${list[@]}
 
 sudo apt-get remove -y fonts-droid
 
-sudo -H pip3 install --upgrade httpie
-sudo -H pip3 install --upgrade qrcode
-sudo -H pip3 install --upgrade tldr
-sudo -H pip3 install --upgrade thefuck
-
 sudo adduser zhengkai www-data
 
 touch ~/.viminfo
@@ -51,5 +46,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --no-update-rc --no-fish --no-bash --64
 
 ../update/npm.sh
+../update/pip.sh
 
 cd $(dirname `readlink -f $0`)
