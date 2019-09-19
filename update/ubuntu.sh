@@ -1,6 +1,9 @@
 #!/bin/sh
 date '+%Y-%m-%d %H:%M:%S'
 echo
+arch
+lsb_release -c -s
+echo
 
 sudo DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -q update
 sudo DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -y -q -o Dpkg::Options::="--force-confnew" dist-upgrade

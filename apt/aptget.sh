@@ -30,9 +30,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ${list[@]}
 
 sudo apt-get remove -y fonts-droid
 
-sudo -H pip install --upgrade httpie
-sudo -H pip install --upgrade qrcode
-sudo -H pip install --upgrade tldr
+sudo -H pip3 install --upgrade httpie
+sudo -H pip3 install --upgrade qrcode
+sudo -H pip3 install --upgrade tldr
 sudo -H pip3 install --upgrade thefuck
 
 sudo adduser zhengkai www-data
