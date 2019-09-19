@@ -20,3 +20,5 @@ if [ "$LOCAL" == "$REMOTE" ]; then
 else
 	git fetch
 fi
+
+git gc
