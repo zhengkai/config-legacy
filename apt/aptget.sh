@@ -30,8 +30,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ${list[@]}
 
 sudo apt-get remove -y fonts-droid
 
-sudo easy_install3 -U pip
-
 sudo -H pip install --upgrade httpie
 sudo -H pip install --upgrade qrcode
 sudo -H pip install --upgrade tldr
@@ -42,16 +40,12 @@ sudo adduser zhengkai www-data
 touch ~/.viminfo
 sudo chown -R zhengkai:zhengkai ~/
 
-sudo /lib/systemd/systemd-sysv-install disable shadowsocks-libev
-
 mkdir -p ~/script
 if [ ! -e "$HOME/script/daily.sh" ]; then
 	cp ../script/customize/daily.sh ~/script/
 fi
 
-if [ -z "$DISPLAY" ]; then
-	./desktop.sh
-fi
+./desktop.sh
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --no-update-rc --no-fish --no-bash --64
