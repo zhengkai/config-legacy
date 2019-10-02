@@ -7,15 +7,16 @@ if [ -z "$1" ]; then
 	exit 1
 fi
 
-if [ "$HOSTNAME" == 'Freya' ]; then
-
-	cd /tmp
-	youtube-dl -f bestvideo+bestaudio \
-		--merge-output-format mkv \
-		-o "/tmp/youtube/%(title)s-%(id)s.%(ext)s" \
-		"$@"
-	exit
-fi
+# if [ "$HOSTNAME" == 'Freya' ]; then
+#
+# 	cd /tmp
+# 	youtube-dl -f bestvideo+bestaudio \
+# 		--merge-output-format mkv \
+# 		-o "/tmp/youtube/%(title)s-%(id)s.%(ext)s" \
+# 		--exec "/home/zhengkai/conf/script/youtube-mv.sh" \
+# 		"$@"
+# 	exit
+# fi
 
 if [ "$HOSTNAME" == 'Monk' ]; then
 	ODIN="/mnt/odin/youtube"
