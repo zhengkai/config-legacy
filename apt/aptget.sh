@@ -1,5 +1,5 @@
 #!/bin/bash
-cd $(dirname `readlink -f $0`)
+DIR=`readlink -f "$0"` && DIR=`dirname "$DIR"` && cd "$DIR" || exit 1
 
 if [ ! -e ~/.ssh/authorized_keys ] && [ -f ~/.ssh/id_rsa.pub ]; then
 	cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
@@ -43,9 +43,7 @@ fi
 ./desktop.sh
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --no-update-rc --no-fish --no-bash --64
+~/.fzf/install --no-update-rc --no-fish --no-bash
 
 ../update/npm.sh
 ../update/pip.sh
-
-cd $(dirname `readlink -f $0`)
