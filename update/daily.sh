@@ -8,6 +8,11 @@ sudo chown -R zhengkai:zhengkai /home/zhengkai &
 ./pip.sh &
 ./ubuntu.sh &
 
+CHN="$HOME/hide/redir/chn/update.sh"
+if [ -x "$CHN" ]; then
+	"$CHN" &
+fi
+
 wait
 
 ./clean-motd.sh
