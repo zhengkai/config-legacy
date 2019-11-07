@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # 不断往上递归，看哪个目录有 Makefile 可以 make
 
@@ -17,8 +17,8 @@ do
 		echo $FILE
 		echo
 
-		cd "$DIR"
-		make "$@"
+		cd "$DIR" || exit
+		/usr/bin/make "$@"
 		break
 	fi
 
