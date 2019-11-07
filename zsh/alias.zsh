@@ -179,7 +179,6 @@ alias set664="(find . -type d -exec sudo chmod 775 {} \;) && (find . -not -type 
 alias set666="(find . -type d -exec sudo chmod 777 {} \;) && (find . -not -type d -exec sudo chmod 666 {} \;)"
 
 #alias flushmc="echo 'flush_all' | nc localhost 11211"
-alias flushmc='~/conf/script/flushmc.sh'
 
 alias pwdcp='echo -n "`pwd`" | xclip -selection c'
 alias ss-qr='~/conf/script/ss-config-to-url.sh'
