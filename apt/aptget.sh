@@ -22,8 +22,9 @@ sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq vim
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
-sudo sh -c 'echo "Asia/Shanghai" > /etc/timezone'
-sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# sudo sh -c 'echo "Asia/Shanghai" > /etc/timezone'
+# sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+sudo timedatectl set-timezone Asia/Shanghai
 
 list=(`cat list-aptget`)
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ${list[@]}

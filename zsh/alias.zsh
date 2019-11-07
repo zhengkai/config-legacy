@@ -44,8 +44,6 @@ alias jour='journalctl -xe'
 
 alias rm="trash-put"
 
-alias make='~/conf/script/make.sh'
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -67,8 +65,6 @@ alias gi='git add --all ./`git rev-parse --show-cdup 2>/dev/null` && git ci -a'
 alias ro='cd ./`git rev-parse --show-cdup 2>/dev/null`'
 alias gia='gi --amend'
 alias gb='git br'
-alias gd='~/conf/script/git_diff.sh'
-alias hd='~/conf/script/hg_diff.sh'
 alias gdl='gd HEAD~1 HEAD'
 alias gdn='gd --no-index'
 alias gdh='gd HEAD'
@@ -157,7 +153,6 @@ alias terror="sudo touch /tmp/php-error.txt; sudo chmod 666 /tmp/php-error.txt; 
 
 alias mocp="TERM=screen-256color /usr/bin/mocp"
 
-alias getlimit='~/conf/script/getlimit.sh'
 alias zhengkaireload="~/conf/script/tmux-reload-rc.sh"
 
 alias mount='sudo mount'
@@ -177,7 +172,6 @@ alias easy_install3='sudo easy_install3'
 alias pl="echo 'show processlist;' | mysql"
 alias pc='echo `grep -c "^processor" /proc/cpuinfo`'
 
-alias acl="sudo ~/conf/script/acl.sh"
 alias cleanacl="sudo setfacl -b -R ."
 
 alias set644="(find . -type d -exec sudo chmod 755 {} \;) && (find . -not -type d -exec sudo chmod 644 {} \;)"
