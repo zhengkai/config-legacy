@@ -3,3 +3,6 @@
 NAME="${1:-soulogic.com}"
 
 openssl s_client -connect "${NAME}:443" -servername "$NAME" -tls1_3 < /dev/null
+
+echo
+openssl s_client -connect "${NAME}:443" -servername "$NAME" -tls1_3 < /dev/null | openssl x509 -noout -dates
