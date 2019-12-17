@@ -25,7 +25,7 @@ if [ "$has_sesion" = false ]; then
 	done
 
 	if [ "$name" == 'default' ]; then
-		INIT_SCRIPT="$HOME/hide/tmux/$HOSTNAME.sh"
+		INIT_SCRIPT="${HOME}/hide/tmux/${HOSTNAME,,}.sh"
 		if [ -f "$INIT_SCRIPT" ]; then
 			. "$INIT_SCRIPT"
 		fi
