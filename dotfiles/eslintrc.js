@@ -1,0 +1,43 @@
+module.exports = {
+	extends: 'eslint:recommended',
+	parserOptions: {
+		ecmaVersion: 2019,
+		sourceType: 'module',
+		ecmaFeatures: {
+			impliedStrict: true,
+		},
+	},
+	env: {
+		es6: true,
+		node: true,
+	},
+	rules: {
+		quotes: ['error', 'single'],
+		semi: 'error',
+		indent: ['error', 'tab', {
+			ArrayExpression: 1,
+			CallExpression: {arguments: 1},
+			outerIIFEBody: 0,
+			SwitchCase: 1,
+		}],
+		'space-in-parens': 'error',
+		'block-spacing': ['error', 'never'],
+		'arrow-spacing': 'error',
+		'quote-props': ['error', 'as-needed'],
+		'object-curly-spacing': ['error', 'never'],
+		'array-bracket-spacing': ['error', 'never'],
+		'space-infix-ops': ['error', {int32Hint: false}],
+		'comma-style': 'error',
+		'comma-dangle': ['error', 'always-multiline'],
+		'key-spacing': 'error',
+		'keyword-spacing': 'error',
+		'comma-spacing': ['error', {before: false, after: true}],
+		'func-call-spacing': ['error', 'never'],
+		'no-empty': ['error', {allowEmptyCatch: true}],
+		'no-constant-condition': 'off',
+		'no-unused-vars': ['error', {varsIgnorePattern: '_', args: 'none'}],
+		'no-multi-spaces': 'error',
+		'no-var': 'error',
+		'prefer-const': 'error',
+	},
+};
