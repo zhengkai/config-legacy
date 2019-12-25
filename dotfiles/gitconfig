@@ -53,10 +53,11 @@
 
 [core]
 	safecrlf = true
-	attributesfile = ~/conf/.gitattributes
+	attributesfile = ~/conf/dotfiles/.gitattributes
 
 [url "git@github.com:"]
 	insteadOf = "https://github.com/"
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

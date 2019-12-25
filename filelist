@@ -6,7 +6,6 @@
 .git_update
 .gitattributes
 .gitconfig
-.hgrc
 .imwheelrc
 .inputrc
 .prettierrc.js

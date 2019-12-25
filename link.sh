@@ -1,27 +1,37 @@
 #!/bin/bash -ex
-dir=$(dirname `readlink -f $0`);
-list=(`cat "$dir/filelist"`);
 
-echo $dir/list
+DIR=`readlink -f "$0"` && DIR=`dirname "$DIR"` && cd "$DIR" || exit 1
 
-for file in ${list[@]}; do
-	if [ -e ~/$file ]; then
-		continue;
+ls dotfiles | while read -r FILE; do
+
+	SRC="$DIR/dotfiles/$FILE"
+	TARGET="$HOME/.$FILE"
+
+	if [ ! -f "$SRC" ]; then
+		continue
 	fi
-	ln -s -f $dir/$file ~/$file
+
+	if [ -h "$TARGET" ]; then
+		rm "$TARGET"
+	fi
+
+	ln -s "$SRC" "$TARGET"
 done
 
-cpfile=(
-	'.my.cnf'
-)
+ls dotfiles/copy | while read -r FILE; do
 
-for file in ${cpfile[@]}; do
-	if [ -e ~/$file ]; then
-		continue;
+	SRC="$DIR/dotfiles/copy/$FILE"
+	TARGET="$HOME/.$FILE"
+
+	if [ ! -f "$SRC" ]; then
+		continue
 	fi
-	cp $dir/$file ~/$file
+
+	cp "$SRC" "$TARGET"
 done
 
-if [ ! -e ~/.zshrc ]; then
-	ln -s $dir/zsh/index.zsh ~/.zshrc
+ZSH="$HOME/.zshrc"
+if [ -h "$ZSH" ]; then
+	rm "$ZSH"
 fi
+ln -s "$DIR/zsh/index.zsh" "$ZSH"
