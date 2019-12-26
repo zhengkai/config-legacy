@@ -7,7 +7,7 @@ fi
 
 sudo chown -R zhengkai:zhengkai /home/zhengkai
 
-sudo cp ../file/sudoers_nopassword /etc/sudoers.d/nopassword
+sudo cp ../file/sudoers-nopassword /etc/sudoers.d/nopassword
 
 mkdir -p ~/.tmp/vim-undo
 mkdir -p ~/.tmp/vim-swap
@@ -34,7 +34,7 @@ sudo apt-get remove -y fonts-droid
 
 sudo adduser zhengkai www-data
 
-touch ~/.viminfo
+touch ~/.vim/.viminfo
 sudo chown -R zhengkai:zhengkai ~/
 
 mkdir -p ~/script
