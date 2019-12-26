@@ -5,6 +5,7 @@
 	signingkey = "934B08CA57540DC7"
 
 [alias]
+	who = shortlog -sn
 	st = status -s -u
 	co = checkout
 	df = diff --no-ext-diff
