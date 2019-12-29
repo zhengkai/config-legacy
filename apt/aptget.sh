@@ -12,10 +12,11 @@ sudo cp ../file/sudoers_nopassword /etc/sudoers.d/nopassword
 mkdir -p ~/.tmp/vim-undo
 mkdir -p ~/.tmp/vim-swap
 mkdir -p ~/.tmp/ssh-mux
-mkdir -p ~/.backup
 mkdir -p ~/.Trash
-touch ~/.backup/.wget_cookie
-touch ~/.backup/.curl_cookie
+
+touch ~/conf/store/wget-cookie
+touch ~/conf/store/wget-hsts
+touch ~/conf/store/curl-cookie
 
 sudo apt-get update
 
