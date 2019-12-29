@@ -10,6 +10,8 @@ list=(
 	tslint
 	wscat
 	typescript
+	@typescript-eslint/parser
+	@typescript-eslint/eslint-plugin
 
 )
 

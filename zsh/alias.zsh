@@ -159,6 +159,7 @@ alias mount='sudo mount'
 alias service='sudo service'
 alias nginx='service nginx'
 alias nginx-reload='service nginx force-reload'
+alias re-nginx='nginx stop && nginx start'
 alias mysqld='service mysql'
 alias fpm='service php-fpm'
 
