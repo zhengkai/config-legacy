@@ -60,6 +60,7 @@ alias t='go test -v'
 alias tt='go test -v -test.bench=".*" -test.benchmem -cover'
 alias bce='go build -gcflags="-d=ssa/check_bce/debug=1"'
 
+alias gii='git init && git commit --allow-empty -m "init"'
 alias ga='git add --all ./`git rev-parse --show-cdup 2>/dev/null`'
 alias gi='git add --all ./`git rev-parse --show-cdup 2>/dev/null` && git ci -a'
 alias ro='cd ./`git rev-parse --show-cdup 2>/dev/null`'
@@ -91,6 +92,7 @@ alias lsd="\ls -l | \grep ^d"
 alias free="free -h"
 
 alias naf="npm audit fix"
+alias nng="ng new --skip-git --skip-tests --style=scss --routing=true"
 
 alias date="TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S'"
 alias now="php -r '\$i = time(); echo \$i, \"\\n\", date(\"Y-m-d H:i:s\", \$i);'"
