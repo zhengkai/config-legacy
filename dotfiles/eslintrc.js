@@ -1,5 +1,5 @@
 module.exports = {
-    plugins: ['@typescript-eslint'],
+	plugins: ['@typescript-eslint'],
 	parser: '@typescript-eslint/parser',
 	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
 	parserOptions: {
@@ -22,6 +22,7 @@ module.exports = {
 			outerIIFEBody: 0,
 			SwitchCase: 1,
 		}],
+		curly: 'error',
 		'no-unneeded-ternary': 'error',
 		'array-bracket-spacing': ['error', 'never'],
 		'arrow-spacing': 'error',
@@ -30,6 +31,7 @@ module.exports = {
 		'comma-spacing': ['error', { before: false, after: true }],
 		'comma-style': 'error',
 		'func-call-spacing': ['error', 'never'],
+		'brace-style': ["error", "1tbs", { "allowSingleLine": false }],
 		'key-spacing': 'error',
 		'keyword-spacing': 'error',
 		'no-constant-condition': 'off',
@@ -43,5 +45,6 @@ module.exports = {
 		'quote-props': ['error', 'as-needed'],
 		'space-in-parens': 'error',
 		'space-infix-ops': ['error', { int32Hint: false }],
+		'space-before-blocks': 'error',
 	},
 };
