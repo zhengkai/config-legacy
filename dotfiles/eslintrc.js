@@ -1,5 +1,5 @@
 module.exports = {
-	plugins: ['@typescript-eslint'],
+	plugins: ['@typescript-eslint/eslint-plugin'],
 	parser: '@typescript-eslint/parser',
 	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
 	parserOptions: {
@@ -12,17 +12,18 @@ module.exports = {
 	env: {
 		es6: true,
 		node: true,
+		browser: true,
 	},
 	rules: {
 		quotes: ['error', 'single'],
 		semi: 'error',
 		indent: ['error', 'tab', {
-			ArrayExpression: 1,
-			CallExpression: { arguments: 1 },
-			outerIIFEBody: 0,
 			SwitchCase: 1,
+			outerIIFEBody: 1,
+			MemberExpression: 1,
 		}],
 		curly: 'error',
+		'@typescript-eslint/explicit-function-return-type': 'off',
 		'no-unneeded-ternary': 'error',
 		'array-bracket-spacing': ['error', 'never'],
 		'arrow-spacing': 'error',
@@ -31,11 +32,12 @@ module.exports = {
 		'comma-spacing': ['error', { before: false, after: true }],
 		'comma-style': 'error',
 		'func-call-spacing': ['error', 'never'],
-		'brace-style': ["error", "1tbs", { "allowSingleLine": false }],
+		'brace-style': ['error', '1tbs', { 'allowSingleLine': false }],
 		'key-spacing': 'error',
 		'keyword-spacing': 'error',
 		'no-constant-condition': 'off',
 		'no-empty': ['error', { allowEmptyCatch: true }],
+		'no-empty-function': ['error', { 'allow': ['constructors'] }],
 		'no-multi-spaces': 'error',
 		'no-unused-vars': ['warn', { varsIgnorePattern: '_', args: 'none' }],
 		'no-var': 'error',
