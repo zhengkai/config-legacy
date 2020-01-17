@@ -24,6 +24,7 @@ module.exports = {
 		}],
 		curly: 'error',
 		'@typescript-eslint/explicit-function-return-type': 'off',
+		'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
 		'no-unneeded-ternary': 'error',
 		'array-bracket-spacing': ['error', 'never'],
 		'arrow-spacing': 'error',
