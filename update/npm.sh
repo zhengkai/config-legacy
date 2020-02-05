@@ -19,6 +19,7 @@ list=(
 
 export NG_CLI_ANALYTICS=ci
 
+mkdir -p ~/.npm
 sudo chown zhengkai:zhengkai -R ~/.npm
 
 DIR=`readlink -f "$0"` && DIR=`dirname "$DIR"` && cd "$DIR" || exit 1
