@@ -7,8 +7,9 @@ export GOPATH=/go
 export GO111MODULE=on
 
 export EDITOR=/usr/bin/vim.basic
+export LC_ALL=en_US.UTF-8
 
-export PATH="$HOME/conf/bin:$HOME/.npm/bin:$GOROOT/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:/snap/bin"
+export PATH="$HOME/conf/bin:$HOME/.npm/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/games:/snap/bin"
 
 # man color
 #export LESS_TERMCAP_mb=$'\E[01;31m'

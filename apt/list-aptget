@@ -39,6 +39,7 @@ net-tools
 node-ws
 ntp
 openssh-server
+protobuf-compiler
 pwgen
 python-dev
 python-pip
@@ -59,6 +60,7 @@ toilet
 trash-cli
 tree
 vim
+webhook
 webp
 whois
 wondershaper
