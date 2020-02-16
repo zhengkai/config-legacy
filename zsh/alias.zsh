@@ -44,12 +44,16 @@ alias jour='journalctl -xe'
 
 alias rm="trash-put"
 
+alias /='cd /'
+alias '~/'='cd ~/'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias /='cd /'
-alias '~/'='cd ~/'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
 alias 'cd-'='cd -'
 
 alias fuck='$(thefuck $(fc -ln -1))'

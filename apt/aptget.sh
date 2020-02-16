@@ -1,7 +1,7 @@
 #!/bin/bash
 DIR=`readlink -f "$0"` && DIR=`dirname "$DIR"` && cd "$DIR" || exit 1
 
-if [ ! -e ~/.ssh/authorized_keys ] && [ -f ~/.ssh/id_rsa.pub ]; then
+if [ -f ~/.ssh/id_rsa.pub ] && [ ! -e ~/.ssh/authorized_keys ]; then
 	cp ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
 fi
 
@@ -31,6 +31,8 @@ list=(`cat list-aptget`)
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ${list[@]}
 
 sudo apt-get remove -y fonts-droid
+
+sudo systemctl disable webhook
 
 sudo adduser zhengkai www-data
 

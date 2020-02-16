@@ -1,8 +1,9 @@
 #!/bin/bash -ex
 
-DIR=`readlink -f "$0"` && DIR=`dirname "$DIR"` && cd "$DIR" || exit 1
+DIR=$(readlink -f "$0") && DIR=$(dirname "$DIR") && cd "$DIR" || exit 1
 
-ls dotfiles | while read -r FILE; do
+cd "${DIR}/dotfiles"
+for FILE in *; do
 
 	SRC="$DIR/dotfiles/$FILE"
 	TARGET="$HOME/.$FILE"
@@ -18,12 +19,17 @@ ls dotfiles | while read -r FILE; do
 	ln -s "$SRC" "$TARGET"
 done
 
-ls dotfiles/copy | while read -r FILE; do
+cd "${DIR}/dotfiles/copy"
+for FILE in *; do
 
 	SRC="$DIR/dotfiles/copy/$FILE"
 	TARGET="$HOME/.$FILE"
 
 	if [ ! -f "$SRC" ]; then
+		continue
+	fi
+
+	if [ -e "$TARGET" ]; then
 		continue
 	fi
 

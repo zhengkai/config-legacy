@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/bash -x
 
 if [ "$1" == "week" ]; then
-	WEEK_DAY=`date '+%u'`
+	WEEK_DAY=$(date '+%u')
 	if [ "$WEEK_DAY" != '3' ]; then
 		echo 'no'
 		exit
@@ -80,8 +80,8 @@ GeoIPASNumv6.dat|GeoLiteASNumv6.dat
 ################################################################################
 
 if [[ $EUID -ne 0 ]]; then
-	echo "This script must be run as root"
-	exit 1
+	sudo "$0"
+	exit $?
 fi
 
 # Detect to make sure the entire script is avilable, fail if the script is missing contents

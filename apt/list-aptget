@@ -50,6 +50,7 @@ re2c
 ruby
 ruby-dev
 screen
+shellcheck
 silversearcher-ag
 simple-obfs
 subversion
