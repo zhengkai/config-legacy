@@ -122,6 +122,7 @@ alias grpe='grep'
 alias less='less -r --tabs=4'
 
 alias pss='ps aux | \grep'
+alias nss='sudo netstat -nap | grep'
 
 alias vimn='vim -N -u NONE'
 alias :vs='vim'
