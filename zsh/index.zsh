@@ -38,3 +38,11 @@ tabs 4
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# exec 2>>( while read -r X; do print "\e[01;31m${X}\e[0m" > /dev/tty; done & )
+if [ -f /usr/local/lib/libstderred.so ]; then
+	export LD_PRELOAD="/usr/local/lib/libstderred.so${LD_PRELOAD:+:$LD_PRELOAD}"
+	export STDERRED_ESC_CODE=$(echo -e '\e[38;2;255;45;45;48;2;10;10;10m')
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -78,6 +78,7 @@ alias gs='git st'
 alias gc='git co'
 alias gc1='git clone --depth 1'
 alias gm='git merge --no-ff'
+alias gms='git merge --squash'
 alias gtp='git stash apply'
 alias gpp='git pull && git push'
 alias gpt='git push && git push --tags'
@@ -172,8 +173,8 @@ alias fpm='service php-fpm'
 
 alias logstash='/usr/share/logstash/bin/logstash'
 
-alias pip='sudo -H pip'
-alias pip3='sudo -H pip3'
+# alias pip='sudo -H pip3'
+# alias pip3='sudo -H pip3'
 alias easy_install='sudo easy_install'
 alias easy_install3='sudo easy_install3'
 
@@ -193,7 +194,6 @@ alias ss-qr='~/conf/script/ss-config-to-url.sh'
 
 alias nping='TIME="%E" \time nc -w 5 -vz'
 alias sdnow="~/conf/script/shutdown.sh"
-alias tunnel-test="~/conf/script/tunnel-test.sh"
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
 
 alias tmu='~/conf/script/tmux.sh'

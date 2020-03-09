@@ -33,6 +33,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ${list[@]}
 sudo apt-get remove -y fonts-droid
 
 sudo systemctl disable webhook
+sudo systemctl disable shadowsocks-libev
 
 sudo adduser zhengkai www-data
 

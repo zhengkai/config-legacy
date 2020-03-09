@@ -13,10 +13,10 @@ if [[ "$TUNNEL" =~ ^[0-9]+$ ]]; then
 	TUNNEL="127.0.0.1:$TUNNEL"
 fi
 
-echo test $TUNNEL
+echo "test $TUNNEL"
 
 function checkip() {
-	local IP=`TIME="\ntime: %E" time curl -s --max-time 10 "$1" --socks5-hostname "$2"`
+	local IP=$(TIME="\ntime: %E" time curl -s --max-time 10 "$1" --socks5-hostname "$2" | sed 's#^::ffff:##')
 	echo
 	echo "  ip: $IP"
 

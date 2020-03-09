@@ -36,6 +36,10 @@ for FILE in *; do
 	cp "$SRC" "$TARGET"
 done
 
+if [ -z "$DISPLAY" ]; then
+	cp -R "${DIR}/dotfiles/moc" ~/.moc
+fi
+
 ZSH="$HOME/.zshrc"
 if [ -h "$ZSH" ]; then
 	rm "$ZSH"
