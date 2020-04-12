@@ -6,7 +6,7 @@ dir=`dirname $bakname`
 find $dir -mtime +35 -exec rm -f {} \;
 
 /usr/bin/mysqldump \
- --default-character-set=utf8 \
+ --default-character-set=utf8mb4 \
  --set-charset=TRUE \
  --add-drop-database \
  --add-drop-table \
