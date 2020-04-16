@@ -39,6 +39,8 @@ net-tools
 node-ws
 ntp
 openssh-server
+php-cli
+php-mbstring
 protobuf-compiler
 pwgen
 python-dev
