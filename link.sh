@@ -36,3 +36,6 @@ if [ -z "$DISPLAY" ]; then
 fi
 
 ln -sf "${DIR}/zsh/index.zsh" "${HOME}/.zshrc"
+
+mkdir -p ~/.config/tig
+ln -sf "${DIR}/dotfiles/other/tigrc" ~/.config/tig/config
