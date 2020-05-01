@@ -8,4 +8,5 @@ wget 'https://download.jetbrains.com/fonts/JetBrainsMono-1.0.3.zip' -O "$TMP_FIL
 mkdir -p "$TMP_DIR"
 cd "$TMP_DIR"
 unzip -j "$TMP_FILE" -d "$TMP_DIR"
+mkdir -p ~/.fonts
 cp JetBrainsMono*.ttf ~/.fonts

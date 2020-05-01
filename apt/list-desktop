@@ -11,12 +11,12 @@ imwheel
 moc
 moc-ffmpeg-plugin
 nfs-common
-portmap
+rpcbind
 samba
 tilda
 unrar
 usb-creator-gtk
 vde2
-vim-gnome
+vim-gui-common
 xclip
 xorg-dev

@@ -7,7 +7,7 @@ if [ -e "$VIM_DIR" ]; then
 	exit
 fi
 
-git clone git@github.com:zhengkai/vimrc.git "$VIM_DIR"
+git clone https://github.com/zhengkai/vimrc.git "$VIM_DIR"
 
 mkdir "$HOME/.tmp/vim-undo"
 cd "$VIM_DIR"
