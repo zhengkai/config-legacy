@@ -17,12 +17,12 @@ if [ -z "$GROUP" ]; then
 fi
 
 if [ -z "$2" ]; then
-	>&2 echo no dictionary
+	>&2 echo no target input
 	exit 1
 fi
 
 if [ ! -e "$2" ]; then
-	>&2 echo "dictionary \"${2}\" no exists"
+	>&2 echo "target \"${2}\" not exists"
 	exit 1
 fi
 
