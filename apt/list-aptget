@@ -27,12 +27,12 @@ gnupg-agent
 gnupg2
 highlight
 htop
-ibus-pinyin
 ifstat
 iftop
 iotop
 ipset
 jq
+libtinfo-dev
 locate
 lolcat
 mingetty

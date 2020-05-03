@@ -32,15 +32,15 @@ alias lsb_release='sudo lsb_release'
 alias adduser='sudo adduser'
 alias groupadd='sudo groupadd'
 
+alias ip='sudo ip'
+alias wg='sudo wg'
 alias docker='sudo docker'
 alias docker-compose='sudo docker-compose'
 # alias try='docker run --rm=true -t -i'
 
-alias youtube-dl='~/conf/script/youtube-dl.sh'
 alias godoc='~/conf/script/godoc/godoc.sh'
 alias pgo='http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118 no_proxy=localhost,127.0.0.0/8,::1,monk,rpi go'
 
-alias wanip='~/conf/script/wan-ip.sh'
 alias ifstat='ifstat -t'
 alias cpuinfo='less /proc/cpuinfo'
 alias jour='journalctl -xe'
@@ -164,8 +164,6 @@ alias terror="sudo touch /tmp/php-error.txt; sudo chmod 666 /tmp/php-error.txt; 
 
 alias mocp="TERM=screen-256color /usr/bin/mocp"
 
-alias zhengkaireload="~/conf/script/tmux-reload-rc.sh"
-
 alias mount='sudo mount'
 alias service='sudo service'
 alias nginx='service nginx'
@@ -193,16 +191,9 @@ alias set666="(find . -type d -exec sudo chmod 777 {} \;) && (find . -not -type 
 #alias flushmc="echo 'flush_all' | nc localhost 11211"
 
 alias pwdcp='echo -n "`pwd`" | xclip -selection c'
-alias ss-qr='~/conf/script/ss-config-to-url.sh'
 
 alias nping='TIME="%E" \time nc -w 5 -vz'
-alias sdnow="~/conf/script/shutdown.sh"
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
-
-alias tmu='~/conf/script/tmux.sh'
-
-alias pbjs='/usr/local/lib/node_modules/protobufjs/pbjs'
-alias pbts='/usr/local/lib/node_modules/protobufjs/pbts'
 
 alias x='xclip -selection clipboard'
 

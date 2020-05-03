@@ -5,7 +5,6 @@ list=(
 	npm
 	node-sass
 	@angular/cli
-	@angular/core
 	eslint
 	tslint
 	wscat
@@ -17,12 +16,12 @@ list=(
 
 # ----------------------------------------------------------------------------
 
+DIR=$(readlink -f "$0") && DIR=$(dirname "$DIR") && cd "$DIR" || exit 1
+
 export NG_CLI_ANALYTICS=ci
 
 mkdir -p ~/.npm
 sudo chown zhengkai:zhengkai -R ~/.npm
-
-DIR=`readlink -f "$0"` && DIR=`dirname "$DIR"` && cd "$DIR" || exit 1
 
 BIN='/usr/local/bin/npm'
 if [ ! -e "$BIN" ]; then
