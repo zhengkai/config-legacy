@@ -132,8 +132,6 @@ alias vimn='vim -N -u NONE'
 alias :vs='vim'
 alias vs='vim'
 
-alias lynx="lynx -display_charset=UTF-8"
-
 function fn_add_user_to_group() {
 
 	# 这个函数存在的意义在于，有些下等 Linux 发行版只有 useradd 没有 adduser
@@ -196,6 +194,7 @@ alias nping='TIME="%E" \time nc -w 5 -vz'
 alias iptest="curl https://ifconfig.io/ip --socks5-hostname"
 
 alias x='xclip -selection clipboard'
+alias xt='tr -d "\\n" |x'
 
 alias ms='sudo mongosniff --source NET lo 27017'
 

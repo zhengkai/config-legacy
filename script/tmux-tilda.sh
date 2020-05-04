@@ -3,6 +3,6 @@
 name='tilda'
 window_num=6
 
-cd $(dirname `readlink -f $0`)
+DIR=$(readlink -f "$0") && DIR=$(dirname "$DIR") && cd "$DIR" || exit 1
 
-./tmux.sh "$name" "$window_num"
+../bin/tmu "$name" "$window_num"

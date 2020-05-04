@@ -14,23 +14,6 @@ for FILE in *; do
 	ln -sf "$SRC" "${HOME}/.${FILE}"
 done
 
-cd "${DIR}/dotfiles/copy"
-for FILE in *; do
-
-	SRC="${DIR}/dotfiles/copy/${FILE}"
-	TARGET="${HOME}/.${FILE}"
-
-	if [ ! -f "$SRC" ]; then
-		continue
-	fi
-
-	if [ -e "$TARGET" ]; then
-		continue
-	fi
-
-	cp "$SRC" "$TARGET"
-done
-
 if [ -z "$DISPLAY" ]; then
 	cp -R "${DIR}/dotfiles/moc" ~/.moc
 fi
